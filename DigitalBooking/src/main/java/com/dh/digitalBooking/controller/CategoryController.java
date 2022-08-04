@@ -1,13 +1,12 @@
 package com.dh.digitalBooking.controller;
 
+import com.dh.digitalBooking.exceptions.BadRequestException;
+import com.dh.digitalBooking.model.dto.CategoryDTO;
 import com.dh.digitalBooking.model.entities.Category;
 import com.dh.digitalBooking.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.apache.log4j.Logger;
 
 @RestController
@@ -15,18 +14,36 @@ import org.apache.log4j.Logger;
 public class CategoryController {
     private static final Logger logger =  Logger.getLogger(CategoryController.class);
 
-    @Autowired
-    ICategoryService categoryService;
+        @Autowired
+        ICategoryService categoryService;
 
-    @PostMapping
-    public ResponseEntity<?> createCategory(@RequestBody Category category)throws BadRequestException {
-        if (category!= null){
-            odontologoService.crearOdontologo(odontologo);
-            logger.info("Se creo el odontologo: "+odontologo);
-            return ResponseEntity.ok("Odontologo ("+odontologo+") creado");
-        }else {
-            throw new BadRequestException("Error no se ingreso correctamente el odontologo");
+        @PostMapping
+        public ResponseEntity<?> createCategory(@RequestBody CategoryDTO category)throws BadRequestException {
+            if (category != null) {
+                categoryService.create(category);
+                logger.info("Category successfully created " + category);
+                return ResponseEntity.ok("Category (" + category + ") created");
+            } else {
+                throw new BadRequestException("Error: the category was not entered correctly");
+            }
         }
 
-    }
+    /*@GetMapping("/{id}")
+    public Category getCategory (@PathVariable Integer id) throws BadRequestException, ResourceNotFoundExceptions {
+        if(categoryService.findById(id)!=null) {
+            if (id != null) {
+                logger.info("Se busco el odontologo con id " + id);
+                return categoryService.findById(id);
+            }else{
+                throw new BadRequestException("Error no se puede eliminar");
+            }
+        }else{
+            throw new ResourceNotFoundExceptions("No existe el odontologo con el id: "+id);
+        }
+    }*/
+
+
+
+
+
 }
