@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.dh.digitalBooking.service.impl;
 
 import com.dh.digitalBooking.model.dto.CategoryDTO;
@@ -61,11 +61,3 @@ public class CategoryService implements ICategoryService {
 }
 }
 
-||||||| ca41fb0
-=======
-package com.dh.digitalBooking.service.impl;
-
-public class CategoryService {
-
-}
->>>>>>> main
