@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="" />
+    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,13 +56,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CTD-DH/Tercer_Bimestre_2022/Back_End_I/ProyectoFinalIntegrador/proyectoIntegrador&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jimena\Desktop\DH\B5\BACK\Project\DigitalBooking\src\main\java" />
