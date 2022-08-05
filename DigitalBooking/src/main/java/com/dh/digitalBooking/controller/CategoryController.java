@@ -34,10 +34,10 @@ public class CategoryController {
     public CategoryDTO getCategory (@PathVariable Integer id) throws BadRequestException, ResourceNotFoundExceptions {
         if(categoryService.findById(id)!=null) {
             if (id != null) {
-                logger.info("Searching  " + id);
+                logger.info("Searching category with id: " + id);
                 return categoryService.findById(id);
             }else{
-                throw new BadRequestException("Error no se puede eliminar");
+                throw new BadRequestException("Error: Category does not was delete");
             }
         }else{
             throw new ResourceNotFoundExceptions("No existe el odontologo con el id: "+id);
