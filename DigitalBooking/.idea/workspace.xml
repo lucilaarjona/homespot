@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gitlab-ci (1).yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/service/impl/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/service/impl/CategoryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
