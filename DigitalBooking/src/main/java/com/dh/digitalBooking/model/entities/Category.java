@@ -1,4 +1,3 @@
-
 package com.dh.digitalBooking.model.entities;
 
 import lombok.AllArgsConstructor;
@@ -29,9 +28,8 @@ public class Category {
     @Column(name = "urlImagen")
     private String urlImage;
 
-   /* @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     @JsonIgnore
-    private Set<Product> products;*/
+    private Set<Product> products;
 
 }
-
