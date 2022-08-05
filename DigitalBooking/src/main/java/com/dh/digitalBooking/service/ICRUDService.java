@@ -10,4 +10,3 @@ public interface ICRUDService <T>{
     T update (T t);
     Set<T> findAll();
 }
-
