@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="" />
+    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,5 +126,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/DigitalBookingApplication.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
