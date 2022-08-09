@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" afterDir="false" />
+    <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="Endpoint Categories">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JpbToolWindowState">
@@ -56,13 +61,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CTD-DH/Tercer_Bimestre_2022/Back_End_I/ProyectoFinalIntegrador/proyectoIntegrador&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/CTD-DH/Tercer_Bimestre_2022/Back_End_I/ProyectoFinalIntegrador/proyectoIntegrador",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2632184",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jimena\Desktop\DH\B5\BACK\Project\DigitalBooking\src\main\java" />
@@ -111,6 +120,14 @@
       <option name="presentableId" value="Default" />
       <updated>1659533339509</updated>
     </task>
+    <task id="LOCAL-00001" summary="Endpoint Categories">
+      <created>1659812616684</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659812616684</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -122,11 +139,27 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/lorepe" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Endpoint Categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Endpoint Categories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
