@@ -5,7 +5,91 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="004e5af6-2246-4991-8d1b-37c483422340" name="Changes" comment="Endpoint Categories">
+      <change afterPath="$PROJECT_DIR$/../Infra/infra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/DigitalBookingApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/controller/CategoryController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/exceptions/BadRequestException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/exceptions/ResourceNotFoundExceptions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/model/dto/CategoryDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/model/entities/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/repository/ICategoryRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/service/ICRUDService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/service/ICategoryService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/com/dh/digitalBooking/service/impl/CategoryService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/test-classes/com/dh/finalProjectCTD/DigitalBookingApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/Routes/Routers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Category/CardCategory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Category/CardCategoryStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Category/Categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Category/listCategory.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Footer/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Footer/FooterStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Header/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Header/HeaderStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/MenuButton/MenuButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/MenuButton/MenuButtonStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/NavBar/NavBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/NavBar/NavBarStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Searcher/CalendarStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Searcher/DateRangeComp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Searcher/Searcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Searcher/SearcherStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Searcher/cities.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/assets/Component logo opc 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/assets/X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/assets/logo 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/assets/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/LogIn/LogIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/LogIn/Styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/Register/Register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/Register/Styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/home/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/home/Styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/pages/homeUser/HomeUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/products/Product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/products/ProductList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/products/ProductStyled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/products/Products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/protectedRoutes/ProtectedRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testing/testing.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitlab-ci (1).yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/DigitalBookingApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/exceptions/BadRequestException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/exceptions/ResourceNotFoundExceptions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/dto/CategoryDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/model/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/repository/ICategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/service/ICRUDService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/service/ICategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/service/impl/CategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/DigitalBooking/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dh/finalProjectCTD/DigitalBookingApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,17 +145,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CTD-DH/Tercer_Bimestre_2022/Back_End_I/ProyectoFinalIntegrador/proyectoIntegrador&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2632184&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/CTD-DH/Tercer_Bimestre_2022/Back_End_I/ProyectoFinalIntegrador/proyectoIntegrador",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2632184",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jimena\Desktop\DH\B5\BACK\Project\DigitalBooking\src\main\java" />
@@ -136,6 +221,15 @@
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="SHOW_OTHER_BRANCHES" value="true" />
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -163,16 +257,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Endpoint Categories" />
     <option name="LAST_COMMIT_MESSAGE" value="Endpoint Categories" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/dh/digitalBooking/DigitalBookingApplication.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
