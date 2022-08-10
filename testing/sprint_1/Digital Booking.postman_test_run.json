@@ -1,0 +1,173 @@
+{
+	"id": "e1e5f566-587b-4dcb-b0b2-6dbd5414fcec",
+	"name": "Digital Booking",
+	"timestamp": "2022-08-10T01:47:44.339Z",
+	"collection_id": "18051439-f4971176-1a8f-4941-be15-1ed2f06a7480",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "b50e78e3-a7f6-4c27-a67a-ccc9eddf2a87",
+			"name": "Register Category",
+			"url": "http://localhost:8080/categories",
+			"time": 49,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"testing register new category": true
+			},
+			"testPassFailCounts": {
+				"testing register new category": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				49
+			],
+			"allTests": [
+				{
+					"testing register new category": true
+				}
+			]
+		},
+		{
+			"id": "6b40e7d4-f243-4b1b-99e2-b71154f1f624",
+			"name": "Categories List",
+			"url": "http://localhost:8080/categories/list",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"testing get-all categories": true
+			},
+			"testPassFailCounts": {
+				"testing get-all categories": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"testing get-all categories": true
+				}
+			]
+		},
+		{
+			"id": "1c7012a5-6080-48b0-af8e-751936689b57",
+			"name": "Categories by ID",
+			"url": "http://localhost:8080/categories/12",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"find category by ID": true
+			},
+			"testPassFailCounts": {
+				"find category by ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"find category by ID": true
+				}
+			]
+		},
+		{
+			"id": "c01a66a5-8fb3-4704-b375-feb4fbf39e54",
+			"name": "Delete Categories by ID",
+			"url": "http://localhost:8080/categories/14",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"delete category by ID": true
+			},
+			"testPassFailCounts": {
+				"delete category by ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"delete category by ID": true
+				}
+			]
+		},
+		{
+			"id": "95cc7598-47c3-4f84-8aab-f6558aac27fa",
+			"name": "Update Category",
+			"url": "http://localhost:8080/categories",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"testing update category": true
+			},
+			"testPassFailCounts": {
+				"testing update category": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"testing update category": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 129,
+	"collection": {
+		"requests": [
+			{
+				"id": "b50e78e3-a7f6-4c27-a67a-ccc9eddf2a87",
+				"method": "POST"
+			},
+			{
+				"id": "6b40e7d4-f243-4b1b-99e2-b71154f1f624",
+				"method": "GET"
+			},
+			{
+				"id": "1c7012a5-6080-48b0-af8e-751936689b57",
+				"method": "GET"
+			},
+			{
+				"id": "c01a66a5-8fb3-4704-b375-feb4fbf39e54",
+				"method": "DELETE"
+			},
+			{
+				"id": "95cc7598-47c3-4f84-8aab-f6558aac27fa",
+				"method": "PUT"
+			}
+		]
+	}
+}
