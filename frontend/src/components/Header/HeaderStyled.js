@@ -59,7 +59,7 @@ button{
     }
 }
 @media screen and (min-width: 1365px) {
-    height: 14vh;
+    height: 13vh;
     .containerButton{
         display:flex;
         justify-content: space-around;

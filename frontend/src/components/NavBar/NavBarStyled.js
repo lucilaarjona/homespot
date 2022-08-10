@@ -14,7 +14,7 @@ export const NavbarWrapper = styled.nav`
   right: ${props=> (props.open ? "0" : "-100%")};
   width: 68%;
   height: 100vh;
-  z-index: 1;
+  z-index: 100;
   transition: right 0.3s linear; 
   #headerMenu{
   display: flex;
