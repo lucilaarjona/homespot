@@ -11,16 +11,16 @@ const Category = ({list}) => {
         </div>
       <div  className="categories">
         <Categories>
-        {listCategory.map((element, index) => {
+        {listCategory.map((element) => {
           return (
-            <div>
+           
               <CardCategory
-                key={index}
+                key={element.id}
                 img={element.img}
                 category={element.category}
                 info={element.info}
               />
-            </div>
+            
           );
         })}
         </Categories>

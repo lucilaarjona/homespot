@@ -4,11 +4,11 @@ import { CardStyled } from "./CardCategoryStyled";
 const CardCategory = ({img, category, info}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const click = () => {
-    if(setIsOpen === true){
-      return setIsOpen === false
-    }
-  };
+  // const click = () => {
+  //   if(setIsOpen === true){
+  //     return setIsOpen === false
+  //   }
+  // };
 
   return (
       <CardStyled >
@@ -16,10 +16,11 @@ const CardCategory = ({img, category, info}) => {
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
-              <div
+              {/* <div
                 onClick={() => {
                   click();
-                }}
+                }} */}
+                <div
                 id="collapseOne"
                 className="accordion-collapse collapse show"
                 data-bs-toggle="collapse"
@@ -30,13 +31,19 @@ const CardCategory = ({img, category, info}) => {
               </div>
             </h2>
 
-            <div
+            {/* <div
               onClick={() => {
                 click();
               }}
               data-bs-target="#collapseOne"
               aria-expanded="true"
               data-bs-toggle={isOpen ? "" : "collapse"}
+            > */}
+                <div
+             
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              data-bs-toggle= "collapse"
             >
               <div>
                 <h2>{category}</h2>
