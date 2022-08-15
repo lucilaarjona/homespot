@@ -1,7 +1,7 @@
 import React from 'react'
 import {MenuButtonWrapper, DivStyled, MenuButtonWrapperExit} from "./MenuButtonStyled"
-import menu from "../assets/menu.png"
-import exit from "../assets/X.png"
+import menu from "../../assets/menu.png"
+import exit from "../../assets/X.png"
 
 
 const MenuButton = ({ open, handleClick }) => {

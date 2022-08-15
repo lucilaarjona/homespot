@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colors from "../colors.json"
 
 
 export const NavbarWrapper = styled.nav`
@@ -20,8 +20,7 @@ export const NavbarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: rgb(255,156,80);
-  background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
+  background: ${colors[0].principal};
   width: 100%;
   height: 17.8vh;
   position: relative;
@@ -51,7 +50,7 @@ a{
 }
  #background{
  
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(30px);
   width: 100%;
   height: 100vh;
   display: flex;

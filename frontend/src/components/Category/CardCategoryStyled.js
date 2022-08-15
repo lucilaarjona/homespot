@@ -1,60 +1,50 @@
 import styled from "styled-components";
+import colors from '../colors.json'
 
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    margin-top: 20px;
+    position: relative;
+    justify-content: center;
+    z-index: -1;
+    color: ${colors[0].titles};
+    font-weight: bold;
+    font-style: italic;
+  }
+  h2{
+    font-size: 30px;
+  }
+  @media screen and (min-width:768px ) {
+    h2{
+      font-size: 40px;
+    }
+  }
+`;
 export const CardStyled = styled.div`
-
   max-width: 370px;
-  
- 
+
   .accordion {
     width: auto;
-    
-    
-    
   }
   .accordionExample {
-   
   }
 
   .accordion-item {
-    
     -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     -moz-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     border-radius: 1rem;
     padding: 0.7%;
-    
-  
+    background-color: rgba(80, 168, 234,0.2);
+    color: none;
+    width: 327px;
   }
 
   img {
-    width: 355px;
-    height: 220px;
-    padding-right: 2%;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    cursor: pointer;
-  }
-
-p{
-  cursor:default;
-}
-
-  h2{
-   
-    width: 360px;
-    cursor: pointer;
-
-  }
-
-  @media screen and (min-width: 641px)  {}
-
-  @media screen and (min-width: 1365px) {
-
-    max-width: 340px;
-
-
-
-    img {
+    min-width: 326px;
     max-width: 326px;
     height: 220px;
     padding-right: 2%;
@@ -62,115 +52,141 @@ p{
     border-top-right-radius: 1rem;
     cursor: pointer;
   }
-  
-  
- 
-  .accordion {
-    width: auto;
-    
-    
-    
-  }
-  .accordionExample {
-   
-  }
 
-  .accordion-item {
-    
-    -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
-    -moz-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
-    box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
-    border-radius: 1rem;
-    padding: 0.7%;
-    
-  
-  }
-  .accordion-item:hover{
-  cursor: pointer;
-}
-.accordion-item:before {
-    content: '';
-    background: rgba(237, 235, 234 ) ;
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-.accordion-item:active {
-    color: #000
-}
-.accordion-item:active:after {
-    background: transparent;
-}
-.accordion-item:hover:before {
-    opacity: 1;
-}
+  .accordion-item:hover {
+      animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
+      cursor: pointer;
+      background-color: rgba(80, 168, 234,0.5);
+    }
+    @keyframes scale-up-center {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.009);
+      }
+    }
 
-.accordion-item:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
-
-  img {
-    width: 402px;
-    height: 220px;
-    padding-right: 2%;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+  p {
+    cursor: default;
   }
 
-
-  h2{
-   
-    max-width: 325px;
-
-  }
-  
+  .label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:${colors[0].titles}
   }
 
- 
+  @media screen and (min-width: 1365px) {
+    max-width: 340px;
 
-  
+    img {
+      max-width: 326px;
+      height: 220px;
+      padding-right: 2%;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      cursor: pointer;
+    }
+
+    .accordion {
+      width: auto;
+    }
+    .accordionExample {
+    }
+
+    .accordion-item {
+      -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
+      -moz-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
+      box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
+      border-radius: 1rem;
+      padding: 0.7%;
+    }
+    .accordion-item:hover {
+      cursor: pointer;
+    }
+    .accordion-item:before {
+      content: "";
+      ${"" /* background: rgba(237, 235, 234 ) ; */}
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px;
+    }
+    .accordion-item:active {
+      color: #000;
+    }
+    .accordion-item:active:after {
+      background: transparent;
+    }
+    .accordion-item:hover:before {
+      opacity: 1;
+    }
+
+    .accordion-item:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+    @keyframes glowing {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    img {
+      width: 402px;
+      height: 220px;
+      padding-right: 2%;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    h2 {
+      max-width: 325px;
+    }
+  }
 `;
 
 export const Cointaner = styled.div`
-display: grid;
-justify-content: center;
-
-`
+  display: grid;
+  justify-content: center;
+  background-color: none;
+`;
 export const Categories = styled.section`
-margin-bottom:20px;
-display: grid;
-grid-template-columns: auto;
-gap:10px;
-@media screen and (min-width: 768px)  {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+  @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: auto auto;
-    gap:10px
-}
+    gap: 10px;
+  }
 
-@media screen and (min-width: 1365px) {
+  @media screen and (min-width: 1365px) {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    gap:10px
-}
-`
+    gap: 10px;
+  }
+`;

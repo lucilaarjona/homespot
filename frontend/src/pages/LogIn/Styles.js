@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-const colors = {
-  botton: "#fe8700",
-}
+import colors from "../../components/colors.json"
 
 
 
@@ -13,15 +10,17 @@ section{
 display: flex;
 flex-direction: column;
 align-items: center;
-width: auto;
-height: auto; 
-gap: 50px;
-margin-top: 150px;
+width: 50%;
+height: 400px;
+margin-top: 50%;
+justify-content:center;
+align-items:center;
+margin-left:25%;
 }
 form{
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap:20px;
   align-items:center;
 }
 
@@ -35,7 +34,7 @@ margin-top:5px;
 border: 3px solid transparent;
 
   &:focus{
-    border: 1px solid ${colors.button};
+    border: 1px solid ${colors[0].principal};
     outline: none;
 
   }
@@ -45,7 +44,7 @@ border: 3px solid transparent;
 
 
 .title{
-color:#fe8700;
+color:${colors[0].principal};
 font-weight: 700;
 font-size: 24px;
 line-height: 28px;
@@ -54,11 +53,11 @@ line-height: 28px;
 font-weight: 500;
 font-size: 12px;
 line-height: 14px;
-color: #fe8700;
+color: ${colors[0].principal};
 }
 
 section button {
-background: #fe8700;
+background: ${colors[0].principal};
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
 border-radius: 5px;
 height: 40px;
@@ -74,11 +73,12 @@ border: 1px solid white;
 .register{
   cursor: default;
   color:black;
+  margin-top: 20px;
 }
 .register a {
   font-size: 18px;
   cursor: pointer;
-  color:#fe8700;
+  color:${colors[0].principal};
 
 }
 .register a:hover {
@@ -107,7 +107,20 @@ Footer{
   position: absolute;
   margin-top:17px;
   margin-left: -30px;
-  color: ${colors.button};
+  color: ${colors[0].principal};
+}
+@media (min-width:768px){
+  section{
+margin-top: 40%;
+border-radius: 10%;
+}
 }
 
+@media (min-width: 1365px){
+  section{
+margin-top: 10%;
+width: 30%;
+margin-left:35%;
+}
+}
 `

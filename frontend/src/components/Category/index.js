@@ -1,14 +1,15 @@
 import React from "react";
 import CardCategory from "./CardCategory";
 import listCategory from "./listCategory.json";
-import {Categories, Cointaner } from "./CardCategoryStyled";
+import {Categories, Cointaner, Section } from "./CardCategoryStyled";
 
 const Category = ({list}) => {
   return (
-    <Cointaner>
-        <div className="title">
+    <Section>
+      <div className="title">
         <h2>Buscar por categoría</h2>
-        </div>
+      </div>
+    <Cointaner>
       <div  className="categories">
         <Categories>
         {listCategory.map((element) => {
@@ -26,6 +27,8 @@ const Category = ({list}) => {
         </Categories>
       </div>
     </Cointaner>
+    </Section>
+
   );
 };
 

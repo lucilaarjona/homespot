@@ -7,9 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import cities from "./cities.json";
 import Select from "react-select";
-import {
-  SearcherStyled
-} from "./SearcherStyled.js";
+import { SearcherStyled } from "./SearcherStyled.js";
 
 function Searcher() {
   const handSelectChange = ({ value }) => {
@@ -27,7 +25,7 @@ function Searcher() {
                 label: (
                   <>
                     <FontAwesomeIcon
-                      className="icon"
+                      className="iconLocation"
                       icon={faMagnifyingGlassLocation}
                     />
                     <span className="selectLabel">¿A dónde vamos? </span>
@@ -39,14 +37,11 @@ function Searcher() {
                 label: (
                   <div className="selectLocation">
                     <div>
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="icon"
-                      />
+                      <FontAwesomeIcon icon={faLocationDot} className="icon" />
                     </div>
                     <div className="cities">
                       <span> {city.city} </span>{" "}
-                      <span  className="country"> {city.country}</span>
+                      <span className="country"> {city.country}</span>
                     </div>
                   </div>
                 ),
@@ -56,7 +51,9 @@ function Searcher() {
             />
           </div>
           <DateRangeComp className="Calendar" />
-          <button disabled className="search">Buscar</button>
+          <button disabled className="search">
+            Buscar
+          </button>
         </form>
       </section>
     </SearcherStyled>

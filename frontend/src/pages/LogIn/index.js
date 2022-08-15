@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
-import Register from "../Register/Register";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import { LogInStyled } from "./Styles";
 import ErrorIcon from '@mui/icons-material/Error';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';

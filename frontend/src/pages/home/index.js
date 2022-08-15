@@ -1,9 +1,9 @@
 import React from 'react'
-import {Searcher} from "../../Searcher/Searcher"
-import Category from "../../Category/Categories"
-import ProductList from '../../products/ProductList'
-import Header from "../../Header/Header"
-import Footer from '../../Footer/Footer'
+import {Searcher} from "../../components/Searcher"
+import Category from "../../components/Category"
+import ProductList from '../../components/products'
+import Header from "../../components/Header"
+import Footer from '../../components/Footer'
 import { SectionHome } from './Styles'
 
 

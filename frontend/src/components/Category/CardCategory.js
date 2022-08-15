@@ -45,7 +45,7 @@ const CardCategory = ({img, category, info}) => {
               aria-expanded="true"
               data-bs-toggle= "collapse"
             >
-              <div>
+              <div className="label">
                 <h2>{category}</h2>
                 <p>{info}</p>
               </div>
