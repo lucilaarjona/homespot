@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
 import * as Yup from "yup";

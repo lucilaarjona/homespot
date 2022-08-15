@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/logo 1.png";
 import { HeaderStyled, Logo } from "./HeaderUserStyled";
 import MenuButton from "../MenuButton/MenuButton";
 import NavBarUser from "./navBarUser";

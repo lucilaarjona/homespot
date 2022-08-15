@@ -11,7 +11,6 @@ import 'react-date-range/dist/theme/default.css'
 
 
 const DateRangeComp = () => {
-
   // date state
   const date = new Date()
   const [range, setRange] = useState([
@@ -21,7 +20,8 @@ const DateRangeComp = () => {
       key: 'selection'
     }
    ])
-
+   console.log(range[0].startDate.toLocaleDateString())
+   console.log(range[0].endDate.toLocaleDateString())
 
   const [open, setOpen] = useState(false)
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/Component logo opc 3.png";
+import logo from "../../assets/Component logo opc 3.png";
 import { HeaderStyled, Logo } from "./HeaderStyled";
 import MenuButton from "../MenuButton/MenuButton";
 import NavBar from "../NavBar/NavBar";

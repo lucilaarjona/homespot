@@ -1,8 +1,6 @@
 import styled from "styled-components";
+import colors from '../../components/colors.json'
 
-const colors = {
-  button: "#fe8700",
-}
 export const RegisterStyled = styled.div`
 section{
 display: flex;
@@ -10,13 +8,13 @@ flex-direction: column;
 align-items: center;
 width: auto;
 height: auto;
-gap: 50px;
+gap: 20px;
 margin-top: 80px;
 }
 form{
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap:15px;
   align-items:center;
 }
 
@@ -24,13 +22,13 @@ form{
   position: absolute;
   margin-top:17px;
   margin-left: 270px;
-  color: ${colors.button};
+  color: ${colors[0].principal};
 }
 .iconsName{
   position: absolute;
   margin-top:17px;
   margin-left: 270px;
-  color: ${colors.button};
+  color: ${colors[0].principal};
 }
 
 form input {
@@ -43,13 +41,13 @@ margin-top:5px;
 border: 3px solid transparent;
 
   &:focus{
-    border: 1px solid ${colors.button};
+    border: 1px solid ${colors[0].principal};
     outline: none;
 
   }
 }
 .title{
-color:#fe8700;
+color:${colors[0].principal};
 font-weight: 700;
 font-size: 24px;
 line-height: 28px;
@@ -58,13 +56,13 @@ line-height: 28px;
 font-weight: 500;
 font-size: 12px;
 line-height: 14px;
-color: #fe8700;
+color: ${colors[0].principal};
 }
 .error{
 color: red;
 }
 section button {
-background: #fe8700;
+background: ${colors[0].principal};
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
 border-radius: 5px;
 height: 40px;
@@ -80,11 +78,12 @@ border: 1px solid white;
 .logIn{
   cursor: default;
   color:black;
+  margin-top:20px;
 }
 .logIn a {
   font-size: 18px;
   cursor: pointer;
-  color:#fe8700;
+  color:${colors[0].principal};
   text-decoration: none;
 
 }
@@ -98,7 +97,7 @@ border: 1px solid white;
 .userName{
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 15px;
 }
 Header{
   width: 100%;
@@ -122,25 +121,25 @@ Footer{
 
 @media (min-width: 1365px){
   Footer{
-  position:sticky;
+  position:absolute;
   bottom: 0;
 }
 .icons{
   position: absolute;
   margin-top:17px;
   margin-left: 415px;
-  color: ${colors.button};
+  color: ${colors[0].principal};
 }
 .iconsName{
   position: absolute;
   margin-top:17px;
   margin-left: 179px;
-  color: ${colors.button};
+  color: ${colors[0].principal};
 }
 .userName{
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap:35px;
 }
 
 .userName input{
@@ -158,7 +157,6 @@ form input{
 .userName{
   display: flex;
   flex-direction: row;
-  gap: 40px;
 }
 
 .userName input{

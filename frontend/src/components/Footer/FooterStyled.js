@@ -1,34 +1,36 @@
 import styled from "styled-components";
+import colors from '../colors.json'
 
 export const FooterStyled = styled.footer`
-  border: 1px solid rgb(255,156,80);
-  font-family: 'Poppins', sans-serif;
   position: sticky;
   bottom: 0;
-  background: rgb(255,156,80);
-  background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
+  background: ${colors[0].background};
   display: flex;
   width: 100%;
   max-width: 100%;
   max-height:60px;
   margin-top: 30px;
-  
+  box-shadow: 1px 1px 5px #d4d4d4;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12),
+    0px 1px 10px rgba(0, 0, 0, 0.2);
+    
   > .container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    color: ${colors[0].principal}
   }
   > .container > .icons-socialM{
     display:none;
   }
   > .container > .copyrights{
-    color: white;
+    color: ${colors[0].principal};
   }
   @media (min-width: 768px) {
   > .container > .icons-socialM {
-    color:white;
+    ${colors[0].principal};
     display: inline-flex;
     gap:10px;
     

@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "../components/pages/Register/Register";
-import LogIn from "../components/pages/LogIn/LogIn.js";
-import Home from "../components/pages/home/Home";
+import Register from "../pages/Register";
+import LogIn from "../pages/LogIn";
+import Home from "../pages/home";
 import ProtectedRoutes from "../components/protectedRoutes/ProtectedRoutes";
-import HomeUser from "../components/pages/homeUser/HomeUser";
+import HomeUser from "../pages/homeUser";
 
 
 const Routers = () => {

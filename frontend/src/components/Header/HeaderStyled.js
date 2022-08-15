@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo1 from "../assets/logo 1.png";
+import colors from '../colors.json'
 
 
 export const Logo = styled.div`
@@ -10,22 +10,22 @@ export const Logo = styled.div`
   
 
   .initialContainer {
-    border: 1px solid white;
+    border: 3px solid ${colors[0].background};
     border-radius: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    background-color: rgba(90, 97, 189, 1);
+    background-color:${colors[0].principal};
     width: 71px;
     height: 51px;
   }
   .logo2 {
     background: none;
-    color: white;
+    color: ${colors[0].background};
+    border-radius: 20%;
     text-decoration: underline;
     font-size: 30px;
   }
@@ -34,7 +34,7 @@ export const Logo = styled.div`
 `;
 
 export const HeaderStyled = styled.header`
-  background-color: white;
+  background: ${colors[0].background};
   text-align: center;
   align-items: center;
   padding: 2rem;
@@ -47,8 +47,7 @@ export const HeaderStyled = styled.header`
 
  .slogan {
     font-size: 20px;
-    color: rgba(90,97,189,1) ;
-    font-style: italic;
+    color: ${colors[0].principal} ;
     display: none;
     position: absolute;
     margin-left: 80px;
@@ -78,23 +77,23 @@ export const HeaderStyled = styled.header`
     }
     button {
       position: relative;
-      top: 40%;
       background: none;
-      border: 1.4px solid  rgb(255,156,80);
+      border: 1.4px solid  ${colors[0].principal};
       border-radius: 5px;
       width: 10.4rem;
       height: 2.4rem;
       font-weight: 700;
       font-size: 16px;
-      color: #fe8700;
+      color: ${colors[0].principal};
     }
 
     button {
       display: block;
     }
     button:hover {
-      background: rgb(255,156,80);
-      color: white;
+      background: ${colors[0].principal};
+      color: ${colors[0].background};
+      border: 1px solid ${colors[0].background};
     }
   }
   @media screen and (min-width: 1365px) {
@@ -102,14 +101,8 @@ export const HeaderStyled = styled.header`
     .containerButton {
       display: flex;
       justify-content: space-around;
-      gap: 80px;
+      gap: 20px;
     }
 
-    img {
-      height: 58px;
-      width: 100%;
-      padding-left: 0;
-      background-image: none;
-    }
   }
 `;

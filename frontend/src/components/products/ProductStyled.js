@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from '../colors.json'
 export const ProductStyled = styled.section`
 justify-content:center;
 align-items: center;
@@ -16,9 +17,11 @@ align-items: center;
   position: relative;
   align-items: center;
   margin: 20px 0 0 0;
-  border: 1px solid #DFE4EA;
+  border: 1px solid ${colors[0].principal};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 8px 8px;
+  background-color: rgba(80, 168, 234,0.2);
+  z-index: -1;
 }
 .imgProduct{
   height: 231px;
@@ -31,52 +34,54 @@ align-items: center;
 .category{
   font-weight: lighter;
   font-size: 14px;
-  font-family: Quicksand;
+  color: ${colors[0].titles}
 }
 
 .stars{
   margin-left: 5px;
   font-size: 13px;
-  color: rgb(255,156,80);
-  color: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
+  color: rgb(212,175,55);
+  color: linear-gradient(0deg, rgba(212,175,75,1) 28%, rgba(212,154,0,1) 100%);
 }
 .title{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: ${colors[0].titles};
 }
 .ubication{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  color: ${colors[0].titles};
 }
 .location{
   margin-left:5px;
+  color: ${colors[0].titles};
 }
 .iconLocation{
   font-size:13px;
-  color: #545776;
+  color: ${colors[0].titles};
 }
 
 .icons{
   visibility: hidden;
 }
 .map{
-  color: #fe8700;
+  color: ${colors[0].principal};
 }
 .description{
   font-size: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 16.41px;
   max-height: 65px;
+    color: ${colors[0].text};
+    overflow:hidden;
 }
 .verMas{
   width: 100%;
   height: 40px;
-  background: rgb(255,156,80);
-  background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
+  background:   color: ${colors[0].principal};
+  background: linear-gradient(0deg, rgba(80,168,234,0.8) 28%, rgba(80,168,234,1) 100%);
   color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
@@ -96,7 +101,7 @@ align-items: center;
     height: 279px;
     align-items: center;
     margin: 20px 0 0 0;
-    border: 1px solid #DFE4EA;
+    border: 1px solid  color: ${colors[0].titles};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
   }
@@ -131,8 +136,6 @@ align-items: center;
   .stars{
   margin-left: 5px;
   font-size: 13px;
-  color: rgb(255,156,80);
-  color: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
 }
 }
 @media (min-width:1365px) {
@@ -143,19 +146,14 @@ align-items: center;
 }
 .description{
   font-size: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 500;
   line-height: 16.41px;
   max-height: 50px;
 }
 .verMas:hover{
   color:white;
-  border:1px solid white;
-  box-shadow: 0 0 0px rgb(255,156,80),
-                0 0 5px rgb(255,156,80),
-                0 0 5px rgb(255,156,80);
-                background: rgb(255,156,80);
-background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%);
+  border:1px solid ${colors[0].titles};
+  background: ${colors[0].principal}
 }
 .verMas:hover polyline{
     stroke-dashoffset: -460;
@@ -165,13 +163,13 @@ background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%
 }
 .cardProduct:before {
     content: '';
-    background: rgba(237, 235, 234 ) ;
+    background: white; 
     position: absolute;
     top: -2px;
     left:-2px;
     background-size: 400%;
     z-index: -1;
-    filter: blur(5px);
+    filter: blur(100px);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     animation: glowing 20s linear infinite;
@@ -182,9 +180,7 @@ background: linear-gradient(0deg, rgba(255,156,80,1) 28%, rgba(254,135,0,1) 100%
 .cardProduct:active {
     color: #000
 }
-.cardProduct:active:after {
-    background: transparent;
-}
+
 .cardProduct:hover:before {
     opacity: 1;
 }
