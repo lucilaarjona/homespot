@@ -69,7 +69,7 @@ export const HeaderStyled = styled.header`
     }
     .initial {
       font-size: 35px;
-      font-weight: ;
+      /* font-weight: ; */
     }
     .container {
       display: flex;

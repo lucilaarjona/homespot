@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { DateRange } from 'react-date-range'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faLocationDot, faMagnifyingGlassLocation} from "@fortawesome/free-solid-svg-icons";
-import format from 'date-fns/format'
+
 import { addDays } from 'date-fns'
 import { CalendarStyled } from './CalendarStyled';
 

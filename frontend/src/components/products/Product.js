@@ -8,12 +8,11 @@ import {
   faSwimmingPool,
 } from "@fortawesome/free-solid-svg-icons";
 
-const star = <FontAwesomeIcon className="stars" icon={faStar} />;
 const Product = (props) => {
   return (
     <ProductStyled>
       <span className="cardProduct">
-        <img className="imgProduct" src={props.crimg} />
+        <img className="imgProduct" src={props.crimg} alt= "imagen producto" />
         <div className="caption">
           <span className="category">{props.category}</span>
           <span>

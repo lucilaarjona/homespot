@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import colors from "../colors.json";
 export const CalendarStyled = styled.div`
   .inputBox {
@@ -11,7 +10,6 @@ export const CalendarStyled = styled.div`
     border-radius: 5px;
     border-color: none;
     width: 345px;
-    margin-rigth: 20px;
     height: 36px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
     text-align: center;
@@ -66,11 +64,10 @@ export const CalendarStyled = styled.div`
       border-radius: 5px;
       border-color: none;
       width: 250px;
-      margin-rigth: 20px;
       height: 40px;
       box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
       text-align: center;
-      margin-top: ;
+     
     }
 
     .rdrCalendarWrapper {

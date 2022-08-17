@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
 
 const ProductList = () => {
-  const [product, setProduct] = useState(Products);
+
   return (
     <ProductStyled>
       <section className="productList">

@@ -80,7 +80,7 @@ align-items: center;
 .verMas{
   width: 100%;
   height: 40px;
-  background:   color: ${colors[0].principal};
+  color: ${colors[0].principal};
   background: linear-gradient(0deg, rgba(80,168,234,0.8) 28%, rgba(80,168,234,1) 100%);
   color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
@@ -101,7 +101,7 @@ align-items: center;
     height: 279px;
     align-items: center;
     margin: 20px 0 0 0;
-    border: 1px solid  color: ${colors[0].titles};
+    border: 1px solid  ${colors[0].titles};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
   }

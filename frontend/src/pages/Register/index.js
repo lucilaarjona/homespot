@@ -1,7 +1,5 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import { React } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -36,7 +34,7 @@ export const Register = ({showValues}) => {
   
   return (
     <RegisterStyled>
-      <Header />
+    
       <section>
         <div className="title">Crear Cuenta</div>
         <Formik
@@ -132,15 +130,15 @@ export const Register = ({showValues}) => {
               <button type="submit"> Crear Cuenta </button>
               <div className="logIn">
                 <span>¿Ya tienes una cuenta? </span>
-                <a className="buttonLogIn" onClick={() => navigate("/logIn")}>
+                <Link to= "/logIn" className="buttonLogIn" >
                   Iniciar sesion
-                </a>
+                </Link>
               </div>
             </form>
           )}
         </Formik>
       </section>
-      <Footer />
+   
     </RegisterStyled>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import logo from "../../assets/Component logo opc 3.png";
 import { HeaderStyled, Logo } from "./HeaderStyled";
 import MenuButton from "../MenuButton/MenuButton";
 import NavBar from "../NavBar/NavBar";
@@ -48,6 +47,8 @@ const Header = () => {
           <button onClick={() => navigate("/register")}> Crear cuenta</button>
         </HeaderStyled>
       );
+    }  else if(pathname === "/home"){
+      return null;
     } else {
       return (
         <HeaderStyled>
@@ -70,11 +71,14 @@ const Header = () => {
     }
   };
 
+ 
+
   return (
     <>
       {buttonHeader()}
       <NavBar open={open} />
       <MenuButton open={open} handleClick={handleClick} />
+     
       <Outlet />
     </>
   );
