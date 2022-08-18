@@ -21,7 +21,6 @@ align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 8px 8px;
   background-color: rgba(80, 168, 234,0.2);
-  z-index: -1;
 }
 .imgProduct{
   height: 231px;
@@ -153,7 +152,8 @@ align-items: center;
 .verMas:hover{
   color:white;
   border:1px solid ${colors[0].titles};
-  background: ${colors[0].principal}
+  background: ${colors[0].principal};
+  cursor: pointer;
 }
 .verMas:hover polyline{
     stroke-dashoffset: -460;
