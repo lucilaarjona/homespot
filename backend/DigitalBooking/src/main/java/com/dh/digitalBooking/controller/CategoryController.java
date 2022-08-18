@@ -12,6 +12,7 @@
     import java.util.Collection;
 
     @RestController
+    @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
     @RequestMapping("/categories")
     public class CategoryController {
         private static final Logger logger =  Logger.getLogger(CategoryController.class);

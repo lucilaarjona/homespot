@@ -152,7 +152,8 @@ align-items: center;
 .verMas:hover{
   color:white;
   border:1px solid ${colors[0].titles};
-  background: ${colors[0].principal}
+  background: ${colors[0].principal};
+  cursor: pointer;
 }
 .verMas:hover polyline{
     stroke-dashoffset: -460;
