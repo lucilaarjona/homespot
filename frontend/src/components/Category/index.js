@@ -1,9 +1,22 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CardCategory from "./CardCategory";
-import listCategory from "./listCategory.json";
 import {Categories, Cointaner, Section } from "./CardCategoryStyled";
+import axios from "axios";
 
-const Category = ({list}) => {
+const Category = () => {
+  
+  const [categories, setCategories] = useState([]);
+
+  const loadData = () => {
+    axios.get("http://localhost:8080/categories")
+    .then(res => {
+      setCategories(res.data)
+    })
+  }
+
+  useEffect(loadData,[])
+
+
   return (
     <Section>
       <div className="title">
@@ -12,16 +25,14 @@ const Category = ({list}) => {
     <Cointaner>
       <div  className="categories">
         <Categories>
-        {listCategory.map((element) => {
+        {categories.map((categorie) => {
           return (
-           
               <CardCategory
-                key={element.id}
-                img={element.img}
-                category={element.category}
-                info={element.info}
+                key={categorie.id}
+                img={categorie.urlImage}
+                category={categorie.title}
+                info={categorie.description}
               />
-            
           );
         })}
         </Categories>
