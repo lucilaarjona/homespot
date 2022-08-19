@@ -6,6 +6,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+ 
 
   
 
@@ -44,7 +45,8 @@ export const HeaderStyled = styled.header`
   box-shadow: 1px 1px 5px #d4d4d4;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12),
     0px 1px 10px rgba(0, 0, 0, 0.2);
-
+    //la siguiente linea se agrega para que funcione layout en mobile 
+    z-index: 1;
  .slogan {
     font-size: 20px;
     color: ${colors[0].principal} ;

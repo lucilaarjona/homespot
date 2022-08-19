@@ -29,6 +29,7 @@ export const FooterStyled = styled.footer`
     color: ${colors[0].principal};
   }
   @media (min-width: 768px) {
+   position: fixed;
   > .container > .icons-socialM {
     ${colors[0].principal};
     display: inline-flex;

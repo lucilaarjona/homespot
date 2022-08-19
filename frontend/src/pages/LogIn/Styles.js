@@ -6,6 +6,7 @@ import colors from "../../components/colors.json"
 export const LogInStyled = styled.section`
 
 
+
 section{
 display: flex;
 flex-direction: column;
@@ -79,6 +80,7 @@ border: 1px solid white;
   font-size: 18px;
   cursor: pointer;
   color:${colors[0].principal};
+  text-decoration: none;
 
 }
 .register a:hover {
@@ -88,14 +90,7 @@ border: 1px solid white;
 
 }
 
-Header{
-  width: 100%;
-  position: absolute;
-}
 
-Footer{
-  position:absolute;
-}
 
 .error{
   display: none;

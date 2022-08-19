@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet,  useNavigate } from "react-router-dom";
 import { HeaderStyled, Logo } from "./HeaderUserStyled";
 import MenuButton from "../MenuButton/MenuButton";
 import NavBarUser from "./navBarUser";
 
 const Header = ({ user }) => {
   const navigate = useNavigate();
-  const location = useLocation();
+ 
 
-  const pathname = location.pathname;
+
 
   const [open, setOpen] = useState(false);
 
@@ -30,7 +30,7 @@ const Header = ({ user }) => {
           </Logo>
         </Link>
         <div className="slogan">Feels like home</div>
-        <div class="container">
+        <div className="container">
           <button onClick={() => navigate("/")}>Cerrar sesion</button>
           <div className="name">
             <div>Hola! {user.userName}</div>

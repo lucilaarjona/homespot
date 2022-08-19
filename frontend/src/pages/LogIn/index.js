@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import { useNavigate, Link} from "react-router-dom";
 import { LogInStyled } from "./Styles";
 import ErrorIcon from '@mui/icons-material/Error';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -23,8 +21,10 @@ export const LogIn = ({ user, setIsLogged }) => {
       }
   }
   return (
+    
+
     <LogInStyled>
-      <Header/>
+   
         <section>
         <div className="title">Iniciar Sesion</div>
         <div className="error">
@@ -54,13 +54,14 @@ export const LogIn = ({ user, setIsLogged }) => {
               Ingresar
             </button>
             <div className="register">
-            ¿Aún no Tienes Cuenta?
-              <span><a onClick={() => navigate("/register")}> Registrar</a></span>
+            ¿Aún no tienes cuenta?
+            <span><Link to="/register"> Registrar </Link></span>
             </div>
           </form>
         </section>
-      <Footer/>
+    
     </LogInStyled>
+    
   );
 };
 

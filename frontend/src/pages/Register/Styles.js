@@ -99,31 +99,12 @@ border: 1px solid white;
   flex-direction: column;
   gap: 15px;
 }
-Header{
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
 
-Footer{
-  position:sticky;
-  bottom: 0;
-}
 
-@media (min-width: 768px){
-  Footer{
-  position:absolute;
-  bottom: 0;
-}
-}
 
 
 @media (min-width: 1365px){
-  Footer{
-  position:absolute;
-  bottom: 0;
-}
+
 .icons{
   position: absolute;
   margin-top:17px;
@@ -150,10 +131,7 @@ form input{
 }
 }
 @media (min-width: 1370px){
-  Footer{
-  position:absolute;
-  bottom: 0;
-}
+
 .userName{
   display: flex;
   flex-direction: row;

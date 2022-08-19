@@ -5,6 +5,7 @@ import LogIn from "../pages/LogIn";
 import Home from "../pages/home";
 import ProtectedRoutes from "../components/protectedRoutes/ProtectedRoutes";
 import HomeUser from "../pages/homeUser";
+import Layout from "../components/Layout/Layout";
 
 
 const Routers = () => {
@@ -19,6 +20,7 @@ const Routers = () => {
   };
   return (
     <BrowserRouter>
+    <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/logIn" element={<LogIn {...logInProps} />} />
@@ -27,6 +29,7 @@ const Routers = () => {
           <Route path="/home" element={<HomeUser user ={user} />} />
         </Route>
       </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };
