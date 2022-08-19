@@ -9,9 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dh</groupId>
-	<artifactId>digitalBooking</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>digitalBooking</name>
+	<artifactId>consoleapp</artifactId>
+	<name>consoleapp</name>
 	<description>Digital Booking api rest</description>
 	<properties>
 		<java.version>11</java.version>
