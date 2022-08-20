@@ -1,6 +1,6 @@
 [{"id":"1",
   "crimg": "https://images.pexels.com/photos/128303/pexels-photo-128303.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "category": "Cabañas",
+  "category": "Cabaña",
   "title": "Cabaña en el lago",
   "location": "Sao paulo, Brazil",
   "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices facilisi nunc nisl convallis vulputate."
@@ -21,14 +21,14 @@
 },
 {"id":"4",
   "crimg": "https://images.pexels.com/photos/4992856/pexels-photo-4992856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "category": "Glamping",
+  "category": "Casa",
   "title": "Glamping en Lima ",
   "location": "Lima, peru",
   "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices facilisi nunc nisl convallis vulputate."
 },
 {"id":"5",
   "crimg": "https://images.pexels.com/photos/1004682/pexels-photo-1004682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "category": "Cabañas",
+  "category": "Cabaña",
   "title": "Cabaña en alaska",
   "location": "Alaska, Estados Unidos",
   "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices facilisi nunc nisl convallis vulputate."
@@ -49,7 +49,7 @@
 },
 {"id":"8",
   "crimg": "https://images.pexels.com/photos/8849219/pexels-photo-8849219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "category": "Glamping",
+  "category": "Casa",
   "title": "Glamping biopark",
   "location": "Montevideo, Uruguay",
   "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices facilisi nunc nisl convallis vulputate."
