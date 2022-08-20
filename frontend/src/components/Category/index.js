@@ -1,45 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import CardCategory from "./CardCategory";
-import {Categories, Cointaner, Section } from "./CardCategoryStyled";
-import axios from "axios";
+import listCategory from "./listCategory.json";
+import { Categories, Cointaner, Section } from "./CardCategoryStyled";
 
-const Category = () => {
-  
-  const [categories, setCategories] = useState([]);
-
-  const loadData = () => {
-    axios.get("http://localhost:8080/categories")
-    .then(res => {
-      setCategories(res.data)
-    })
-  }
-
-  useEffect(loadData,[])
-
-
+const Category = ({ handlerFilter }) => {
   return (
     <Section>
       <div className="title">
         <h2>Buscar por categoría</h2>
       </div>
-    <Cointaner>
-      <div  className="categories">
-        <Categories>
-        {categories.map((categorie) => {
-          return (
-              <CardCategory
-                key={categorie.id}
-                img={categorie.urlImage}
-                category={categorie.title}
-                info={categorie.description}
-              />
-          );
-        })}
-        </Categories>
-      </div>
-    </Cointaner>
+      <Cointaner>
+        <div className="categories">
+          <Categories>
+            {listCategory.map((element, index) => {
+              return (
+                <div key={element.id}>
+                  <CardCategory
+                    handlerFilter={handlerFilter}
+                    categoryName={element.category}
+                    img={element.img}
+                    category={element.category}
+                    info={element.info}
+                  />
+                </div>
+              );
+            })}
+          </Categories>
+        </div>
+      </Cointaner>
     </Section>
-
   );
 };
 

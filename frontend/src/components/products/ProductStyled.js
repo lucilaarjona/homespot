@@ -139,6 +139,9 @@ align-items: center;
 }
 }
 @media (min-width:1365px) {
+ 
+  
+ 
   .productList{
   display: grid;
   grid-template-columns: auto auto;
