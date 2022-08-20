@@ -1,21 +1,21 @@
-import React from 'react'
-import { createContext } from 'react'
+import React, { useState } from "react";
+import { createContext } from "react";
 
-const CategoryContext= createContext();
+export const CategoryContext = createContext();
 
-const CategoryProvider = ({children}) => {
+const CategoryProvider = ({ children }) => {
+  const [categorieSelected, setCategorieSelected] = useState("");
   return (
     <>
-    <CategoryContext.Provider>
+      <CategoryContext.Provider
+        value={{ categorieSelected, setCategorieSelected }}
+      >
         {children}
-    </CategoryContext.Provider>
-
-
-
+      </CategoryContext.Provider>
     </>
-  )
-}
+  );
+};
 
-export {CategoryProvider};
+export { CategoryProvider };
 
 export default CategoryProvider;

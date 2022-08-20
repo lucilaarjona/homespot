@@ -1,61 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CategoryContext } from "../../context/CategoryContext";
 import { CardStyled } from "./CardCategoryStyled";
 
-
-const CardCategory = ({img, category, info, handlerFilter, num}) => {
-  
- 
+const CardCategory = ({ img, category, info, categoryName }) => {
+  const { setCategorieSelected } = useContext(CategoryContext);
 
   return (
     <>
-      <CardStyled >
-
-       
-          <div className="accordion-item" >
-          
-              <div
-                onClick={() => {
-                  handlerFilter(num)
-                }}
-              
-             
-                id="collapseOne"
-                className="accordion-collapse collapse show"
-                data-bs-toggle="collapse"
-               
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                <img src={img} alt={category} />
-              </div>
-              {/* <div className="label">
+      <CardStyled>
+        <div className="accordion-item">
+          <div
+            onClick={() => {
+              setCategorieSelected(categoryName);
+            }}
+            id="collapseOne"
+            className="accordion-collapse collapse show"
+            data-bs-toggle="collapse"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <img src={img} alt={category} />
+          </div>
+          {/* <div className="label">
                 <h2>{category}</h2>
                 <p>{info}</p>
               </div>
                */}
-            
+
+          <div data-bs-target="#collapseOne" aria-expanded="true">
             <div
-             
-             data-bs-target="#collapseOne"
-             aria-expanded="true"
-            
-           >
-             <div onClick={() => {
-                  handlerFilter(num)
-                }} className="label">
-               <h2>{category}</h2>
-               <p>{info}</p>
-             </div>
+              onClick={() => {
+                setCategorieSelected(categoryName);
+              }}
+              className="label"
+            >
+              <h2>{category}</h2>
+              <p>{info}</p>
+            </div>
           </div>
-          </div>
-       
-
-      
+        </div>
       </CardStyled>
-
-
-      </>
-      
+    </>
   );
 };
 
