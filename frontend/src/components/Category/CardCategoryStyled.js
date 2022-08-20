@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from '../colors.json'
+import colors from "../colors.json";
 
 export const Section = styled.div`
   display: flex;
@@ -14,11 +14,11 @@ export const Section = styled.div`
     font-weight: bold;
     font-style: italic;
   }
-  h2{
+  h2 {
     font-size: 30px;
   }
-  @media screen and (min-width:768px ) {
-    h2{
+  @media screen and (min-width: 768px) {
+    h2 {
       font-size: 40px;
     }
   }
@@ -29,8 +29,6 @@ export const CardStyled = styled.div`
   .accordion {
     width: auto;
   }
-  .accordionExample {
-  }
 
   .accordion-item {
     -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
@@ -38,7 +36,7 @@ export const CardStyled = styled.div`
     box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     border-radius: 1rem;
     padding: 0.7%;
-    background-color: rgba(80, 168, 234,0.2);
+    background-color: rgba(80, 168, 234, 0.2);
     color: none;
     width: 327px;
   }
@@ -54,18 +52,18 @@ export const CardStyled = styled.div`
   }
 
   .accordion-item:hover {
-      animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
-      cursor: pointer;
-      background-color: rgba(80, 168, 234,0.5);
+    animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
+    cursor: pointer;
+    background-color: rgba(80, 168, 234, 0.5);
+  }
+  @keyframes scale-up-center {
+    0% {
+      transform: scale(1);
     }
-    @keyframes scale-up-center {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(1.009);
-      }
+    100% {
+      transform: scale(1.009);
     }
+  }
 
   p {
     cursor: default;
@@ -75,7 +73,7 @@ export const CardStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color:${colors[0].titles}
+    color: ${colors[0].titles};
   }
 
   @media screen and (min-width: 1365px) {
@@ -92,8 +90,6 @@ export const CardStyled = styled.div`
 
     .accordion {
       width: auto;
-    }
-    .accordionExample {
     }
 
     .accordion-item {

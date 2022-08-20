@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
+import { CategoryContext } from "../../context/CategoryContext";
 
 const ProductList = () => {
+  const { categorieSelected } = useContext(CategoryContext);
+  const [productsFilter, setProductsFilter] = useState([]);
+
+  useEffect(() => {
+    if (categorieSelected === "") {
+      setProductsFilter(Products);
+    } else {
+      const getFilterByCategory = Products.filter(
+        (product) => product.category === categorieSelected
+      );
+      setProductsFilter(getFilterByCategory);
+    }
+  }, [categorieSelected]);
+
   return (
     <ProductStyled>
       <section className="productList">
-        {Products.map((product,index) => {
+        {productsFilter.map((product, index) => {
           return (
             <Product
-              key = {index}
+              key={index}
               id = {product.id}
               crimg={product.crimg}
               category={product.category}
