@@ -37,6 +37,7 @@ export const LogIn = ({ user, setIsLogged }) => {
             <input
               placeholder="Email"
               type="email"
+              name="email"
               onChange={(e) => setLogIn({ ...LogIn, email: e.target.value })}
             />
             <AlternateEmailIcon className="icons"/>
