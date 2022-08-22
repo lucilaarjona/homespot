@@ -1,15 +1,22 @@
 stages:
-    - build project
+    - test 
+    - build
     - build
     - deploy
 
-build project:
+test website:
+    stage : test
     image: node:15
     script:
-        - cd 
-        - npm install
+        - yarn install
+        - yarn build
+
+build website:
+    stage: build
+    image: node:15
+    script:
+        - cd frontend
         - npm run building
-        
 
 build:
     stage: build
