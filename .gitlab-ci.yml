@@ -16,7 +16,7 @@ build website:
     image: node:15
     script:
         - cd frontend
-        - npm run building
+        - npm run buil
 
 build:
     stage: build
