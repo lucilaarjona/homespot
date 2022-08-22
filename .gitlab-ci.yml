@@ -2,12 +2,16 @@ stages:
     - build
     - deploy
 
+build project:
+    script:
+        - cd frontend
+
 build:
     stage: build
     image:  maven:latest
     script:
         - cd backend
-        - cd DigitalBooking
+        - cd HomeSpot
         - ls
         - echo "Building app..."
         - mvn clean install
