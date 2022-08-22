@@ -1,10 +1,15 @@
 stages:
+    - build project
     - build
     - deploy
 
 build project:
+    image: node:15
     script:
-        - cd frontend
+        - cd 
+        - npm install
+        - npm run building
+        
 
 build:
     stage: build
