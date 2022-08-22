@@ -1,15 +1,15 @@
 stages:
-    - test 
+    # - test 
     - build
     - build
     - deploy
 
-test website:
-    stage : test
-    image: node:15
-    script:
-        - yarn install
-        - yarn build
+# test website:
+#     stage : test
+#     image: node:15
+#     script:
+#         - yarn install
+#         - yarn build
 
 build website:
     stage: build
