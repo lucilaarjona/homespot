@@ -1,27 +1,6 @@
 stages:
-    # - test 
-    # - build
     - build
-    # - deploy
     - deploy
-
-# test website:
-#     stage : test
-#     image: node:15
-#     script:
-#         - yarn install
-#         - yarn build
-
-# build website:
-#     stage: build
-#     image: node:15
-#     script:
-#         - cd frontend
-#         - npm run build
-#     paths:
-#         - frontend/build
-#     only:
-#         - main
 
 build:
     stage: build
