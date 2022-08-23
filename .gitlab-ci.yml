@@ -1,2 +1,78 @@
-test:
-  script: echo "Hello Word"
+stages:
+    - build_front
+    - deploy_front
+    - build
+    - deploy
+
+.yarn_build:
+    image: node:16
+    script:
+        - cd frontend
+        - yarn
+        - yarn build
+    artifacts:
+        paths:
+            - frontend/build
+
+yarn_main:
+    extends: .yarn_build
+    stage: build_front
+    before_script:
+        - export APP_ENV="main" 
+    only:
+        refs:
+            - main
+
+.deploy_aws:
+    image: python:latest
+    when: always
+    script: |
+        pip install awscli
+        aws s3 sync frontend/build/ s3://homespot-frontend-app
+
+deploy_main:
+    extends: .deploy_aws
+    stage: deploy_front
+    dependencies:
+        - yarn_main
+    only:
+        refs:
+            - main
+
+
+build:
+    stage: build
+    image:  maven:latest
+    script:
+        - cd backend
+        - cd HomeSpot
+        - ls
+        - echo "Building app..."
+        - mvn clean install
+        - echo "Finished building the app."
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - backend/HomeSpot/target/consoleapp-2.7.2.jar
+    only:
+        - main
+
+deploy:
+    stage: deploy
+    image: alpine:3.11
+    before_script:
+        - apk update && apk add openssh-client bash
+        - mkdir -p ~/.ssh
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - touch ~/.ssh/config
+        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+        - ssh-keyscan -H $DEPLOY_SERVER_IP >> ~/.ssh/known_hosts
+    script:
+        - echo "Deploying started..."
+        - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl stop consoleapp.service"
+        - scp ./backend/HomeSpot/target/consoleapp-2.7.2.jar ubuntu@$DEPLOY_SERVER_IP:~/console-app/
+        - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl start consoleapp.service"
+        - echo "Finished deploying the app."
+    only:
+        - main
