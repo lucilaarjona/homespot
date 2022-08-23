@@ -10,7 +10,7 @@ stages:
         - cd frontend
         - yarn
         - yarn build:${APP_ENV}
-    artefacts:
+    artifacts:
         paths:
             - frontend/build
 
