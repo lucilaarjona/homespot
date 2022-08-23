@@ -26,7 +26,7 @@ deploy front:
         - aws --version
         - aws s3 sync frontend/build s3://homespot-frontend-app --delete
 
-.build:
+build:
     stage: build
     image:  maven:latest
     script:
@@ -43,7 +43,7 @@ deploy front:
     only:
         - main
 
-.deploy:
+deploy:
     stage: deploy
     image: alpine:3.11
     before_script:
