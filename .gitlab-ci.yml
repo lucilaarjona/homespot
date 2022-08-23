@@ -25,7 +25,7 @@ yarn_main:
 
 .deploy_aws:
     image: python:latest
-    when: manual
+    when: always
     script: |
         - pip install awscli
         - aws s3 sync frontend/build/ s3://homespot-frontend-app
