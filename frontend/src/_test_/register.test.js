@@ -3,6 +3,7 @@ import { render, screen, fireEvent, act} from '@testing-library/react'
 import { BrowserRouter } from "react-router-dom"
 import Register from "../pages/Register/index"
 import userEvent from "@testing-library/user-event";
+import React from "react"
 
 let component = null;
 
@@ -14,6 +15,7 @@ beforeEach(() => {
             <Register />
         </BrowserRouter>
     );
+
     expect(component.container).toBeInTheDocument();
 
 })
