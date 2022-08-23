@@ -9,7 +9,7 @@ stages:
     script:
         - cd frontend
         - yarn
-        - yarn build:${APP_ENV}
+        - yarn build
     artifacts:
         paths:
             - frontend/build
