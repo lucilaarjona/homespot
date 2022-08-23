@@ -25,7 +25,7 @@ const Header = () => {
               <div className="initialContainer">
                 <div className="logo2">HS</div>
               </div>
-              <div className="slogan">Feels like home.</div>
+              <div className="slogan">Feels like home</div>
             </Logo>
           </Link>
           <button className="buttonLogIn" onClick={() => navigate("/logIn")}>
