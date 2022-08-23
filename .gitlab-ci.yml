@@ -1,7 +1,27 @@
 stages:
+    - build_front
+    - deploy_front
     - build
     - deploy
-    - build front
+
+.yarn_build:
+    image: node:10
+    script:
+        - cd frontend
+        - yarn
+        - yarn build:${APP_ENV}
+    artefacts:
+        paths:
+            - frontend/build
+
+yarn_main:
+    extends: .yarn_build
+    stage: build_front
+    before_script:
+        - export APP_ENV="main" 
+    only:
+        refs:
+            - main
 
 build:
     stage: build
