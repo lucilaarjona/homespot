@@ -1,6 +1,7 @@
 stages:
     - build
     - deploy
+    - build front
 
 build:
     stage: build
