@@ -28,15 +28,13 @@ yarn_main:
     when: manual
     script: |
         - pip install awscli
-        - aws s3 sync frontend/build/ s3://${S3_BUCKET}
+        - aws s3 sync frontend/build/ s3://homespot-frontend-app
 
 deploy_main:
     extends: .deploy_aws
     stage: deploy_front
     dependencies:
         - yarn_main
-    before_script:
-        - export S3_BUCKET=${BUCKET_MAIN}
     only:
         refs:
             - main
