@@ -15,7 +15,16 @@ build webapp:
         paths:
             - frontend/build
 
-
+deploy front:
+    stage: deploy_front
+    image:
+        name: amazon/aws-cli:2.4.11
+        entrypoint: [""]
+    rule:
+        - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    script:
+        - aws --version
+        - aws s3 sync frontend/build s3://homespot-frontend-app --delete
 
 .build:
     stage: build
