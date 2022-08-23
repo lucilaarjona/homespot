@@ -34,6 +34,7 @@ const Routers = () => {
       <CategoryProvider>
         <Layout>
           <Routes>
+            <Route path="/product/:id" element={<Product />} />
             <Route path="/" element={<Home />} />
             <Route path="/logIn" element={<LogIn {...logInProps} />} />
             <Route
