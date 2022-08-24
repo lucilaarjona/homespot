@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
+<<<<<<< HEAD
 import axios from "axios";
 
 import { useEffect, useState } from "react";
@@ -19,14 +20,36 @@ const ProductList = () => {
   }
 
   useEffect(LoadProduct, [])
+=======
+import { CategoryContext } from "../../context/CategoryContext";
+
+const ProductList = () => {
+  const { categorieSelected } = useContext(CategoryContext);
+  const [productsFilter, setProductsFilter] = useState([]);
+
+  useEffect(() => {
+    if (categorieSelected === "") {
+      setProductsFilter(Products);
+    } else {
+      const getFilterByCategory = Products.filter(
+        (product) => product.category === categorieSelected
+      );
+      setProductsFilter(getFilterByCategory);
+    }
+  }, [categorieSelected]);
+>>>>>>> ebf20dcd0432e37cec3847cfb575665fcc05524b
 
   return (
     <ProductStyled>
       <section className="productList">
-        {Products.map((product, index) => {
+        {productsFilter.map((product, index) => {
           return (
             <Product
               key={index}
+<<<<<<< HEAD
+=======
+              id = {product.id}
+>>>>>>> ebf20dcd0432e37cec3847cfb575665fcc05524b
               crimg={product.crimg}
               category={product.category}
               title={product.title}

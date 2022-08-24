@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ProductStyled } from "./ProductStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -39,7 +40,7 @@ const Product = (props) => {
           </span>
           </div>
           <p className="description">{props.description}</p>
-          <button className="verMas">Ver</button>
+          <Link to={`/product/${props.id}`}> <button className="verMas">ver</button> </Link>
         </div>
       </span>
     </ProductStyled>

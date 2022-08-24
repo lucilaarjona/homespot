@@ -9,9 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dh</groupId>
-	<artifactId>consoleapp</artifactId>
-	<name>consoleapp</name>
-	<description>HomeSpot api rest</description>
+	<artifactId>digitalBooking</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>digitalBooking</name>
+	<description>Digital Booking api rest</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

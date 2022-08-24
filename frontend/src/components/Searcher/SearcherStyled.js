@@ -230,7 +230,7 @@ export const SearcherStyled = styled.div`
       0%,
       100% {
         background: url(https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-          no-repeat center -400px;
+          no-repeat center -500px;
         background-size: cover;
       }
       25% {
