@@ -76,4 +76,4 @@ const DateRangeComp = () => {
   )
 }
 
-export default DateRangeComp
+export default DateRangeComp;

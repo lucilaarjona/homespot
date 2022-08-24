@@ -17,9 +17,7 @@ const NavBar = ({open}) => {
   </NavbarWrapper>
   
   </>
-
-  
   )
 }
 
-export default NavBar
+export default NavBar;

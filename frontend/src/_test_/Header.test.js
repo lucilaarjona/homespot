@@ -51,5 +51,3 @@ test('Render button creat cuenta', async () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
 });*/
-
-

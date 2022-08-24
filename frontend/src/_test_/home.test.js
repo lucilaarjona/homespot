@@ -20,4 +20,3 @@ test (' render of home', () => {
         const productlist= render (<ProductList/>);
             expect(productlist.container).toBeInTheDocument();
         })
-        

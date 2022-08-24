@@ -97,4 +97,3 @@ test ("Reacts to url changes when touching the button", async () => {
     expect(button).not.toBeInTheDocument();
 });
 
-
