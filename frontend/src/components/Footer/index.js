@@ -1,11 +1,13 @@
 import React from "react";
 import {BsFacebook, BsInstagram, BsTwitter} from 'react-icons/bs'
 import {FaLinkedinIn} from 'react-icons/fa'
-import { FooterStyled } from "./FooterStyled";
+import { FooterStyled, Cointaner } from "./FooterStyled";
 
 function Footer () {
   return (
+    <Cointaner>
     <FooterStyled>
+   
       <div className="container">
         <div className= "copyrights">
           <p> ©2022 Home Spot </p>   
@@ -18,7 +20,9 @@ function Footer () {
           <FaLinkedinIn/>
         </div>
       </div>
-    </FooterStyled>
+   
+     </FooterStyled>
+     </Cointaner>
   )
 }
 

@@ -13,15 +13,14 @@ align-items: center;
   display: flex;
   flex-direction: column;
   width: 362px;
-  height: 461px;
+  height: 490px;
   position: relative;
+  border: 1px solid ${colors[0].principal2};
   align-items: center;
   margin: 20px 0 0 0;
-  border: 1px solid ${colors[0].principal};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 8px 8px;
-  background-color: rgba(80, 168, 234,0.2);
-  z-index: -1;
+  background-color: white;
 }
 .imgProduct{
   height: 231px;
@@ -80,8 +79,7 @@ align-items: center;
 .verMas{
   width: 100%;
   height: 40px;
-  color: ${colors[0].principal};
-  background: linear-gradient(0deg, rgba(80,168,234,0.8) 28%, rgba(80,168,234,1) 100%);
+  background: ${colors[0].principal2};
   color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
@@ -101,7 +99,6 @@ align-items: center;
     height: 279px;
     align-items: center;
     margin: 20px 0 0 0;
-    border: 1px solid  ${colors[0].titles};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
   }
@@ -153,7 +150,8 @@ align-items: center;
 .verMas:hover{
   color:white;
   border:1px solid ${colors[0].titles};
-  background: ${colors[0].principal}
+  background: ${colors[0].principal2};
+  cursor: pointer;
 }
 .verMas:hover polyline{
     stroke-dashoffset: -460;
