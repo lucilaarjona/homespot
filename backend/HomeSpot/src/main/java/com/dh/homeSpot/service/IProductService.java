@@ -11,4 +11,7 @@ public interface IProductService extends ICRUDService<ProductDTO>{
 
     Set<ProductDTO> findProductByCity(String city, String state, String country);
 
+    //Set<ProductDTO> getRandomProducts();
+
+
 }

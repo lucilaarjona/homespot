@@ -14,7 +14,7 @@ import java.util.Collection;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
-@RequestMapping("/cities")
+@RequestMapping("/city")
 
 public class CityController {
     private static final Logger logger = Logger.getLogger(CityController.class);
@@ -79,7 +79,7 @@ public class CityController {
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<Collection<CityDTO>> getAllCity() {
         Collection<CityDTO> list = cityService.findAll();
         logger.info("Getting all the cities");

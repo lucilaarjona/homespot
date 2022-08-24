@@ -1,5 +1,6 @@
 package com.dh.homeSpot.repository;
 
+import com.dh.homeSpot.model.dto.ProductDTO;
 import com.dh.homeSpot.model.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,5 +12,5 @@ import java.util.Set;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product,Integer> {
-
+  //Set<ProductDTO> getRandomProducts();
   }

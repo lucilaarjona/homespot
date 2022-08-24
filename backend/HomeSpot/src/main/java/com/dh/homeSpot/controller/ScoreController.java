@@ -79,8 +79,8 @@ public class ScoreController {
         }
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<Collection<ScoreDTO>> getAllscores() {
+    @GetMapping
+    public ResponseEntity<Collection<ScoreDTO>> getAllScores() {
         Collection<ScoreDTO> list = scoreService.findAll();
         logger.info("Getting all the scores");
         return new ResponseEntity<>(list, HttpStatus.OK);

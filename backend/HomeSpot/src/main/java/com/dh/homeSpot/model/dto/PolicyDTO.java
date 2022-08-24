@@ -7,7 +7,7 @@ import java.util.ArrayList;
 @Data
 public class PolicyDTO {
     private Integer id;
-    private ArrayList norms;
-    private ArrayList healthAndSecurity;
-    private ArrayList cancellationPolicy;
+    private String norms;
+    private String healthAndSecurity;
+    private String cancellationPolicy;
 }
