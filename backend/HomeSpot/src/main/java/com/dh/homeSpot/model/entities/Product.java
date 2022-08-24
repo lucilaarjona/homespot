@@ -15,7 +15,7 @@ public class Product {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @EqualsAndHashCode.Exclude
@@ -37,7 +37,7 @@ public class Product {
     private City city;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_features", referencedColumnName = "id")
+    @JoinColumn(name = "fk_features", referencedColumnName = "id", nullable = false)
     private Feature features;
 
     @EqualsAndHashCode.Exclude
@@ -54,10 +54,13 @@ public class Product {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @JsonIgnoreProperties(value = {"products"})
     private Set<Booking> booking;
-
+    @Column(nullable = false)
     private Double latitude;
+    @Column(nullable = false)
     private Double longitude;
+    @Column(nullable = false)
     private String address;
+
 
 }
 

@@ -3,6 +3,7 @@ package com.dh.homeSpot.model.dto;
 import com.dh.homeSpot.model.entities.*;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.List;
 import java.util.Set;
 
@@ -16,8 +17,12 @@ public class ProductDTO {
     private CategoryDTO category;
     private Set<Image> images;
     private CityDTO city;
-    private List<Feature> features;
+    private FeatureDTO features;
     private PolicyDTO policy;
-    private Booking booking;
+    private Set<Booking> booking;
+    private String address;
+    private Double latitude;
+    private Double longitude;
+    private Set<Score> scores;
 
 }

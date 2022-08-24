@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 
 public class ProductController {
     private static final Logger logger = Logger.getLogger(ProductController.class);
@@ -78,8 +78,14 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<Collection<ProductDTO>> getAllProducts() {
+        Collection<ProductDTO> list = productService.findAll();
+        logger.info("Getting all the products");
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Collection<ProductDTO>> getRandomProducts() {
         Collection<ProductDTO> list = productService.findAll();
         logger.info("Getting all the products");
         return new ResponseEntity<>(list, HttpStatus.OK);

@@ -14,7 +14,7 @@ import java.util.Collection;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/category")
 
 public class CategoryController {
     private static final Logger logger = Logger.getLogger(CategoryController.class);
@@ -79,7 +79,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<Collection<CategoryDTO>> getAllCategories() {
         Collection<CategoryDTO> list = categoryService.findAll();
         logger.info("Getting all the Categories");

@@ -81,7 +81,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<Collection<ImageDTO>> getAllImages() {
         Collection<ImageDTO> list = imageService.findAll();
         logger.info("Getting all the images");

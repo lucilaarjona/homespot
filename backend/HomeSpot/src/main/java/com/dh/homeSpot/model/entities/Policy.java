@@ -3,6 +3,8 @@ package com.dh.homeSpot.model.entities;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -12,8 +14,8 @@ public class Policy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private ArrayList norms;
-    private ArrayList HealthAndSecurity;
-    private ArrayList cancellationPolicy;
+    private String norms  ;
+    private String HealthAndSecurity ;
+    private String cancellationPolicy ;
 
 }
