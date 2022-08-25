@@ -1,0 +1,756 @@
+{
+	"info": {
+		"_postman_id": "3412741f-e37f-40a7-b1d9-1287f2ee2464",
+		"name": "Home Spot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20513528"
+	},
+	"item": [
+		{
+			"name": "create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\":8 ,\r\n        \"name\": \"Pablo\",\r\n        \"description\": \"10 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa de playa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg\",\r\n            \"id\": 3\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 19,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 18,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 20,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 16,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 17,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 12,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 4,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 6,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 30,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 29,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 26,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 28,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 27,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 16,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 7,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 5,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 23,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 24,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 21,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 22,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            },\r\n            {\r\n                \"id\": 25,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 15,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 6,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/product/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 5,\r\n        \"name\": \"Pablo\",\r\n        \"description\": \"10 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa de playa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg\",\r\n            \"id\": 3\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 19,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 18,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 20,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 16,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 17,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 12,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 4,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 6,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 30,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 29,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 26,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 28,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 27,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 16,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 7,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 5,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 23,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 24,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 21,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 22,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            },\r\n            {\r\n                \"id\": 25,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 15,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 6,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get policy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Policy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"norms\": \"Se aplican las prácticas de seguridad de HOME SPOT relacionadas con la Fiebre del mono,Alarma de monóxido de carbono no informada,Detector de humo no informado, cuidarcomo si fuera suyo\",\r\n    \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la fIEBRE DE MONO.\",\r\n    \"cancellationPolicy\": \"Check-in: 12:00 a 20:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/policy/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"policy",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get policyById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/policy/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"policy",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete policyById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/policy/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"policy",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update policy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"norms\": \"Se aplican las prácticas de seguridad de HOME SPOT relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n    \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la FIEBRE DE MONO.\",\r\n    \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/policy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/city",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"city"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get City By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/city/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"city",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add City",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\":9 ,\r\n  \"name\": \"Lake Tahoe\",\r\n  \"state\": \"California\",\r\n  \"country\": \"United States\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/city",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"city"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete city",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/city/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"city",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Booking by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/booking/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get booking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get score by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "add score",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"score\": 5,\r\n  \"favorite\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete score",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/score/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"score",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/image/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"image",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update image",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Sendero\",\r\n    \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"title\": \"lhouse view\",\r\n  \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete image",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/image/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"image",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get feature",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feature",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get feature by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feature/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update feature",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10,\r\n  \"pool\": true,\r\n  \"grill\": false,\r\n  \"gym\": true,\r\n  \"laundry\": true,\r\n  \"heating\": true,\r\n  \"pets\": true,\r\n  \"wifi\": true,\r\n  \"ac\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/feature",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add feature",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 17,\r\n  \"pool\": true,\r\n  \"grill\": true,\r\n  \"gym\": true,\r\n  \"laundry\": true,\r\n  \"heating\": true,\r\n  \"pets\": true,\r\n  \"wifi\": true,\r\n  \"ac\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/feature",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delte feature",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/feature/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get category by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Glamping\",\r\n  \"description\": \"850 glampings\",\r\n  \"urlImage\": \"https://viajes.nationalgeographic.com.es/lifestyle/siete-glampings-por-espana-perfectos-para-ir-a-playa_18379\",\r\n  \"id\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add category",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"glampiglampingsng\",\r\n  \"description\": \"string\",\r\n  \"urlImage\": \"https://viajes.nationalgeographic.com.es/lifestyle/siete-glampings-por-espana-perfectos-para-ir-a-playa_18379\",\r\n  \"id\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete category",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
