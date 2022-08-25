@@ -41,3 +41,28 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+
+//const baseURL = `http://localhost:8080/products`
+
+//async function getProduct() {
+// try {
+//  const response = axios({
+//  url: `${baseURL}/products`,
+//     method: 'GET'
+//   })
+//   return response
+// } catch (error) {
+
+//}
+
+//}
+
+
+//useEffect(() => {
+  // async function LoadProduct() {
+  //   const response = await getProduct();
+  //    return response
+  //   }
+  //   LoadProduct()
+  // })

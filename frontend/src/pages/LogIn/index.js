@@ -32,11 +32,12 @@ export const LogIn = ({ user, setIsLogged }) => {
         Por favor vuelva a intentarlo, sus credenciales son invalidas
         </div>
           <form onSubmit={onSubmitHandler}>
-          <div div className="label">
+          <div className="label">
             <div>Email</div>
             <input
               placeholder="Email"
               type="email"
+              name="email"
               onChange={(e) => setLogIn({ ...LogIn, email: e.target.value })}
             />
             <AlternateEmailIcon className="icons"/>
