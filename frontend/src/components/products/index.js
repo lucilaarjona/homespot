@@ -2,25 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
-<<<<<<< HEAD
-import axios from "axios";
-
-import { useEffect, useState } from "react";
-
-
-
-const ProductList = () => {
-  const [product, setProduct] = useState(Products);
-
-  const LoadProduct = () => {
-    axios.get('http://localhost:8080/products')
-      .then(response => {
-        setProduct(response.data)
-      })
-  }
-
-  useEffect(LoadProduct, [])
-=======
 import { CategoryContext } from "../../context/CategoryContext";
 
 const ProductList = () => {
@@ -37,7 +18,6 @@ const ProductList = () => {
       setProductsFilter(getFilterByCategory);
     }
   }, [categorieSelected]);
->>>>>>> ebf20dcd0432e37cec3847cfb575665fcc05524b
 
   return (
     <ProductStyled>
@@ -46,10 +26,7 @@ const ProductList = () => {
           return (
             <Product
               key={index}
-<<<<<<< HEAD
-=======
               id = {product.id}
->>>>>>> ebf20dcd0432e37cec3847cfb575665fcc05524b
               crimg={product.crimg}
               category={product.category}
               title={product.title}
@@ -62,7 +39,6 @@ const ProductList = () => {
     </ProductStyled>
   );
 };
-
 
 export default ProductList;
 
