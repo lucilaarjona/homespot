@@ -24,3 +24,6 @@
 2022-08-11 16:17:00 INFO  CategoryController:72 - Category with id: 20 was deleted successfully 
 2022-08-11 16:17:12 INFO  CategoryController:85 - Getting all the Categories
 2022-08-11 16:20:37 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria REVIEW, description=CrearCategoriaTest REVIEW, urlImage=http://localhost:8080/categories)
+2022-08-23 16:36:47 INFO  CategoryController:85 - Getting all the Categories
+2022-08-23 16:42:45 INFO  CategoryController:85 - Getting all the Categories
+2022-08-23 16:42:45 INFO  CategoryController:85 - Getting all the Categories

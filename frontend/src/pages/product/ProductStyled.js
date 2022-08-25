@@ -86,10 +86,10 @@ export const ProductStyled = styled.section`
   }
   .containerSlider {
     width: 100%;
-    height: 750px;
+    height: 950px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 70% 30%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0px 20px;
@@ -103,7 +103,7 @@ export const ProductStyled = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 10%;
   }
   .cards {
     position: relative;
@@ -113,7 +113,7 @@ export const ProductStyled = styled.section`
 
   .card {
     position: absolute;
-    width: 60%;
+    width: 85%;
     height: 70%;
     left: 0;
     right: 0;
@@ -162,7 +162,7 @@ export const ProductStyled = styled.section`
   }
   .images {
     position: absolute;
-    margin-top: 355px;
+    margin-top: 200px;
     width: 80px;
     height: 40px;
     background: none;
@@ -178,8 +178,8 @@ export const ProductStyled = styled.section`
 
   .description {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 10px;
   }
@@ -201,7 +201,7 @@ export const ProductStyled = styled.section`
   }
   .featuresList {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 50% 50%;
     gap: 20px;
   }
 
@@ -212,12 +212,16 @@ export const ProductStyled = styled.section`
 
   .reservation {
     border-top: 2px solid #f1eded;
-    display: grid;
+    display: flex;
     width: 80%;
     margin-left: 10%;
-    grid-template-columns: 60% 40%;
+    flex-direction: column;
     justify-content: center;
-    height: 520px;
+    height: 650px;
+  }
+  
+  .calendarElementDesktop{
+    display: none;
   }
   .calendar {
     display: flex;
@@ -230,15 +234,9 @@ export const ProductStyled = styled.section`
   }
   .rdrCalendarWrapper {
     font-size: 12px;
-    /* border: 1px solid ${colors[0].principal};
-    border-radius: 10px;
-    background-color: white; */
     width: 100%;
   }
   .rdrDateDisplayWrapper {
-    /* border-radius: 10px;
-    border: 1px solid ${colors[0].principal};
-    border-top: none; */
     background-color: white;
     cursor: default;
   }
@@ -349,10 +347,9 @@ export const ProductStyled = styled.section`
     flex-direction: column;
     justify-content: center;
     border: 2px solid ${colors[0].principal2};
-    height: 22%;
+    height: 20%;
     width: 70%;
     align-items: center;
-    margin-left: 15%;
     border-radius: 10px;
     gap: 20px;
   }
@@ -378,7 +375,7 @@ export const ProductStyled = styled.section`
   }
 
   .policies{
-    height: 500px;
+    height: 860px;
     width: 80%;
     margin-left: 10%;
     border-top: 2px solid #f1eded;
@@ -386,7 +383,7 @@ export const ProductStyled = styled.section`
   }
   .policiesSection{
     display: grid;
-    grid-template-columns: 30% 30% 33%;
+    grid-template-columns: 100%;
     justify-content: center;
   }
 
@@ -411,5 +408,243 @@ export const ProductStyled = styled.section`
 .IconPolicie{
   margin-right: 10px;
 }
+@media (min-width: 768px) {
+  .containerSlider {
+    width: 100%;
+    height: 890px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+  }
+    .card {
+    position: absolute;
+    width: 70%;
+    height: 85%;
+    left: 0;
+    right: 0;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 
+  .cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .description {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 80%;
+    height: fit-content;
+  }
+  .reservation {
+    border-top: 2px solid #f1eded;
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 750px;
+  }
+  .startReservation{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid ${colors[0].principal2};
+    height: 15%;
+    width: 70%;
+    align-items: center;
+    border-radius: 10px;
+    gap: 20px;
+  }
+  .calendarElementDesktop{
+    display: none;
+  }
+
+  .rdrCalendarWrapper {
+    font-size: 16px;
+    width: 100%;
+  }
+  .policies{
+    height: 630px;
+    width: 80%;
+    margin-left: 10%;
+    border-top: 2px solid #f1eded;
+    justify-content: center;
+  }
+  .policiesSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .policiesContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .styles-module_slide__1zrfk {
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.styles-module_image__2hdkJ {
+    max-height: 100%;
+    max-width: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin-top: 70%;
+    margin-left: 30%;
+}
+.images {
+    position: absolute;
+    margin-top: 355px;
+    width: 80px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    color: ${colors[0].principal};
+  }
+}
+
+@media (min-width: 1365px) {
+  .containerSlider {
+    width: 100%;
+    height: 680px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .card {
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    left: 0;
+    right: 0;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .reservation {
+    border-top: 2px solid #f1eded;
+    display: grid;
+    width: 80%;
+    margin-left: 10%;
+    grid-template-columns: 60% 40%;
+    justify-content: center;
+    height: 520px;
+  }
+
+  .startReservation{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid ${colors[0].principal2};
+    height: 22%;
+    width: 70%;
+    align-items: center;
+    margin-left: 15%;
+    border-radius: 10px;
+    gap: 20px;
+  }
+
+  .calendarElement{
+    display: none;
+  }
+
+  .calendarElementDesktop{
+    display: contents;
+  }
+  .rdrCalendarWrapper {
+    font-size: 14px;
+    width: 100%;
+  }
+  .policies{
+    height: 350px;
+    width: 80%;
+    margin-left: 10%;
+    border-top: 2px solid #f1eded;
+    justify-content: center;
+  }
+  .policiesSection{
+    display: grid;
+    grid-template-columns: 30% 30% 33%;
+    justify-content: center;
+  }
+  .policiesContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .styles-module_slide__1zrfk {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.styles-module_image__2hdkJ {
+    max-height: 100%;
+    max-width: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin: auto;
+}
+
+
+.rdrDateDisplayWrapper {
+    background-color: white;
+    cursor: default;
+    display: none;
+}
+}
 `;

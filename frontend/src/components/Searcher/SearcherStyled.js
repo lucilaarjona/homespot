@@ -2,7 +2,6 @@ import styled from "styled-components";
 import colors from "../colors.json";
 
 export const SearcherStyled = styled.div`
-  background: rgba(80, 168, 234, 0.3);
   section {
     display: flex;
     width: 100%;
@@ -103,6 +102,9 @@ export const SearcherStyled = styled.div`
   .css-319lph-ValueContainer {
     justify-content: center;
   }
+  .rdrMonthAndYearWrapper{
+    z-index: 1;
+  }
   .css-26l3qy-menu {
     border: 1px solid ${colors[0].principal};
     border-radius: 0 0 5% 5%;
@@ -119,18 +121,18 @@ export const SearcherStyled = styled.div`
     @keyframes slider {
       0%,
       100% {
-        background: url(https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+        background: url(https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/pexels-photo-1167021.jpeg)
           no-repeat center -250px;
         background-size: cover;
       }
       25% {
-        background-image: url(https://images.pexels.com/photos/1167021/pexels-photo-1167021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        background-image: url(https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/pexels-photo-1268871.jpeg);
       }
       50% {
-        background-image: url(https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        background-image: url(https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/pexels-photo-258154.jpeg);
       }
       75% {
-        background-image: url(https://images.pexels.com/photos/91216/pexels-photo-91216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        background-image: url(https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/pexels-photo-91216.jpeg);
       }
     }
     section {
@@ -154,7 +156,6 @@ export const SearcherStyled = styled.div`
       border: 8px solid ${colors[0].principal};
       border-radius: 50% 50% 50% 50%;
       border-top-style: none;
-      border-right-style: ;
       border-left-style: none;
       border-bottom-style: 0%;
       backdrop-filter: blur(2px);

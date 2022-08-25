@@ -4,23 +4,99 @@ import colors from "../colors.json";
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   .title {
+    display: flex;
+    flex-direction: row;
     margin-top: 20px;
     position: relative;
-    justify-content: center;
-    z-index: -1;
+    gap: 20%;
+    margin-left: 10%;
     color: ${colors[0].titles};
-    font-weight: bold;
-    font-style: italic;
   }
-  h2 {
-    font-size: 30px;
+  .showAll{
+    border: none;
+    background-color: none;
+    background: white;
   }
-  @media screen and (min-width: 768px) {
-    h2 {
-      font-size: 40px;
+  .titlePrincipal{
+    cursor:default;
+    margin-left: -6%;
+    z-index: -1;
+  }
+  .showAll h4{
+    font-size: 15px;
+    color: ${colors[0].titles};
+    
+  }
+  .showAll{
+    display: flex;
+    gap: 3px;
+    margin-left: -20px;
+    margin-top: 2px;
+  }
+  .iconSee{
+    color: ${colors[0].principal2};
+    margin-top: 4px;
+    font-size: 25px;
+    margin-top: -5px;
+  }
+   h4 {
+    font-size: 20px;
+  }
+  @media(min-width: 768px) {
+    h4 {
+      font-size: 30px;
     }
+    .showAll h4{
+    font-size: 15px;
+    color: ${colors[0].titles};
+  }
+  .showAll{
+    display: flex;
+    gap: 10px;
+    margin-left: 120px;
+    margin-top: 15px;
+  }
+  .iconSee{
+    color: ${colors[0].principal2};
+    margin-top: 0px;
+    font-size: 20px;
+  }
+  .titlePrincipal{
+    cursor:default;
+    margin-left: -2%;
+  }
+  }
+  @media (min-width:1365px){
+    .title {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    position: relative;
+    gap: 60%;
+    margin-left: 10%;
+    color: ${colors[0].titles};
+  }
+  .titlePrincipal{
+    margin-left: -70px;
+    cursor:default
+  }
+  .showAll{
+    margin-top: 1px;
+    margin-left: 150px;
+  }
+  .showAll h4{
+    font-size: 15px;
+    color: ${colors[0].titles};
+    margin-top: 6px;
+    
+  }
+  .iconSee{
+    color: ${colors[0].principal2};
+    margin-top: 1px;
+    font-size: 25px;
+  }
   }
 `;
 export const CardStyled = styled.div`
@@ -36,7 +112,6 @@ export const CardStyled = styled.div`
     box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     border-radius: 1rem;
     padding: 0.7%;
-    background-color: rgba(80, 168, 234, 0.2);
     color: none;
     width: 327px;
   }
@@ -54,7 +129,7 @@ export const CardStyled = styled.div`
   .accordion-item:hover {
     animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
     cursor: pointer;
-    background-color: rgba(80, 168, 234, 0.5);
+
   }
   @keyframes scale-up-center {
     0% {
