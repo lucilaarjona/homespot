@@ -5,9 +5,9 @@ import {BrowserRouter} from "react-router-dom";
 let component = null;
 beforeEach(() => {
     component = render(
-        <BrowserRouter>
+ //       <BrowserRouter>
             <Routers /> 
-        </BrowserRouter>
+ //       </BrowserRouter>
     )
     expect(component.container).toBeInTheDocument();
 })
