@@ -84,10 +84,10 @@ public class ProductController {
         logger.info("Getting all the products");
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-
+    @GetMapping("/random")
     public ResponseEntity<Collection<ProductDTO>> getRandomProducts() {
-        Collection<ProductDTO> list = productService.findAll();
-        logger.info("Getting all the products");
+        Collection<ProductDTO> list = productService.getProductsRandom();
+        logger.info("Getting all the products random");
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }

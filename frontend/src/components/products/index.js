@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import Products from "./Products.json";
+import React, {  useContext ,useEffect, useState } from "react";
+// import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
+import axios from "axios";
 
 const ProductList = () => {
   const { categorieSelected } = useContext(CategoryContext);
@@ -10,28 +11,53 @@ const ProductList = () => {
 
   useEffect(() => {
     if (categorieSelected === "") {
-      setProductsFilter(Products);
+      setProductsFilter(products);
     } else {
-      const getFilterByCategory = Products.filter(
-        (product) => product.category === categorieSelected
+      const getFilterByCategory = products.filter(
+        (product) => product.category.title === categorieSelected
       );
       setProductsFilter(getFilterByCategory);
     }
   }, [categorieSelected]);
 
+  const [products, setProducts] = useState([])
+  const loadData = () => {
+    axios.get("http://18.118.83.144:8080/product")
+      .then(res => {
+        setProducts(res.data)
+      })
+  };
+
+  useEffect(loadData,[])
+
+  useEffect(()=>{
+    if (categorieSelected === "") {
+      setProductsFilter(products.sort(()=>Math.random()- 0.5));
+    }},[products])
+
   return (
     <ProductStyled>
+    {!categorieSelected ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
       <section className="productList">
         {productsFilter.map((product, index) => {
           return (
             <Product
               key={index}
               id = {product.id}
-              crimg={product.crimg}
-              category={product.category}
-              title={product.title}
-              location={product.location}
+              crimg={product.images[0].url}
+              category={product.category.title}
+              title={product.name}
+              location={`${product.city.name},${product.city.country}`}
               description={product.description}
+              ac = {product.features.ac}
+              gym = {product.features.gym}
+              pool = {product.features.pool}
+              grill = {product.features.grill}
+              pets = {product.features.pets}
+              laundry = {product.features.laundry}
+              heating = {product.features.heating}
+              wifi = {product.features.wifi}
+
             />
           );
         })}
@@ -41,28 +67,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
-
-//const baseURL = `http://localhost:8080/products`
-
-//async function getProduct() {
-// try {
-//  const response = axios({
-//  url: `${baseURL}/products`,
-//     method: 'GET'
-//   })
-//   return response
-// } catch (error) {
-
-//}
-
-//}
-
-
-//useEffect(() => {
-  // async function LoadProduct() {
-  //   const response = await getProduct();
-  //    return response
-  //   }
-  //   LoadProduct()
-  // })

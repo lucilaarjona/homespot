@@ -18,8 +18,6 @@ const DateRangeComp = () => {
       key: 'selection'
     }
    ])
-   console.log(range[0].startDate.toLocaleDateString())
-   console.log(range[0].endDate.toLocaleDateString())
 
   const [open, setOpen] = useState(false)
 
@@ -76,4 +74,4 @@ const DateRangeComp = () => {
   )
 }
 
-export default DateRangeComp;
+export default DateRangeComp

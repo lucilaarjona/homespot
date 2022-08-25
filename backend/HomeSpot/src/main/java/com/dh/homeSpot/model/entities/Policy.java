@@ -15,7 +15,7 @@ public class Policy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String norms  ;
-    private String HealthAndSecurity ;
+    private String healthAndSecurity ;
     private String cancellationPolicy ;
 
 }

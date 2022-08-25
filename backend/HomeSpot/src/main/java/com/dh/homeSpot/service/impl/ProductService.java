@@ -95,8 +95,18 @@ public class ProductService implements IProductService {
         return productDTOSet;
     }
 
+    @Override
+    public Set<ProductDTO> getProductsRandom() {
+        List<Product> products = productRepository.getProductsRandom();
+        Set<ProductDTO> productDTO = new HashSet<>();
+        for (Product product : products) {
+            productDTO.add(objectMapper.convertValue(product, ProductDTO.class));
+        }
+        return productDTO;
+    }
+
     /*@Override
-    public Set<ProductDTO> getRandomProducts() {
+    public Set<ProductDTO> getProdutctsRandom {
         List<Product> productList = productRepository.findAll();
         Set<ProductDTO> productDTOSet = new HashSet<>();
         for (Product product : productList) {

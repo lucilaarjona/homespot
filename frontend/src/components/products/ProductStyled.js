@@ -3,6 +3,11 @@ import colors from '../colors.json'
 export const ProductStyled = styled.section`
 justify-content:center;
 align-items: center;
+.titleSection{
+  color: ${colors[0].principal};
+  display: flex;
+  justify-content: center;
+}
 .productList{
   display: flex;
   flex-direction: column;
@@ -63,7 +68,7 @@ align-items: center;
 }
 
 .icons{
-  visibility: hidden;
+  display:none;
 }
 .map{
   color: ${colors[0].principal};
@@ -73,8 +78,8 @@ align-items: center;
   font-weight: bold;
   line-height: 16.41px;
   max-height: 65px;
-    color: ${colors[0].text};
-    overflow:hidden;
+  color: ${colors[0].text};
+  overflow:hidden;
 }
 .verMas{
   width: 100%;
@@ -85,12 +90,20 @@ align-items: center;
   border-radius: 5px;
   border: none;
 }
+li{
+  list-style: none;
+}
 @media (min-width:768px) {
   .productList{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.caption{
+  margin: 10px;
+  width: 330px;
 }
   .cardProduct{
     display: flex;
@@ -103,12 +116,9 @@ align-items: center;
     border-radius: 10px;
   }
   .imgProduct{
-    height: auto;
-    width: auto;
-    max-width:372px;
-    max-height: 348px;
-    min-width: 372px;
-    object-fit: contain;
+    height: 281px;
+    width: 372px;
+    object-fit: cover;
     border-radius: 8px 0px 0 0;
   }
   .title{
@@ -126,20 +136,22 @@ align-items: center;
     color: #545776;
     gap: 12px;
   }
-  .icon{
-   
-  }
 
   .stars{
   margin-left: 5px;
   font-size: 13px;
 }
+
 }
 @media (min-width:1365px) {
   .productList{
   display: grid;
   grid-template-columns: auto auto;
   gap: 30px
+}
+
+li{
+  list-style: none;
 }
 .description{
   font-size: 14px;
@@ -214,12 +226,10 @@ align-items: center;
       }
     }
 .imgProduct{
-    height: auto;
-    width: auto;
-    max-width:372px;
-    height: 348px;
-    min-width: 372px;
-    object-fit: contain;
+    max-width:352px;
+    height: 260px;
+    min-width: 352px;
+    object-fit: cover;
     border-radius: 8px 0px 0 0;
     cursor: default;
   }
