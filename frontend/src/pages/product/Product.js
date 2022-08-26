@@ -43,11 +43,13 @@ const Product = () => {
     }
   };
 
-  console.log(products.features);
-
   useEffect(() => {
     loadData();
-  }, []);
+  });
+
+  useEffect(()=>{
+    document.title = `${products.name}  |  HomeSpot`;
+  })
 
   //Calendario
   const date = new Date();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link} from "react-router-dom";
 import { LogInStyled } from "./Styles";
 import ErrorIcon from '@mui/icons-material/Error';
@@ -20,6 +20,10 @@ export const LogIn = ({ user, setIsLogged }) => {
         
       }
   }
+
+  useEffect(()=>{
+    document.title = `Iniciar Sesion`;
+  })
   return (
     
 

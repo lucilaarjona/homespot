@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
   faLocationDot,
-  faWifi,
-  faSwimmingPool,
 } from "@fortawesome/free-solid-svg-icons";
 import AirIcon from '@mui/icons-material/Air';
 import HvacIcon from '@mui/icons-material/Hvac';

@@ -9,16 +9,6 @@ const ProductList = () => {
   const { categorieSelected } = useContext(CategoryContext);
   const [productsFilter, setProductsFilter] = useState([]);
 
-  useEffect(() => {
-    if (categorieSelected === "") {
-      setProductsFilter(products);
-    } else {
-      const getFilterByCategory = products.filter(
-        (product) => product.category.title === categorieSelected
-      );
-      setProductsFilter(getFilterByCategory);
-    }
-  }, [categorieSelected]);
 
   const [products, setProducts] = useState([])
   const loadData = () => {
@@ -30,10 +20,28 @@ const ProductList = () => {
 
   useEffect(loadData,[])
 
+
+
   useEffect(()=>{
     if (categorieSelected === "") {
       setProductsFilter(products.sort(()=>Math.random()- 0.5));
-    }},[products])
+    }},[categorieSelected, products])
+
+
+  useEffect(() => {
+    if (categorieSelected === "") {
+      setProductsFilter(products);
+    } else {
+      const getFilterByCategory = products.filter(
+        (product) => product.category.title === categorieSelected
+      );
+      setProductsFilter(getFilterByCategory);
+    }
+  },[categorieSelected, products]);
+
+
+
+
 
   return (
     <ProductStyled>
