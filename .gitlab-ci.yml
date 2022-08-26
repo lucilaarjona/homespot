@@ -41,7 +41,7 @@ build:
         paths:
             - backend/HomeSpot/target/consoleapp-2.7.2.jar
     only:
-        - back-main
+        - main
 
 deploy:
     stage: deploy
