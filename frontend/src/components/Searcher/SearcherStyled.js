@@ -282,7 +282,6 @@ export const SearcherStyled = styled.div`
       font-weight: normal;
       font-size: 16px;
       font-weight: 500;
-      margin-left: 0px;
     }
 
     .selectLocation {
