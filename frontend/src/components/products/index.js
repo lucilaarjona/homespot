@@ -43,21 +43,6 @@ const ProductList = () => {
 
 
 
-  const [products, setProducts] = useState([])
-  const loadData = () => {
-    axios.get("http://localhost:8080/product")
-      .then(res => {
-        setProducts(res.data)
-      })
-  };
-
-  useEffect(loadData,[])
-
-  useEffect(()=>{
-    if (categorieSelected === "") {
-      setProductsFilter(products.sort(()=>Math.random()- 0.5));
-    }},[products])
-
   return (
     <ProductStyled>
     {!categorieSelected ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
