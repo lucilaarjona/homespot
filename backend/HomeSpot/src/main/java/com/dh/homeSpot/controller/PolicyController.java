@@ -11,14 +11,14 @@ import java.util.Set;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
-@RequestMapping("/policies")
+@RequestMapping("/policy")
 
 public class PolicyController {
 
     @Autowired
     PolicyService policyService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?> policiesRegister(@RequestBody PolicyDTO policyDTO){
         policyService.create(policyDTO);
 
@@ -26,26 +26,26 @@ public class PolicyController {
 
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> policiesUpdate(@PathVariable ("id") Integer id,  @RequestBody PolicyDTO policyDTO) {
+    @PutMapping
+    public ResponseEntity<?> policiesUpdate(@RequestBody PolicyDTO policyDTO) {
         policyService.update(policyDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("/findAll")
+    @GetMapping
     public ResponseEntity<Set<PolicyDTO>> findPolicies(){
 
         return ResponseEntity.ok(policyService.findAll());
 
     }
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> findPoliciesById(@PathVariable("id") Integer id) {
         PolicyDTO policyDTO = policyService.findById(id);
         return ResponseEntity.ok(policyDTO);
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> policiesDelete(@PathVariable("id") Integer id) {
         policyService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);

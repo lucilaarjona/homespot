@@ -2,6 +2,7 @@ package com.dh.homeSpot.service.impl;
 
 import com.dh.homeSpot.model.dto.PolicyDTO;
 import com.dh.homeSpot.model.dto.ProductDTO;
+import com.dh.homeSpot.model.entities.Feature;
 import com.dh.homeSpot.model.entities.Product;
 import com.dh.homeSpot.repository.IBookingRepository;
 import com.dh.homeSpot.repository.IProductRepository;
@@ -32,6 +33,7 @@ public class ProductService implements IProductService {
         PolicyDTO policyDTO = policyService.create(productDTO.getPolicy());
         productDTO.setPolicy(policyDTO);
         Product product = objectMapper.convertValue(productDTO, Product.class);
+
         productRepository.save(product);
         return productDTO;
     }
@@ -93,4 +95,26 @@ public class ProductService implements IProductService {
         return productDTOSet;
     }
 
- }
+    @Override
+    public Set<ProductDTO> getProductsRandom() {
+        List<Product> products = productRepository.getProductsRandom();
+        Set<ProductDTO> productDTO = new HashSet<>();
+        for (Product product : products) {
+            productDTO.add(objectMapper.convertValue(product, ProductDTO.class));
+        }
+        return productDTO;
+    }
+
+    /*@Override
+    public Set<ProductDTO> getProdutctsRandom {
+        List<Product> productList = productRepository.findAll();
+        Set<ProductDTO> productDTOSet = new HashSet<>();
+        for (Product product : productList) {
+            int valorEntero = Math.floor(Math.random()*(productList.size()-1+1)+M);
+            if (product.getId().equals(valorEntero)) {
+                productDTOSet.add(objectMapper.convertValue(product, ProductDTO.class));
+            }
+        }
+        return productDTOSet;
+    }*/
+}

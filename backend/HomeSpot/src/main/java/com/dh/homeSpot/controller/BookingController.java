@@ -18,27 +18,27 @@ public class BookingController {
     @Autowired
     BookingService bookingService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?> bookingCreate(@RequestBody BookingDTO bookingDTO) {
         bookingService.create(bookingDTO);
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> bookingUpdate(@PathVariable ("id") Integer id, @RequestBody BookingDTO bookingDTO) {
+    @PutMapping
+    public ResponseEntity<?> bookingUpdate( @RequestBody BookingDTO bookingDTO) {
         bookingService.update(bookingDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("/findAll")
-    public ResponseEntity<?> findBooking(){
+    @GetMapping
+    public ResponseEntity<?> findBookings(){
         Set<BookingDTO> bookedDTO = bookingService.findAll();
         if (bookedDTO.size() > 0)
             return ResponseEntity.ok(bookedDTO);
         return ResponseEntity.badRequest().body("No verified Bookings");
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> findBookingById(@PathVariable("id") Integer id) {
         BookingDTO aDTO = bookingService.findById(id);
         return ResponseEntity.ok(aDTO);
@@ -53,7 +53,7 @@ public class BookingController {
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> bookingDelete(@PathVariable("id") Integer id) {
         bookingService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
