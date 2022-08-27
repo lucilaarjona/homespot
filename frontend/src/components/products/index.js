@@ -9,6 +9,25 @@ const ProductList = () => {
   const { categorieSelected } = useContext(CategoryContext);
   const [productsFilter, setProductsFilter] = useState([]);
 
+
+  const [products, setProducts] = useState([])
+  const loadData = () => {
+    axios.get("http://18.118.83.144:8080/product")
+      .then(res => {
+        setProducts(res.data)
+      })
+  };
+
+  useEffect(loadData,[])
+
+
+
+  useEffect(()=>{
+    if (categorieSelected === "") {
+      setProductsFilter(products.sort(()=>Math.random()- 0.5));
+    }},[categorieSelected, products])
+
+
   useEffect(() => {
     if (categorieSelected === "") {
       setProductsFilter(products);
@@ -18,7 +37,11 @@ const ProductList = () => {
       );
       setProductsFilter(getFilterByCategory);
     }
-  }, [categorieSelected]);
+  },[categorieSelected, products]);
+
+
+
+
 
   const [products, setProducts] = useState([])
   const loadData = () => {

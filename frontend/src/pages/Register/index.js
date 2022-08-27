@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
@@ -31,6 +31,9 @@ export const Register = ({showValues}) => {
     password: "",
     confirmPassword: ""
   };
+  useEffect(()=>{
+    document.title = `Crear cuenta`;
+  })
   
   return (
     <RegisterStyled>

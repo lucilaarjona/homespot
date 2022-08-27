@@ -35,7 +35,7 @@ const Product = () => {
   const [products, setProducts] = useState("");
   const loadData = async () => {
     try {
-      await axios.get(`http://localhost:8080/product/${id}`).then((res) => {
+      await axios.get(`http://18.118.83.144:8080/product/${id}`).then((res) => {
         setProducts(res.data);
       });
     } catch (error) {
@@ -43,11 +43,13 @@ const Product = () => {
     }
   };
 
-  console.log(products.features);
-
   useEffect(() => {
     loadData();
-  }, []);
+  });
+
+  useEffect(()=>{
+    document.title = `${products.name}  |  HomeSpot`;
+  })
 
   //Calendario
   const date = new Date();
