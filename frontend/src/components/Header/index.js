@@ -56,7 +56,7 @@ const Header = () => {
               <div className="slogan">Feels like home</div>
             </Logo>
           </Link>
-          <button onClick={() => navigate("/register")}> Crear cuenta.</button>
+          <button onClick={() => navigate("/register")}> Crear cuenta</button>
         </HeaderStyled>
       );
     }  else if(pathname === "/home"){
