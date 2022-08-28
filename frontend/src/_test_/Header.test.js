@@ -4,7 +4,6 @@ import "@testing-library/jest-dom"
 import { fireEvent, screen, act, render, waitFor } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom";
 import React from "react"
-import { create } from "react-test-renderer"
 let component2 = null;
 
 beforeEach(() => {
@@ -13,7 +12,6 @@ beforeEach(() => {
         < BrowserRouter>
             < Header />
         </BrowserRouter>
-
     )
     expect(component2.container).toBeInTheDocument();
 
@@ -36,7 +34,6 @@ test('Render button creat cuenta', async () => {
        fireEvent.click(buttonCrearCuenta);
     })
  
-
     expect(buttonCrearCuenta).not.visible;
 });
 

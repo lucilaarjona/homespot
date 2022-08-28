@@ -13,8 +13,8 @@ beforeEach(() => {
     )
     expect(component.container).toBeInTheDocument();
 })
-test(' render of HOME', () => {
+test('render of HOME', () => {
    const home = render(<Home/>);
- expect(home).toBeTruthy();
-})
+   expect(home).toBeTruthy();
+});
 
