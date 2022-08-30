@@ -1,6 +1,6 @@
 import Category from "../components/Category/index"
 import { render } from "@testing-library/react";
-import { BrowserRouter,Routes, Route} from 'react-router-dom'
+import { BrowserRouter} from 'react-router-dom'
 import React from "react";
 import "@testing-library/jest-dom"
 
@@ -17,17 +17,10 @@ beforeEach(() => {
 
 
 test('render of Category', () => {
-    const componentCategoria = render (
+    const componentCategory = render (
         <BrowserRouter>
             <Category />
         </BrowserRouter>
     )
-    expect(componentCategoria.container).toBeInTheDocument();
+    expect(componentCategory.container).toMatchObject();
 });
-
-
-test('render of  title', () => {
-    // expect(component.container.querySelector('input[title]'))
-})
-
-

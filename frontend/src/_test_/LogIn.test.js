@@ -48,17 +48,7 @@ test(' the inmput Password Accepts text ', async () => {
     expect(inputPassword.value).toMatch("Hello");
 });
 
-test('Simulation writing info', async () => {
-    const emailInput = component.container.querySelector('input[type="email"]');
-    const passwordInput = component.container.querySelector('input[type="password"]');
-    const button = component.getByRole('button');
-    act(() => {
-        fireEvent.change(emailInput, { target: { value: 'mbrthy@hotmail.com' } })
-        fireEvent.change(passwordInput, { target: { value: '1231543' } })
-        fireEvent.click(button)
-    });
-    expect(button).not.toBeInTheDocument();
-});
+
 
 test('button register', () => {
     const buttonRegister = screen.getByRole("button", { name: /Ingresar/ });
@@ -79,24 +69,81 @@ test('error  email without @', async () => {
 
 });
 
-test ("Reacts to url changes when touching the button", async () => {
-    
-    const button =  screen.findByRole("link", {name: "Registrar"});
-    
-    userEvent.click(button);
+test("renders component", () => {
 
-    expect(button.value)
-
+    const user = {
+        email: "b@.com",
+        password: "password"
+      };
+    const { container } = render(
+      <form user={user} handleSubmit={() => {}} handleChange={() => {}} />
+    );
+    expect(container).toMatchSnapshot();
   });
 
-test("should throw error when try to send empty imput",  async () => {
-
+  test("should disable the button when one of user data is missing", () => {
     const button = component.getByRole('button');
-    
-    act(() => {
-        userEvent.click(button);
-    });
+    expect(button).toThrowError();
+  });
 
-    expect(component.container.getElementsByTextContent('Por favor vuelva a intentarlo, sus credenciales son invalidas').toBeInTheDocument());
+//test("Reacts to url changes when touching the button", async () => {
 
-});
+ //   const button = screen.findByRole("link", { name: "Registrar" });
+
+ //   userEvent.click(button);
+
+ //   expect(button.value)
+
+//});
+
+//test("should throw error when try to send empty imput", async () => {
+
+ //   const button = component.getByRole('button');
+
+  //  act(() => {
+ //       userEvent.click(button);
+ //   });
+
+ //   expect(component.container.getElementsByTextContent('Por favor vuelva a intentarlo, sus credenciales son invalidas').toBeInTheDocument());
+
+//});
+
+//test('Simulation writing info', async () => {
+//    const emailInput = component.container.querySelector('input[type="email"]');
+ //   const passwordInput = component.container.querySelector('input[type="password"]');
+//    const inputSubmit = component.container.querySelector("button")
+   // const button = component.getByRole('button');
+///    act(() => {
+ //       fireEvent.change(emailInput, { target: { value: 'mbrthy@hotmail.com' } })
+  //      fireEvent.change(passwordInput, { target: { value: '1231543' } })
+  //      fireEvent.click(inputSubmit)
+ //   });
+ //   expect(inputSubmit).not.toBeInTheDocument();
+//});
+
+
+//*test(' button submit on the form is working', () => {
+//    const testData = { email: 'mbrthy@hotmail.com', password: '1231543' }
+
+ //   const mockFn = jest.fn();
+
+ //   render(<logIn createTask={mockFn} />)
+
+ //   const emailInput = component.container.querySelector('input[type="email"]');
+  //  const passwordInput = component.container.querySelector('input[type="password"]');
+  //  const inputSubmit = component.container.querySelector("button")
+
+
+
+  //  userEvent.clear(emailInput)
+ //   userEvent.type(emailInput, testData.email);
+
+//    userEvent.clear(passwordInput)
+  //  userEvent.type(passwordInput, testData.password);
+
+  //  userEvent.click(inputSubmit)
+
+ //   const returnData = mockFn.mock.calls[0][0];
+ //   expect(returnData).toMatchObject(testData);
+
+//* */})

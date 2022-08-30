@@ -21,11 +21,9 @@ test('render the footer', () => {
     expect(component.container).toBeInTheDocument();
 });
 
-
 test('render icons', () => {
     expect(component.icon);
 })
-
 
 test('render copyrights', () => {
     expect(component.copyrights).toBeInTheDocument;
@@ -37,6 +35,5 @@ test('Snasphot of Footer', () => {
              <Footer />
          </BrowserRouter>
     ).toJSON();
-
     expect(snfooter).toMatchSnapshot(); 
 });

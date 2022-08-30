@@ -15,6 +15,6 @@ beforeEach(() => {
 })
 test('render of HOME', () => {
    const home = render(<Home/>);
-   expect(home).toBeTruthy();
+   expect(home).toBeInTheDocument();
 });
 
