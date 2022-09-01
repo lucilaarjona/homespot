@@ -3,14 +3,14 @@ import { useEffect, useState, useContext } from "react";
 import CardCategory from "./CardCategory";
 import { Categories, Cointaner, Section } from "./CardCategoryStyled";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import axios from "axios";
 import { CategoryContext } from "../../context/CategoryContext";
+import axiosHelper from "../../helper/axiosHelper";
 
 const Category = ({ handlerFilter }) => {
   const [categories, setCategories] = useState([]);
   const { setCategorieSelected } = useContext(CategoryContext);
   const loadData = () => {
-    axios.get("http://18.118.83.144:8080/category").then((res) => {
+    axiosHelper.get("/category").then((res) => {
       setCategories(res.data);
     });
   };

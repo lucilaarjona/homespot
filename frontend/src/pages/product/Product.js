@@ -26,7 +26,7 @@ import HvacIcon from '@mui/icons-material/Hvac';
 import WifiIcon from '@mui/icons-material/Wifi';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 import PetsIcon from '@mui/icons-material/Pets';
-import axios from "axios";
+import axiosHelper from "../../helper/axiosHelper";
 
 const Product = () => {
   //Ruta dinamica
@@ -35,7 +35,7 @@ const Product = () => {
   const [products, setProducts] = useState("");
   const loadData = async () => {
     try {
-      await axios.get(`http://18.118.83.144:8080/product/${id}`).then((res) => {
+      await axiosHelper.get(`/product/${id}`).then((res) => {
         setProducts(res.data);
       });
     } catch (error) {

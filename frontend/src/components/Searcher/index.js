@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 import { SearcherStyled } from "./SearcherStyled.js";
-import axios from "axios"
+import axiosHelper from "../../helper/axiosHelper.js";
 
 function Searcher() {
   const handSelectChange = ({ value }) => {
@@ -16,7 +16,7 @@ function Searcher() {
 
   const [city, setCity] = useState([])
   const loadData = () => {
-    axios.get("http://18.118.83.144:8080/city")
+    axiosHelper.get("/city")
       .then(res => {
         setCity(res.data)
       })

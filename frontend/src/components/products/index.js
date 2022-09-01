@@ -3,22 +3,13 @@ import React, {  useContext ,useEffect, useState } from "react";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
-import axios from "axios";
+import { ProductContext } from "../../context/ProductContext";
 
 const ProductList = () => {
   const { categorieSelected } = useContext(CategoryContext);
   const [productsFilter, setProductsFilter] = useState([]);
 
-
-  const [products, setProducts] = useState([])
-  const loadData = () => {
-    axios.get("http://18.118.83.144:8080/product")
-      .then(res => {
-        setProducts(res.data)
-      })
-  };
-
-  useEffect(loadData,[])
+  const {products}= useContext(ProductContext)
 
 
 

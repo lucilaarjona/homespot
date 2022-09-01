@@ -8,6 +8,7 @@ import Product from "../pages/product/Product";
 import HomeUser from "../pages/homeUser";
 import Layout from "../components/Layout/Layout";
 import CategoryProvider from "../context/CategoryContext";
+import ProductProvider from "../context/ProductContext";
 
 const Routers = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -31,6 +32,7 @@ const Routers = () => {
   };
   return (
     <BrowserRouter>
+    <ProductProvider>
       <CategoryProvider>
         <Layout>
           <Routes>
@@ -47,6 +49,7 @@ const Routers = () => {
           </Routes>
         </Layout>
       </CategoryProvider>
+      </ProductProvider>
     </BrowserRouter>
   );
 };
