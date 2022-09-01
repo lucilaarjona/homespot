@@ -8,6 +8,7 @@ import Product from "../pages/product/Product";
 import HomeUser from "../pages/homeUser";
 import Layout from "../components/Layout/Layout";
 import CategoryProvider from "../context/CategoryContext";
+import CityProvider from "../context/CityContext";
 import ProductProvider from "../context/ProductContext";
 
 const Routers = () => {
@@ -33,6 +34,7 @@ const Routers = () => {
   return (
     <BrowserRouter>
     <ProductProvider>
+    <CityProvider>
       <CategoryProvider>
         <Layout>
           <Routes>
@@ -49,6 +51,7 @@ const Routers = () => {
           </Routes>
         </Layout>
       </CategoryProvider>
+      </CityProvider>
       </ProductProvider>
     </BrowserRouter>
   );

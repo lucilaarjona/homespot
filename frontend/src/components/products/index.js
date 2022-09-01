@@ -3,11 +3,14 @@ import React, {  useContext ,useEffect, useState } from "react";
 import Product from "./Product";
 import { ProductStyled } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
+import { CityContext } from "../../context/CityContext";
 import { ProductContext } from "../../context/ProductContext";
 
 const ProductList = () => {
+  const {citySelected} = useContext(CityContext);
   const { categorieSelected } = useContext(CategoryContext);
   const [productsFilter, setProductsFilter] = useState([]);
+
 
   const {products}= useContext(ProductContext)
 
@@ -17,6 +20,17 @@ const ProductList = () => {
     if (categorieSelected === "") {
       setProductsFilter(products.sort(()=>Math.random()- 0.5));
     }},[categorieSelected, products])
+
+    useEffect(() => {
+      if (citySelected === "") {
+        setProductsFilter(products);
+      } else {
+        const getFilterByCity = products.filter(
+          (product) => product.city.name === citySelected
+        );
+        setProductsFilter(getFilterByCity);
+      }
+    },[citySelected, products]);
 
 
   useEffect(() => {
@@ -36,7 +50,8 @@ const ProductList = () => {
 
   return (
     <ProductStyled>
-    {!categorieSelected ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
+    {!categorieSelected  ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
+    {/* {citySelected ? (<> <h1 className="titleSection">Nuestras recomendaciones en {citySelected}</h1> </> ): null} */}
       <section className="productList">
         {productsFilter.map((product, index) => {
           return (

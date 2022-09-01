@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import DateRangeComp from "./DateRangeComp.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,10 +8,13 @@ import {
 import Select from "react-select";
 import { SearcherStyled } from "./SearcherStyled.js";
 import axiosHelper from "../../helper/axiosHelper.js";
+import {CityContext} from '../../context/CityContext'
 
 function Searcher() {
+
+  const [citySearch, setCitySearch] = useState("")
   const handSelectChange = ({ value }) => {
-    console.log(value);
+    setCitySearch(value);
   };
 
   const [city, setCity] = useState([])
@@ -21,8 +24,9 @@ function Searcher() {
         setCity(res.data)
       })
   };
-
   useEffect(loadData,[])
+
+  const {setCitySelected} = useContext(CityContext)
 
   return (
     <SearcherStyled>
@@ -61,7 +65,7 @@ function Searcher() {
             />
           </div>
           <DateRangeComp className="Calendar" />
-          <button disabled className="search">
+          <button type="button" onClick={() => setCitySelected(citySearch) } className="search">
             Buscar
           </button>
         </form>
