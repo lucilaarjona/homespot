@@ -2,7 +2,6 @@ import styled from "styled-components";
 import colors from "../colors.json";
 
 export const Cointaner = styled.div`
-  height: 6rem;
 `;
 
 export const FooterStyled = styled.footer`
