@@ -1,8 +1,32 @@
 import styled from "styled-components";
 import colors from '../colors.json'
+
+
+
+export const Divc= styled.div`
+
+@media (min-width:768px) {
+
+  padding-bottom: 12%;
+}
+
+@media (min-width:1365px) {
+
+  padding-bottom: 8%;
+}
+
+
+`
+
+
+
 export const ProductStyled = styled.section`
 justify-content:center;
 align-items: center;
+
+
+
+
 .titleSection{
   color: ${colors[0].principal};
   display: flex;

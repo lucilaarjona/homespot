@@ -1,7 +1,7 @@
 import React, {  useContext ,useEffect, useState } from "react";
 // import Products from "./Products.json";
 import Product from "./Product";
-import { ProductStyled } from "./ProductStyled";
+import { ProductStyled, Divc } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
 import { CityContext } from "../../context/CityContext";
 import { ProductContext } from "../../context/ProductContext";
@@ -49,9 +49,12 @@ const ProductList = () => {
 
 
   return (
+
+     <Divc>
     <ProductStyled>
     {!categorieSelected  ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
     {/* {citySelected ? (<> <h1 className="titleSection">Nuestras recomendaciones en {citySelected}</h1> </> ): null} */}
+   
       <section className="productList">
         {productsFilter.map((product, index) => {
           return (
@@ -73,10 +76,14 @@ const ProductList = () => {
               wifi = {product.features.wifi}
 
             />
+         
           );
         })}
       </section>
+      
     </ProductStyled>
+    </Divc>
+  
   );
 };
 
