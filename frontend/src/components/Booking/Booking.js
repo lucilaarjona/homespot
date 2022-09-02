@@ -5,7 +5,7 @@ const Booking = () => {
 
     return (
         <>
-            <HeaderProduct />
+            <HeaderProduct/>
         </>
     )
 }

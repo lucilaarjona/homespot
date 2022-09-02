@@ -6,43 +6,30 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 
 const HeaderProduct = () => {
     const { id } = useParams()
-    const [product, setProduct] = useState({})
-    // const loadData = async () => {
-    //     try { await axiosHelper.get(`/product/${id}`).then((res) => { setProduct(res.data) }) }
-    //     catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // useEffect(() => { loadData() }, [loadData])
+    const [product, setProduct] = useState("");
 
     useEffect(() => {
         const loadData = async () => {
-            try {
                 await axiosHelper.get(`/product/${id}`).then((res) => {
                     setProduct(res.data);
                 });
-            } catch (error) {
-                console.log(error);
-            }
         };
         loadData();
     }, [id]);
-    // console.log(product);
 
     return (
         <>
-            <header>
+            {product ? (<header>
                 <div className="title">
-                    {/* <div id="categorie">{product.category.title}</div> */}
-
+                    <div >{product.category.title}</div>
                     <div id="name">{product.name}</div>
                 </div>
                 <div className="back">
-                    <Link to="/">
+                    <Link to={`/product/${id}`}>
                         <ArrowBackIcon className="iconBack" />
                     </Link>
                 </div>
-            </header>
+            </header>):null}
         </>
     )
 }
