@@ -1,12 +1,9 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { ProductStyled } from "./ProductStyled";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link, useParams } from "react-router-dom";
 import ImageViewer from "react-simple-image-viewer";
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
-import StarIcon from "@mui/icons-material/Star";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
 import PoolIcon from "@mui/icons-material/Pool";
@@ -27,6 +24,7 @@ import WifiIcon from '@mui/icons-material/Wifi';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 import PetsIcon from '@mui/icons-material/Pets';
 import axiosHelper from "../../helper/axiosHelper";
+import { HeaderProduct } from "../../components/HeaderProduct";
 
 const Product = () => {
   //Ruta dinamica
@@ -81,31 +79,7 @@ const Product = () => {
     <ProductStyled>
       {products ? (
         <>
-          <header>
-            <div className="title">
-              <div id="categorie">{products.category.title}</div>
-
-              <div id="name">{products.name}</div>
-            </div>
-            <div className="back">
-              <Link to="/">
-                <ArrowBackIcon className="iconBack" />
-              </Link>
-            </div>
-          </header>
-          <section>
-            <div className="ubication">
-              <div>
-                <LocationOnIcon className="iconLocation" />
-                {products.city.name}, {products.city.country}
-              </div>
-            </div>
-            <div className="score">
-              <div className="scoreTitle">
-                Puntuacion: 4 <StarIcon className="iconStar" />{" "}
-              </div>
-            </div>
-          </section>
+          <HeaderProduct />
           <div className="containerSlider">
             <div className="container">
               <input type="radio" name="slider" id="item-1" defaultChecked />

@@ -11,6 +11,7 @@ import CategoryProvider from "../context/CategoryContext";
 import CityProvider from "../context/CityContext";
 import ProductProvider from "../context/ProductContext";
 import Booking from "../components/Booking/Booking";
+import UserProvider from "../context/UserContext";
 
 const Routers = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -34,29 +35,31 @@ const Routers = () => {
   };
   return (
     <BrowserRouter>
-      <ProductProvider>
-        <CityProvider>
-          <CategoryProvider>
-            <Layout>
-              <Routes>
-                <Route path="/product/:id" element={<Product />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/logIn" element={<LogIn {...logInProps} />} />
-                <Route
-                  path="/register"
-                  element={<Register showValues={showValues} />}
-                />
-                <Route
-                  path="/product/:id/booking" element={<Booking />}
-                />
-                <Route element={<ProtectedRoutes isLogged={isLogged} />}>
-                  <Route path="/home" element={<HomeUser user={user} />} />
-                </Route>
-              </Routes>
-            </Layout>
-          </CategoryProvider>
-        </CityProvider>
-      </ProductProvider>
+      <UserProvider>
+        <ProductProvider>
+          <CityProvider>
+            <CategoryProvider>
+              <Layout>
+                <Routes>
+                  <Route path="/product/:id" element={<Product />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/logIn" element={<LogIn {...logInProps} />} />
+                  <Route
+                    path="/register"
+                    element={<Register showValues={showValues} />}
+                  />
+                  <Route
+                    path="/product/:id/booking" element={<Booking />}
+                  />
+                  <Route element={<ProtectedRoutes isLogged={isLogged} />}>
+                    <Route path="/home" element={<HomeUser user={user} />} />
+                  </Route>
+                </Routes>
+              </Layout>
+            </CategoryProvider>
+          </CityProvider>
+        </ProductProvider>
+      </UserProvider>
     </BrowserRouter>
   );
 };
