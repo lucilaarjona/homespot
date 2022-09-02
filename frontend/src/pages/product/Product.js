@@ -33,21 +33,21 @@ const Product = () => {
   const { id } = useParams();
   //llamado a la api
   const [products, setProducts] = useState("");
-  const loadData = async () => {
-    try {
-      await axiosHelper.get(`/product/${id}`).then((res) => {
-        setProducts(res.data);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
+    const loadData = async () => {
+      try {
+        await axiosHelper.get(`/product/${id}`).then((res) => {
+          setProducts(res.data);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
     loadData();
-  });
+  }, [id]);
 
-  useEffect(()=>{
+  useEffect(() => {
     document.title = `${products.name}  |  HomeSpot`;
   })
 
@@ -118,28 +118,28 @@ const Product = () => {
                 <label className="card" id="selector-1" htmlFor="item-1">
                   <img
                     alt={products.images[0].title}
-                    src= {products.images[0].url}
+                    src={products.images[0].url}
                   />
                 </label>
                 <label className="card" id="selector-2" htmlFor="item-2">
                   <img
                     alt={products.images[1].title}
-                    src= {products.images[1].url}                  />
+                    src={products.images[1].url} />
                 </label>
                 <label className="card" id="selector-3" htmlFor="item-3">
                   <img
                     alt={products.images[2].title}
-                    src= {products.images[2].url}                  />
+                    src={products.images[2].url} />
                 </label>
                 <label className="card" id="selector-4" htmlFor="item-4">
                   <img
                     alt={products.images[3].title}
-                    src= {products.images[3].url}                  />
+                    src={products.images[3].url} />
                 </label>
                 <label className="card" id="selector-5" htmlFor="item-5">
                   <img
                     alt={products.images[4].title}
-                    src= {products.images[4].url}                  />
+                    src={products.images[4].url} />
                 </label>
               </div>
               <button onClick={() => openImageViewer()} className="images">
@@ -156,7 +156,7 @@ const Product = () => {
                   backgroundColor: "rgba(0,0,0,0.9)",
                 }}
                 closeOnClickOutside={true}
-                className = "viewImages"
+                className="viewImages"
               />
             )}
             <div className="description">
@@ -165,14 +165,14 @@ const Product = () => {
               <div>
                 <h2 className="features">Qué ofrece este lugar?</h2>
                 <ul className="featuresList">
-                  {products.features.ac ? <><li> <AirIcon className="featuresIcon" /> A/C </li></>   : null}
-                  {products.features.gym ? <><li> <FitnessCenterIcon className="featuresIcon" /> Gym </li></>   : null}
-                  {products.features.grill ? <><li> <OutdoorGrillIcon className="featuresIcon" /> BBQ </li></>   : null}
-                  {products.features.pool ? <><li> <PoolIcon className="featuresIcon" /> Piscina </li></>   : null}
-                  {products.features.wifi ? <><li> <WifiIcon className="featuresIcon" /> Wi-fi</li></>   : null}
-                  {products.features.heating ? <> <li><HvacIcon className="featuresIcon" />Calefaccion</li> </>   : null}
-                  {products.features.laundry ? <> <li> <DryCleaningIcon className="featuresIcon" />Lavanderia</li></>   : null}
-                  {products.features.pets ? <> <li><PetsIcon className="featuresIcon" />Recibe mascotas</li></>  : null}
+                  {products.features.ac ? <><li> <AirIcon className="featuresIcon" /> A/C </li></> : null}
+                  {products.features.gym ? <><li> <FitnessCenterIcon className="featuresIcon" /> Gym </li></> : null}
+                  {products.features.grill ? <><li> <OutdoorGrillIcon className="featuresIcon" /> BBQ </li></> : null}
+                  {products.features.pool ? <><li> <PoolIcon className="featuresIcon" /> Piscina </li></> : null}
+                  {products.features.wifi ? <><li> <WifiIcon className="featuresIcon" /> Wi-fi</li></> : null}
+                  {products.features.heating ? <> <li><HvacIcon className="featuresIcon" />Calefaccion</li> </> : null}
+                  {products.features.laundry ? <> <li> <DryCleaningIcon className="featuresIcon" />Lavanderia</li></> : null}
+                  {products.features.pets ? <> <li><PetsIcon className="featuresIcon" />Recibe mascotas</li></> : null}
                 </ul>
               </div>
             </div>
@@ -191,7 +191,7 @@ const Product = () => {
                 minDate={date}
                 maxDate={maxDate}
               />
-               <DateRange
+              <DateRange
                 onChange={(item) => setRange([item.selection])}
                 editableDateInputs={false}
                 moveRangeOnFirstSelection={false}
@@ -207,7 +207,9 @@ const Product = () => {
               <span>
                 Agrega tus fechas de viaje para obtener precios exactos{" "}
               </span>
-              <button>Iniciar reserva</button>
+              <Link to={`/product/${id}/booking`}>
+                <button> Iniciar reserva</button>
+              </Link>
             </div>
           </div>
           <div className="policies">
