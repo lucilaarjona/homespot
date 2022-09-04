@@ -54,10 +54,22 @@ const Category = ({ handlerFilter }) => {
           </div>
         </Cointaner>
       ) : (
-        <div>Cargando categorias......</div>
+        <>
+        
+      <div class="text-center" style={{marginBottom:"300px"}}>
+      <div style={{fontSize:"28px"}}>Cargando...</div>
+  <div class="spinner-border" role="status" style={{color:"#FC4C4E", fontSize:"28px"}}>
+    
+  </div>
+</div>
+</>
+    
+        
       )}
     </Section>
   );
 };
 
 export default Category;
+
+

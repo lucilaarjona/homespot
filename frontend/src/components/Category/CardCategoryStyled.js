@@ -5,6 +5,17 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
+  
+  .collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height .60s ease;
+  }
+
+  
+
+
+
   .title {
     display: flex;
     flex-direction: row;

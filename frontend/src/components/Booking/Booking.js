@@ -9,26 +9,33 @@ const Booking = () => {
             <BookingStyle>
                 <div>
                     <h2>Completá tus datos</h2>
-                    <div class="form">
-                        <div class="label">
-                            <label htmlFor="">Nombre</label>
-                            <input type="text" />
+                    <div className="form">
+                        <div className="label" >
+                            <label>Nombre</label>
+                            <input type="text" disabled />
                         </div>
-                        <div>
-                            <label htmlFor="">Apellido</label>
-                            <input type="text" />
+                        <div  className="label">
+                            <label>Apellido</label>
+                            <input type="text"  disabled/>
                         </div>
-                        <div>
-                            <label htmlFor="">Correo electronico</label>
-                            <input type="email" />
+                        <div  className="label" >
+                            <label>Correo electronico</label>
+                            <input type="email" disabled />
                         </div>
-                        <div>
-                            <label htmlFor="">Ciudad</label>
-                            <input type="text" />
+                        <div  className="label">
+                            <label>Ciudad</label>
+                            <input type="text"  required/>
                         </div>
                     </div>
                 </div>
-                <div>Chau</div>
+
+                <div className="container">
+             
+                <div className="calendar">CALENDARIO</div>
+                <div className="select">SELECT</div>
+                </div>
+             
+                <div className="bookingDatail">DETALLE DE LA RESERVA</div>
             </BookingStyle>
 
         </>
