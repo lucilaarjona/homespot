@@ -1,7 +1,13 @@
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 import HeaderProduct from "../HeaderProduct/HeaderProduct"
 import { BookingStyle } from "./BookingStyle"
+import { CityContext } from "../../context/CityContext"
 
 const Booking = () => {
+
+    const {user} = useContext(UserContext)
+    const {citySelected} = useContext(CityContext)
 
     return (
         <>
@@ -9,22 +15,22 @@ const Booking = () => {
             <BookingStyle>
                 <div>
                     <h2>Completá tus datos</h2>
-                    <div class="form">
-                        <div class="label">
+                    <div className="form">
+                        <div className="label">
                             <label htmlFor="">Nombre</label>
-                            <input type="text" />
+                            <input placeholder={user.first_name} disabled type="text" />
                         </div>
-                        <div>
+                        <div className="label">
                             <label htmlFor="">Apellido</label>
-                            <input type="text" />
+                            <input placeholder={user.last_name} disabled type="text" />
                         </div>
-                        <div>
+                        <div className="label">
                             <label htmlFor="">Correo electronico</label>
                             <input type="email" />
                         </div>
-                        <div>
+                        <div className="label">
                             <label htmlFor="">Ciudad</label>
-                            <input type="text" />
+                            <input placeholder={citySelected} disabled type="text" />
                         </div>
                     </div>
                 </div>

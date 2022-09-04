@@ -28,6 +28,9 @@ export const BookingStyle = styled.section`
             display:flex;
             flex-direction: column;
         }
+        input{
+            background-color: white;
+        }
     }
 
 `
