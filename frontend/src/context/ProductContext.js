@@ -18,7 +18,6 @@ const ProductProvider = ({children}) => {
         axiosHelper.get(`/product`)
           .then(res => {
             setProducts(res.data)
-            console.log(res.data);
           })
       };
     

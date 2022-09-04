@@ -1,7 +1,13 @@
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 import HeaderProduct from "../HeaderProduct/HeaderProduct"
 import { BookingStyle } from "./BookingStyle"
+import { CityContext } from "../../context/CityContext"
 
 const Booking = () => {
+
+    const {user} = useContext(UserContext)
+    const {citySelected} = useContext(CityContext)
 
     return (
         <>
@@ -10,21 +16,21 @@ const Booking = () => {
                 <div>
                     <h2>Completá tus datos</h2>
                     <div className="form">
-                        <div className="label" >
-                            <label>Nombre</label>
-                            <input type="text" disabled />
+                        <div className="label">
+                            <label htmlFor="">Nombre</label>
+                            <input placeholder={user.first_name} disabled type="text" />
                         </div>
-                        <div  className="label">
-                            <label>Apellido</label>
-                            <input type="text"  disabled/>
+                        <div className="label">
+                            <label htmlFor="">Apellido</label>
+                            <input placeholder={user.last_name} disabled type="text" />
                         </div>
-                        <div  className="label" >
-                            <label>Correo electronico</label>
-                            <input type="email" disabled />
+                        <div className="label">
+                            <label htmlFor="">Correo electronico</label>
+                            <input type="email" />
                         </div>
-                        <div  className="label">
-                            <label>Ciudad</label>
-                            <input type="text"  required/>
+                        <div className="label">
+                            <label htmlFor="">Ciudad</label>
+                            <input placeholder={citySelected} disabled type="text" />
                         </div>
                     </div>
                 </div>

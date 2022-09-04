@@ -26,7 +26,7 @@ const ProductList = () => {
         setProductsFilter(products);
       } else {
         const getFilterByCity = products.filter(
-          (product) => product.city.name === citySelected
+          (product) => `${product.city.name},${product.city.country}` === citySelected
         );
         setProductsFilter(getFilterByCity);
       }

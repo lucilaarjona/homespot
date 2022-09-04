@@ -17,6 +17,7 @@ function Searcher() {
     setCitySearch(value);
   };
 
+
   const [city, setCity] = useState([])
   const loadData = () => {
     axiosHelper.get("/city")
@@ -59,7 +60,7 @@ function Searcher() {
                     </div>
                   </div>
                 ),
-                value: city.name,
+                value: `${city.name},${city.country}`,
               }))}
               onChange={handSelectChange}
             />
