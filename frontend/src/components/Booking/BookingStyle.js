@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../components/colors.json";
 
 export const BookingStyle = styled.section`
   h2 {
@@ -29,6 +30,125 @@ export const BookingStyle = styled.section`
   input:focus {
     outline: none !important;
   }
+   .calendarElementDesktop{
+    display: none;
+  }
+  .calendar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .calendar h2 {
+    color: ${colors[0].titles};
+  }
+  .rdrCalendarWrapper {
+    font-size: 12px;
+    width: 100%;
+  }
+  .rdrDateDisplayWrapper {
+    background-color: white;
+    cursor: default;
+  }
+  .rdrDateDisplayItemActive {
+    color: white;
+  }
+  .rdrDateDisplayItemActive input {
+    color: none;
+  }
+  .rdrMonths {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rdrMonthName {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .rdrDateDisplayItem input {
+    cursor: default;
+    color: ${colors[0].titles};
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+  }
+
+  .rdrDateDisplayItem {
+    cursor: default;
+    color: ${colors[0].titles};
+    font-weight: bold;
+    box-shadow: none;
+    border: none;
+  }
+
+  .rdrDateInput {
+    cursor: default;
+  }
+
+  .rdrMonthAndYearPickers select {
+    color: ${colors[0].titles};
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .rdrMonthName {
+    color: ${colors[0].titles};
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .rdrWeekDay {
+    font-weight: bold;
+    color: ${colors[0].titles};
+  }
+
+  .rdrDayNumber {
+    font-weight: bold;
+    color: ${colors[0].titles};
+  }
+
+  .rdrEndEdge {
+    background: ${colors[0].principal};
+  }
+
+  .rdrStartEdge {
+    background: ${colors[0].principal};
+  }
+
+  .rdrInRange {
+    background: ${colors[0].principal};
+  }
+  .rdrDayHovered {
+    border: none;
+  }
+  .rdrDayInPreview {
+    border: none;
+  }
+  .rdrDayToday {
+    border: none;
+  }
+  .rdrDayStartPreview {
+    border: none;
+  }
+  .rdrDayEndPreview {
+    border: 2px solid ${colors[0].principal};
+  }
+  .rdrDayDisabled {
+    text-decoration: underline;
+  }
+  .rdrDayToday .rdrDayNumber span:after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: ${colors[0].principal};
+  }
+span .rdrYearPicker select {
+    position: relative;
+  }
 
   @media (min-width: 768px) {
     h2 {
@@ -51,6 +171,14 @@ export const BookingStyle = styled.section`
     input {
       padding: 0.4rem;
     }
+    .calendarElementDesktop{
+    display: none;
+  }
+
+  .rdrCalendarWrapper {
+    font-size: 16px;
+    width: 100%;
+  }
   }
 
   @media (min-width: 1365px) {
@@ -61,7 +189,7 @@ export const BookingStyle = styled.section`
     margin-top: 50px; */
 
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
 
     h2 {
       font-size: 30px;
@@ -88,7 +216,6 @@ export const BookingStyle = styled.section`
       margin: 1%;
       height: 18rem;
       row-gap: 18%;
-      order: 1;
     }
     input {
       padding: 0.8rem;
@@ -118,8 +245,20 @@ export const BookingStyle = styled.section`
    
 
     .bookingDatail {
-        order: 2;
+  
        
     }
+    .calendarElement{
+    display: none;
   }
+
+  .calendarElementDesktop{
+    display: contents;
+  }
+  .rdrCalendarWrapper {
+    font-size: 14px;
+    width: 100%;
+  }
+  }
+
 `;
