@@ -1,10 +1,13 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import HeaderProduct from "../HeaderProduct/HeaderProduct"
 import { BookingStyle } from "./BookingStyle"
 import { CityContext } from "../../context/CityContext"
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
+import { useParams } from "react-router-dom"
+import axiosHelper from "../../helper/axiosHelper"
+import Select from "react-select"
 
 const Booking = () => {
 
@@ -21,11 +24,60 @@ const Booking = () => {
             key: "selection",
         },
     ]);
+    const { id } = useParams()
+    const [product, setProduct] = useState("");
+    useEffect(() => {
+        const loadData = async () => {
+            await axiosHelper.get(`/product/${id}`).then((res) => {
+                setProduct(res.data);
+            });
+        };
+        loadData();
+    }, [id]);
+
+    const startDate = (range[0].startDate).toLocaleString()
+    const checkInDate = startDate.split(",")
+
+    const endDate = (range[0].endDate).toLocaleString()
+    const checkOutDate = endDate.split(",")
+
+    const hours = [
+        { value: "00:00 AM", label: "00:00 AM" },
+        { value: "01:00 AM", label: "01:00 AM" },
+        { value: "02:00 AM", label: "02:00 AM" },
+        { value: "03:00 AM", label: "03:00 AM" },
+        { value: "04:00 AM", label: "04:00 AM" },
+        { value: "05:00 AM", label: "05:00 AM" },
+        { value: "06:00 AM", label: "06:00 AM" },
+        { value: "07:00 AM", label: "07:00 AM" },
+        { value: "08:00 AM", label: "08:00 AM" },
+        { value: "09:00 AM", label: "09:00 AM" },
+        { value: "10:00 AM", label: "10:00 AM" },
+        { value: "11:00 AM", label: "11:00 AM" },
+        { value: "12:00 PM", label: "12:00 PM" },
+        { value: "01:00 PM", label: "01:00 PM" },
+        { value: "02:00 PM", label: "02:00 PM" },
+        { value: "03:00 PM", label: "03:00 PM" },
+        { value: "04:00 PM", label: "04:00 PM" },
+        { value: "05:00 PM", label: "05:00 PM" },
+        { value: "06:00 PM", label: "06:00 PM" },
+        { value: "07:00 PM", label: "07:00 PM" },
+        { value: "08:00 PM", label: "08:00 PM" },
+        { value: "09:00 PM", label: "09:00 PM" },
+        { value: "10:00 PM", label: "10:00 PM" },
+        { value: "11:00 PM", label: "11:00 PM" },
+    ]
+
+    const [hour, setHour] = useState("")
+    const selectHour = ({ value }) => {
+        setHour(value)
+    }
+    console.log(hour);
     return (
         <>
             <HeaderProduct />
             <BookingStyle>
-                <div>
+                <div className="izquierda">
                     <h2>Completá tus datos</h2>
                     <div className="form">
                         <div className="label">
@@ -46,8 +98,8 @@ const Booking = () => {
                         </div>
                     </div>
 
-                    <div className="container">
 
+                    <div>
                         <div className="calendar">CALENDARIO</div>
                         <DateRange
                             onChange={(item) => setRange([item.selection])}
@@ -70,29 +122,39 @@ const Booking = () => {
                             minDate={date}
                             maxDate={maxDate}
                         />
-                        <div className="select">SELECT</div>
+                    </div>
+                    <h3>Tu horario de llegada</h3>
+                    <div>
+                        <p>Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</p>
+                        <p>Indicá tu horario de llegada</p>
+                        <Select
+                            defaultValue={{
+                                label: (
+                                    <span className="selectLabel">Seleccionar hora de llegada</span>
+                                ),
+                                value: "default",
+                            }}
+                            options={hours}
+                            onChange={selectHour}
+                        />
                     </div>
                 </div>
                 <div className="bookingDatail">DETALLE DE LA RESERVA
-                    {/* <div className="card" style={{ width: " 90%" }}>
-                        <img src="..." className="card-img-top" alt="..." />
+                    {product ? (<div className="card" style={{ width: " 90%" }}>
+                        <img src={product.images[0].url} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 className="card-title">{product.category.title}</h5>
+                            <h2 className="card-title"> {product.name} </h2>
+                            <p className="card-text">  {product.city.name}, {product.city.country}  </p>
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">An item</li>
-                            <li className="list-group-item">A second item</li>
-                            <li className="list-group-item">A third item</li>
+                            <li className="list-group-item">Check in: {checkInDate[0]} </li>
+                            <li className="list-group-item">Check out: {checkOutDate[0]} </li>
                         </ul>
-                        <div className="card-body">
-                            <a href="#" className="card-link">Card link</a>
-                            <a href="#" className="card-link">Another link</a>
-                        </div>
-                    </div> */}
+                        <button type="submit" className="btn btn-primary">Confirmar reserva</button>
+                    </div>) : null}
                 </div>
             </BookingStyle>
-
         </>
     )
 }

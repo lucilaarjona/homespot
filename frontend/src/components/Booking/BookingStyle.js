@@ -212,7 +212,7 @@ span .rdrYearPicker select {
 
       grid-template-columns: 44% 44%;
 
-      width: 70rem;
+
       margin: 1%;
       height: 18rem;
       row-gap: 18%;
@@ -224,29 +224,14 @@ span .rdrYearPicker select {
       font-size: 19px;
       margin-top: 8%;
     }
-
-    .container{
-        order: 3;
-       
-
+    .izquierda{
+      height: 110vh;
     }
-
-   
     .calendar {
-      
-       
     }
-
     .select {
-      
-      
     }
-
-   
-
     .bookingDatail {
-  
-       
     }
     .calendarElement{
     display: none;

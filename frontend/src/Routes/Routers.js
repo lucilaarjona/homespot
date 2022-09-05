@@ -48,10 +48,10 @@ const Routers = () => {
                     path="/register"
                     element={<Register showValues={showValues} />}
                   />
-                  <Route
-                    path="/product/:id/booking" element={<Booking />}
-                  />
                   <Route element={<ProtectedRoutes isLogged={isLogged} />}>
+                    <Route
+                      path="/product/:id/booking" element={<Booking />}
+                    />
                     <Route path="/home" element={<HomeUser user={user} />} />
                   </Route>
                 </Routes>
