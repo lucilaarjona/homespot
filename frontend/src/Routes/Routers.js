@@ -1,20 +1,21 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "../pages/Register";
 import LogIn from "../pages/LogIn";
 import Home from "../pages/home";
 import ProtectedRoutes from "../components/protectedRoutes/ProtectedRoutes";
 import Product from "../pages/product/Product";
-import HomeUser from "../pages/homeUser";
 import Layout from "../components/Layout/Layout";
 import CategoryProvider from "../context/CategoryContext";
 import CityProvider from "../context/CityContext";
 import ProductProvider from "../context/ProductContext";
 import Booking from "../components/Booking/Booking";
-import UserProvider from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 const Routers = () => {
-  const [isLogged, setIsLogged] = useState(false);
+
+  const {logged} = useContext(UserContext)
+
   const [user, setUser] = useState({
     email: " ",
     password: " ",
@@ -30,12 +31,10 @@ const Routers = () => {
     });
   };
   const logInProps = {
-    user,
-    setIsLogged,
+    user
   };
   return (
     <BrowserRouter>
-      <UserProvider>
         <ProductProvider>
           <CityProvider>
             <CategoryProvider>
@@ -48,18 +47,16 @@ const Routers = () => {
                     path="/register"
                     element={<Register showValues={showValues} />}
                   />
-                  <Route element={<ProtectedRoutes isLogged={isLogged} />}>
+                  <Route element={<ProtectedRoutes isLogged={logged} />}>
                     <Route
                       path="/product/:id/booking" element={<Booking />}
                     />
-                    <Route path="/home" element={<HomeUser user={user} />} />
                   </Route>
                 </Routes>
               </Layout>
             </CategoryProvider>
           </CityProvider>
         </ProductProvider>
-      </UserProvider>
     </BrowserRouter>
   );
 };

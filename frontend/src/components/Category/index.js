@@ -56,9 +56,9 @@ const Category = ({ handlerFilter }) => {
       ) : (
         <>
         
-      <div class="text-center" style={{marginBottom:"300px"}}>
+      <div className="text-center" style={{marginBottom:"300px"}}>
       <div style={{fontSize:"28px"}}>Cargando...</div>
-  <div class="spinner-border" role="status" style={{color:"#FC4C4E", fontSize:"28px"}}>
+  <div className="spinner-border" role="status" style={{color:"#FC4C4E", fontSize:"28px"}}>
     
   </div>
 </div>

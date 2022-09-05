@@ -77,7 +77,7 @@ const Booking = () => {
         <>
             <HeaderProduct />
             <BookingStyle>
-                <div className="izquierda">
+                <div className="left">
                     <h2>Completá tus datos</h2>
                     <div className="form">
                         <div className="label">
@@ -128,6 +128,7 @@ const Booking = () => {
                         <p>Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</p>
                         <p>Indicá tu horario de llegada</p>
                         <Select
+                        className="select"
                             defaultValue={{
                                 label: (
                                     <span className="selectLabel">Seleccionar hora de llegada</span>

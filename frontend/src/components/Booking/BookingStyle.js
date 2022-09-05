@@ -224,12 +224,13 @@ span .rdrYearPicker select {
       font-size: 19px;
       margin-top: 8%;
     }
-    .izquierda{
-      height: 110vh;
+    .left{
+      height: fit-content;
     }
     .calendar {
     }
     .select {
+      margin-bottom: 13%;
     }
     .bookingDatail {
     }

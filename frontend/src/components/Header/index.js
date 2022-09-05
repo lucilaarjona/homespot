@@ -4,11 +4,18 @@ import { HeaderStyled, Logo } from "./HeaderStyled";
 import MenuButton from "../MenuButton/MenuButton";
 import NavBar from "../NavBar/NavBar";
 import { CategoryContext } from "../../context/CategoryContext";
+import { UserContext } from "../../context/UserContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { setCategorieSelected } = useContext(CategoryContext);
+  const { logged } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+  // const firstInitial = user.first_name[0]
+  // const lastName = user.last_name[0]
+  // const initialFullName = firstInitial + lastName
+  // console.log(firstInitial);
 
   const pathname = location.pathname;
 
@@ -22,12 +29,12 @@ const Header = () => {
     if (pathname === "/register") {
       return (
         <HeaderStyled>
-                    <Link
-              onClick={() => {
-                setCategorieSelected("");
-              }}
-              to="/"
-            > 
+          <Link
+            onClick={() => {
+              setCategorieSelected("");
+            }}
+            to="/"
+          >
             <Logo>
               <div className="initialContainer">
                 <div className="logo2">HS</div>
@@ -43,12 +50,12 @@ const Header = () => {
     } else if (pathname === "/logIn") {
       return (
         <HeaderStyled>
-                    <Link
-              onClick={() => {
-                setCategorieSelected("");
-              }}
-              to="/"
-            > 
+          <Link
+            onClick={() => {
+              setCategorieSelected("");
+            }}
+            to="/"
+          >
             <Logo>
               <div className="initialContainer">
                 <div className="logo2">HS</div>
@@ -59,17 +66,41 @@ const Header = () => {
           <button onClick={() => navigate("/register")}> Crear cuenta</button>
         </HeaderStyled>
       );
-    }  else if(pathname === "/home"){
-      return null;
+    } else if (logged) {
+      return user ? (
+        <HeaderStyled>
+          <Link to="/">
+            <Logo>
+              <div className="initialContainer">
+                <div className="logo2">HS</div>
+              </div>
+            </Logo>
+          </Link>
+          <div className="slogan">Feels like home</div>
+          <div className="containerButton">
+            <div className="nameContainer">
+              <div className="initial">
+                {user.first_name[0]}
+                {user.last_name[0]}
+              </div>
+            </div>
+            <div className="name">
+              <div>Hola! {user.first_name.split(" ")[0]}</div>
+            </div>
+            <button onClick={() => navigate("/")}>Cerrar sesion</button>
+            
+          </div>
+        </HeaderStyled>
+      ) : null;
     } else {
       return (
         <HeaderStyled>
           <Link
-              onClick={() => {
-                setCategorieSelected("");
-              }}
-              to="/"
-            > 
+            onClick={() => {
+              setCategorieSelected("");
+            }}
+            to="/"
+          >
             <Logo>
               <div className="initialContainer">
                 <div className="logo2">HS</div>
@@ -88,14 +119,12 @@ const Header = () => {
     }
   };
 
- 
-
   return (
     <>
       {buttonHeader()}
       <NavBar open={open} />
       <MenuButton open={open} handleClick={handleClick} />
-     
+
       <Outlet />
     </>
   );

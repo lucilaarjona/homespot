@@ -6,6 +6,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 1;
  
 
   
@@ -23,6 +24,19 @@ export const Logo = styled.div`
     width: 71px;
     height: 51px;
   }
+  /* .initialContainerLogo {
+    border: 3px solid ${colors[0].principal};
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    background-color: ${colors[0].principal};
+    width: 71px;
+    height: 51px;
+  } */
   .logo2 {
     background: none;
     color: ${colors[0].background};
@@ -56,11 +70,18 @@ export const HeaderStyled = styled.header`
     margin-top: 3px;
   }
   
+  .initial{
+    display: none;
+  }
+  .name{
+    display: none;
+  }
   
  
   button {
     display: none;
   }
+
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -97,6 +118,73 @@ export const HeaderStyled = styled.header`
       color: ${colors[0].background};
       border: 1px solid ${colors[0].background};
     }
+
+    
+    .name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      height: 43.95px;
+      color: ${colors[0].principal};
+    }
+
+    .initial{
+      display: block;
+    }
+    /* .name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      height: 43.95px;
+      color: ${colors[0].principal};
+    }
+    .initialContainer {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70.95px;
+      height: 70.95px;
+      color: white;
+      position: absolute;
+      right: 40.5%;
+      top: 20px;
+    }
+
+    .initialContainer:hover {
+      border: 1px solid ${colors[0].principal};
+      background: white;
+      color: ${colors[0].principal};
+    } */
+
+    .nameContainer {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70.95px;
+      height: 70.95px;
+      color: white;
+      position: absolute;
+      right: 41.5%;
+      top: 20px;
+    }
+
+    .nameContainer:hover {
+      border: 1px solid ${colors[0].principal};
+      background: white;
+      color: ${colors[0].principal};
+    }
+    .initial {
+      font-size: 35px;
+      /* font-weight: ; */
+    }
   }
   @media screen and (min-width: 1365px) {
     height: 13vh;
@@ -105,6 +193,35 @@ export const HeaderStyled = styled.header`
       justify-content: space-around;
       gap: 20px;
     }
+    .nameContainer {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70.95px;
+      height: 70.95px;
+      color: white;
+      position: absolute;
+      right: 24.5%;
+      top: 20px;
+    }
+
+    /* .initialContainer {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70.95px;
+      height: 70.95px;
+      color: white;
+      position: absolute;
+      right: 25.8%;
+      top: 20px;
+    } */
 
   }
 `;

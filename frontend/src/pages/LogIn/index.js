@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link} from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { LogInStyled } from "./Styles";
-import ErrorIcon from '@mui/icons-material/Error';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import ErrorIcon from "@mui/icons-material/Error";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { UserContext } from "../../context/UserContext";
 
+export const LogIn = ({ user }) => {
+  const { setLogged } = useContext(UserContext);
+  
+  const [logIn, setLogIn] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    if (logIn.name === user.name && logIn.password === user.password) {
+      setLogged(true);
+      navigate("/");
+    } else {
+    }
+  };
 
-export const LogIn = ({ user, setIsLogged }) => {
-  const [logIn, setLogIn] = useState({email: "", password:""})
-  const navigate = useNavigate()
-  const onSubmitHandler = (e) =>{
-      e.preventDefault();
-      if(
-        logIn.name === user.name && 
-        logIn.password === user.password){
-        setIsLogged(true);
-        navigate("/home")
-      } else{
-        
-      }
-  }
-
-  useEffect(()=>{
+  useEffect(() => {
     document.title = `Iniciar Sesion`;
-  })
+  });
   return (
-    
-
     <LogInStyled>
-   
-        <section>
+      <section>
         <div className="title">Iniciar Sesion</div>
         <div className="error">
-        <ErrorIcon/>
-        Por favor vuelva a intentarlo, sus credenciales son invalidas
+          <ErrorIcon />
+          Por favor vuelva a intentarlo, sus credenciales son invalidas
         </div>
-          <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler}>
           <div div className="label">
             <div>Email</div>
             <input
@@ -43,7 +39,7 @@ export const LogIn = ({ user, setIsLogged }) => {
               type="email"
               onChange={(e) => setLogIn({ ...LogIn, email: e.target.value })}
             />
-            <AlternateEmailIcon className="icons"/>
+            <AlternateEmailIcon className="icons" />
           </div>
           <div className="label">
             <div>Password</div>
@@ -52,20 +48,18 @@ export const LogIn = ({ user, setIsLogged }) => {
               type="password"
               onChange={(e) => setLogIn({ ...LogIn, password: e.target.value })}
             />
-            <VisibilityOffIcon className="icons"/>
+            <VisibilityOffIcon className="icons" />
           </div>
-            <button className="submit">
-              Ingresar
-            </button>
-            <div className="register">
+          <button className="submit">Ingresar</button>
+          <div className="register">
             ¿Aún no tienes cuenta?
-            <span><Link to="/register"> Registrar </Link></span>
-            </div>
-          </form>
-        </section>
-    
+            <span>
+              <Link to="/register"> Registrar </Link>
+            </span>
+          </div>
+        </form>
+      </section>
     </LogInStyled>
-    
   );
 };
 

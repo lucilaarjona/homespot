@@ -4,6 +4,8 @@ import React, { useEffect, useState, createContext } from "react"
 
 export const UserContext = createContext()
 const UserProvider = ({ children }) => {
+
+    const [logged, setLogged] = useState(false)
     const [user, setUser] = useState({})
     useEffect(() => {
         const loadData =  () => {
@@ -16,7 +18,7 @@ const UserProvider = ({ children }) => {
 
     return (
         <>
-            <UserContext.Provider value={{ user }}>
+            <UserContext.Provider value={{ user,logged,setLogged }}>
                 {children}
             </UserContext.Provider>
         </>
