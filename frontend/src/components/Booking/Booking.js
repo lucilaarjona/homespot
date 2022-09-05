@@ -137,6 +137,10 @@ const Booking = () => {
                             }}
                             options={hours}
                             onChange={selectHour}
+                            isDisabled= {false}
+                            isSearchable={false}
+                            isRtl={false}
+                            required
                         />
                     </div>
                 </div>

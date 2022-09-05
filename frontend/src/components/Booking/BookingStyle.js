@@ -198,21 +198,8 @@ span .rdrYearPicker select {
     }
 
     .form {
-      /* order:1; */
-      /* display: grid;
-      grid-template-columns: 41% 41%;
-      grid-template-rows: 24% 24%;
-      padding-top: 6%;
-      gap: 20%;
-      column-gap: 5%;
-      justify-content: center;
-      width: 90%;
-      height: 30%;
-      margin: 0%; */
-
       grid-template-columns: 44% 44%;
-
-
+      width: 90%;
       margin: 1%;
       height: 18rem;
       row-gap: 18%;
@@ -225,7 +212,11 @@ span .rdrYearPicker select {
       margin-top: 8%;
     }
     .left{
+      display: flex;
+      flex-direction: column;
       height: fit-content;
+      justify-content: center;
+      align-items: center;
     }
     .calendar {
     }
@@ -237,7 +228,15 @@ span .rdrYearPicker select {
     .calendarElement{
     display: none;
   }
+  .menuList{
+    background-color: red;
+  }
 
+  .selectLabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .calendarElementDesktop{
     display: contents;
   }
