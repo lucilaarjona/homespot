@@ -78,7 +78,7 @@ const Booking = () => {
             <HeaderProduct />
             <BookingStyle>
                 <div className="left">
-                    <h2>Completá tus datos</h2>
+                    <h2 className="titleForm">Completá tus datos</h2>
                     <div className="form">
                         <div className="label">
                             <label htmlFor="">Nombre</label>
@@ -100,7 +100,7 @@ const Booking = () => {
 
 
                     <div>
-                        <div className="calendar">CALENDARIO</div>
+                     <h2 id="calendar">Calendario</h2>
                         <DateRange
                             onChange={(item) => setRange([item.selection])}
                             editableDateInputs={false}
@@ -123,10 +123,10 @@ const Booking = () => {
                             maxDate={maxDate}
                         />
                     </div>
-                    <h3>Tu horario de llegada</h3>
-                    <div>
-                        <p>Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</p>
-                        <p>Indicá tu horario de llegada</p>
+                    <h2 className="selectH2">Tu horario de llegada</h2>
+                    <div className="card" style={{ width: "100%" }} id="cardSelect">
+                        <p className="p">Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</p>
+                        <p className="p">Indicá tu horario de llegada:</p>
                         <Select
                         className="select"
                             defaultValue={{
@@ -144,8 +144,10 @@ const Booking = () => {
                         />
                     </div>
                 </div>
-                <div className="bookingDatail">DETALLE DE LA RESERVA
+                
+                <div className="bookingDatail">
                     {product ? (<div className="card" style={{ width: " 90%" }}>
+                    <h2>Detalle de la reserva</h2>
                         <img src={product.images[0].url} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{product.category.title}</h5>
@@ -153,10 +155,10 @@ const Booking = () => {
                             <p className="card-text">  {product.city.name}, {product.city.country}  </p>
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Check in: {checkInDate[0]} </li>
-                            <li className="list-group-item">Check out: {checkOutDate[0]} </li>
+                            <li className="list-group-item"> <span className="check">Check in: </span> <span className="dateCheck"> {checkInDate[0]} </span> </li>
+                            <li className="list-group-item"> <span className="check">Check out: </span>  <span className="dateCheck">{checkOutDate[0]} </span> </li>
                         </ul>
-                        <button type="submit" className="btn btn-primary">Confirmar reserva</button>
+                        <button type="submit" className="submit" >Confirmar reserva</button>
                     </div>) : null}
                 </div>
             </BookingStyle>

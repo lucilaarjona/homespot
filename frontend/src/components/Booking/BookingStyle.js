@@ -2,17 +2,71 @@ import styled from "styled-components";
 import colors from "../../components/colors.json";
 
 export const BookingStyle = styled.section`
+
+
+
   h2 {
     font-size: 22px;
+    margin: 3%;
+  }
+
+  .check{
+
+    color: ${colors[0].principal};
+    font-weight: bold;
+  }
+
+ 
+
+  .list-group-item{
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #cardSelect {
+    margin-left: 0%;
+    padding-top: 10px;
+  }
+
+  .selectH2 {
+    margin-bottom: -2%;
+  }
+
+  .p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 3%;
+    color: #186d5d;
+  }
+
+  .left {
+    margin: 5%;
+  }
+
+  .card {
+    box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
+    margin: 5.4%;
+    background-color: #F1F1F1;
+  }
+
+  .submit {
+    width: 100%;
+    height: 40px;
+    background: ${colors[0].principal2};
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    border: none;
   }
 
   .form {
     padding: 10px;
     margin: 3%;
-    background-color: #fbf1e9;
+    background-color: #F1F1F1;
+  
     border-radius: 10px;
     box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
-    height: 16rem;
   }
   .label {
     font-size: 17px;
@@ -30,7 +84,7 @@ export const BookingStyle = styled.section`
   input:focus {
     outline: none !important;
   }
-   .calendarElementDesktop{
+  .calendarElementDesktop {
     display: none;
   }
   .calendar {
@@ -38,6 +92,11 @@ export const BookingStyle = styled.section`
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+  }
+
+  #calendar {
+    margin-top: 9%;
+    margin-bottom: 1%;
   }
   .calendar h2 {
     color: ${colors[0].titles};
@@ -146,17 +205,26 @@ export const BookingStyle = styled.section`
     border-radius: 2px;
     background: ${colors[0].principal};
   }
-span .rdrYearPicker select {
+  span .rdrYearPicker select {
     position: relative;
   }
 
   @media (min-width: 768px) {
     h2 {
-      margin: 2%;
+      margin-left: 5%;
+    }
+
+    .bookingDatail {
+      height: 900px;
+    }
+
+    #calendar {
+      margin-top: 5%;
+      margin-bottom: 1%;
     }
 
     .form {
-      margin: 2%;
+      margin-left: 5%;
 
       display: grid;
       grid-template-columns: 41% 41%;
@@ -171,30 +239,65 @@ span .rdrYearPicker select {
     input {
       padding: 0.4rem;
     }
-    .calendarElementDesktop{
-    display: none;
+    .calendarElementDesktop {
+      display: none;
+    }
+
+    .rdrCalendarWrapper {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+/* PROBANDO */
+  @media (min-width: 815px) {
+    .bookingDatail {
+      height: 1000px;
+    }
   }
 
-  .rdrCalendarWrapper {
-    font-size: 16px;
-    width: 100%;
+  @media (min-width: 953px) {
+    .bookingDatail {
+      height: 1100px;
+    }
   }
+
+  @media (min-width: 1078px) {
+    .bookingDatail {
+      height: 1200px;
+    }
   }
+
+  @media (min-width: 1120px) {
+    .bookingDatail {
+      height: 1368px;
+    }
+  }
+  /* --------------------*/
 
   @media (min-width: 1365px) {
-    /* display: grid;
-    grid-template-columns: 70% 30%;
-    height: 1000px;
-    margin-left: 20px;
-    margin-top: 50px; */
-
     display: grid;
     grid-template-columns: 60% 40%;
 
     h2 {
-      font-size: 30px;
+      font-size: 28px;
       margin: 1%;
       margin-bottom: 2%;
+    }
+
+    .titleForm{
+    
+    
+      align-self: flex-start;
+      margin-left: 5%;
+
+    
+
+
+    }
+
+    #cardSelect {
+      margin-left: 12%;
+      padding-top: 10px;
     }
 
     .form {
@@ -211,12 +314,13 @@ span .rdrYearPicker select {
       font-size: 19px;
       margin-top: 8%;
     }
-    .left{
+    .left {
       display: flex;
       flex-direction: column;
       height: fit-content;
       justify-content: center;
       align-items: center;
+      margin: 0;
     }
     .calendar {
     }
@@ -224,26 +328,26 @@ span .rdrYearPicker select {
       margin-bottom: 13%;
     }
     .bookingDatail {
+      margin-top: 6%;
     }
-    .calendarElement{
-    display: none;
-  }
-  .menuList{
-    background-color: red;
-  }
+    .calendarElement {
+      display: none;
+    }
+    .menuList {
+      background-color: red;
+    }
 
-  .selectLabel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .selectLabel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .calendarElementDesktop {
+      display: contents;
+    }
+    .rdrCalendarWrapper {
+      font-size: 14px;
+      width: 100%;
+    }
   }
-  .calendarElementDesktop{
-    display: contents;
-  }
-  .rdrCalendarWrapper {
-    font-size: 14px;
-    width: 100%;
-  }
-  }
-
 `;
