@@ -3,7 +3,9 @@ import colors from "../../components/colors.json";
 
 export const BookingStyle = styled.section`
 
-
+  .boxcalendar{
+    background-color:#F1F1F1;
+  }
 
   h2 {
     font-size: 22px;
@@ -15,8 +17,6 @@ export const BookingStyle = styled.section`
     color: ${colors[0].principal};
     font-weight: bold;
   }
-
- 
 
   .list-group-item{
 
@@ -64,7 +64,6 @@ export const BookingStyle = styled.section`
     padding: 10px;
     margin: 3%;
     background-color: #F1F1F1;
-  
     border-radius: 10px;
     box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
   }
@@ -97,6 +96,8 @@ export const BookingStyle = styled.section`
   #calendar {
     margin-top: 9%;
     margin-bottom: 1%;
+    align-self: flex-start;
+    margin-left: 5%;
   }
   .calendar h2 {
     color: ${colors[0].titles};
@@ -278,6 +279,12 @@ export const BookingStyle = styled.section`
     display: grid;
     grid-template-columns: 60% 40%;
 
+    .selectH2{
+      align-self: flex-start;
+      margin-left: 5%;
+      margin-top: 3%;
+      margin-bottom: -4%;
+    }
     h2 {
       font-size: 28px;
       margin: 1%;
@@ -285,8 +292,7 @@ export const BookingStyle = styled.section`
     }
 
     .titleForm{
-    
-    
+
       align-self: flex-start;
       margin-left: 5%;
 

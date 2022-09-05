@@ -99,8 +99,8 @@ const Booking = () => {
                     </div>
 
 
-                    <div>
-                     <h2 id="calendar">Calendario</h2>
+                    <h2 id="calendar">Calendario</h2>
+                    <div className="boxcalendar">
                         <DateRange
                             onChange={(item) => setRange([item.selection])}
                             editableDateInputs={false}
@@ -128,7 +128,7 @@ const Booking = () => {
                         <p className="p">Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</p>
                         <p className="p">Indicá tu horario de llegada:</p>
                         <Select
-                        className="select"
+                            className="select"
                             defaultValue={{
                                 label: (
                                     <span className="selectLabel">Seleccionar hora de llegada</span>
@@ -137,17 +137,16 @@ const Booking = () => {
                             }}
                             options={hours}
                             onChange={selectHour}
-                            isDisabled= {false}
+                            isDisabled={false}
                             isSearchable={false}
                             isRtl={false}
                             required
                         />
                     </div>
                 </div>
-                
                 <div className="bookingDatail">
                     {product ? (<div className="card" style={{ width: " 90%" }}>
-                    <h2>Detalle de la reserva</h2>
+                        <h2>Detalle de la reserva</h2>
                         <img src={product.images[0].url} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{product.category.title}</h5>

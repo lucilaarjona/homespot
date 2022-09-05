@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import axiosHelper from "../../helper/axiosHelper"
 import { Link } from "react-router-dom"
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -18,7 +18,8 @@ const HeaderProduct = () => {
         };
         loadData();
     }, [id]);
-
+    const location = useLocation();
+    const pathname = location.pathname;
     return (
         <>
             {product ? (
@@ -28,11 +29,15 @@ const HeaderProduct = () => {
                             <div id="categorie">{product.category.title}</div>
                             <div id="name">{product.name}</div>
                         </div>
-                        <div className="back">
+                        {(pathname === `/product/${id}/booking`) ? (<div className="back">
                             <Link to={`/product/${id}`}>
                                 <ArrowBackIcon className="iconBack" />
                             </Link>
-                        </div>
+                        </div>) : (<div className="back">
+                            <Link to={`/`}>
+                                <ArrowBackIcon className="iconBack" />
+                            </Link>
+                        </div>)}
                     </header>
                     <section>
                         <div className="ubication">
