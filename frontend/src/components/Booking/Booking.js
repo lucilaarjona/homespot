@@ -34,6 +34,9 @@ const Booking = () => {
         };
         loadData();
     }, [id]);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const startDate = (range[0].startDate).toLocaleString()
     const checkInDate = startDate.split(",")

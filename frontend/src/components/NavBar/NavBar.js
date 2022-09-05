@@ -7,7 +7,6 @@ const NavBar = ({ open }) => {
 
   const { logged } = useContext(UserContext);
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
   return (
     <>
 

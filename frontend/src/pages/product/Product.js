@@ -53,6 +53,10 @@ const Product = () => {
   const date = new Date();
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 2);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const [range, setRange] = useState([
     {
