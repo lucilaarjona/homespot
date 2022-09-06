@@ -24,11 +24,11 @@ const Category = ({ handlerFilter }) => {
         <h4 className="titlePrincipal">Buscar por categoría</h4>{" "}
         <button
           onClick={() => {
-            setCitySelected("") && setCategorieSelected("");
+            setCitySelected(""); 
+            setCategorieSelected("");
           }}
           className="showAll"
         >
-          {" "}
           <h4> Ver todo </h4>
           <VisibilityIcon className="iconSee" />
         </button>

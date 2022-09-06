@@ -95,29 +95,29 @@ const Product = () => {
               <div className="cards">
                 <label className="card" id="selector-1" htmlFor="item-1">
                   <img
-                    alt={products.images[0].title}
-                    src={products.images[0].url}
+                    alt={products.images[0]?.title}
+                    src={products.images[0]?.url}
                   />
                 </label>
                 <label className="card" id="selector-2" htmlFor="item-2">
                   <img
-                    alt={products.images[1].title}
-                    src={products.images[1].url} />
+                    alt={products.images[1]?.title}
+                    src={products.images[1]?.url} />
                 </label>
                 <label className="card" id="selector-3" htmlFor="item-3">
                   <img
-                    alt={products.images[2].title}
-                    src={products.images[2].url} />
+                    alt={products.images[2]?.title}
+                    src={products.images[2]?.url} />
                 </label>
                 <label className="card" id="selector-4" htmlFor="item-4">
                   <img
-                    alt={products.images[3].title}
-                    src={products.images[3].url} />
+                    alt={products.images[3]?.title}
+                    src={products.images[3]?.url} />
                 </label>
                 <label className="card" id="selector-5" htmlFor="item-5">
                   <img
-                    alt={products.images[4].title}
-                    src={products.images[4].url} />
+                    alt={products.images[4]?.title}
+                    src={products.images[4]?.url} />
                 </label>
               </div>
               <button onClick={() => openImageViewer()} className="images">

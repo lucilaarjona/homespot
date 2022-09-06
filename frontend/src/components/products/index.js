@@ -18,7 +18,7 @@ const ProductList = () => {
 
   useEffect(()=>{
     if (categorieSelected === "") {
-      setProductsFilter(products.sort(()=>Math.random()- 0.5));
+      setProductsFilter(products);
     }},[categorieSelected, products])
 
     useEffect(() => {
@@ -53,15 +53,16 @@ const ProductList = () => {
      <Divc>
     <ProductStyled>
     {!categorieSelected  ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
-    {/* {citySelected ? (<> <h1 className="titleSection">Nuestras recomendaciones en {citySelected}</h1> </> ): null} */}
+      {/* {!products ?   console.log(products[0].images[0].url) : null } */}
+    
    
-      <section className="productList">
+     {products ? ( <section className="productList">
         {productsFilter.map((product, index) => {
           return (
             <Product
               key={index}
               id = {product.id}
-              crimg={product.images[0].url}
+              crimg={product?.images[0]?.url}
               category={product.category.title}
               title={product.name}
               location={`${product.city.name},${product.city.country}`}
@@ -79,7 +80,7 @@ const ProductList = () => {
          
           );
         })}
-      </section>
+      </section>):null}
       
     </ProductStyled>
     </Divc>
