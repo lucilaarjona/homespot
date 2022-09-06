@@ -1,0 +1,119 @@
+2022-08-09 19:37:15 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria NEW1, description=CrearCategoriaTest NEW1, urlImage=http://localhost:8080/categories)
+2022-08-09 19:37:19 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 19:37:45 INFO  CategoryController:40 - Searching category with id: 3
+2022-08-09 19:37:58 INFO  CategoryController:72 - Category with id: 3 was deleted successfully 
+2022-08-09 19:38:56 INFO  CategoryController:56 - Category with id: 7 was modified successfully 
+2022-08-09 19:39:00 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 19:40:18 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 19:40:18 INFO  CategoryController:40 - Searching category with id: 13
+2022-08-09 19:40:40 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 19:42:29 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 19:42:29 INFO  CategoryController:40 - Searching category with id: 13
+2022-08-09 19:42:50 INFO  CategoryController:56 - Category with id: 12 was modified successfully 
+2022-08-09 22:44:59 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 22:45:58 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 22:45:58 INFO  CategoryController:40 - Searching category with id: 13
+2022-08-09 22:46:39 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 22:47:43 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria NEW2, description=CrearCategoriaTest NEW2, urlImage=http://localhost:8080/categories)
+2022-08-09 22:47:43 INFO  CategoryController:85 - Getting all the Categories
+2022-08-09 22:47:44 INFO  CategoryController:40 - Searching category with id: 12
+2022-08-09 22:47:44 INFO  CategoryController:72 - Category with id: 14 was deleted successfully 
+2022-08-09 22:47:44 INFO  CategoryController:56 - Category with id: 6 was modified successfully 
+2022-08-11 16:16:45 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria REVIEW, description=CrearCategoriaTest REVIEW, urlImage=http://localhost:8080/categories)
+2022-08-11 16:16:51 INFO  CategoryController:85 - Getting all the Categories
+2022-08-11 16:17:00 INFO  CategoryController:72 - Category with id: 20 was deleted successfully 
+2022-08-11 16:17:12 INFO  CategoryController:85 - Getting all the Categories
+2022-08-11 16:20:37 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria REVIEW, description=CrearCategoriaTest REVIEW, urlImage=http://localhost:8080/categories)
+2022-09-01 13:54:56 INFO  ProductController:87 - Getting all the products
+2022-09-02 11:35:26 INFO  CategoryController:85 - Getting all the Categories
+2022-09-02 13:22:04 INFO  CategoryController:85 - Getting all the Categories
+2022-09-02 13:27:27 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 13:41:30 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 13:55:13 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 15:02:55 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 15:04:38 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:09:12 INFO  CityController:85 - Getting all the cities
+2022-09-05 15:09:16 INFO  ProductController:87 - Getting all the products
+2022-09-05 15:09:21 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 15:11:08 INFO  ScoreController:83 - Getting all the scores
+2022-09-05 15:11:16 INFO  ImageController:84 - Getting all the images
+2022-09-05 15:35:05 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:35:32 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:35:41 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:36:36 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:37:39 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 15:37:52 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 18:26:45 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 20:59:49 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 21:01:25 INFO  CategoryController:85 - Getting all the Categories
+2022-09-05 23:19:46 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 23:23:24 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 23:50:48 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 23:53:47 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 23:55:55 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-05 23:56:36 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:01:13 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:01:43 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:06:35 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:11:19 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:15:33 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:15:46 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 00:15:46 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:16:03 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 00:16:03 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:38:55 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:39:06 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:50:43 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 00:50:43 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:54:10 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 00:54:10 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:54:47 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 00:54:47 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:56:25 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 00:56:42 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:01:29 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:01:37 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:01:56 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:02:04 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:03:00 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:04:46 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:05:26 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:05:54 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 01:06:50 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 11:05:59 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 11:06:08 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 11:09:55 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 11:35:53 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 11:46:08 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:20:37 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:21:08 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:21:51 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:22:28 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:22:46 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:36:00 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:36:41 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:36:41 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:37:10 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:37:10 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:37:25 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:39:29 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:39:29 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:40:05 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:40:05 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:40:12 INFO  CategoryController:29 - Category successfully created CategoryDTO(Id=null, title=CrearCategoria TEST, description=CrearCategoriaTest AUTH, urlImage=http://localhost:8080/categories)
+2022-09-06 12:46:20 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:46:20 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:47:04 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:48:35 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:55:31 INFO  CityController:85 - Getting all the cities
+2022-09-06 12:56:25 ERROR JwtProvider:55 - signature fail
+2022-09-06 12:56:25 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 12:56:49 INFO  CityController:29 - City successfully created CityDTO(id=null, name=Detroit, state=Michigan, country=USA)
+2022-09-06 14:09:39 ERROR JwtProvider:55 - signature fail
+2022-09-06 14:09:39 ERROR JwtEntryPoint:20 - Commence failed
+2022-09-06 14:10:43 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 14:15:36 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 14:16:41 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 15:53:53 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 16:32:20 ERROR JwtProvider:47 - Malformed Token
+2022-09-06 16:39:33 ERROR JwtProvider:47 - Malformed Token
