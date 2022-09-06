@@ -5,6 +5,7 @@ export const BookingStyle = styled.section`
 
   .boxcalendar{
     background-color:#F1F1F1;
+    
   }
 
   h2 {
@@ -98,6 +99,7 @@ export const BookingStyle = styled.section`
     margin-bottom: 1%;
     align-self: flex-start;
     margin-left: 5%;
+    
   }
   .calendar h2 {
     color: ${colors[0].titles};

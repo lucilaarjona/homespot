@@ -283,14 +283,15 @@ export const ProductStyled = styled.section`
     gap: 20px;
   }
   .startReservation button{
-    width: 90%;
+    width: 200px;
     border-radius: 5px;
     background-color: ${colors[0].principal2};
     border: none;
     color: white;
   }
   .startReservation button:hover{
-    width: 90%;
+    width: 200px;
+   
     border-radius: 5px;
     background-color: white;
     border: 2px solid ${colors[0].principal2};
@@ -405,6 +406,16 @@ export const ProductStyled = styled.section`
     align-items: center;
     border-radius: 10px;
     gap: 20px;
+  }
+
+  .startReservation button{
+    width: 400px;
+   
+  }
+  .startReservation button:hover{
+    width: 400px;
+   
+   
   }
   .calendarElementDesktop{
     display: none;

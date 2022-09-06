@@ -1,11 +1,14 @@
 import { React, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+
 
 export const Register = ({showValues}) => {
   const navigate = useNavigate();
@@ -34,10 +37,26 @@ export const Register = ({showValues}) => {
   useEffect(()=>{
     document.title = `Crear cuenta`;
   })
+
+
+
+ // The next line up to 52 line is for the modal
+
+  useEffect(()=>{
+    navigate("/register", { state: true })
+  }, [navigate])
+
+
+  const location= useLocation();
+  const { logged } = useContext(UserContext)
+  const modal= location.state=== true && logged===false? <p>Holaaaaaaaaaa</p>:null
   
   return (
     <RegisterStyled>
-    
+
+      {modal}
+
+     
       <section>
         <div className="title">Crear Cuenta</div>
         <Formik

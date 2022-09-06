@@ -18,19 +18,22 @@ import NewReleasesIcon from "@mui/icons-material/NewReleases";
 import UpcomingIcon from "@mui/icons-material/Upcoming";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import AirIcon from '@mui/icons-material/Air';
-import HvacIcon from '@mui/icons-material/Hvac';
-import WifiIcon from '@mui/icons-material/Wifi';
-import DryCleaningIcon from '@mui/icons-material/DryCleaning';
-import PetsIcon from '@mui/icons-material/Pets';
+import AirIcon from "@mui/icons-material/Air";
+import HvacIcon from "@mui/icons-material/Hvac";
+import WifiIcon from "@mui/icons-material/Wifi";
+import DryCleaningIcon from "@mui/icons-material/DryCleaning";
+import PetsIcon from "@mui/icons-material/Pets";
 import axiosHelper from "../../helper/axiosHelper";
 import { HeaderProduct } from "../../components/HeaderProduct";
+
 
 const Product = () => {
   //Ruta dinamica
   const { id } = useParams();
   //llamado a la api
   const [products, setProducts] = useState("");
+
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -47,16 +50,16 @@ const Product = () => {
 
   useEffect(() => {
     document.title = `${products.name}  |  HomeSpot`;
-  })
+  });
 
   //Calendario
   const date = new Date();
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 2);
-  
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const [range, setRange] = useState([
     {
@@ -102,22 +105,26 @@ const Product = () => {
                 <label className="card" id="selector-2" htmlFor="item-2">
                   <img
                     alt={products.images[1].title}
-                    src={products.images[1].url} />
+                    src={products.images[1].url}
+                  />
                 </label>
                 <label className="card" id="selector-3" htmlFor="item-3">
                   <img
                     alt={products.images[2].title}
-                    src={products.images[2].url} />
+                    src={products.images[2].url}
+                  />
                 </label>
                 <label className="card" id="selector-4" htmlFor="item-4">
                   <img
                     alt={products.images[3].title}
-                    src={products.images[3].url} />
+                    src={products.images[3].url}
+                  />
                 </label>
                 <label className="card" id="selector-5" htmlFor="item-5">
                   <img
                     alt={products.images[4].title}
-                    src={products.images[4].url} />
+                    src={products.images[4].url}
+                  />
                 </label>
               </div>
               <button onClick={() => openImageViewer()} className="images">
@@ -143,14 +150,74 @@ const Product = () => {
               <div>
                 <h2 className="features">Qué ofrece este lugar?</h2>
                 <ul className="featuresList">
-                  {products.features.ac ? <><li> <AirIcon className="featuresIcon" /> A/C </li></> : null}
-                  {products.features.gym ? <><li> <FitnessCenterIcon className="featuresIcon" /> Gym </li></> : null}
-                  {products.features.grill ? <><li> <OutdoorGrillIcon className="featuresIcon" /> BBQ </li></> : null}
-                  {products.features.pool ? <><li> <PoolIcon className="featuresIcon" /> Piscina </li></> : null}
-                  {products.features.wifi ? <><li> <WifiIcon className="featuresIcon" /> Wi-fi</li></> : null}
-                  {products.features.heating ? <> <li><HvacIcon className="featuresIcon" />Calefaccion</li> </> : null}
-                  {products.features.laundry ? <> <li> <DryCleaningIcon className="featuresIcon" />Lavanderia</li></> : null}
-                  {products.features.pets ? <> <li><PetsIcon className="featuresIcon" />Recibe mascotas</li></> : null}
+                  {products.features.ac ? (
+                    <>
+                      <li>
+                        {" "}
+                        <AirIcon className="featuresIcon" /> A/C{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.gym ? (
+                    <>
+                      <li>
+                        {" "}
+                        <FitnessCenterIcon className="featuresIcon" /> Gym{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.grill ? (
+                    <>
+                      <li>
+                        {" "}
+                        <OutdoorGrillIcon className="featuresIcon" /> BBQ{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.pool ? (
+                    <>
+                      <li>
+                        {" "}
+                        <PoolIcon className="featuresIcon" /> Piscina{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.wifi ? (
+                    <>
+                      <li>
+                        {" "}
+                        <WifiIcon className="featuresIcon" /> Wi-fi
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.heating ? (
+                    <>
+                      {" "}
+                      <li>
+                        <HvacIcon className="featuresIcon" />
+                        Calefaccion
+                      </li>{" "}
+                    </>
+                  ) : null}
+                  {products.features.laundry ? (
+                    <>
+                      {" "}
+                      <li>
+                        {" "}
+                        <DryCleaningIcon className="featuresIcon" />
+                        Lavanderia
+                      </li>
+                    </>
+                  ) : null}
+                  {products.features.pets ? (
+                    <>
+                      {" "}
+                      <li>
+                        <PetsIcon className="featuresIcon" />
+                        Recibe mascotas
+                      </li>
+                    </>
+                  ) : null}
                 </ul>
               </div>
             </div>
@@ -264,7 +331,16 @@ const Product = () => {
             </div>
           </div>
         </>
-      ) : <div>Cargando producto....</div>}
+      ) : (
+        <div className="text-center" style={{ marginBottom: "300px" }}>
+          <div style={{ fontSize: "28px" }}>Cargando...</div>
+          <div
+            className="spinner-border"
+            role="status"
+            style={{ color: "#FC4C4E", fontSize: "28px" }}
+          ></div>
+        </div>
+      )}
     </ProductStyled>
   );
 };

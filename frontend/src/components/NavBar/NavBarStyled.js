@@ -18,6 +18,13 @@ export const NavbarWrapper = styled.nav`
   z-index: 100;
   transition: right 0.3s linear;
 
+  .box{
+   position: relative;
+   right: 38px;
+   top: 15px;
+
+  }
+
 .nameContainer {
   border: 1px solid white;
   background: ${colors[0].principal}; 
@@ -30,15 +37,23 @@ export const NavbarWrapper = styled.nav`
   color: white;
   top: 20px;
   flex-direction: column;
-  margin-left:20%;
+  margin-bottom: 7%;
+  
+  
 }
 .nameContainer:hover {
   border: 1px solid ${colors[0].principal}; 
   background: white;
   color: ${colors[0].principal};
-} .initial { 
+} 
+.initial { 
   font-size: 20px;  
+  
 }  
+.name{
+  color: #ffff;
+
+}
 
   #headerMenu{
   display: flex;
@@ -48,6 +63,7 @@ export const NavbarWrapper = styled.nav`
   width: 100%;
   height: 17.8vh;
   position: relative;
+  
 }
 #menu{
 padding-right: 12px;

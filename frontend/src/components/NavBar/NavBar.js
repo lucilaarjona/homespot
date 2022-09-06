@@ -23,6 +23,7 @@ const NavBar = ({ open }) => {
           <>
 
             <div id="headerMenu">
+              <span className="box">
               <div className="nameContainer">
                 <div className="initial">
                   {user.first_name[0]}
@@ -30,10 +31,11 @@ const NavBar = ({ open }) => {
                 </div>
               </div>
               <div className="name">
-                <div>Hola!
-                  {user.first_name.split(" ")[0]}
+                <div>Hola! <b/>
+                   {user.first_name.split(" ")[0]}
                 </div>
               </div>
+              </span>
             </div>
 
             <div id="background">

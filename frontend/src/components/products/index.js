@@ -61,7 +61,7 @@ const ProductList = () => {
             <Product
               key={index}
               id = {product.id}
-              crimg={product.images[0].url}
+              // crimg={product.images[0].url}
               category={product.category.title}
               title={product.name}
               location={`${product.city.name},${product.city.country}`}
