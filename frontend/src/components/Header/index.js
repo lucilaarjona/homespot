@@ -38,7 +38,7 @@ const Header = () => {
             <Logo>
               <div className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
-                <img src={logo}/>
+                <img src={logo} alt="logo"/>
               </div>
               <div className="slogan">Feels like home</div>
             </Logo>
@@ -60,7 +60,7 @@ const Header = () => {
             <Logo>
               <div className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
-                <img src={logo}/>
+                <img src={logo} alt="logo"/>
               </div>
               <div className="slogan">Feels like home</div>
             </Logo>
@@ -75,7 +75,7 @@ const Header = () => {
             <Logo>
               <div className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
-                <img src={logo}/>
+                <img src={logo} alt="logo" />
               </div>
             </Logo>
           </Link>
@@ -107,7 +107,7 @@ const Header = () => {
             <Logo>
               <div className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
-               <img src={logo}/>
+               <img src={logo} alt="logo"/>
               </div>
             </Logo>
           </Link>

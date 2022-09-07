@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
