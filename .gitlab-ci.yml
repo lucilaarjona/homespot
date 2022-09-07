@@ -15,7 +15,7 @@ build:
     artifacts:
         expire_in: 1 week
         paths:
-            - backend/HomeSpot/target/digitalBooking-0.0.1-SNAPSHOT.jar
+            - backend/HomeSpot/target/consoleapp-2.7.2.jar
     only:
         - backendmain
 
