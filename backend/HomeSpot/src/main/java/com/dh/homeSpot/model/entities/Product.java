@@ -27,6 +27,7 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "id")
     private Category category;
 
+    @JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL)
