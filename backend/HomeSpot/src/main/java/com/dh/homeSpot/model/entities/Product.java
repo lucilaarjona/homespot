@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -68,4 +67,5 @@ public class Product {
 
 
 }
+
 

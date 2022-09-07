@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-@CrossOrigin
 @RestController
 @RequestMapping("/image")
 public class ImageController {

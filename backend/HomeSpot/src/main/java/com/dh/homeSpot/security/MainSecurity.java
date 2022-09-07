@@ -6,9 +6,11 @@ import com.dh.homeSpot.service.impl.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,17 +18,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
 
 import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity extends WebSecurityConfigurerAdapter {
+public class MainSecurity /*extends WebSecurityConfigurerAdapter */{
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -40,16 +39,16 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Encripta el password
+     * Encripta el pasword
      *
-     * @return password ecriptado
+     * @return pasword ecriptado
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
+    /*@Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
@@ -63,18 +62,46 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
+    }*/
+    @Bean("authenticationManager")
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
+    @Primary
+    @Bean
+    protected HttpSecurity configure(HttpSecurity http) throws Exception {
+        //Desactivamos cookies ya que enviamos un token
+        // cada vez que hacemos una petición
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-        http.cors().and().csrf().disable()
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/**", "/user/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/product/**", "/category/**","/city/**","/feature/**","/policy/**","/score/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/product/**", "/category/**", "/city/**", "/feature/**", "/policy/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/product/**", "/category/**","/city/**","/feature/**", "/policy/**", "/auth/**", "/user/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/product/**", "/category/**", "/city/**", "/feature/**", "/policy/**", "/auth/**", "/user/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/auth/**", "/user/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/booking/**", "/auth/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT, "/booking/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/booking/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/booking/**").hasAnyRole("USER", "ADMIN")
+
+                //.anyRequest().authenticated()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        return  http;
+
+        /*http.cors().and().csrf().disable()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/auth/**", "/booking/**").permitAll()
                 .and()
                 .authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll()
                 .and()
-                .authorizeRequests().antMatchers("/users/**").hasAnyAuthority("ADMIN", "USER")
+                .authorizeRequests().antMatchers("/booking/**", "/users/**").hasAnyAuthority("ADMIN", "USER")
                 .and()
                 .authorizeRequests().antMatchers("/**").hasAuthority("ADMIN")
                 .and()
@@ -82,17 +109,18 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
-
-
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("/**"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);*/
     }
 }
+
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource()
+//    {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.setAllowedOrigins(Arrays.asList("/**"));
+//        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }
+

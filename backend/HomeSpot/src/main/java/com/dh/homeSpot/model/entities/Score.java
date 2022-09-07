@@ -24,7 +24,7 @@ public class Score {
     @JoinColumn(name = "fk_product")
     private Product product;
     private Integer score;
-    private boolean favorite;
+    //private boolean favorite;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = {"score"})
     private User user;

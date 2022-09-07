@@ -1,5 +1,6 @@
 package com.dh.homeSpot.model.dto;
 
+import com.dh.homeSpot.model.entities.security.User;
 import lombok.Data;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -11,8 +12,9 @@ public class ScoreDTO {
 
     private Integer id;
     @Max(value =5)
-    @Min(value = 1)
+    @Min(value = 0)
     private Integer score;
-    private boolean favorite;
+    private User user;
+    //private boolean favorite;
 
 }

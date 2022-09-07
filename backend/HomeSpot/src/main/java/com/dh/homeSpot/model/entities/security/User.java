@@ -1,5 +1,6 @@
 package com.dh.homeSpot.model.entities.security;
 
+import com.dh.homeSpot.model.entities.Booking;
 import com.dh.homeSpot.model.entities.security.Role;
 import com.sun.istack.NotNull;
 
@@ -22,9 +23,7 @@ public class User {
     private String email;
     private String password;
     private String city;
-    /*@Column(name = "verification_code", length = 64)
-    private String verificationCode;*/
-    //private boolean enabled;
+
     @ManyToMany
     @NotNull
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

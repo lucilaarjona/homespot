@@ -1,5 +1,6 @@
 package com.dh.homeSpot.model.entities;
 import com.dh.homeSpot.model.entities.security.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,9 +29,11 @@ public class Booking {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "products_id", referencedColumnName = "id")
     private Product product;
+
 
      @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
