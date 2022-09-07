@@ -16,8 +16,8 @@ import java.sql.Time;
 public class BookingDTO {
 
     private Integer id;
-    private Date bookingStartDate;
-    private Date bookingEndDate;
+    private Date startDate;
+    private Date endDate;
     private ProductDTO product;
     private User user;
 

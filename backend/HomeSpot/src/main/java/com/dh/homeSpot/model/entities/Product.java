@@ -54,9 +54,10 @@ public class Product {
     private Set<Score> scores;
     private Double averageScore;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    @JsonIgnoreProperties(value = {"products"})
     private Set<Booking> booking;
+
     @Column(nullable = false)
     private Double latitude;
     @Column(nullable = false)

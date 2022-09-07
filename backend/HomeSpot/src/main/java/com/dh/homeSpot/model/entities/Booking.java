@@ -28,7 +28,7 @@ public class Booking {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "products_id", referencedColumnName = "id")
     private Product product;
 
