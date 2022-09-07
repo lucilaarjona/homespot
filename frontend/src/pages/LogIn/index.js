@@ -5,9 +5,11 @@ import ErrorIcon from "@mui/icons-material/Error";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { UserContext } from "../../context/UserContext";
+// import axiosHelper from "../../helper/axiosHelper";
 
 export const LogIn = ({ user }) => {
   const { setLogged } = useContext(UserContext);
+  // const [userlog, setUserlog]=useState({})
   
   const [logIn, setLogIn] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -19,6 +21,18 @@ export const LogIn = ({ user }) => {
     } else {
     }
   };
+
+  // useEffect(()=>{
+  //   axiosHelper.post("/auth/login").then((res)=>{
+  //     setUserlog(res.data)
+
+  //   })
+    
+
+
+  // }, [])
+
+  // console.log(userlog);
 
   useEffect(() => {
     document.title = `Iniciar Sesion`;

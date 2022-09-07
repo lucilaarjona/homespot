@@ -7,6 +7,10 @@ export const Logo = styled.div`
   align-items: center;
   gap: 10px;
   z-index: 1;
+
+  img{
+    width: 82px;
+  }
  
 
   
@@ -20,23 +24,11 @@ export const Logo = styled.div`
     width: 30px;
     height: 30px;
     font-weight: bold;
-    background-color:${colors[0].principal};
+    /* background-color:${colors[0].principal}; */
     width: 71px;
     height: 51px;
   }
-  /* .initialContainerLogo {
-    border: 3px solid ${colors[0].principal};
-    border-radius: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    font-weight: bold;
-    background-color: ${colors[0].principal};
-    width: 71px;
-    height: 51px;
-  } */
+ 
   .logo2 {
     background: none;
     color: ${colors[0].background};
@@ -67,7 +59,7 @@ export const HeaderStyled = styled.header`
     display: none;
     position: absolute;
     margin-left: 80px;
-    margin-top: 3px;
+    margin-top: 39px;
   }
   
   .initial{
@@ -132,34 +124,7 @@ export const HeaderStyled = styled.header`
     .initial{
       display: block;
     }
-    /* .name {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      height: 43.95px;
-      color: ${colors[0].principal};
-    }
-    .initialContainer {
-      border: 1px solid white;
-      background: ${colors[0].principal};
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70.95px;
-      height: 70.95px;
-      color: white;
-      position: absolute;
-      right: 40.5%;
-      top: 20px;
-    }
-
-    .initialContainer:hover {
-      border: 1px solid ${colors[0].principal};
-      background: white;
-      color: ${colors[0].principal};
-    } */
+   
 
     .nameContainer {
       border: 1px solid white;
@@ -183,7 +148,7 @@ export const HeaderStyled = styled.header`
     }
     .initial {
       font-size: 35px;
-      /* font-weight: ; */
+    
     }
   }
   @media screen and (min-width: 1365px) {
@@ -208,20 +173,7 @@ export const HeaderStyled = styled.header`
       top: 20px;
     }
 
-    /* .initialContainer {
-      border: 1px solid white;
-      background: ${colors[0].principal};
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70.95px;
-      height: 70.95px;
-      color: white;
-      position: absolute;
-      right: 25.8%;
-      top: 20px;
-    } */
+    
 
   }
 `;

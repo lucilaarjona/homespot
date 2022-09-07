@@ -24,7 +24,7 @@ const Category = ({ handlerFilter }) => {
         <h4 className="titlePrincipal">Buscar por categoría</h4>{" "}
         <button
           onClick={() => {
-            setCitySelected(""); 
+            setCitySelected("");
             setCategorieSelected("");
           }}
           className="showAll"
@@ -55,21 +55,18 @@ const Category = ({ handlerFilter }) => {
         </Cointaner>
       ) : (
         <>
-        
-      <div className="text-center" style={{marginBottom:"300px"}}>
-      <div style={{fontSize:"28px"}}>Cargando...</div>
-  <div className="spinner-border" role="status" style={{color:"#FC4C4E", fontSize:"28px"}}>
-    
-  </div>
-</div>
-</>
-    
-        
+          <div className="text-center" style={{ marginBottom: "300px" }}>
+            <div style={{ fontSize: "28px" }}>Cargando...</div>
+            <div
+              className="spinner-border"
+              role="status"
+              style={{ color: "#FC4C4E", fontSize: "28px" }}
+            ></div>
+          </div>
+        </>
       )}
     </Section>
   );
 };
 
 export default Category;
-
-

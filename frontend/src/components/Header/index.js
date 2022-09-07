@@ -5,7 +5,7 @@ import MenuButton from "../MenuButton/MenuButton";
 import NavBar from "../NavBar/NavBar";
 import { CategoryContext } from "../../context/CategoryContext";
 import { UserContext } from "../../context/UserContext";
-
+import logo from "../../assets/homespot_logo.png"
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,7 +37,8 @@ const Header = () => {
           >
             <Logo>
               <div className="initialContainer">
-                <div className="logo2">HS</div>
+                {/* <div className="logo2">HS</div> */}
+                <img src={logo}/>
               </div>
               <div className="slogan">Feels like home</div>
             </Logo>
@@ -58,7 +59,8 @@ const Header = () => {
           >
             <Logo>
               <div className="initialContainer">
-                <div className="logo2">HS</div>
+                {/* <div className="logo2">HS</div> */}
+                <img src={logo}/>
               </div>
               <div className="slogan">Feels like home</div>
             </Logo>
@@ -72,7 +74,8 @@ const Header = () => {
           <Link to="/">
             <Logo>
               <div className="initialContainer">
-                <div className="logo2">HS</div>
+                {/* <div className="logo2">HS</div> */}
+                <img src={logo}/>
               </div>
             </Logo>
           </Link>
@@ -103,7 +106,8 @@ const Header = () => {
           >
             <Logo>
               <div className="initialContainer">
-                <div className="logo2">HS</div>
+                {/* <div className="logo2">HS</div> */}
+               <img src={logo}/>
               </div>
             </Logo>
           </Link>

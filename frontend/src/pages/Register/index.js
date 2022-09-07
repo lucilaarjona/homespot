@@ -6,8 +6,8 @@ import * as Yup from "yup";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+// import { useContext } from "react";
+// import { UserContext } from "../../context/UserContext";
 
 
 export const Register = ({showValues}) => {
@@ -41,20 +41,21 @@ export const Register = ({showValues}) => {
 
 
  // The next line up to 52 line is for the modal
+//  const navigateModal = useNavigate();
 
-  useEffect(()=>{
-    navigate("/register", { state: true })
-  }, [navigate])
+//   useEffect(()=>{
+//     navigateModal("/register", { state: true })
+//   }, [navigateModal])
 
 
-  const location= useLocation();
-  const { logged } = useContext(UserContext)
-  const modal= location.state=== true && logged===false? <p>Holaaaaaaaaaa</p>:null
+//   const location= useLocation();
+//   const { logged } = useContext(UserContext)
+//   const modal= location.state=== true && logged===false? <p>Holaaaaaaaaaa</p>:null
   
   return (
     <RegisterStyled>
 
-      {modal}
+      {/* {modal} */}
 
      
       <section>
