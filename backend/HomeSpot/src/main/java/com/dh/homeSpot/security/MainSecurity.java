@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,14 +18,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity /*extends WebSecurityConfigurerAdapter */{
+/*@EnableGlobalMethodSecurity(prePostEnabled = true)*/
+public class MainSecurity extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -68,21 +68,19 @@ public class MainSecurity /*extends WebSecurityConfigurerAdapter */{
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-    @Primary
-    @Bean
-    protected HttpSecurity configure(HttpSecurity http) throws Exception {
-        //Desactivamos cookies ya que enviamos un token
-        // cada vez que hacemos una petición
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeRequests()
+        http.cors(); //cors origin resource sha
+        http.csrf().disable(); //cors side request forgery
+                http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/**", "/user/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**", "/category/**","/city/**","/feature/**","/policy/**","/score/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/product/**", "/category/**", "/city/**", "/feature/**", "/policy/**").hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/product/**", "/category/**","/city/**","/feature/**", "/policy/**", "/auth/**", "/user/**").hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/product/**", "/category/**", "/city/**", "/feature/**", "/policy/**", "/auth/**", "/user/**").hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/auth/**", "/user/**").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/booking/**", "/auth/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/booking/**"/*"/auth/**"*/).hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/booking/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/booking/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/booking/**").hasAnyRole("USER", "ADMIN")
@@ -93,7 +91,7 @@ public class MainSecurity /*extends WebSecurityConfigurerAdapter */{
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        return  http;
+
 
         /*http.cors().and().csrf().disable()
                 .authorizeRequests()
