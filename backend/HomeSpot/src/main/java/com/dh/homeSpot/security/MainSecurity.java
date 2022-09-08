@@ -68,7 +68,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Enable CORS and disable CSRF
         http.cors().and().csrf().disable()
@@ -139,16 +139,16 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-}*/
+ }*/
 
-//    @Bean
-//    CorsConfigurationSource corsConfigurationSource()
-//    {
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(Arrays.asList("/**"));
-//        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", configuration);
-//        return source;
-//    }
-
+    //    @Bean
+    //    CorsConfigurationSource corsConfigurationSource()
+    //    {
+    //        CorsConfiguration configuration = new CorsConfiguration();
+    //        configuration.setAllowedOrigins(Arrays.asList("/**"));
+    //        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+    //        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    //        source.registerCorsConfiguration("/**", configuration);
+    //        return source;
+    //    }
+}
