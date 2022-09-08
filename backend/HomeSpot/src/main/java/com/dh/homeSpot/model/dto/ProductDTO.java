@@ -15,7 +15,7 @@ public class ProductDTO {
     private String name;
     private String description;
     private CategoryDTO category;
-    private Set<Image> images;
+    private Set<ImageDTO> images;
     private CityDTO city;
     private FeatureDTO features;
     private PolicyDTO policy;
