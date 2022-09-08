@@ -68,7 +68,30 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-    @Override
+@Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // Enable CORS and disable CSRF
+        http.cors().and().csrf().disable()
+                // Set session management to stateless
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                // Set unauthorized requests exception handler
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and()
+                // Set permissions on endpoints
+                .authorizeRequests()
+                // Public endpoints
+                .antMatchers("/auth/", "/auth/login", "/*", "/swagger-ui/", "/swagger-ui.html","/category/","/product/","/city/","/image/*").permitAll()
+                // Private endpoints
+                .anyRequest().authenticated()
+                .and()
+                // Add JWT Token Filter
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+  /*  @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.cors(); //cors origin resource sha
@@ -78,7 +101,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .antMatchers(HttpMethod.GET,"/**").permitAll()
                 .antMatchers("/**").permitAll()
                 
-                /*.antMatchers(HttpMethod.POST, "/auth/**", "/user/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/**", "/user/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**", "/category/**","/city/**","/feature/**","/policy/**","/score/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/product/**", "/category/**", "/city/**", "/feature/**", "/policy/**").permitAll()//.hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/product/**", "/category/**","/city/**","/feature/**", "/policy/**", "/auth/**", "/user/**").permitAll()//.hasAnyRole("ADMIN")
@@ -88,7 +111,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .antMatchers(HttpMethod.PUT, "/booking/**").permitAll()//.hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/booking/**").permitAll()//.hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/booking/**").permitAll()
-                    */
+                    
                     //.hasAnyRole("USER", "ADMIN")
             
 
@@ -114,9 +137,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);*/
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-}
+}*/
 
 //    @Bean
 //    CorsConfigurationSource corsConfigurationSource()
