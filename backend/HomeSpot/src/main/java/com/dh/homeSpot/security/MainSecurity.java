@@ -76,7 +76,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 http.authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/**").permitAll()
-                .antMatchers("/**").hasRole("ADMIN")
+                .antMatchers("/**").permitAll()
                 
                 /*.antMatchers(HttpMethod.POST, "/auth/**", "/user/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**", "/category/**","/city/**","/feature/**","/policy/**","/score/**").permitAll()
