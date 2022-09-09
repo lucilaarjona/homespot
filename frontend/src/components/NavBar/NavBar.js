@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ProductContext } from '../../context/ProductContext'
 import { UserContext } from '../../context/UserContext'
 import { NavbarWrapper } from './NavBarStyled'
 
 const NavBar = ({ open }) => {
 
-  const { logged } = useContext(UserContext);
-  const { user } = useContext(UserContext);
+  const { logged, user } = useContext(UserContext);
+  const { setLogged, setErrorLogIn, setProductId } = useContext(ProductContext);
+  const navigate = useNavigate();
   return (
     <>
 
@@ -26,13 +28,13 @@ const NavBar = ({ open }) => {
               <span className="box">
               <div className="nameContainer">
                 <div className="initial">
-                  {user.first_name[0]}
-                  {user.last_name[0]}
+                  {user.name.trim().toUpperCase()[0]}
+                  {user.surname.trim().toUpperCase()[0]}
                 </div>
               </div>
               <div className="name">
                 <div>Hola! <b/>
-                   {user.first_name.split(" ")[0]}
+                   {user.name.split(" ")[0]}
                 </div>
               </div>
               </span>
@@ -40,7 +42,12 @@ const NavBar = ({ open }) => {
 
             <div id="background">
               <div>
-                <Link to="/" style={{ textDecoration: "none" }}><p id="linkTwo">Cerrar Sesión</p></Link>
+                <Link onClick={() => {
+              navigate("/"); 
+              setLogged(false);
+              setErrorLogIn(false);
+              setProductId("")
+              }} to="/"  style={{ textDecoration: "none" }}><p id="linkTwo">Cerrar Sesión</p></Link>
               </div>
             </div>
           </>

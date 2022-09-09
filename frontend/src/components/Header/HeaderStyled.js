@@ -52,7 +52,7 @@ export const HeaderStyled = styled.header`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12),
     0px 1px 10px rgba(0, 0, 0, 0.2);
     //la siguiente linea se agrega para que funcione layout en mobile 
-    z-index: 1;
+    z-index: 2;
  .slogan {
     font-size: 20px;
     color: ${colors[0].principal} ;
@@ -83,6 +83,7 @@ export const HeaderStyled = styled.header`
     .slogan {
       display: block;
       text-decoration: none;
+      margin-top:10px;
     }
 
     .containerButton {
@@ -119,6 +120,7 @@ export const HeaderStyled = styled.header`
       width: fit-content;
       height: 43.95px;
       color: ${colors[0].principal};
+      width: fit-content;
     }
 
     .initial{
@@ -137,7 +139,7 @@ export const HeaderStyled = styled.header`
       height: 70.95px;
       color: white;
       position: absolute;
-      right: 41.5%;
+      right: 40.5%;
       top: 20px;
     }
 
@@ -169,8 +171,8 @@ export const HeaderStyled = styled.header`
       height: 70.95px;
       color: white;
       position: absolute;
-      right: 24.5%;
-      top: 20px;
+      right: 22.5%;
+      top: 20%;
     }
 
     

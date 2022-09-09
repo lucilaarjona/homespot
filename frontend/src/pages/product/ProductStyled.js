@@ -255,7 +255,6 @@ export const ProductStyled = styled.section`
     text-decoration: underline;
   }
   .rdrDayToday .rdrDayNumber span:after {
-    content: "";
     position: absolute;
     bottom: 4px;
     left: 50%;
@@ -426,7 +425,7 @@ export const ProductStyled = styled.section`
     width: 100%;
   }
   .policies{
-    height: 630px;
+    height: 720px;
     width: 80%;
     margin-left: 10%;
     border-top: 2px solid #f1eded;
@@ -536,6 +535,17 @@ export const ProductStyled = styled.section`
     gap: 20px;
   }
 
+  .startReservation button{
+    width: 250px;
+   
+  }
+
+  .startReservation button:hover{
+    width: 260px;
+   
+   
+  }
+
   .calendarElement{
     display: none;
   }
@@ -548,7 +558,7 @@ export const ProductStyled = styled.section`
     width: 100%;
   }
   .policies{
-    height: 350px;
+    height: 420px;
     width: 80%;
     margin-left: 10%;
     border-top: 2px solid #f1eded;

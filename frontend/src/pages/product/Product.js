@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import { ProductStyled } from "./ProductStyled";
 import { Link, useParams } from "react-router-dom";
 import ImageViewer from "react-simple-image-viewer";
@@ -25,13 +25,20 @@ import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import PetsIcon from "@mui/icons-material/Pets";
 import axiosHelper from "../../helper/axiosHelper";
 import { HeaderProduct } from "../../components/HeaderProduct";
+import { ProductContext } from "../../context/ProductContext";
 
 
 const Product = () => {
+
+  const {setProductId} = useContext(ProductContext)
   //Ruta dinamica
   const { id } = useParams();
   //llamado a la api
   const [products, setProducts] = useState("");
+
+  const {setErrorLogIn} = useContext(ProductContext)
+
+  setProductId(id)
 
 
 
@@ -231,6 +238,7 @@ const Product = () => {
                 className="calendarElementDesktop"
                 minDate={date}
                 maxDate={maxDate}
+                disabledDates={[addDays(date,10),addDays(date,13)]}
               />
               <DateRange
                 onChange={(item) => setRange([item.selection])}
@@ -249,7 +257,7 @@ const Product = () => {
                 Agrega tus fechas de viaje para obtener precios exactos{" "}
               </span>
               <Link to={`/product/${id}/booking`}>
-                <button> Iniciar reserva</button>
+                <button onClick={()=>{setErrorLogIn(true)}}> Iniciar reserva</button>
               </Link>
             </div>
           </div>

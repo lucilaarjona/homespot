@@ -1,26 +1,42 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {useEffect, useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { LogInStyled } from "./Styles";
 import ErrorIcon from "@mui/icons-material/Error";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { UserContext } from "../../context/UserContext";
+import { ProductContext } from "../../context/ProductContext";
 // import axiosHelper from "../../helper/axiosHelper";
 
-export const LogIn = ({ user }) => {
+export const LogIn = () => {
+
+  const {productId} = useContext(ProductContext)
+  const {errorLogIn} = useContext(ProductContext)
+  console.log(productId);
   const { setLogged } = useContext(UserContext);
+  const {user} = useContext(UserContext)
+  // console.log(user);
+  const [logIn, setlogIn] = useState({
+    email: " ",
+    password: " ",
+  })
+
   // const [userlog, setUserlog]=useState({})
-  
-  const [logIn, setLogIn] = useState({ email: "", password: "" });
+
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (logIn.name === user.name && logIn.password === user.password) {
+    if (logIn.password === user.password && logIn.email === user.email ) {
       setLogged(true);
-      navigate("/");
+      if (productId) {
+        navigate(`/product/${productId}/booking`)
+      }
+      else {navigate("/");}
     } else {
     }
   };
+
+  console.log(logIn);
 
   // useEffect(()=>{
   //   axiosHelper.post("/auth/login").then((res)=>{
@@ -41,26 +57,28 @@ export const LogIn = ({ user }) => {
     <LogInStyled>
       <section>
         <div className="title">Iniciar Sesion</div>
-        <div className="error">
+        {errorLogIn ? (<div className="error">
           <ErrorIcon />
-          Por favor vuelva a intentarlo, sus credenciales son invalidas
-        </div>
+          Inicie sesión para continuar con la reserva
+        </div>): null}
         <form onSubmit={onSubmitHandler}>
           <div div className="label">
             <div>Email</div>
             <input
+              required
               placeholder="Email"
               type="email"
-              onChange={(e) => setLogIn({ ...LogIn, email: e.target.value })}
+              onChange={(e) => setlogIn({ email: e.target.value })}
             />
             <AlternateEmailIcon className="icons" />
           </div>
           <div className="label">
             <div>Password</div>
             <input
+              required
               placeholder="Password"
               type="password"
-              onChange={(e) => setLogIn({ ...LogIn, password: e.target.value })}
+              onChange={(e) => setlogIn({...logIn, password: e.target.value })}
             />
             <VisibilityOffIcon className="icons" />
           </div>

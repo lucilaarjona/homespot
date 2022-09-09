@@ -5,7 +5,9 @@ export const BookingStyle = styled.section`
 
   .boxcalendar{
     background-color:#F1F1F1;
-    
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
+    width: 90%;
   }
 
   h2 {
@@ -26,7 +28,6 @@ export const BookingStyle = styled.section`
   }
 
   #cardSelect {
-    margin-left: 0%;
     padding-top: 10px;
   }
 
@@ -42,7 +43,10 @@ export const BookingStyle = styled.section`
   }
 
   .left {
-    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .card {
@@ -62,8 +66,8 @@ export const BookingStyle = styled.section`
   }
 
   .form {
+    width: 90%;
     padding: 10px;
-    margin: 3%;
     background-color: #F1F1F1;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
@@ -104,9 +108,19 @@ export const BookingStyle = styled.section`
   .calendar h2 {
     color: ${colors[0].titles};
   }
+
+  .rdrDateDisplayWrapper {
+    background-color: white;
+    cursor: default;
+    display: none;
+}
   .rdrCalendarWrapper {
     font-size: 12px;
     width: 100%;
+    background-color:#F1F1F1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
+  
   }
   .rdrDateDisplayWrapper {
     background-color: white;
@@ -212,13 +226,17 @@ export const BookingStyle = styled.section`
     position: relative;
   }
 
+  .bookingDatail {
+    height: 90vh;
+    }
+
   @media (min-width: 768px) {
     h2 {
       margin-left: 5%;
     }
 
     .bookingDatail {
-      height: 900px;
+      height: 90vh;
     }
 
     #calendar {
@@ -227,8 +245,6 @@ export const BookingStyle = styled.section`
     }
 
     .form {
-      margin-left: 5%;
-
       display: grid;
       grid-template-columns: 41% 41%;
       grid-template-rows: 24% 24%;
@@ -304,7 +320,6 @@ export const BookingStyle = styled.section`
     }
 
     #cardSelect {
-      margin-left: 12%;
       padding-top: 10px;
     }
 
@@ -336,6 +351,9 @@ export const BookingStyle = styled.section`
       margin-bottom: 13%;
     }
     .bookingDatail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-top: 6%;
     }
     .calendarElement {
@@ -356,6 +374,20 @@ export const BookingStyle = styled.section`
     .rdrCalendarWrapper {
       font-size: 14px;
       width: 100%;
+      border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
     }
+
+    .submit{
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    
   }
 `;

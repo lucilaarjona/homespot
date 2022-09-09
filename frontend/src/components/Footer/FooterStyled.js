@@ -5,7 +5,7 @@ export const Cointaner = styled.div`
 `;
 
 export const FooterStyled = styled.footer`
-  position: sticky;
+  position: fixed;
   bottom: 0;
   background: ${colors[0].background};
   display: flex;

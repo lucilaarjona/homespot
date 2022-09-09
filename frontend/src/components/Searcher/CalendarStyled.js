@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import colors from "../colors.json";
 export const CalendarStyled = styled.div`
+
+.rdrDateDisplayWrapper {
+    background-color: white;
+    cursor: default;
+    display: none;
+}
   .inputBox {
     background-color: #ffffff;
     color: ${colors[0].titles};
@@ -15,35 +21,18 @@ export const CalendarStyled = styled.div`
     text-align: center;
     position: relative;
   }
-  .rdrDateDisplayWrapper {
-    width: 345px;
-    border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${colors[0].principal} !important;
-    z-index: 100;
-  }
-  .rdrMonthAndYearWrapper {
-    width: 345px;
-    border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${colors[0].principal} !important;
-  }
+
   .rdrMonthPicker {
-    color: ${colors[0].principal} !important;
-    background: ${colors[0].principal};
     border-radius: 5px;
   }
   .rdrYearPicker {
-    background: ${colors[0].principal};
     width: 100px;
-    justify-content: center;
-    border-radius: 5px;
   }
   .rdrMonthAndYearWrapper {
-    width: 345px;
+
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: white !important;
+    background-color: white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   }
   .rdrMonth {
     width: 345px;
@@ -51,7 +40,96 @@ export const CalendarStyled = styled.div`
     border: none;
     border-radius: 0 0 20px 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: white !important;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+  }
+  .rdrCalendarWrapper {
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+    position: absolute;
+  }
+
+  .rdrDateDisplayItem input {
+    cursor: default;
+    color: ${colors[0].titles};
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+  }
+  .rdrDateDisplayItem {
+    cursor: default;
+    color: ${colors[0].titles};
+    font-weight: bold;
+    box-shadow: none;
+    border: none;
+  }
+
+  .rdrDateInput {
+    cursor: default;
+  }
+
+  .rdrMonthAndYearPickers select {
+    color: ${colors[0].titles};
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .rdrMonthName {
+    color: ${colors[0].titles};
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .rdrWeekDay {
+    font-weight: bold;
+    color: ${colors[0].titles};
+  }
+
+  .rdrDayNumber {
+    font-weight: bold;
+    color: ${colors[0].titles};
+  }
+
+  .rdrEndEdge {
+    background: ${colors[0].principal};
+  }
+
+  .rdrStartEdge {
+    background: ${colors[0].principal};
+  }
+
+  .rdrInRange {
+    background: ${colors[0].principal};
+  }
+  .rdrDayHovered {
+    border: none;
+  }
+  .rdrDayInPreview {
+    border: none;
+  }
+  .rdrDayToday {
+    border: none;
+  }
+  .rdrDayStartPreview {
+    border: none;
+  }
+  .rdrDayEndPreview {
+    border: 2px solid ${colors[0].principal};
+  }
+  .rdrDayDisabled {
+    text-decoration: underline;
+  }
+  .rdrDayToday .rdrDayNumber span:after {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: ${colors[0].principal};
   }
 
   @media (min-width: 768px) {
@@ -70,31 +148,34 @@ export const CalendarStyled = styled.div`
      
     }
 
+    /* .rdrCalendarWrapper {
+    width: 40%;
+    position: absolute;
+  } */
+
+  .rdrMonthAndYearPickers select {
+    font-size: 12px;
+  }
+
     .rdrCalendarWrapper {
       position: absolute;
       color: #000000;
       font-size: 12px;
       margin-top: 2px;
+      width: 39%;
     }
     .rdrDateDisplayWrapper {
     width: 250px;
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${colors[0].principal} !important;
   }
   .rdrMonthAndYearWrapper {
     width: 250px;
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: ${colors[0].principal} !important;
   }
   .rdrMonthPicker {
-    color: ${colors[0].principal} !important;
-    background: ${colors[0].principal};
     border-radius: 5px;
   }
   .rdrYearPicker {
-    background: ${colors[0].principal};
     width: 100px;
     justify-content: center;
     border-radius: 5px;
@@ -111,7 +192,7 @@ export const CalendarStyled = styled.div`
     border: none;
     border-radius: 0 0 20px 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: white !important;
+    height: 100%;
   }
   .rdrMonthAndYearPickers{
     width:150px;
@@ -144,79 +225,10 @@ export const CalendarStyled = styled.div`
       stroke-dashoffset: -460;
     }
 
-    .rdrDateDisplay {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayStartPreview {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrStartEdge {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrEndEdge {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrInRange {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayEndPreview {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayNumber {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayStartWeek {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayEndWeek {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayWeekend {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDay {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDay .rdrDayToday {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayNumber {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayHovered {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDayActive {
-      color: ${colors[0].principal} !important;
-    }
-    span .rdrDayNumber {
-      color: ${colors[0].principal} !important;
-    }
-    .rdrDateDisplayWrapper {
-      width: 340px;
-      border: none;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      background: ${colors[0].principal};
-    }
-    
+    .rdrMonthAndYearPickers select {
+    font-size: 18px;
+  }
 
-    .rdrMonthAndYearWrapper {
-      width: 340px;
-      border: none;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: (255, 156, 80) !important;
-    }
-    .rdrMonthPicker {
-      color: (255, 156, 80) !important;
-      background: ${colors[0].principal};
-      border-radius: 5px 5px 5px 5px;
-    }
-    .rdrYearPicker {
-      background: ${colors[0].principal};
-      width: 100px;
-      justify-content: center;
-      border-radius: 5px 5px 5px 5px;
-    }
 
     .rdrMonthAndYearWrapper {
       width: 340px;
@@ -225,11 +237,11 @@ export const CalendarStyled = styled.div`
       background-color: white !important;
     }
     .rdrMonth {
-      width: 340px;
+      min-width: 340px;
       border: none;
       border-radius: 0 0 20px 20px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: white !important;
+      height: 100%;
     }
   }
 `;

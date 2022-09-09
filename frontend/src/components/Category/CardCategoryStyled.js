@@ -9,16 +9,11 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
-  
   .collapsing {
   height: 0;
   overflow: hidden;
   transition: height .60s ease;
   }
-
-  
-
-
 
   .title {
     display: flex;
@@ -32,7 +27,7 @@ export const Section = styled.div`
   .showAll{
     border: none;
     background-color: none;
-    background: white;
+    background: none;
   }
   .titlePrincipal{
     cursor:default;
@@ -121,14 +116,15 @@ export const CardStyled = styled.div`
     width: auto;
   }
 
+
   .accordion-item {
     -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     -moz-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     border-radius: 1rem;
     padding: 0.7%;
-    color: none;
     width: 327px;
+    background-color: transparent;
   }
 
   img {

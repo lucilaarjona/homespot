@@ -7,6 +7,10 @@ const Home = () => {
   useEffect(()=>{
     document.title = `HomeSpot`
   })
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Searcher />

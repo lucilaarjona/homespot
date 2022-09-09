@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
@@ -6,11 +6,13 @@ import * as Yup from "yup";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-// import { useContext } from "react";
-// import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
+import { ProductContext } from "../../context/ProductContext";
 
 
-export const Register = ({showValues}) => {
+export const Register = () => {
+  const {setErrorLogIn} = useContext(ProductContext)
+  const {setUser} = useContext(UserContext);
   const navigate = useNavigate();
   const validation = (Yup.object({
     name: Yup.string().required("Este campo es requerido"),
@@ -68,7 +70,7 @@ export const Register = ({showValues}) => {
 
           onSubmit={(values) => {
             navigate("/logIn");
-            showValues(values);
+            setUser(values);
           }}
         >
           {({ values, handleSubmit, handleChange, handleBlur, errors}) => (
@@ -79,7 +81,7 @@ export const Register = ({showValues}) => {
                   <div style={{display: "flex", flexDirection: "column"}}>
                   <DriveFileRenameOutlineIcon className="iconsName"/>
                   <input
-                    placeholder="Maichus"
+                    placeholder=""
                     name="name"
                     type="text"
                     value={values.name}
@@ -94,7 +96,7 @@ export const Register = ({showValues}) => {
                   <div style={{display: "flex", flexDirection: "column"}}>
                   <DriveFileRenameOutlineIcon className="iconsName"/>
                   <input
-                    placeholder="Bien piola"
+                    placeholder=""
                     name="surname"
                     type="text"
                     value={values.surname}
@@ -110,7 +112,7 @@ export const Register = ({showValues}) => {
                 <div style={{display: "flex", flexDirection: "column"}}>
                 <AlternateEmailIcon className="icons"/>
                 <input
-                  placeholder="maichus@digitalhouse.com"
+                  placeholder=""
                   name="email"
                   type="email"
                   value={values.email}
@@ -125,7 +127,7 @@ export const Register = ({showValues}) => {
                 <div style={{display: "flex", flexDirection: "column"}}>
                 <VisibilityOffIcon className="icons"/>
                 <input
-                  placeholder="Password"
+                  placeholder=""
                   name="password"
                   type="password"
                   value={values.password}
@@ -140,7 +142,7 @@ export const Register = ({showValues}) => {
                 <div style={{display: "flex", flexDirection: "column"}}>
                 <VisibilityOffIcon className="icons"/>
                 <input
-                  placeholder="Confirm password"
+                  placeholder=""
                   name="confirmPassword"
                   type="password"
                   value={values.confirmPassword}
@@ -150,7 +152,7 @@ export const Register = ({showValues}) => {
                    { errors.confirmPassword && <span className = "error">{errors.confirmPassword}</span> }
                 </div>
               </div>
-              <button type="submit"> Crear Cuenta </button>
+              <button onClick={()=>{setErrorLogIn(false)}} type="submit"> Crear Cuenta </button>
               <div className="logIn">
                 <span>¿Ya tienes una cuenta? </span>
                 <Link to= "/logIn" className="buttonLogIn" >

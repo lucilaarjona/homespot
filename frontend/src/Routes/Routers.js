@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "../pages/Register";
 import LogIn from "../pages/LogIn";
@@ -12,16 +12,18 @@ import ProductProvider from "../context/ProductContext";
 import Booking from "../components/Booking/Booking";
 import { UserContext } from "../context/UserContext";
 
+
 const Routers = () => {
 
   const {logged} = useContext(UserContext)
+  const {setUser} = useContext(UserContext)
 
-  const [user, setUser] = useState({
-    email: " ",
-    password: " ",
-    name: "",
-    surname: "",
-  });
+  // const [user, setUser] = useState({
+  //   email: " ",
+  //   password: " ",
+  //   name: "",
+  //   surname: "",
+  // });
   const showValues = (values) => {
     setUser({
       email: values.email,
@@ -30,9 +32,7 @@ const Routers = () => {
       userName: values.name,
     });
   };
-  const logInProps = {
-    user
-  };
+
   return (
     <BrowserRouter>
         <ProductProvider>
@@ -42,7 +42,7 @@ const Routers = () => {
                 <Routes>
                   <Route path="/product/:id" element={<Product />} />
                   <Route path="/" element={<Home />} />
-                  <Route path="/logIn" element={<LogIn {...logInProps} />} />
+                  <Route path="/logIn" element={<LogIn/>} />
                   <Route
                     path="/register"
                     element={<Register showValues={showValues} />}

@@ -11,6 +11,8 @@ const ProductProvider = ({children}) => {
 
 
     const [products, setProducts] = useState([]);
+    const [productId, setProductId] = useState("")
+    const [errorLogIn, setErrorLogIn] = useState(false)
 
 
 
@@ -26,7 +28,7 @@ const ProductProvider = ({children}) => {
   return (
     <>
       <ProductContext.Provider
-        value={{ products, setProducts }}
+        value={{ products, setProducts, productId, setProductId, errorLogIn, setErrorLogIn }}
       >
         {children}
       </ProductContext.Provider>

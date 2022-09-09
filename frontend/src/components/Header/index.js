@@ -6,12 +6,17 @@ import NavBar from "../NavBar/NavBar";
 import { CategoryContext } from "../../context/CategoryContext";
 import { UserContext } from "../../context/UserContext";
 import logo from "../../assets/homespot_logo.png"
+import { ProductContext } from "../../context/ProductContext";
 const Header = () => {
+  const {setErrorLogIn} = useContext(ProductContext)
+  const {setProductId} = useContext(ProductContext)
   const navigate = useNavigate();
   const location = useLocation();
   const { setCategorieSelected } = useContext(CategoryContext);
   const { logged } = useContext(UserContext);
+  const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
+  console.log(user);
   // const firstInitial = user.first_name[0]
   // const lastName = user.last_name[0]
   // const initialFullName = firstInitial + lastName
@@ -31,6 +36,7 @@ const Header = () => {
         <HeaderStyled>
           <Link
             onClick={() => {
+              setErrorLogIn(false);
               setCategorieSelected("");
             }}
             to="/"
@@ -53,6 +59,7 @@ const Header = () => {
         <HeaderStyled>
           <Link
             onClick={() => {
+              setErrorLogIn(false);
               setCategorieSelected("");
             }}
             to="/"
@@ -68,10 +75,13 @@ const Header = () => {
           <button onClick={() => navigate("/register")}> Crear cuenta</button>
         </HeaderStyled>
       );
-    } else if (logged) {
+     } 
+    else if (logged) {
       return user ? (
         <HeaderStyled>
-          <Link to="/">
+          <Link             onClick={() => {
+              setErrorLogIn(false);
+            }} to="/">
             <Logo>
               <div className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
@@ -83,24 +93,35 @@ const Header = () => {
           <div className="containerButton">
             <div className="nameContainer">
               <div className="initial">
-                {user.first_name[0]}
-                {user.last_name[0]}
+                {user.name.trim()[0].toUpperCase()}
+                {user.surname.trim()[0].toUpperCase()}
               </div>
             </div>
             <div className="name">
-              <div>Hola! {user.first_name.split(" ")[0]}</div>
+              <div>Hola! {user.name.trim().split(" ")[0]}</div>
             </div>
-            <button onClick={() => navigate("/")}>Cerrar sesion</button>
+            <button onClick={() => {
+              navigate("/"); 
+              setLogged(false);
+              setErrorLogIn(false);
+              setProductId("")
+              }
+              }
+              >
+              Cerrar sesion
+              </button>
             
           </div>
         </HeaderStyled>
       ) : null;
-    } else {
+    } 
+    else {
       return (
         <HeaderStyled>
           <Link
             onClick={() => {
               setCategorieSelected("");
+              setErrorLogIn(false);
             }}
             to="/"
           >
