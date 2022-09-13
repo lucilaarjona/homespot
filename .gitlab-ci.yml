@@ -22,6 +22,6 @@ deploy front:
         entrypoint: [""]
     script:
         - aws --version
-        - aws s3 sync frontend/build s3://homespot.ddns.net --delete
+        - aws s3 sync frontend/build s3://homespot-frontend-app --delete
     only:
         - frontendmain
