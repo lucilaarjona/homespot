@@ -16,6 +16,7 @@ import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
 import PoolIcon from "@mui/icons-material/Pool";
 
 const Product = (props) => {
+
   return (
     <ProductStyled>
       <span className="cardProduct">
@@ -34,7 +35,8 @@ const Product = (props) => {
               <FontAwesomeIcon className="iconLocation" icon={faLocationDot} />
             </span>
             <span className="location">
-              {props.location} - <span className="map">MOSTRAR EN EL MAPA</span>{" "}
+              {props.location} - <span className="map"> <a target="_blank" rel="noopener noreferrer" 
+              href={`https://www.google.com/maps/place/4.60971,-74.08175`}>Ver mapa</a></span>
             </span>
           </div>
           <div className="icons">
