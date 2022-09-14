@@ -11,6 +11,7 @@ import CityProvider from "../context/CityContext";
 import ProductProvider from "../context/ProductContext";
 import Booking from "../components/Booking/Booking";
 import { UserContext } from "../context/UserContext";
+import Admin from "../pages/Admin/Admin";
 
 
 const Routers = () => {
@@ -47,10 +48,13 @@ const Routers = () => {
                     path="/register"
                     element={<Register showValues={showValues} />}
                   />
+
+<Route path="/administrator" element={<Admin/>}/>
                   <Route element={<ProtectedRoutes isLogged={logged} />}>
                     <Route
                       path="/product/:id/booking" element={<Booking />}
                     />
+                    
                   </Route>
                 </Routes>
               </Layout>
