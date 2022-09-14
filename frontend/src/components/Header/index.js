@@ -16,7 +16,7 @@ const Header = () => {
   const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
   // const firstInitial = user.first_name[0]
   // const lastName = user.last_name[0]
   // const initialFullName = firstInitial + lastName

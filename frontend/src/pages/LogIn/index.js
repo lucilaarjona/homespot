@@ -12,7 +12,7 @@ export const LogIn = () => {
 
   const {productId} = useContext(ProductContext)
   const {errorLogIn} = useContext(ProductContext)
-  console.log(productId);
+  //console.log(productId);
   const { setLogged } = useContext(UserContext);
   const {user} = useContext(UserContext)
   // console.log(user);
@@ -36,7 +36,7 @@ export const LogIn = () => {
     }
   };
 
-  console.log(logIn);
+  // console.log(logIn);
 
   // useEffect(()=>{
   //   axiosHelper.post("/auth/login").then((res)=>{

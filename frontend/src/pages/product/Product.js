@@ -26,21 +26,21 @@ import PetsIcon from "@mui/icons-material/Pets";
 import axiosHelper from "../../helper/axiosHelper";
 import { HeaderProduct } from "../../components/HeaderProduct";
 import { ProductContext } from "../../context/ProductContext";
-
+import Map from "../../components/Map/Map";
+// import useGoogleAddress from "../../Hooks/useGoogleAddress";
 
 const Product = () => {
-
-  const {setProductId} = useContext(ProductContext)
+  const { setProductId } = useContext(ProductContext);
   //Ruta dinamica
   const { id } = useParams();
   //llamado a la api
   const [products, setProducts] = useState("");
 
-  const {setErrorLogIn} = useContext(ProductContext)
+  const { setErrorLogIn } = useContext(ProductContext);
 
-  setProductId(id)
+  // const location = useGoogleAddress()
 
-
+  setProductId(id);
 
   useEffect(() => {
     const loadData = async () => {
@@ -112,22 +112,26 @@ const Product = () => {
                 <label className="card" id="selector-2" htmlFor="item-2">
                   <img
                     alt={products.images[1]?.title}
-                    src={products.images[1]?.url} />
+                    src={products.images[1]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-3" htmlFor="item-3">
                   <img
                     alt={products.images[2]?.title}
-                    src={products.images[2]?.url} />
+                    src={products.images[2]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-4" htmlFor="item-4">
                   <img
                     alt={products.images[3]?.title}
-                    src={products.images[3]?.url} />
+                    src={products.images[3]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-5" htmlFor="item-5">
                   <img
                     alt={products.images[4]?.title}
-                    src={products.images[4]?.url} />
+                    src={products.images[4]?.url}
+                  />
                 </label>
               </div>
               <button onClick={() => openImageViewer()} className="images">
@@ -238,7 +242,7 @@ const Product = () => {
                 className="calendarElementDesktop"
                 minDate={date}
                 maxDate={maxDate}
-                disabledDates={[addDays(date,10),addDays(date,13)]}
+                disabledDates={[addDays(date, 10), addDays(date, 13)]}
               />
               <DateRange
                 onChange={(item) => setRange([item.selection])}
@@ -257,11 +261,23 @@ const Product = () => {
                 Agrega tus fechas de viaje para obtener precios exactos{" "}
               </span>
               <Link to={`/product/${id}/booking`}>
-                <button onClick={()=>{setErrorLogIn(true)}}> Iniciar reserva</button>
+                <button
+                  onClick={() => {
+                    setErrorLogIn(true);
+                  }}
+                >
+                  {" "}
+                  Iniciar reserva
+                </button>
               </Link>
             </div>
           </div>
+
           <div className="policies">
+            <div className="map">
+            <h3>Donde vas a estar ubicado:</h3>
+              <Map />
+            </div>
             <h3>Lo que debes saber</h3>
             <div className="policiesSection">
               <div className="titlePolicie">
