@@ -94,8 +94,9 @@ align-items: center;
 .icons{
   display:none;
 }
-.map{
+.map a{
   color: ${colors[0].principal};
+  text-decoration: none;
 }
 .description{
   font-size: 14px;
