@@ -4,11 +4,18 @@ import { LogInStyled } from "./Styles";
 import ErrorIcon from "@mui/icons-material/Error";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 // import axiosHelper from "../../helper/axiosHelper";
 
 export const LogIn = () => {
+
+  const [ showPassword, setShowPassword]= useState(false)
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const {productId} = useContext(ProductContext)
   const {errorLogIn} = useContext(ProductContext)
@@ -77,10 +84,10 @@ export const LogIn = () => {
             <input
               required
               placeholder="Password"
-              type="password"
+              type={showPassword? "text" : "password"}
               onChange={(e) => setlogIn({...logIn, password: e.target.value })}
             />
-            <VisibilityOffIcon className="icons" />
+            {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
           </div>
           <button className="submit">Ingresar</button>
           <div className="register">
