@@ -155,6 +155,7 @@ export const HeaderStyled = styled.header`
   }
   @media screen and (min-width: 1365px) {
     height: 13vh;
+    backdrop-filter: blur(30px);
     .containerButton {
       display: flex;
       justify-content: space-around;
