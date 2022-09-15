@@ -8,12 +8,21 @@ import { ProductContext } from "../../context/ProductContext";
 
 const ProductList = () => {
   const {citySelected} = useContext(CityContext);
-  const { categorieSelected } = useContext(CategoryContext);
+  const {categorieSelected } = useContext(CategoryContext);
   const [productsFilter, setProductsFilter] = useState([]);
-
-
   const {products}= useContext(ProductContext)
 
+
+  const [currentPage, setCurrentPage]= useState(1);
+  const[cardsPerPage]=useState(4)
+
+    // Get current posts
+    const indexOfLastPost = currentPage * cardsPerPage;
+    const indexOfFirstPost = indexOfLastPost - cardsPerPage;
+    const currentPosts = productsFilter.slice(indexOfFirstPost, indexOfLastPost);
+
+
+  
 
 
   useEffect(()=>{
@@ -57,7 +66,9 @@ const ProductList = () => {
     
    
      {products ? ( <section className="productList">
-        {productsFilter.map((product, index) => {
+        {/* {productsFilter.map((product, index) => { */}
+           {currentPosts.map((product, index) => {
+
           return (
             <Product
               key={index}
@@ -83,6 +94,7 @@ const ProductList = () => {
       </section>):null}
       
     </ProductStyled>
+    
     </Divc>
   
   );
