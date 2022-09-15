@@ -4,15 +4,16 @@ import colors from '../colors.json'
 
 
 export const Divc= styled.div`
+padding-bottom: 15%;
 
 @media (min-width:768px) {
 
-  padding-bottom: 12%;
+  padding-bottom: 8%;
 }
 
 @media (min-width:1365px) {
 
-  padding-bottom: 8%;
+  padding-bottom: 3%;
 }
 
 

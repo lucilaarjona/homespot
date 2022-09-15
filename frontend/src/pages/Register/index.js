@@ -11,6 +11,7 @@ import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 
 
+
 export const Register = () => {
   const [ showPassword, setShowPassword]= useState(false)
 
@@ -48,6 +49,8 @@ export const Register = () => {
   useEffect(()=>{
     document.title = `Crear cuenta`;
   })
+
+ 
 
 
 

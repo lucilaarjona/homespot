@@ -1,22 +1,27 @@
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+import React from 'react';
+import {Pag} from "./StylesPagination"
+
+
+
+const Pagination = ({ cardsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
   
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalPosts / cardsPerPage); i++) {
       pageNumbers.push(i);
     }
   
     return (
-      <nav>
+      <Pag>
         <ul className='pagination'>
           {pageNumbers.map(number => (
             <li key={number} className='page-item'>
-              <a onClick={() => paginate(number)} href='!#' className='page-link'>
+              <button onClick={() => paginate(number)}  className='page-link'>
                 {number}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
-      </nav>
+      </Pag>
     );
   };
   

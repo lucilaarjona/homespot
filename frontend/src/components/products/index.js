@@ -5,6 +5,7 @@ import { ProductStyled, Divc } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
 import { CityContext } from "../../context/CityContext";
 import { ProductContext } from "../../context/ProductContext";
+import Pagination from "./Pagination";
 
 const ProductList = () => {
   const {citySelected} = useContext(CityContext);
@@ -12,14 +13,15 @@ const ProductList = () => {
   const [productsFilter, setProductsFilter] = useState([]);
   const {products}= useContext(ProductContext)
 
-
+//Pagination
   const [currentPage, setCurrentPage]= useState(1);
   const[cardsPerPage]=useState(4)
 
-    // Get current posts
+// Get current posts
     const indexOfLastPost = currentPage * cardsPerPage;
     const indexOfFirstPost = indexOfLastPost - cardsPerPage;
     const currentPosts = productsFilter.slice(indexOfFirstPost, indexOfLastPost);
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
   
@@ -92,6 +94,8 @@ const ProductList = () => {
           );
         })}
       </section>):null}
+
+      <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>
       
     </ProductStyled>
     
