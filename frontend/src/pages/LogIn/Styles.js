@@ -102,7 +102,7 @@ border: 1px solid white;
 .icons{
   position: absolute;
   margin-top:17px;
-  margin-left: -30px;
+  margin-left: 270px;
   color: ${colors[0].principal};
 }
 @media (min-width:768px){

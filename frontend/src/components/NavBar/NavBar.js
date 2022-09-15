@@ -29,7 +29,7 @@ const NavBar = ({ open }) => {
               <div className="nameContainer">
                 <div className="initial">
                   {user.name.trim().toUpperCase()[0]}
-                  {user.surname.trim().toUpperCase()[0]}
+                  {user.lastname.trim().toUpperCase()[0]}
                 </div>
               </div>
               <div className="name">

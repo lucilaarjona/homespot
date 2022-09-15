@@ -3,13 +3,19 @@ import React, { createContext, useState } from "react"
 export const UserContext = createContext()
 const UserProvider = ({ children }) => {
 
-    const [logged, setLogged] = useState(false)
+    const login = localStorage.getItem("token") && true
+    const [logged, setLogged] = useState(login)
+    const dataUser = JSON.parse(localStorage.getItem("user"));
+    console.log(dataUser);
+
     const [user, setUser] = useState({
-          email: " ",
-          password: " ",
-          name: "",
-          surname: "",
-        })
+        // name: dataUser.name,
+        // lastname: dataUser.name,
+        // username: dataUser.email,
+        // email: dataUser.email,
+        // city: "",
+        // roles: dataUser.rol
+      })
     // useEffect(() => {
     //     const loadData =  () => {
     //          axios.get("https://reqres.in/api/users/1").then((res) => {

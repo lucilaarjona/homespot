@@ -94,7 +94,7 @@ const Header = () => {
             <div className="nameContainer">
               <div className="initial">
                 {user.name.trim()[0].toUpperCase()}
-                {user.surname.trim()[0].toUpperCase()}
+                {user.lastname.trim()[0].toUpperCase()}
               </div>
             </div>
             <div className="name">
@@ -103,6 +103,7 @@ const Header = () => {
             <button onClick={() => {
               navigate("/"); 
               setLogged(false);
+              window.localStorage.clear();
               setErrorLogIn(false);
               setProductId("")
               }
