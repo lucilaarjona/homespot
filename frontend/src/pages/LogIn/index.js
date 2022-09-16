@@ -4,6 +4,7 @@ import { LogInStyled } from "./Styles";
 import ErrorIcon from "@mui/icons-material/Error";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
@@ -12,12 +13,17 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 export const LogIn = () => {
-  const { productId } = useContext(ProductContext);
-  const { errorLogIn } = useContext(ProductContext);
-  //console.log(productId);
-  const { setLogged } = useContext(UserContext);
 
-  // console.log(user);
+  const [ showPassword, setShowPassword]= useState(false)
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const {productId} = useContext(ProductContext)
+  const {errorLogIn} = useContext(ProductContext)
+
+  const { setLogged } = useContext(UserContext);
 
   const validation = Yup.object({
     email: Yup.string()
@@ -74,8 +80,6 @@ export const LogIn = () => {
       );
   };
 
-  // const [userlog, setUserlog]=useState({})
-
   const navigate = useNavigate();
   // const onSubmitHandler = (e) => {
   //   e.preventDefault();
@@ -92,17 +96,6 @@ export const LogIn = () => {
   // };
 
   // console.log(logIn);
-
-  // useEffect(()=>{
-  //   axiosHelper.post("/auth/login").then((res)=>{
-  //     setUserlog(res.data)
-
-  //   })
-
-  // }, [])
-
-  // console.log(userlog);
-
   useEffect(() => {
     document.title = `Iniciar Sesion`;
   });
@@ -139,6 +132,7 @@ export const LogIn = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
 
                   {errors.email && (
                     <span className="error">{errors.email}</span>
@@ -152,7 +146,7 @@ export const LogIn = () => {
                   <input
                     placeholder=""
                     name="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}

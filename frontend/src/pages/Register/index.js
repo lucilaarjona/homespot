@@ -1,20 +1,31 @@
-import { React, useContext, useEffect } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { RegisterStyled } from "./Styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
 import swal from "sweetalert";
 import { UserContext } from "../../context/UserContext";
 
 
-export const Register = () => {
 
-  const { setErrorLogIn } = useContext(ProductContext);
+export const Register = () => {
+  const [ showPassword, setShowPassword]= useState(false)
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
+
+  const {setErrorLogIn} = useContext(ProductContext)
+  const {setUser} = useContext(UserContext);
   const navigate = useNavigate();
   const {setUser, user} = useContext(UserContext)
   const validation = Yup.object({
@@ -155,11 +166,11 @@ export const Register = () => {
               <div className="label">
                 <div>Contraseña</div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <VisibilityOffIcon className="icons" />
+                {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
                   <input
                     placeholder=""
                     name="password"
-                    type="password"
+                    type={showPassword? "text" : "password"}
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -172,11 +183,11 @@ export const Register = () => {
               <div className="label">
                 <div>Confirme su contraseña</div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <VisibilityOffIcon className="icons" />
+                {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
                   <input
                     placeholder=""
                     name="confirmPassword"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={values.confirmPassword}
                     onChange={handleChange}
                     onBlur={handleBlur}
