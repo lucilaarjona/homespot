@@ -11,7 +11,7 @@ import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
 import swal from "sweetalert";
-import { UserContext } from "../../context/UserContext";
+
 
 
 
@@ -25,9 +25,8 @@ export const Register = () => {
 
 
   const {setErrorLogIn} = useContext(ProductContext)
-  const {setUser} = useContext(UserContext);
   const navigate = useNavigate();
-  const {setUser, user} = useContext(UserContext)
+  const { user} = useContext(UserContext)
   const validation = Yup.object({
     name: Yup.string().required("Este campo es requerido"),
     surname: Yup.string().required("Este campo es requerido"),

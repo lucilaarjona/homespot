@@ -20,7 +20,7 @@ export const LogIn = () => {
     setShowPassword(!showPassword);
   };
 
-  const {productId} = useContext(ProductContext)
+  // const {productId} = useContext(ProductContext)
   const {errorLogIn} = useContext(ProductContext)
 
   const { setLogged } = useContext(UserContext);
@@ -132,7 +132,7 @@ export const LogIn = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
+                  
 
                   {errors.email && (
                     <span className="error">{errors.email}</span>
@@ -151,7 +151,7 @@ export const LogIn = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <VisibilityOffIcon className="icons" />
+                  {showPassword? <VisibilityIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>: <VisibilityOffIcon onClick={()=>{handleClickShowPassword()}} className="icons"/>}
                   {errors.password && (
                     <span className="error">{errors.password}</span>
                   )}
