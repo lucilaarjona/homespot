@@ -5,14 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>integrativeproject</groupId>
-	<artifactId>digitalbooking</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>homeSpot</name>
-	<description>Api Rest</description>
+	<artifactId>consoleapp</artifactId>
+	<name>consoleapp</name>
+	<description>HomeSpot api rest</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -78,11 +77,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.11</version>
-		</dependency>
 
 	</dependencies>
 
@@ -104,3 +98,4 @@
 	</build>
 
 </project>
+
