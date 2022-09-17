@@ -85,6 +85,7 @@ const Header = () => {
         <HeaderStyled>
           <Link             onClick={() => {
               setErrorLogIn(false);
+              setCategorieSelected("");
             }} to="/">
             <Logo>
               <div 
@@ -130,6 +131,7 @@ const Header = () => {
         <HeaderStyled>
           <Link             onClick={() => {
               setErrorLogIn(false);
+              setCategorieSelected("");
             }} to="/">
             <Logo>
               <div 
