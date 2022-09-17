@@ -13,7 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { categorieSelected , setCategorieSelected } = useContext(CategoryContext);
-  const { logged } = useContext(UserContext);
+  // const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
   // console.log(user);
