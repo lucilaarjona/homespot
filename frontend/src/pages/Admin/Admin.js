@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { HeaderAdminStyle, FormAdmi } from "./StyledAdmin";
+import { HeaderAdminStyle, FormAdmi, ContainerForm } from "./StyledAdmin";
 import Select from "react-select";
 import axiosHelper from "../../helper/axiosHelper";
 import { Link } from "react-router-dom";
@@ -54,10 +54,15 @@ console.log();
         </header>
       </HeaderAdminStyle>
       <h2>Crear propiedad</h2>
+      <ContainerForm>
       <FormAdmi>
-        <label>Nombre de la propiedad</label>
+      <div className="box1">
+      <div>
+        <div>Nombre de la propiedad</div>
         <input type="text" placeholder="Hotel Miramar" />
-        <label> Categoria</label>
+      </div>
+      <div>
+        <div className=""> Categoria</div>
         <Select
           defaultValue={{
             label: <span>Casa</span>,
@@ -69,10 +74,15 @@ console.log();
           isSearchable={false}
           isRtl={false}
           required
+          className="selectForm"
         />
-        <label> Dirección</label>
+        </div>
+        <div>
+        <div > Dirección</div>
         <input type="text" placeholder="Av calle falsa 123" />
-        <label>Ciudad</label>
+        </div>
+        <div>
+        <div className="">Ciudad</div>
         <Select
           defaultValue={{
             label: (
@@ -92,8 +102,11 @@ console.log();
             value: `${city.name},${city.country}`,
           }))}
           onChange={selectCity}
+          className="selectForm"
         />
-        <label>Descripción</label>
+        </div>
+        </div>
+        <div>Descripción</div>
         <textarea placeholder="Escribir aquí..." maxLength="600" />
 
         <h3>Agregar atributos</h3>
@@ -118,6 +131,7 @@ console.log();
     
 
       </FormAdmi>
+      </ContainerForm>
     </>
   );
 };

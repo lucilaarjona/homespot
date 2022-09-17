@@ -13,7 +13,6 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { setCategorieSelected } = useContext(CategoryContext);
-  const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
   // console.log(user);
@@ -29,6 +28,9 @@ const Header = () => {
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const dataUser = JSON.parse(localStorage.getItem("user"));
+  console.log(dataUser);
 
   const buttonHeader = () => {
     if (pathname === "/register") {
@@ -76,7 +78,7 @@ const Header = () => {
         </HeaderStyled>
       );
      } 
-    else if (logged) {
+    else if (dataUser?.rol === "ADMIN") {
       return user ? (
         <HeaderStyled>
           <Link             onClick={() => {
@@ -93,12 +95,53 @@ const Header = () => {
           <div className="containerButton">
             <div className="nameContainer">
               <div className="initial">
-                {user.name.trim()[0].toUpperCase()}
-                {user.lastname.trim()[0].toUpperCase()}
+                {dataUser?.name.trim()[0].toUpperCase()}
+                {dataUser?.lastName.trim()[0].toUpperCase()}
               </div>
             </div>
             <div className="name">
-              <div>Hola! {user.name.trim().split(" ")[0]}</div>
+              <div>Hola! {dataUser?.name.trim().split(" ")[0]}</div>
+            </div>
+            <button onClick={() => {
+              navigate("/"); 
+              setLogged(false);
+              window.localStorage.clear();
+              setErrorLogIn(false);
+              setProductId("")
+              }
+              }
+              >
+              Cerrar sesion
+              </button>
+              <button onClick={() => navigate("/administrator")}> Crear un producto</button>
+            
+          </div>
+        </HeaderStyled>
+      ) : null;
+    }
+    else if (dataUser) {
+      return user ? (
+        <HeaderStyled>
+          <Link             onClick={() => {
+              setErrorLogIn(false);
+            }} to="/">
+            <Logo>
+              <div className="initialContainer">
+                {/* <div className="logo2">HS</div> */}
+                <img src={logo} alt="logo" />
+              </div>
+            </Logo>
+          </Link>
+          <div className="slogan">Feels like home</div>
+          <div className="containerButton">
+            <div className="nameContainer">
+              <div className="initial">
+                {dataUser?.name.trim()[0].toUpperCase()}
+                {dataUser?.lastName.trim()[0].toUpperCase()}
+              </div>
+            </div>
+            <div className="name">
+              <div>Hola! {dataUser?.name.trim().split(" ")[0]}</div>
             </div>
             <button onClick={() => {
               navigate("/"); 

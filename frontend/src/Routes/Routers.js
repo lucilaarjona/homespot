@@ -13,11 +13,9 @@ import Booking from "../components/Booking/Booking";
 import { UserContext } from "../context/UserContext";
 import Admin from "../pages/Admin/Admin";
 
-
 const Routers = () => {
-
-  const {logged} = useContext(UserContext)
-  const {setUser} = useContext(UserContext)
+  const { logged } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   // const [user, setUser] = useState({
   //   email: " ",
@@ -36,31 +34,27 @@ const Routers = () => {
 
   return (
     <BrowserRouter>
-        <ProductProvider>
-          <CityProvider>
-            <CategoryProvider>
-              <Layout>
-                <Routes>
-                  <Route path="/product/:id" element={<Product />} />
-                  <Route path="/" element={<Home />} />
-                  <Route path="/logIn" element={<LogIn/>} />
-                  <Route
-                    path="/register"
-                    element={<Register showValues={showValues} />}
-                  />
-
-<Route path="/administrator" element={<Admin/>}/>
-                  <Route element={<ProtectedRoutes isLogged={logged} />}>
-                    <Route
-                      path="/product/:id/booking" element={<Booking />}
-                    />
-                    
-                  </Route>
-                </Routes>
-              </Layout>
-            </CategoryProvider>
-          </CityProvider>
-        </ProductProvider>
+      <ProductProvider>
+        <CityProvider>
+          <CategoryProvider>
+            <Layout>
+              <Routes>
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/logIn" element={<LogIn />} />
+                <Route
+                  path="/register"
+                  element={<Register showValues={showValues} />}
+                />
+                <Route element={<ProtectedRoutes isLogged={logged} />}>
+                <Route path="/administrator" element={<Admin />} />
+                  <Route path="/product/:id/booking" element={<Booking />} />
+                </Route>
+              </Routes>
+            </Layout>
+          </CategoryProvider>
+        </CityProvider>
+      </ProductProvider>
     </BrowserRouter>
   );
 };
