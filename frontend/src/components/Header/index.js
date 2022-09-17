@@ -87,7 +87,10 @@ const Header = () => {
               setErrorLogIn(false);
             }} to="/">
             <Logo>
-              <div className="initialContainer">
+              <div 
+              data-bs-toggle= "collapse"
+              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
               </div>
@@ -128,7 +131,10 @@ const Header = () => {
               setErrorLogIn(false);
             }} to="/">
             <Logo>
-              <div className="initialContainer">
+              <div 
+              data-bs-toggle= "collapse"
+              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
               </div>
