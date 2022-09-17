@@ -28,13 +28,13 @@ const NavBar = ({ open }) => {
               <span className="box">
               <div className="nameContainer">
                 <div className="initial">
-                  {user.name.trim().toUpperCase()[0]}
-                  {user.lastname.trim().toUpperCase()[0]}
+                  {/* {user.name.trim().toUpperCase()[0]} */}
+                  {/* {user.lastName.trim().toUpperCase()[0]} */}
                 </div>
               </div>
               <div className="name">
                 <div>Hola! <b/>
-                   {user.name.split(" ")[0]}
+                   {/* {user.name.split(" ")[0]} */}
                 </div>
               </div>
               </span>

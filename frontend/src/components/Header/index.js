@@ -12,7 +12,7 @@ const Header = () => {
   const {setProductId} = useContext(ProductContext)
   const navigate = useNavigate();
   const location = useLocation();
-  const { setCategorieSelected } = useContext(CategoryContext);
+  const { categorieSelected , setCategorieSelected } = useContext(CategoryContext);
   const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
@@ -25,6 +25,7 @@ const Header = () => {
   const pathname = location.pathname;
 
   const [open, setOpen] = useState(false);
+  
 
   const handleClick = () => {
     setOpen(!open);
@@ -93,12 +94,12 @@ const Header = () => {
           <div className="containerButton">
             <div className="nameContainer">
               <div className="initial">
-                {user.name.trim()[0].toUpperCase()}
-                {user.lastname.trim()[0].toUpperCase()}
+                {/* {user.name.trim()[0].toUpperCase()} */}
+                {/* {user.lastName.trim()[0].toUpperCase()} */}
               </div>
             </div>
             <div className="name">
-              <div>Hola! {user.name.trim().split(" ")[0]}</div>
+              {/* <div>Hola! {user.name.trim().split(" ")[0]}</div> */}
             </div>
             <button onClick={() => {
               navigate("/"); 
@@ -125,9 +126,13 @@ const Header = () => {
               setErrorLogIn(false);
             }}
             to="/"
+           
           >
             <Logo>
-              <div className="initialContainer">
+              <div
+               data-bs-toggle= "collapse"
+               data-bs-target= {categorieSelected?"#collapseOne":null}
+                className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                <img src={logo} alt="logo"/>
               </div>

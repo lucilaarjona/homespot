@@ -14,6 +14,7 @@ export const Section = styled.div`
   overflow: hidden;
   transition: height .60s ease;
   }
+ 
 
   .title {
     display: flex;
