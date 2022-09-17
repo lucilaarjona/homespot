@@ -113,6 +113,7 @@ const Header = () => {
               window.localStorage.clear();
               setErrorLogIn(false);
               setProductId("")
+              setCategorieSelected("");
               }
               }
               >
@@ -157,6 +158,7 @@ const Header = () => {
               window.localStorage.clear();
               setErrorLogIn(false);
               setProductId("")
+              setCategorieSelected("");
               }
               }
               >

@@ -61,19 +61,32 @@ export const ContainerForm = styled.div`
 `;
 
 export const FormAdmi = styled.form`
+
   display: flex;
   flex-direction: column;
 
-  background-color: #f1f1f1;
+  background-color: #d6dbdf;
+
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
   width: 80%;
 
+  #input {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px 0px rgba(153, 151, 153, 1);
+  }
+  #input:focus {
+    outline: none !important;
+  }
+
   @media (min-width: 768px) {
+    height: auto;
     .box1 {
       display: grid;
       grid-template-columns: 45% 45%;
       justify-content: center;
+      margin-bottom: 1%;
       gap: 5%;
     }
 
@@ -82,15 +95,41 @@ export const FormAdmi = styled.form`
       height: 50px;
     }
 
-    .selectForm{
+    .selectForm {
       width: 100%;
       max-height: 50px;
     }
 
-    .css-319lph-ValueContainer{
+    .css-319lph-ValueContainer {
       max-height: 50px;
     }
 
+    .text {
+      margin-left: 2.5%;
+    }
+    textarea {
+      width: 97.4%;
+      height: 140px;
+    }
+
+    h3 {
+      margin-left: 2.5%;
+      padding-top: 3%;
+    }
+
+    p {
+      margin-left: 2.5%;
+    }
+
+    .check {
+      margin-left: 2.5%;
+      display: grid;
+      grid-template-columns: 20% 30%;
+    }
+    .check input {
+      width: 24px;
+      height: 22px;
+    }
   }
   @media (min-width: 1365px) {
   }

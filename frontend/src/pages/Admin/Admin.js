@@ -5,6 +5,7 @@ import Select from "react-select";
 import axiosHelper from "../../helper/axiosHelper";
 import { Link } from "react-router-dom";
 
+
 const Admin = () => {
   const [categories, setCategories] = useState("");
   console.log(categories);
@@ -58,8 +59,8 @@ console.log();
       <FormAdmi>
       <div className="box1">
       <div>
-        <div>Nombre de la propiedad</div>
-        <input type="text" placeholder="Hotel Miramar" />
+        <div >Nombre de la propiedad</div>
+        <input id="input" type="text" placeholder="Hotel Miramar" />
       </div>
       <div>
         <div className=""> Categoria</div>
@@ -78,8 +79,8 @@ console.log();
         />
         </div>
         <div>
-        <div > Dirección</div>
-        <input type="text" placeholder="Av calle falsa 123" />
+        <div> Dirección</div>
+        <input  id="input" type="text" placeholder="Av calle falsa 123" />
         </div>
         <div>
         <div className="">Ciudad</div>
@@ -106,19 +107,25 @@ console.log();
         />
         </div>
         </div>
-        <div>Descripción</div>
-        <textarea placeholder="Escribir aquí..." maxLength="600" />
+        <div className="text">
+        <div >Descripción</div>
+        <textarea  id="input" placeholder="Escribir aquí..." maxLength="600" />
+        </div>
 
         <h3>Agregar atributos</h3>
-        <p>Seleccionar atributos de la propiedad</p>
-        <label>Piscina<input type="checkbox"  value="pool"></input></label>
-        <label>BBQ<input  type="checkbox" value="grill"></input></label>
-        <label>Gimnasio<input type="checkbox" value="gym"></input></label>
-        <label>Lavanderia<input type="checkbox" value="laundry"></input></label>
-        <label>Calefaccion<input type="checkbox" value="heating"></input></label>
-        <label>Mascotas<input type="checkbox" value="pets"></input></label>
-        <label>Wifi<input type="checkbox" value="wifi"></input></label>
-        <label>Aire Acondicionado<input type="checkbox" value="ac"/></label>
+        <p>Seleccionar atributos de la propiedad:</p>
+        <div className="check">
+        <label>Piscina <div><input className="form-check-input" type="checkbox"  value="pool"></input></div></label>
+        <label>BBQ<div><input   className="form-check-input"  type="checkbox" value="grill"></input></div></label>
+        <label>Gimnasio<div><input  className="form-check-input" type="checkbox" value="gym"></input></div></label>
+        <label>Lavanderia<div><input  className="form-check-input" type="checkbox" value="laundry"></input></div></label>
+        <label>Calefaccion<div><input  className="form-check-input" type="checkbox" value="heating"></input></div></label>
+        <label>Mascotas<div><input  className="form-check-input" type="checkbox" value="pets"></input></div></label>
+        <label>Wifi<div><input  className="form-check-input" type="checkbox" value="wifi"></input></div></label>
+        <label>Aire Acondicionado<div><input  className="form-check-input" type="checkbox" value="ac"/></div></label>
+        </div>
+        
+
 
 
         <h3>Cargar imágenes</h3>
