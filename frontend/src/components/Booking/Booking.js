@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
 import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
 import { CityContext } from "../../context/CityContext";
@@ -12,8 +11,8 @@ import swal from "sweetalert";
 
 const Booking = () => {
     const navigate = useNavigate();
-  const { user } = useContext(UserContext);
   const { citySelected } = useContext(CityContext);
+  const dataUser = JSON.parse(localStorage.getItem("user"));
   // Calendario
   const date = new Date();
   const maxDate = new Date();
@@ -86,15 +85,15 @@ const Booking = () => {
           <form action="" className="form">
             <div className="label">
               <label htmlFor="">Nombre</label>
-              <input placeholder={user.name} disabled type="text" />
+              <input placeholder={dataUser.name} disabled type="text" />
             </div>
             <div className="label">
               <label htmlFor="">Apellido</label>
-              <input placeholder={user.surname} disabled type="text" />
+              <input placeholder={dataUser.lastName} disabled type="text" />
             </div>
             <div className="label">
               <label htmlFor="">Correo electronico</label>
-              <input type="email" placeholder={user.email} disabled />
+              <input type="email" placeholder={dataUser.email} disabled />
             </div>
             <div className="label">
               <label htmlFor="">Ciudad</label>

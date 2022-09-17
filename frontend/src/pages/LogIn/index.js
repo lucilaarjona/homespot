@@ -59,9 +59,8 @@ export const LogIn = () => {
         if (res.status === 200) {
           const token = JSON.stringify(res.data.token)
           localStorage.setItem('token',token);
-          const user = JSON.stringify({name: res.data.name,email:res.data.username, rol: res.data.authorities[0].authority})
-          localStorage.setItem('user',user);
-
+          const userStorage = JSON.stringify({name: res.data.name,lastName: res.data.lastname, email:res.data.username, rol: res.data.authorities[0].authority})
+          localStorage.setItem('user',userStorage);
           navigate("/");
           swal("Inicio de sesion exitoso", {
             icon: "success",
@@ -116,6 +115,7 @@ export const LogIn = () => {
           validateOnBlur={false}
           onSubmit={(values) => {
             saveUser(values);
+
             setLogged(true)
           }}
         >

@@ -6,9 +6,11 @@ import { NavbarWrapper } from './NavBarStyled'
 
 const NavBar = ({ open }) => {
 
-  const { logged, user } = useContext(UserContext);
+  const { logged } = useContext(UserContext);
   const { setLogged, setErrorLogIn, setProductId } = useContext(ProductContext);
   const navigate = useNavigate();
+  const dataUser = JSON.parse(localStorage.getItem("user"));
+
   return (
     <>
 
@@ -28,13 +30,13 @@ const NavBar = ({ open }) => {
               <span className="box">
               <div className="nameContainer">
                 <div className="initial">
-                  {/* {user.name.trim().toUpperCase()[0]} */}
-                  {/* {user.lastName.trim().toUpperCase()[0]} */}
+                  {dataUser?.name.trim().toUpperCase()[0]}
+                  {dataUser?.lastName.trim().toUpperCase()[0]}
                 </div>
               </div>
               <div className="name">
                 <div>Hola! <b/>
-                   {/* {user.name.split(" ")[0]} */}
+                   {dataUser?.name}
                 </div>
               </div>
               </span>

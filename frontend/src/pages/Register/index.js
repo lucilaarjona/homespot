@@ -7,7 +7,6 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
 import swal from "sweetalert";
@@ -26,7 +25,6 @@ export const Register = () => {
 
   const {setErrorLogIn} = useContext(ProductContext)
   const navigate = useNavigate();
-  const { user} = useContext(UserContext)
   const validation = Yup.object({
     name: Yup.string().required("Este campo es requerido"),
     surname: Yup.string().required("Este campo es requerido"),
@@ -92,7 +90,6 @@ export const Register = () => {
       }) )
   };
 
-  console.log(user)
 
   return (
     <RegisterStyled>

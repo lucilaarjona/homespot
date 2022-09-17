@@ -5,16 +5,14 @@ const UserProvider = ({ children }) => {
 
     const login = localStorage.getItem("token") && true
     const [logged, setLogged] = useState(login)
-    const dataUser = JSON.parse(localStorage.getItem("user"));
-    console.log(dataUser);
 
     const [user, setUser] = useState({
-        // name: dataUser.name,
-        // lastname: dataUser.name,
-        // username: dataUser.email,
-        // email: dataUser.email,
-        // city: "",
-        // roles: dataUser.rol
+        name: " ",
+        lastname: " ",
+        username: " ",
+        email: " ",
+        city: "",
+        roles: " "
       })
     // useEffect(() => {
     //     const loadData =  () => {
