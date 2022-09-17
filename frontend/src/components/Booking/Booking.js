@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
 import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
 import { CityContext } from "../../context/CityContext";
@@ -12,7 +11,6 @@ import swal from "sweetalert";
 
 const Booking = () => {
     const navigate = useNavigate();
-  const { user } = useContext(UserContext);
   const { citySelected } = useContext(CityContext);
   const dataUser = JSON.parse(localStorage.getItem("user"));
   // Calendario
