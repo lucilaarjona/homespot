@@ -2,6 +2,14 @@ import styled from "styled-components";
 import colors from "../../components/colors.json";
 export const ProductStyled = styled.section`
   width: 100%;
+
+  #titlePolicie{
+    margin-top: 4%;
+    border-top: 2px solid #f1eded;
+
+  }
+
+
   .styles-module_wrapper__1I_qj {
     z-index: 3;
     display: flex;
@@ -320,6 +328,13 @@ export const ProductStyled = styled.section`
     font-weight: bold;
     margin-top: 20px;
     font-size: 18px;
+    
+    
+  }
+
+  #boxPolicie{
+
+    margin-bottom: 4.5rem;
   }
 
   .titlePolicie li{
@@ -470,6 +485,11 @@ export const ProductStyled = styled.section`
 }
 
 @media (min-width: 1365px) {
+
+  #boxRules{
+
+    margin-bottom: 18%;
+  }
   .containerSlider {
     width: 100%;
     height: 680px;

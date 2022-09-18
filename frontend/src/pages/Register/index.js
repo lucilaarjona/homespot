@@ -9,12 +9,14 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
-import swal from "sweetalert";
+import Swal from 'sweetalert2'
+import withReactContent from "sweetalert2-react-content";
 
 
 
 
 export const Register = () => {
+  const MySwal = withReactContent(Swal)
   const [ showPassword, setShowPassword]= useState(false)
 
   const handleClickShowPassword = () => {
@@ -75,18 +77,24 @@ export const Register = () => {
       )
       .then((res) => {
         if (res.status === 201) {
-          navigate("/logIn"); swal("El registro se ha realizado de manera exitosa", {
-            icon: "success",
-            buttons: false,
+          navigate("/logIn"); 
+        
+          MySwal.fire({
+            html: <strong>El registro se ha realizado de manera exitosa.</strong>,
+            icon: 'success',
+            showConfirmButton: false,
+            timerProgressBar: true,
             timer: 3000,
-          });
+          })
       } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);
       }
       })
-      .catch(error => swal("Intente mas tarde", {
-        buttons: "OK",
-        timer: 3000,
+      .catch(error => MySwal.fire({
+        html: <strong>Lamentablemente no ha podido registrarse. Por favor intente más tarde.</strong>,
+        icon: 'warning',
+       
+       
       }) )
   };
 

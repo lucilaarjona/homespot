@@ -12,7 +12,8 @@ const Header = () => {
   const {setProductId} = useContext(ProductContext)
   const navigate = useNavigate();
   const location = useLocation();
-  const { setCategorieSelected } = useContext(CategoryContext);
+  const { categorieSelected , setCategorieSelected } = useContext(CategoryContext);
+  // const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
   // console.log(user);
@@ -24,6 +25,7 @@ const Header = () => {
   const pathname = location.pathname;
 
   const [open, setOpen] = useState(false);
+  
 
   const handleClick = () => {
     setOpen(!open);
@@ -82,9 +84,13 @@ const Header = () => {
         <HeaderStyled>
           <Link             onClick={() => {
               setErrorLogIn(false);
+              setCategorieSelected("");
             }} to="/">
             <Logo>
-              <div className="initialContainer">
+              <div 
+              data-bs-toggle= "collapse"
+              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
               </div>
@@ -107,6 +113,7 @@ const Header = () => {
               window.localStorage.clear();
               setErrorLogIn(false);
               setProductId("")
+              setCategorieSelected("");
               }
               }
               >
@@ -123,9 +130,13 @@ const Header = () => {
         <HeaderStyled>
           <Link             onClick={() => {
               setErrorLogIn(false);
+              setCategorieSelected("");
             }} to="/">
             <Logo>
-              <div className="initialContainer">
+              <div 
+              data-bs-toggle= "collapse"
+              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
               </div>
@@ -148,6 +159,7 @@ const Header = () => {
               window.localStorage.clear();
               setErrorLogIn(false);
               setProductId("")
+              setCategorieSelected("");
               }
               }
               >
@@ -167,9 +179,13 @@ const Header = () => {
               setErrorLogIn(false);
             }}
             to="/"
+           
           >
             <Logo>
-              <div className="initialContainer">
+              <div
+               data-bs-toggle= "collapse"
+               data-bs-target= {categorieSelected?"#collapseOne":null}
+                className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                <img src={logo} alt="logo"/>
               </div>

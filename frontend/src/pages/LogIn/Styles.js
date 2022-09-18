@@ -114,5 +114,10 @@ border: 1px solid white;
   section{
     margin-top: 10%;
   }
+
+  .b{
+    background-color: black;
+  }
+  
 }
 `
