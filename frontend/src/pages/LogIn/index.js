@@ -11,6 +11,7 @@ import axiosHelper from "../../helper/axiosHelper";
 import swal from "sweetalert";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { bottom } from "@popperjs/core";
 
 export const LogIn = () => {
 
@@ -65,7 +66,9 @@ export const LogIn = () => {
           swal("Inicio de sesion exitoso", {
             icon: "success",
             buttons: false,
-            timer: 500,
+            timer: 2000,
+        ç
+            
           });
         } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);

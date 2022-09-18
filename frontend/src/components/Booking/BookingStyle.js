@@ -297,6 +297,7 @@ export const BookingStyle = styled.section`
     display: grid;
     grid-template-columns: 60% 40%;
 
+
     .selectH2{
       align-self: flex-start;
       margin-left: 5%;
@@ -348,13 +349,15 @@ export const BookingStyle = styled.section`
     .calendar {
     }
     .select {
-      margin-bottom: 13%;
+     
+      
     }
     .bookingDatail {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 6%;
+      height: 120vh;
     }
     .calendarElement {
       display: none;

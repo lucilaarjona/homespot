@@ -67,7 +67,7 @@ const ProductList = () => {
       {/* {!products ?   console.log(products[0].images[0].url) : null } */}
     
    
-     {products ? ( <section className="productList">
+     {products ? (<> <section className="productList">
         {/* {productsFilter.map((product, index) => { */}
            {currentPosts.map((product, index) => {
 
@@ -91,11 +91,12 @@ const ProductList = () => {
 
             />
          
-          );
-        })}
-      </section>):null}
+            );
+          })}
+      </section>
+      </>):null}
 
-      <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>
+          {currentPosts.length===0? null: <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>}
       
     </ProductStyled>
     

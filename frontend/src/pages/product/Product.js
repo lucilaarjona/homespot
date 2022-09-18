@@ -278,9 +278,9 @@ const Product = () => {
             <h3>Donde vas a estar ubicado:</h3>
               <Map />
             </div>
-            <h3>Lo que debes saber</h3>
+            <h3 id="titlePolicie">Lo que debes saber</h3>
             <div className="policiesSection">
-              <div className="titlePolicie">
+              <div className="titlePolicie" id= "boxRules">
                 Reglas de la casa
                 <span>
                   <ul className="policiesContainer">
@@ -339,7 +339,7 @@ const Product = () => {
                   </ul>
                 </span>
               </div>
-              <div className="titlePolicie">
+              <div className="titlePolicie" id="boxPolicie">
                 Política de cancelación
                 <div>
                   Cancelación gratuita por 48 horas. <br />

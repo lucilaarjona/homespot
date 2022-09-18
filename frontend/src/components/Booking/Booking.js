@@ -148,6 +148,7 @@ const Booking = () => {
               isDisabled={false}
               isSearchable={false}
               isRtl={false}
+              menuPlacement="auto"
               required
             />
           </div>
