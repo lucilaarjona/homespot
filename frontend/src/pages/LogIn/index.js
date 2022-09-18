@@ -8,12 +8,30 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { UserContext } from "../../context/UserContext";
 import { ProductContext } from "../../context/ProductContext";
 import axiosHelper from "../../helper/axiosHelper";
-import swal from "sweetalert";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import Swal from 'sweetalert2'
+import withReactContent from "sweetalert2-react-content";
 
 
 export const LogIn = () => {
+  const MySwal = withReactContent(Swal)
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    background: "#008F95",
+    color:"#ffff",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+ 
+ 
 
   const [ showPassword, setShowPassword]= useState(false)
 
@@ -63,21 +81,23 @@ export const LogIn = () => {
           const userStorage = JSON.stringify({name: res.data.name,lastName: res.data.lastname, email:res.data.username, rol: res.data.authorities[0].authority})
           localStorage.setItem('user',userStorage);
           navigate("/");
-          swal("Inicio de sesion exitoso", {
-            icon: "success",
-            buttons: false,
-            timer: 2000,
-            
-          });
+        
+          Toast.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso.'
+          })
         } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);
         }
       })
       .catch((error) =>
-        swal("Intente mas tarde", {
-          buttons: "OK",
-          timer: 3000,
-        })
+      MySwal.fire({
+        html: <strong>Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde.</strong>,
+        icon: 'warning',
+       
+       
+       
+      })
       );
   };
 

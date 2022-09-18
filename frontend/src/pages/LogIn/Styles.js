@@ -114,9 +114,10 @@ border: 1px solid white;
   section{
     margin-top: 10%;
   }
- .red-bg {
-  background-color: rgba(63,255,106,0.69);
-  border: 3px solid white;
-}
+
+  .b{
+    background-color: black;
+  }
+  
 }
 `
