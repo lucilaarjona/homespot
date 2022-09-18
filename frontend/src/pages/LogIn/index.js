@@ -11,7 +11,7 @@ import axiosHelper from "../../helper/axiosHelper";
 import swal from "sweetalert";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { bottom } from "@popperjs/core";
+
 
 export const LogIn = () => {
 
@@ -67,7 +67,6 @@ export const LogIn = () => {
             icon: "success",
             buttons: false,
             timer: 2000,
-        ç
             
           });
         } else if (res.status === 400) {
