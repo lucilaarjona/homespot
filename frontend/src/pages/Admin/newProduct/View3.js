@@ -1,0 +1,176 @@
+import React, { useContext } from "react";
+import swal from "sweetalert";
+import Product from "../../../components/products/Product";
+import { NewProductContext } from "../../../context/NewProduct";
+import axiosHelper from "../../../helper/axiosHelper";
+import { useNavigate } from "react-router-dom";
+
+
+const View3 = () => {
+  const navigate = useNavigate();
+
+  const {
+    setPrice,
+    categorySelected,
+    name,
+    direction,
+    description,
+    citySelected,
+    pool,
+    grill,
+    gym,
+    laundry,
+    heating,
+    pets,
+    wifi,
+    ac,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    // norms,
+    // cancellationPolicy,
+    // healthAndSecurity,
+    price,
+    discount,
+    setDiscount,
+  } = useContext(NewProductContext);
+
+  const product = {
+    name: name,
+    description: description,
+    category: {id:categorySelected},
+    images: [{
+
+            title: "Imagen 1",
+            url: image1
+        },
+        {
+
+            title: "Imagen 2",
+            url: image2
+        },
+        {
+
+            title: "imagen 3",
+            url: image3
+        },
+        {
+
+            title: "Imagen 4",
+            url: image4
+        },
+        {
+
+            title: "Imagen 5",
+            url: image5
+        }],
+    city: {
+        id: citySelected
+    },
+    features:{
+        pool: pool,
+        grill: grill,
+        gym: gym,
+        laundry: laundry,
+        heating: heating,
+        pets: pets,
+        wifi: wifi,
+        ac: ac},
+        policy: {
+          id: 1 },
+    address: direction,
+    price: price,
+    discount: discount
+};
+  console.log(product);
+
+  const postProduct = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    axiosHelper
+      .post(
+        "/product",
+        product,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/")
+          window.location.reload();
+        } else if (res.status === 400) {
+          console.log("respuesta1 ", res.data.data);
+        }
+      })
+      .catch((error) =>
+        swal("Intente mas tarde", {
+          buttons: "OK",
+          timer: 3000,
+        })
+      );
+  };
+
+  return (
+    <div>
+      <div></div>
+      <div>
+        <div>
+          <div>Indique el precio del producto por noche</div>
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            required
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div>
+          <div>Desea agregarle un descuento al producto?</div>
+          <input
+            type="number"
+            step="5"
+            min="0"
+            max="100"
+            required
+            onClick={(e) => {
+              setDiscount(e.target.value);
+            }}
+          />
+        </div>
+
+        <Product
+          id={null}
+          crimg={product?.images[0]?.url}
+          category={product.category.title}
+          title={product.name}
+          location={`${product.city.name},${product.city.country}`}
+          description={product.description}
+          ac={product.features.ac}
+          gym={product.features.gym}
+          pool={product.features.pool}
+          grill={product.features.grill}
+          pets={product.features.pets}
+          laundry={product.features.laundry}
+          heating={product.features.heating}
+          wifi={product.features.wifi}
+        />
+
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            postProduct();
+          }}
+          type="submit"
+        >
+          Publicar producto
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default View3;

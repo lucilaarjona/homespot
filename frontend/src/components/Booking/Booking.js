@@ -76,6 +76,7 @@ const Booking = () => {
     setHour(value);
   };
   // console.log(hour);
+  
   return (
     <>
       <HeaderProduct />

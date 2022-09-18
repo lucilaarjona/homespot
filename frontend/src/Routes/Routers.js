@@ -11,27 +11,12 @@ import CityProvider from "../context/CityContext";
 import ProductProvider from "../context/ProductContext";
 import Booking from "../components/Booking/Booking";
 import { UserContext } from "../context/UserContext";
-import Admin from "../pages/Admin/Admin";
+import { Intro } from "../pages/Admin/newProduct/Intro";
+import View2 from "../pages/Admin/newProduct/View2";
+import View3 from "../pages/Admin/newProduct/View3";
 
 const Routers = () => {
   const { logged } = useContext(UserContext);
-  const { setUser } = useContext(UserContext);
-
-  // const [user, setUser] = useState({
-  //   email: " ",
-  //   password: " ",
-  //   name: "",
-  //   surname: "",
-  // });
-  const showValues = (values) => {
-    setUser({
-      email: values.email,
-      password: values.password,
-      surname: values.surname,
-      userName: values.name,
-    });
-  };
-
   return (
     <BrowserRouter>
       <ProductProvider>
@@ -44,10 +29,12 @@ const Routers = () => {
                 <Route path="/logIn" element={<LogIn />} />
                 <Route
                   path="/register"
-                  element={<Register showValues={showValues} />}
+                  element={<Register />}
                 />
                 <Route element={<ProtectedRoutes isLogged={logged} />}>
-                <Route path="/administrator" element={<Admin />} />
+                  <Route path="/newProduct" element={<Intro />} />
+                  <Route path="/newProduct/view2" element={<View2 />} />
+                  <Route path="/newProduct/view3" element={<View3/>} />
                   <Route path="/product/:id/booking" element={<Booking />} />
                 </Route>
               </Routes>

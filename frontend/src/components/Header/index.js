@@ -30,7 +30,6 @@ const Header = () => {
   };
 
   const dataUser = JSON.parse(localStorage.getItem("user"));
-  console.log(dataUser);
 
   const buttonHeader = () => {
     if (pathname === "/register") {
@@ -113,7 +112,7 @@ const Header = () => {
               >
               Cerrar sesion
               </button>
-              <button onClick={() => navigate("/administrator")}> Crear un producto</button>
+              <button onClick={() => navigate("/newProduct")}> Crear un producto</button>
             
           </div>
         </HeaderStyled>
