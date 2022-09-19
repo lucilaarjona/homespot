@@ -37,7 +37,7 @@ public class ProductService implements IProductService {
     public ProductDTO create(ProductDTO productDTO) {
         CategoryDTO categoryDTO = categoryService.findById(productDTO.getCategory().getId());
         productDTO.setCategory(categoryDTO);
-        PolicyDTO policyDTO = policyService.findById(productDTO.getPolicy().getId());
+        PolicyDTO policyDTO = policyService.create(productDTO.getPolicy());
         productDTO.setPolicy(policyDTO);
         Product product = objectMapper.convertValue(productDTO, Product.class);
         productRepository.save(product);
