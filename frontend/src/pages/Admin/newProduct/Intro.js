@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { NewProductContext } from "../../../context/NewProduct";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import { IntroS, BoxIntro } from "./IntroStyled";
 
 
 const Intro = () => {
@@ -38,66 +39,103 @@ const Intro = () => {
   useEffect(loadData, []);
 
   return (
-    <div>
-      <div> </div>
+    <BoxIntro>
+      <div className="left"></div>
+      
+    <IntroS>
       <div>
+      <div><h2>¿En qué tipo de espacio vas a hospedar?</h2> </div>
         <div>
           {categories ? (
             <section className="productList">
               {categories.map((category, index) => {
                 return (
-                  <label htmlFor={category.title} key={index}>
+                  
+                  
+                    <label
+                    key={index}
+                     className="boxProduct"
+                     htmlFor={category.title} >
                     <input
                       type="radio"
                       id={category.title}
                       name="category"
                       value={category.id}
+                      className="form-check-input"
+                      // className="btn-check"
+                      
                       onClick={() => {
                         setCategorySelected(category.id);
                       }}
                     />
+                    
+                   
+                 
+                    
                     {category.title === "Departamento" ? (
                       <>
-                        <div>
-                          <ApartmentIcon />
+                      
+                      
+                
+                        <div className="title">{category.title}</div>
+                          {/* <ApartmentIcon className="icon" /> */}
+                        <div className="boxImg">
+                         <img src={category.urlImage} alt={category.title}/>
                         </div>
-                        <div>{category.title}</div>
                       </>
                     ) : null}
                     {category.title === "Cabaña" ? (
                       <>
-                        <div>
-                          <CabinIcon />
+                      
+                        
+                        
+                        <div className="title">{category.title}</div>
+                        <div className="boxImg">
+                       
+                          {/* <CabinIcon  className="icon"/> */}
+                          <img src={category.urlImage} alt={category.title}/>
                         </div>
-                        <div>{category.title}</div>
                       </>
                     ) : null}
                     {category.title === "Casa" ? (
                       <>
-                        <div>
-                          <HouseIcon />
+                       
+                       
+                        <div className="title">{category.title}</div>
+                        <div className="boxImg">
+                          {/* <HouseIcon className="icon"/> */}
+                          <img src={category.urlImage} alt={category.title}/>
                         </div>{" "}
-                        <div>{category.title}</div>
                       </>
                     ) : null}
                     {category.title === "Casa de playa" ? (
                       <>
-                        <div>
-                          <HouseboatIcon />
+                      
+                        
+                        
+                          {/* <HouseboatIcon className="icon"/> */}
+                        <div className="title">{category.title}</div>
+                        <div className="boxImg">
+                          <img src={category.urlImage} alt={category.title}/>
                         </div>{" "}
-                        <div>{category.title}</div>
                       </>
                     ) : null}
+                  
                   </label>
+                 
+                  
                 );
               })}
             </section>
           ) : null}
         </div>
+
+        <div  className="card" >
         <div>
-          <label htmlFor="">
-            Nombre de la propiedad
+          <label className="title2" htmlFor="">
+            Nombre de la propiedad:
             <input
+             className="form-control" 
               type="text"
               id="name"
               onChange={(e) => setName(e.target.value)}
@@ -105,8 +143,9 @@ const Intro = () => {
           </label>
         </div>
         <div>
-        <div>Seleccione la ubicacion de la propiedad</div>
+        <div className="title2">Seleccione la ubicación de la propiedad:</div>
         <Select
+        
               defaultValue={{
                 label: (
                   <>
@@ -130,9 +169,10 @@ const Intro = () => {
             />
         </div>
         <div>
-          <label htmlFor="">
-            Escriba la direccion de la propiedad
+          <label className="title2" htmlFor="">
+            Escriba la dirección de la propiedad:
             <input
+            className="form-control" 
               type="text"
               id="name"
               onChange={(e) => setDirection(e.target.value)}
@@ -140,20 +180,23 @@ const Intro = () => {
           </label>
         </div>
         <div>
-          <label htmlFor="">
-            Descripcion del lugar (Sea lo más claro posible)
+          <label className="title2" htmlFor="">
+            Descripción del lugar (sea lo más claro posible):
             <textarea
+            className="form-control" 
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setDescription(e.target.value)}
             />
           </label>
         </div>
+      </div>
         <button onClick={(() => navigate("/newProduct/view2"))}>
-          Siguiente
+         Siguiente
         </button>
       </div>
-    </div>
+    </IntroS>
+    </BoxIntro>
   );
 };
 

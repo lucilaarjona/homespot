@@ -98,16 +98,16 @@ const Header = () => {
           </Link>
           <div className="slogan">Feels like home</div>
           <div className="containerButton">
-            <div className="nameContainer">
-              <div className="initial">
+            <div className="nameContainerA">
+              <div className="initialA">
                 {dataUser?.name.trim()[0].toUpperCase()}
                 {dataUser?.lastName.trim()[0].toUpperCase()}
               </div>
             </div>
-            <div className="name">
+            <div className="nameA">
               <div>Hola! {dataUser?.name.trim().split(" ")[0]}</div>
             </div>
-            <button onClick={() => {
+            <button className="admibtn" onClick={() => {
               navigate("/"); 
               setLogged(false);
               window.localStorage.clear();
@@ -119,7 +119,7 @@ const Header = () => {
               >
               Cerrar sesion
               </button>
-              <button onClick={() => navigate("/newProduct")}> Crear un producto</button>
+              <button  className="admibtn" onClick={() => navigate("/newProduct")}> Crear un producto</button>
             
           </div>
         </HeaderStyled>

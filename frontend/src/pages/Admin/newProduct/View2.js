@@ -10,18 +10,18 @@ import AirIcon from "@mui/icons-material/Air";
 import { useContext } from "react";
 import { NewProductContext } from "../../../context/NewProduct";
 import { useNavigate } from "react-router-dom";
+import { ViewTwo } from "./View2Styled";
 
 const View2 = () => {
   const navigate = useNavigate();
   const { setNorms,setHealthAndSecurity,setCancellationPolicy,setImage1,setImage2,setImage3,setImage4,setImage5,setPool, setGrill, setGym, setLaundry, setHeating, setPets, setWifi, setAc} = useContext(NewProductContext)
   return (
-    <div>
+    <ViewTwo>
       <div></div>
       <div>
-        <div>
-          <h2>Con cuales de estas caracteristicas cuenta su propiedad</h2>
-          <label htmlFor="pool">
-            Piscina
+          <h2>¿Con cuáles de estas caracteristicas cuenta su propiedad?</h2>
+        <div className="boxC">
+          <div className="icon">
             <input
               type="checkbox"
               id="pool"
@@ -31,10 +31,12 @@ const View2 = () => {
                 setPool(true);
               }}
             />
-            <PoolIcon />
+              <PoolIcon className="iconSize"/>
+          <label htmlFor="pool">
+            Piscina
           </label>
-          <label htmlFor="grill">
-            BBQ
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="grill" 
@@ -43,10 +45,12 @@ const View2 = () => {
             onClick={() => {
               setGrill(true);
               }} />
-            <OutdoorGrillIcon />
+            <OutdoorGrillIcon  className="iconSize"/>
+          <label htmlFor="grill">
+            BBQ
           </label>
-          <label htmlFor="gym">
-            Gimnasio
+          </div>
+        <div className="icon">
             <input 
             type="checkbox" 
             id="gym" 
@@ -55,10 +59,12 @@ const View2 = () => {
             onClick={() => {
               setGym(true);
               }} />
-            <FitnessCenterIcon />
+            <FitnessCenterIcon  className="iconSize"/>
+          <label htmlFor="gym">
+            Gimnasio
           </label>
-          <label htmlFor="laundry">
-            Lavanderia
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="laundry" 
@@ -67,10 +73,12 @@ const View2 = () => {
             onClick={() => {
               setLaundry(true);
               }} />
-            <DryCleaningIcon />
+            <DryCleaningIcon className="iconSize"/>
+          <label htmlFor="laundry">
+            Lavanderia
           </label>
-          <label htmlFor="heating">
-            Calefaccion
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="heating" 
@@ -79,10 +87,12 @@ const View2 = () => {
             onClick={() => {
               setHeating(true);
               }}/>
-            <HvacIcon />
+            <HvacIcon className="iconSize"/>
+          <label htmlFor="heating">
+            Calefaccion
           </label>
-          <label htmlFor="pets">
-            Recibe mascotas
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="pets" 
@@ -91,10 +101,12 @@ const View2 = () => {
             onClick={() => {
               setPets(true);
               }} />
-            <PetsIcon />
+            <PetsIcon className="iconSize"/>
+          <label htmlFor="pets">
+            Recibe mascotas
           </label>
-          <label htmlFor="wifi">
-            WiFi
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="wifi" 
@@ -103,10 +115,12 @@ const View2 = () => {
             onClick={() => {
               setWifi(true);
               }} />
-            <WifiIcon />
+            <WifiIcon className="iconSize"/>
+          <label htmlFor="wifi">
+            WiFi
           </label>
-          <label htmlFor="ac">
-            Aire Acondicionado
+          </div>
+          <div className="icon">
             <input 
             type="checkbox" 
             id="ac" 
@@ -115,53 +129,70 @@ const View2 = () => {
             onClick={() => {
               setAc(true);
               }} />
-            <AirIcon />
+            <AirIcon className="iconSize"/>
+          <label htmlFor="ac">
+            Aire Acondicionado
           </label>
+          </div>
         </div>
+        <div id="box2">
+        <div className="card" >
         <div>
         <div>
-        Agregue 5 imagenes de su producto
+        <h2>Agregue 5 imágenes de su producto:</h2>
         </div>
+        <div className="imgBox">
         <label>
-            Aqui la imagen principal de su producto
+            Aquí la imágen principal de su producto
+            </label>
             <textarea
+            id="text"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setImage1(e.target.value)}
             />
-          </label>
           <label>
-          Imagen 2
+          Imágen 2
+          </label>
             <textarea
+            id="text"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setImage2(e.target.value)}
             />
-          </label>
           <label>
-          Imagen 3
+          Imágen 3
+          </label>
             <textarea
+            id="text"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setImage3(e.target.value)}
             />
-          </label>
           <label>
-          Imagen 4
+          Imágen 4
+          </label>
             <textarea
+            id="text"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setImage4(e.target.value)}
             />
-          </label>
           <label>
-            Imagen 5
+            Imágen 5
+            </label>
             <textarea
+            id="text"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setImage5(e.target.value)}
             />
-          </label>
+          </div>
         </div>
         <div>
         <h2>Ingrese las reglas de su producto </h2>
@@ -191,11 +222,13 @@ const View2 = () => {
           </label>
 
         </div>
+        </div>
+        </div>
         <button onClick={(() => navigate("/newProduct/view3"))}>
           Siguiente
         </button>
       </div>
-    </div>
+    </ViewTwo>
   );
 };
 

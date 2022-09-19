@@ -49,6 +49,7 @@ const NavBar = ({ open }) => {
               setLogged(false);
               setErrorLogIn(false);
               setProductId("")
+              window.localStorage.clear();
               }} to="/"  style={{ textDecoration: "none" }}><p id="linkTwo">Cerrar Sesión</p></Link>
               </div>
             </div>

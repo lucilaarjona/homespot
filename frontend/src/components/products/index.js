@@ -96,7 +96,7 @@ const ProductList = () => {
       </section>
       </>):null}
 
-          {currentPosts.length===0? null: <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>}
+          {currentPosts.length===0  ? null: <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>}
       
     </ProductStyled>
     

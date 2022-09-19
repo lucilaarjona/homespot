@@ -1,0 +1,277 @@
+import styled from "styled-components";
+// import colors from '../colors.json'
+
+
+
+export const BoxIntro = styled.div`
+@media (min-width: 1365px) {
+
+display: grid;
+grid-template-columns: 40% 60%;
+
+.left{
+    
+    background-color:#008F95;
+    background: url("https://a0.muscache.com/im/pictures/9c3584af-952d-49a0-91b2-efeb1570681a.jpg?im_w=1440") no-repeat center -80px;
+    background-size: cover;
+}
+
+}
+
+
+
+`
+export const IntroS = styled.div`
+
+img{
+
+    width: 100px;
+    height: 80px;
+    border-radius: 5px;
+   
+}
+
+
+
+  .card {
+    margin: 4%;
+    
+  }
+
+  .form-check-input {
+    margin-left: 1.2rem;
+  }
+
+  .productList {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .boxProduct {
+    border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .icon {
+    font-size: 40px;
+    color: #008f95;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+
+  .form-control {
+    width: 91.5vw;
+  }
+
+  .title2 {
+    font-size: 17px;
+    margin-top: 2%;
+  }
+
+
+  button{
+  background-color: black;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  padding: 10px 40px 10px 40px;
+  position: relative;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  left: 32%;
+  margin-bottom: 7rem;
+    }
+
+
+    input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    width: 80vw;
+    height: 10vw;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    cursor: pointer;
+    outline: none;
+    z-index: -1;
+    right: 2rem;
+}
+
+  @media (min-width: 768px) {
+
+
+
+    .boxProduct {
+      width: 92vw;
+      height: 10vw;
+     
+      justify-content: space-between;
+    }
+
+    .icon {
+      font-size: 54px;
+      color: #008f95;
+    }
+
+    .title {
+      font-size: 18px;
+    }
+
+    .title2 {
+      font-size: 17px;
+      margin-top: 2%;
+    }
+
+    button{
+        left: 40%;
+    }
+
+    .boxImg{
+        margin-right: 1%;
+        
+        
+  }
+
+  .title{
+    margin-left: 1%;
+    
+  }
+
+  img{
+
+width: 100px;
+height: 65px;
+border-radius: 5px;
+
+}
+
+
+
+input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    width: 92vw;
+    height: 10vw;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    cursor: pointer;
+    outline: none;
+    z-index: -1;
+    right: 2rem;
+}
+  }
+
+  @media (min-width: 1365px) {
+
+    img{
+
+width: 100px;
+height: 80px;
+border-radius: 5px;
+
+}
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    .card {
+      width: 100%;
+      margin: 0;
+
+      margin-top: 4%;
+    }
+
+    .form-check-input {
+      margin-left: 1.2rem;
+    }
+
+    .productList {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .boxProduct {
+
+      width: 58vw;
+      height: 100px;
+      
+      
+      display: flex;
+      justify-content: space-between;
+
+      
+    }
+
+
+    .form-control {
+      width: 58vw;
+    }
+
+    .title2 {
+      font-size: 17px;
+      margin-top: 2%;
+    }
+
+    button{
+  
+  left: 24rem;
+    }
+
+    .boxImg{
+        margin-right: 0.5%;
+        
+        
+  }
+
+  .title{
+    margin-left: 0.5%;
+    
+  }
+
+  .form-check-input{
+    position: absolute;
+    
+  }
+
+  input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    width: 58vw;
+      height: 100px;
+    border-radius: 10px;
+    /* position: absolute; */
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    cursor: pointer;
+    outline: none;
+    z-index: -1;
+    right: 15px;
+}
+ 
+}
+
+`;

@@ -68,6 +68,14 @@ export const HeaderStyled = styled.header`
   .name{
     display: none;
   }
+
+  .initialA{
+    display: none;
+  }
+  .nameA{
+    display: none;
+  }
+  
   
  
   button {
@@ -79,6 +87,55 @@ export const HeaderStyled = styled.header`
     justify-content: space-between;
     height: 11vh;
     z-index: 1;
+
+    .nameA {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      color: ${colors[0].principal};
+      width: fit-content;
+    }
+
+    .initialA{
+      display: block;
+      font-size: 28px;
+    }
+
+    .admibtn{
+      width: 100px;
+      height: 50px;
+    }
+   
+
+    .nameContainerA {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      color: white;
+      position: absolute;
+      right: 25rem;
+      top: 31px;
+      
+    }
+
+    .nameContainerA:hover {
+      border: 1px solid ${colors[0].principal};
+      background: white;
+      color: ${colors[0].principal};
+    }
+    .initial {
+      font-size: 35px;
+    
+    }
+
+
+
 
     .slogan {
       display: block;
@@ -139,7 +196,7 @@ export const HeaderStyled = styled.header`
       height: 70.95px;
       color: white;
       position: absolute;
-      right: 40.5%;
+      right: 20rem;
       top: 20px;
     }
 
@@ -156,6 +213,30 @@ export const HeaderStyled = styled.header`
   @media screen and (min-width: 1365px) {
     height: 13vh;
     backdrop-filter: blur(30px);
+
+    .nameContainerA {
+      border: 1px solid white;
+      background: ${colors[0].principal};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70.95px;
+      height: 70.95px;
+      color: white;
+      position: absolute;
+      right: 34rem;
+      top: 20px;
+    }
+
+    .nameContainerA:hover {
+      border: 1px solid ${colors[0].principal};
+      background: white;
+      color: ${colors[0].principal};
+    }
+
+
+
     .containerButton {
       display: flex;
       justify-content: space-around;
@@ -172,8 +253,14 @@ export const HeaderStyled = styled.header`
       height: 70.95px;
       color: white;
       position: absolute;
-      right: 22.5%;
+      right: 20rem;
       top: 20%;
+    }
+
+    .admibtn{
+      width: 10.4rem;
+      height: 2.4rem;
+      
     }
 
     
