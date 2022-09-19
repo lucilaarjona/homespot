@@ -86,6 +86,7 @@ img{
   background-color: black;
   font-weight: bold;
   font-size: 1em;
+  width: 160px;
   letter-spacing: 0.1em;
   text-decoration: none;
   color: #ffffff;
@@ -95,7 +96,7 @@ img{
   border: 3px solid #ffffff;
   border-radius: 20px;
   left: 32%;
-  margin-bottom: 7rem;
+  margin-bottom: 4rem;
     }
 
 

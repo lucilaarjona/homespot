@@ -224,6 +224,9 @@ const View2 = () => {
         </div>
         </div>
         </div>
+        <button onClick={(() => navigate(-1))}>
+         Atrás
+        </button>
         <button onClick={(() => navigate("/newProduct/view3"))}>
           Siguiente
         </button>

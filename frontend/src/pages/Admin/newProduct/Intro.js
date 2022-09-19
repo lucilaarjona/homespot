@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axiosHelper from "../../../helper/axiosHelper";
-import ApartmentIcon from "@mui/icons-material/Apartment";
-import HouseIcon from "@mui/icons-material/House";
-import HouseboatIcon from "@mui/icons-material/Houseboat";
-import CabinIcon from "@mui/icons-material/Cabin";
 import { useContext } from "react";
 import { NewProductContext } from "../../../context/NewProduct";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +7,11 @@ import Select from "react-select";
 import { IntroS, BoxIntro } from "./IntroStyled";
 
 
+
 const Intro = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const {setCitySelected, setCategorySelected, setName, setDirection, setDescription } =
+  const {setCitySelected, setCategorySelected, setName, setDirection, setDescription, name } =
     useContext(NewProductContext);
 
 
@@ -138,6 +135,7 @@ const Intro = () => {
              className="form-control" 
               type="text"
               id="name"
+              value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </label>
@@ -166,6 +164,7 @@ const Intro = () => {
                 value: city.id,
               }))}
               onChange={handSelectChange}
+              
             />
         </div>
         <div>
@@ -191,6 +190,7 @@ const Intro = () => {
           </label>
         </div>
       </div>
+     
         <button onClick={(() => navigate("/newProduct/view2"))}>
          Siguiente
         </button>
