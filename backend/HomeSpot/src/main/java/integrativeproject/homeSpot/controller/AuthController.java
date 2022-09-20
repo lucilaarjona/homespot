@@ -66,24 +66,13 @@ public class AuthController {
         User user = new User(newUser.getName(), newUser.getLastname(), newUser.getUsername(),
                 newUser.getEmail(), passwordEncoder.encode(newUser.getPassword()), newUser.getCity());
 
-        /*Set<Role> roles = new HashSet<>();
-        if (newUser.getRoles().contains("USER"))
-        roles.add(rolService.getByRoleName(RoleName.USER).get());
-        if (newUser.getRoles().contains("ADMIN"))
-            roles.add(rolService.getByRoleName(RoleName.ADMIN).get());
-        user.setRole(roles);
-*/
 
         if (newUser.getRoles().contains("USER")) {
-         /*   Role role = new Role();
-            role.setRoleName(RoleName.USER);*/
             user.setRole(rolService.getByRoleName(RoleName.USER).orElse(null));
         }
-       if (newUser.getRoles().contains("ADMIN")) {
-          /* Role role = new Role();
-           role.setRoleName(RoleName.ADMIN);*/
+        if (newUser.getRoles().contains("ADMIN")) {
            user.setRole(rolService.getByRoleName(RoleName.ADMIN).orElse(null));
-       }
+        }
         userService.save(user);
 
         return new ResponseEntity<>(new Message("Usuario creado"), HttpStatus.CREATED);
@@ -92,7 +81,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody UserLogin userLogin, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return new ResponseEntity(new Message("Campos invalidos"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Message("Campos inválidos"), HttpStatus.BAD_REQUEST);
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userLogin.getUsername(), userLogin.getPassword()));
@@ -102,7 +91,7 @@ public class AuthController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String name = userService.getByUser(userLogin.getUsername()).getName();
         String lastname = userService.getByUser(userLogin.getUsername()).getLastame();
-        JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities(), name, lastname);
+        JwtDto jwtDto = new JwtDto(jwt, name, lastname, userDetails.getUsername(), userDetails.getAuthorities() );
         return new ResponseEntity<>(jwtDto, HttpStatus.OK);
     }
 

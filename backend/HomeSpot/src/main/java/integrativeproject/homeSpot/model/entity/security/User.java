@@ -32,9 +32,6 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roles_id", referencedColumnName = "id")
     private Role role ;
-    /*@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();*/
-
 
 
     public User() {
@@ -113,13 +110,6 @@ public class User {
         this.role = role;
     }
 
-   /*  public String getVerificationCode() {
-        return verificationCode;
-    }
-
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
-    }*/
 
     public boolean isEnabled() {
         return enabled;
@@ -129,8 +119,5 @@ public class User {
         this.enabled = enabled;
     }
 
-  /*  public Set<Product> getLikedProducts() {
-        return likedProducts;
-    }*/
 
 }

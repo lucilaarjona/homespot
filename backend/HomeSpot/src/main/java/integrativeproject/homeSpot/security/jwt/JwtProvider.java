@@ -31,7 +31,12 @@ public class JwtProvider {
      */
     public String generateToken(Authentication authentication){
       MainUser mainUser = (MainUser) authentication.getPrincipal();
-        return Jwts.builder().setSubject(mainUser.getUsername())
+      Map<String, Object> claims = new HashMap<>();
+        claims.put("user_info",mainUser);
+
+          return Jwts.builder()
+                .setSubject(mainUser.getUsername())
+                .addClaims(claims)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000L))
                 .signWith(SignatureAlgorithm.HS512, secret)

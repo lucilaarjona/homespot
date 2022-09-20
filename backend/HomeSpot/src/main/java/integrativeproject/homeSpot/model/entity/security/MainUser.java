@@ -9,10 +9,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter @Setter
 public class MainUser implements UserDetails {
 
-
+    private Integer id;
     private String name;
+    private String lastame;
     private String username;
     private String email;
     private String password;
@@ -20,8 +22,10 @@ public class MainUser implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public MainUser(String name, String username, String email, String password, String city, Collection<? extends GrantedAuthority> authorities) {
+    public MainUser(Integer id, String name, String lastame, String username, String email, String password, String city, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
         this.name = name;
+        this.lastame = lastame;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -29,23 +33,21 @@ public class MainUser implements UserDetails {
         this.authorities = authorities;
     }
 
-    //Asignación de privilegios (autorización)
-   /* public static MainUser build(User user){
-        //Conversión de la clase Rol a la clase GrantedAuthority
-        List<GrantedAuthority> authorities =
-                user.getRole()
-                        .stream()
-                        .map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
-                        .collect(Collectors.toList());
-        return new MainUser(user.getName(), user.getUsername(), user.getEmail(),
-                user.getPassword(), user.getCity(), authorities);
-    }*/
+    public MainUser(String name, String lastame, String username, String email, String password, String city, Collection<? extends GrantedAuthority> authorities) {
+        this.name = name;
+        this.lastame = lastame;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.city = city;
+        this.authorities = authorities;
+    }
 
     public static MainUser build(User user) {
         List<GrantedAuthority> authoritiesU = new ArrayList<>();
         GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().getRoleName().name());
         authoritiesU.add(authority);
-        return new MainUser(user.getName(), user.getUsername(), user.getEmail(),
+        return new MainUser(user.getId(),user.getName(), user.getLastame(), user.getUsername(), user.getEmail(),
                 user.getPassword(), user.getCity(), authoritiesU);
     }
 
@@ -98,4 +100,12 @@ public class MainUser implements UserDetails {
         return city;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
+
