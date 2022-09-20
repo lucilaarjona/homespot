@@ -22,4 +22,10 @@ public class UserController {
             return ResponseEntity.ok(HttpStatus.FORBIDDEN);
     }
 
+    @PutMapping()
+    public ResponseEntity<?> updateUser(@RequestBody UserDTO userDTO) {
+        userService.update(userDTO);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
 }

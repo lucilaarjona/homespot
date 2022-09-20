@@ -60,4 +60,10 @@ public class UserService {
         userRepository.save(user);
 
     }
+
+     public UserDTO update(UserDTO userDTO) {
+        User user = objectMapper.convertValue(userDTO, User.class);
+        userRepository.save(user);
+        return userDTO;
+    }
 }
