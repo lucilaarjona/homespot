@@ -1,18 +1,23 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
-import { CityContext } from "../../context/CityContext";
+
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosHelper from "../../helper/axiosHelper";
 import Select from "react-select";
-import swal from "sweetalert";
+
+import jwt_decode from "jwt-decode";
+import Swal from 'sweetalert2'
+import withReactContent from "sweetalert2-react-content";
 
 
 const Booking = () => {
+
+  const MySwal = withReactContent(Swal)
     const navigate = useNavigate();
-  const { citySelected } = useContext(CityContext);
+ const [cityUpdate, setCityUpdate]=useState("")
   const dataUser = JSON.parse(localStorage.getItem("user"));
   // Calendario
   const date = new Date();
@@ -41,9 +46,11 @@ const Booking = () => {
 
   const startDate = range[0].startDate.toLocaleString();
   const checkInDate = startDate.split(",");
+  const startDateL = range[0].startDate.toISOString();
 
   const endDate = range[0].endDate.toLocaleString();
   const checkOutDate = endDate.split(",");
+  const endDateL = range[0].endDate.toISOString();
 
   const hours = [
     { value: "00:00 AM", label: "00:00 AM" },
@@ -72,23 +79,33 @@ const Booking = () => {
     { value: "11:00 PM", label: "11:00 PM" },
   ];
 
-  // const [hour, setHour] = useState("");
+  const [hour, setHour] = useState("");
   const selectHour = ({ value }) => {
-    // setHour(value);
+    setHour(value);
   };
   // console.log(hour);
+  
+    const token = JSON.parse(localStorage.getItem("token"));
+    const decode=jwt_decode(token);
+    const userId= decode.user_info.id;
+
+
 
   const booking={
 
-    startDate:"2022-10-01T05:00:00.000+00:00",
-    endDate:"2022-10-01T05:00:00.000+00:00",
-    product:{id:42},
-    user:{id: 1}
+    bookingStartDate:startDateL,
+    bookingEndDate:endDateL,
+    product:{id: id},
+    user:{id: userId}
   }
 
+
+
+  
   const createBooking=()=>{
 
   const token = JSON.parse(localStorage.getItem("token"));
+  
     axiosHelper
       .post(
         "/booking",
@@ -100,20 +117,31 @@ const Booking = () => {
         }
       )
       .then((res) => {
-        if (res.status === 200) {
+        if (res.status === 200 ) {
           navigate("/")
+          MySwal.fire({
+            html: <strong>La reserva se ha creado de manera exitosa.</strong>,
+            icon: 'success',
+            showConfirmButton: true,
+            timerProgressBar: true,
+            timer: 3000,
+          })
          
         } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);
         }
       })
       .catch((error) =>
-        swal("Intente mas tarde", {
-          buttons: "OK",
-          timer: 3000,
-        })
+      MySwal.fire({
+        html: <strong>Lamentablemente no ha podido crear la reserva. Por favor intente más tarde.</strong>,
+        icon: 'warning',
+       
+      })
       );
 }
+
+
+
   
   return (
     <>
@@ -136,8 +164,9 @@ const Booking = () => {
             </div>
             <div className="label">
               <label htmlFor="">Ciudad</label>
-              <input placeholder={citySelected} type="text" required />
+              <input onChange={(e)=>setCityUpdate(e.target.value)} placeholder="ciudad de residencia" type="text" required={true} />
             </div>
+
           </form>
 
           <h2 id="calendar">Calendario</h2>
@@ -224,29 +253,38 @@ const Booking = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  
-                  // hour === ""
-                  //   ? swal({
-                  //       title: "No hemos podido registrar tu reserva",
-                  //       icon: "warning",
-                  //     })
-                  //   : swal({
-                  //       title: "Quieres confirmar tu reserva?",
-                  //       icon: "warning",
-                  //       buttons: true,
-                  //       dangerMode: true,
-                  //     }).then((willDelete) => {
-                  //       if (willDelete) {
-                  //         swal("Tu reserva ha sido confirmada con éxito!", {
-                  //           icon: "success",
-                  //         })
-                  //         navigate("/");
-                  //       } else {
-                  //         swal("Tu reserva ha sido cancelada");
-                  //       }
-                  //     });
+                  if(cityUpdate==="" || hour===""){
+                    MySwal.fire({
+                      html: <strong>Por favor, complete todos los campos requeridos.</strong>,
+                      icon: 'warning',
+                     
+                     
+                     
+                    }) }else{
 
-                      createBooking()
+
+                      MySwal.fire({
+                        html: <strong>Datos de su reserva en {product.name}:
+                         <br/>-Fecha de check-in: {checkInDate[0]}
+                         <br/>-Fecha de check-out: {checkOutDate[0]}
+                         </strong>,
+                        icon: 'question',
+                        showCancelButton: true,
+                       
+                       
+                       
+                      }).then((result) => {
+                        
+                        if (result.isConfirmed) {
+                          createBooking();
+                        } 
+                      })
+                    
+                    }
+
+
+                  
+            
                 }}
                 type="submit"
                 className="submit"
