@@ -1,12 +1,43 @@
 import styled from "styled-components";
 // import colors from '../colors.json'
 
+export const BoxViewTwo= styled.div`
+
+display: grid;
+grid-template-columns: 40% 60%;
+
+.left{
+    
+    background-color:#008F95;
+    background: url("https://a0.muscache.com/im/pictures/9c3584af-952d-49a0-91b2-efeb1570681a.jpg?im_w=1440") no-repeat center -80px;
+    background-size: cover;
+}
+
+`
+
 export const ViewTwo = styled.div`
+
+
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .form-control{
+
+        width: 45rem;
+    }
+    
+
+h2{
+    text-align: center;
+}
   .boxC {
 
     display: grid;
-    grid-template-columns: 9% 9% 9% 9%;
+    grid-template-columns: 5% 5% 5% 5%;
     row-gap: 10px;
+    column-gap: 7rem;
     justify-content: center;
   }
 
@@ -24,7 +55,7 @@ export const ViewTwo = styled.div`
   }
 
   .iconSize {
-    font-size: 38px;
+    font-size: 50px;
     color: #008f95;
   }
 
@@ -62,4 +93,12 @@ export const ViewTwo = styled.div`
   left: 32%;
   margin-bottom: 7rem;
     }
+
+
+    input[type="checkbox"]{
+        margin: 4%;
+        width: 2vw;
+        height: 20px;
+   
+}
 `;

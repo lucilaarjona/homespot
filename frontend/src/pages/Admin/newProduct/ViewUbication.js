@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import Map from "../../../components/Map/Map";
 import { NewProductContext } from "../../../context/NewProduct";
 import axiosHelper from "../../../helper/axiosHelper";
+import { Ubication, BoxUbication } from "./UbicationStyled";
 
 
 
@@ -13,7 +15,9 @@ import axiosHelper from "../../../helper/axiosHelper";
 
 const ViewUbication = () => {
 
-  const {setCitySelected, setDirection} = useContext(NewProductContext);
+  const navigate= useNavigate();
+
+  const {setCitySelected, setDirection, direction} = useContext(NewProductContext);
   const [city, setCity] = useState([])
   const handSelectChange = ({ value }) => {
     setCitySelected(value);
@@ -26,10 +30,23 @@ const ViewUbication = () => {
   };
   useEffect(loadCities,[])
   return (
+    <BoxUbication>
+           <div className="left"></div>
+    <Ubication>
+
+
     <div>
-    <div>
+      <h2>Publicar producto (2 de 4): </h2> 
+        </div>
+      
+
+      <div>
+
+      <div className="box1">
         <div className="title2">Seleccione la ubicación de la propiedad:</div>
         <Select
+
+        className="select"
         
               defaultValue={{
                 label: (
@@ -57,6 +74,8 @@ const ViewUbication = () => {
           <label className="title2" htmlFor="">
             Escriba la dirección de la propiedad:
             <input
+
+            value={direction}
             className="form-control" 
               type="text"
               id="name"
@@ -64,10 +83,22 @@ const ViewUbication = () => {
             />
           </label>
         </div>
+        </div>
+        <h3>Confirme su ubicación:</h3>
         <div>
           <Map/>
         </div>
-    </div>
+
+       
+
+        <button onClick={(() => navigate(-1))}>
+         Atrás
+        </button>
+        <button onClick={(() => navigate("/newProduct/features"))}>
+          Siguiente
+        </button>
+        </Ubication>
+    </BoxUbication>
   )
 }
 

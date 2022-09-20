@@ -10,7 +10,7 @@ import { IntroS, BoxIntro } from "./IntroStyled";
 const Intro = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const {setCitySelected, setCategorySelected, setName, setDirection, setDescription, name } =
+  const { setCategorySelected, setName,  setDescription, description, name } =
     useContext(NewProductContext);
 
   const loadData = () => {
@@ -26,7 +26,7 @@ const Intro = () => {
       
     <IntroS>
       <div>
-      <div><h2>¿En qué tipo de espacio vas a hospedar?</h2> </div>
+      <h2>Publicar producto (1 de 4): </h2> 
         <div>
           {categories ? (
             <section className="productList">
@@ -112,7 +112,7 @@ const Intro = () => {
           ) : null}
         </div>
 
-        <div  className="card" >
+        <div className="box3">
         <div>
           <label className="title2" htmlFor="">
             Nombre de la propiedad:
@@ -129,6 +129,7 @@ const Intro = () => {
           <label className="title2" htmlFor="">
             Descripción del lugar (sea lo más claro posible):
             <textarea
+            value={description}
             className="form-control" 
               placeholder="Escribir aquí..."
               maxLength="600"
@@ -137,10 +138,13 @@ const Intro = () => {
           </label>
         </div>
       </div>
+
+      <div className="boxButton">
      
-        <button onClick={(() => navigate("/newProduct/view2"))}>
+        <button onClick={(() => navigate("/newProduct/ubication"))}>
          Siguiente
         </button>
+        </div>
       </div>
     </IntroS>
     </BoxIntro>

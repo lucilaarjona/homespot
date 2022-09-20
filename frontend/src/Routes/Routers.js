@@ -34,9 +34,9 @@ const Routers = () => {
                 />
                 <Route element={<ProtectedRoutes isLogged={logged} />}>
                   <Route path="/newProduct" element={<Intro />} />
-                  <Route path="/newProduct/view2" element={<View2 />} />
+                  <Route path="/newProduct/features" element={<View2 />} />
                   <Route path="/newProduct/ubication" element={<ViewUbication/>} />
-                  <Route path="/newProduct/view3" element={<View3/>} />
+                  <Route path="/newProduct/preview" element={<View3/>} />
                   <Route path="/product/:id/booking" element={<Booking />} />
                 </Route>
               </Routes>

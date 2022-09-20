@@ -159,6 +159,10 @@ const View3 = () => {
           wifi={product.features.wifi}
         />
 
+<button onClick={(() => navigate(-1))}>
+         Atrás
+        </button>
+
         <button
           onClick={(e) => {
             e.preventDefault();

@@ -10,16 +10,20 @@ import AirIcon from "@mui/icons-material/Air";
 import { useContext } from "react";
 import { NewProductContext } from "../../../context/NewProduct";
 import { useNavigate } from "react-router-dom";
-import { ViewTwo } from "./View2Styled";
+import { ViewTwo, BoxViewTwo} from "./View2Styled";
 
 const View2 = () => {
   const navigate = useNavigate();
   const { setNorms,setHealthAndSecurity,setCancellationPolicy,setImage1,setImage2,setImage3,setImage4,setImage5,setPool, setGrill, setGym, setLaundry, setHeating, setPets, setWifi, setAc} = useContext(NewProductContext)
   return (
+
+
+    <BoxViewTwo>
+      <div className="left"></div>
     <ViewTwo>
       <div></div>
       <div>
-          <h2>¿Con cuáles de estas caracteristicas cuenta su propiedad?</h2>
+      <h2>Publicar producto (3 de 4): </h2> 
         <div className="boxC">
           <div className="icon">
             <input
@@ -136,7 +140,7 @@ const View2 = () => {
           </div>
         </div>
         <div id="box2">
-        <div className="card" >
+        <div >
         <div>
         <div>
         <h2>Agregue 5 imágenes de su producto:</h2>
@@ -227,11 +231,12 @@ const View2 = () => {
         <button onClick={(() => navigate(-1))}>
          Atrás
         </button>
-        <button onClick={(() => navigate("/newProduct/view3"))}>
+        <button onClick={(() => navigate("/newProduct/preview"))}>
           Siguiente
         </button>
       </div>
     </ViewTwo>
+    </BoxViewTwo>
   );
 };
 
