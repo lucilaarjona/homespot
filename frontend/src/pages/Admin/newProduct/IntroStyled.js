@@ -1,5 +1,6 @@
 import styled from "styled-components";
 // import colors from '../colors.json'
+import postProduct from "../../../assets/postProduct.png"
 
 
 
@@ -12,7 +13,7 @@ grid-template-columns: 40% 60%;
 .left{
     
     background-color:#008F95;
-    background: url("https://a0.muscache.com/im/pictures/9c3584af-952d-49a0-91b2-efeb1570681a.jpg?im_w=1440") no-repeat center -80px;
+    background: url(${postProduct}) no-repeat ;
     background-size: cover;
 }
 
@@ -28,7 +29,7 @@ display: flex;
 
 h2{
     text-align: center;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 img{
@@ -123,9 +124,7 @@ img{
 
   @media (min-width: 768px) {
 
-    h2{
-        margin-top: 3%;
-    }
+    
 
     display: flex;
     justify-content: center;

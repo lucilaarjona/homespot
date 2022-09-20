@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
-import swal from "sweetalert";
 import Product from "../../../components/products/Product";
 import { NewProductContext } from "../../../context/NewProduct";
 import axiosHelper from "../../../helper/axiosHelper";
 import { useNavigate } from "react-router-dom";
+import { BoxViewThree, ViewThree  } from "./view3Styled";
+import Swal from 'sweetalert2'
+import withReactContent from "sweetalert2-react-content";
 
 
 const View3 = () => {
+
+
+  const MySwal = withReactContent(Swal)
+  
   const navigate = useNavigate();
 
   const {
@@ -107,20 +113,22 @@ const View3 = () => {
         }
       })
       .catch((error) =>
-        swal("Intente mas tarde", {
-          buttons: "OK",
-          timer: 3000,
-        })
+      MySwal.fire({
+        html: <strong>Lamentablemente el producto no ha podido crearse. Por favor intente más tarde</strong>,
+        icon: 'warning',
+      })
       );
   };
 
   return (
-    <div>
-      <div></div>
-      <div>
+    <BoxViewThree>
+      <div className="left"></div>
+      <ViewThree>
+      <h2>Publicar producto (4 de 4): </h2> 
         <div>
           <div>Indique el precio del producto por noche</div>
           <input
+          className="form-control"
             type="number"
             step="0.01"
             min="0"
@@ -129,8 +137,9 @@ const View3 = () => {
           />
         </div>
         <div>
-          <div>Desea agregarle un descuento al producto?</div>
+          <div>¿Desea agregarle un descuento al producto?</div>
           <input
+          className="form-control"
             type="number"
             step="5"
             min="0"
@@ -141,6 +150,8 @@ const View3 = () => {
             }}
           />
         </div>
+
+       
 
         <Product
           id={null}
@@ -159,11 +170,17 @@ const View3 = () => {
           wifi={product.features.wifi}
         />
 
-<button onClick={(() => navigate(-1))}>
+
+
+        <div>
+
+<button className="btn" onClick={(() => navigate(-1))}>
          Atrás
         </button>
 
         <button
+        id="btn"
+        className="btn"
           onClick={(e) => {
             e.preventDefault();
             postProduct();
@@ -172,8 +189,9 @@ const View3 = () => {
         >
           Publicar producto
         </button>
-      </div>
-    </div>
+        </div>
+      </ViewThree>
+    </BoxViewThree>
   );
 };
 

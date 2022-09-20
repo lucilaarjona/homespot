@@ -9,6 +9,7 @@ import axiosHelper from "../../helper/axiosHelper";
 import Select from "react-select";
 import swal from "sweetalert";
 
+
 const Booking = () => {
     const navigate = useNavigate();
   const { citySelected } = useContext(CityContext);
@@ -76,6 +77,43 @@ const Booking = () => {
     setHour(value);
   };
   // console.log(hour);
+
+  const booking={
+
+    startDate:"2022-10-01T05:00:00.000+00:00",
+    endDate:"2022-10-01T05:00:00.000+00:00",
+    product:{id:42},
+    user:{id: 1}
+  }
+
+  const createBooking=()=>{
+
+  const token = JSON.parse(localStorage.getItem("token"));
+    axiosHelper
+      .post(
+        "/booking",
+        booking,
+        {
+          headers: {
+            Authorization:`Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/")
+         
+        } else if (res.status === 400) {
+          console.log("respuesta1 ", res.data.data);
+        }
+      })
+      .catch((error) =>
+        swal("Intente mas tarde", {
+          buttons: "OK",
+          timer: 3000,
+        })
+      );
+}
   
   return (
     <>
@@ -184,27 +222,31 @@ const Booking = () => {
                 </li>
               </ul>
               <button
-                onClick={() => {
-                  hour === ""
-                    ? swal({
-                        title: "No hemos podido registrar tu reserva",
-                        icon: "warning",
-                      })
-                    : swal({
-                        title: "Quieres confirmar tu reserva?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                      }).then((willDelete) => {
-                        if (willDelete) {
-                          swal("Tu reserva ha sido confirmada con exito!, revisa tu correo electronico", {
-                            icon: "success",
-                          })
-                          navigate("/");
-                        } else {
-                          swal("Tu reserva ha sido cancelada");
-                        }
-                      });
+                onClick={(e) => {
+                  e.preventDefault();
+                  
+                  // hour === ""
+                  //   ? swal({
+                  //       title: "No hemos podido registrar tu reserva",
+                  //       icon: "warning",
+                  //     })
+                  //   : swal({
+                  //       title: "Quieres confirmar tu reserva?",
+                  //       icon: "warning",
+                  //       buttons: true,
+                  //       dangerMode: true,
+                  //     }).then((willDelete) => {
+                  //       if (willDelete) {
+                  //         swal("Tu reserva ha sido confirmada con éxito!", {
+                  //           icon: "success",
+                  //         })
+                  //         navigate("/");
+                  //       } else {
+                  //         swal("Tu reserva ha sido cancelada");
+                  //       }
+                  //     });
+
+                      createBooking()
                 }}
                 type="submit"
                 className="submit"

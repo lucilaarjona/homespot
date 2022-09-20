@@ -85,7 +85,7 @@ const ViewUbication = () => {
         </div>
         </div>
         <h3>Confirme su ubicación:</h3>
-        <div>
+        <div className="map">
           <Map/>
         </div>
 

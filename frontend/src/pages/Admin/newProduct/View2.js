@@ -14,7 +14,7 @@ import { ViewTwo, BoxViewTwo} from "./View2Styled";
 
 const View2 = () => {
   const navigate = useNavigate();
-  const { setNorms,setHealthAndSecurity,setCancellationPolicy,setImage1,setImage2,setImage3,setImage4,setImage5,setPool, setGrill, setGym, setLaundry, setHeating, setPets, setWifi, setAc} = useContext(NewProductContext)
+  const { setNorms,setHealthAndSecurity,setCancellationPolicy,setImage1,setImage2,setImage3,setImage4,setImage5,setPool, setGrill, setGym, setLaundry, setHeating, setPets, setWifi, setAc, pool, grill, gym, laundry, heating, pets,wifi, ac} = useContext(NewProductContext)
   return (
 
 
@@ -27,12 +27,14 @@ const View2 = () => {
         <div className="boxC">
           <div className="icon">
             <input
+            defaultChecked={pool}
               type="checkbox"
               id="pool"
               name="features"
               value={true}
               onClick={() => {
-                setPool(true);
+                
+                pool? setPool(false): setPool(true);
               }}
             />
               <PoolIcon className="iconSize"/>
@@ -42,12 +44,14 @@ const View2 = () => {
           </div>
           <div className="icon">
             <input 
+             defaultChecked={grill}
             type="checkbox" 
             id="grill" 
             name="features" 
             value={true}
             onClick={() => {
               setGrill(true);
+              grill? setGrill(false): setGrill(true);
               }} />
             <OutdoorGrillIcon  className="iconSize"/>
           <label htmlFor="grill">
@@ -56,12 +60,13 @@ const View2 = () => {
           </div>
         <div className="icon">
             <input 
+            defaultChecked={gym}
             type="checkbox" 
             id="gym" 
             name="features" 
             value={true}
             onClick={() => {
-              setGym(true);
+              gym? setGym(false): setGym(true);
               }} />
             <FitnessCenterIcon  className="iconSize"/>
           <label htmlFor="gym">
@@ -70,12 +75,14 @@ const View2 = () => {
           </div>
           <div className="icon">
             <input 
+            defaultChecked={laundry}
             type="checkbox" 
             id="laundry" 
             name="features" 
             value={true}
             onClick={() => {
-              setLaundry(true);
+              
+              laundry? setLaundry(false): setLaundry(true);
               }} />
             <DryCleaningIcon className="iconSize"/>
           <label htmlFor="laundry">
@@ -85,11 +92,13 @@ const View2 = () => {
           <div className="icon">
             <input 
             type="checkbox" 
+            defaultChecked={heating}
             id="heating" 
             name="features" 
             value={true}
             onClick={() => {
-              setHeating(true);
+              
+              heating? setHeating(false): setHeating(true);
               }}/>
             <HvacIcon className="iconSize"/>
           <label htmlFor="heating">
@@ -98,12 +107,13 @@ const View2 = () => {
           </div>
           <div className="icon">
             <input 
+             defaultChecked={pets}
             type="checkbox" 
             id="pets" 
             name="features" 
             value={true}
             onClick={() => {
-              setPets(true);
+              pets? setPets(false): setPets(true);
               }} />
             <PetsIcon className="iconSize"/>
           <label htmlFor="pets">
@@ -112,12 +122,14 @@ const View2 = () => {
           </div>
           <div className="icon">
             <input 
+            defaultChecked={wifi}
             type="checkbox" 
             id="wifi" 
             name="features" 
             value={true}
             onClick={() => {
-              setWifi(true);
+              
+              wifi? setWifi(false): setWifi(true);
               }} />
             <WifiIcon className="iconSize"/>
           <label htmlFor="wifi">
@@ -126,12 +138,14 @@ const View2 = () => {
           </div>
           <div className="icon">
             <input 
+            defaultChecked={ac}
             type="checkbox" 
             id="ac" 
             name="features" 
             value={true}
             onClick={() => {
-              setAc(true);
+              
+              ac? setAc(false): setAc(true);
               }} />
             <AirIcon className="iconSize"/>
           <label htmlFor="ac">
@@ -143,7 +157,7 @@ const View2 = () => {
         <div >
         <div>
         <div>
-        <h2>Agregue 5 imágenes de su producto:</h2>
+        <h3>Agregue 5 imágenes de su producto:</h3>
         </div>
         <div className="imgBox">
         <label>
@@ -199,18 +213,22 @@ const View2 = () => {
           </div>
         </div>
         <div>
-        <h2>Ingrese las reglas de su producto </h2>
+        <h3>Ingrese las reglas de su producto </h3>
            <label>
             <div>Normas:</div>
             <textarea
+            id="text2"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setNorms(e.target.value)}
             />
           </label>
            <label>
-           <div>Politicas de cancelacion:</div>
+           <div>Políticas de cancelación:</div>
             <textarea
+            id="text2"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setCancellationPolicy(e.target.value)}
@@ -219,6 +237,8 @@ const View2 = () => {
           <label>
           <div>Salud y seguridad:</div>
             <textarea
+            id="text2"
+            className="form-control"
               placeholder="Escribir aquí..."
               maxLength="600"
               onChange={(e) => setHealthAndSecurity(e.target.value)}
