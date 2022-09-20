@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
+
 public class UserDTO {
 
     private Integer id;
@@ -38,6 +39,7 @@ public class UserDTO {
         this.email = email;
         this.password = password;
         this.city = city;
+
 
     }
 

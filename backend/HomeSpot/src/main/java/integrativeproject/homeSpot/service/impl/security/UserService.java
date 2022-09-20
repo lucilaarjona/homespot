@@ -1,6 +1,9 @@
 package integrativeproject.homeSpot.service.impl.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import integrativeproject.homeSpot.model.dto.ProductDTO;
+import integrativeproject.homeSpot.model.dto.security.UserDTO;
+import integrativeproject.homeSpot.model.entity.Product;
 import integrativeproject.homeSpot.model.entity.security.Role;
 import integrativeproject.homeSpot.model.entity.security.User;
 import integrativeproject.homeSpot.repository.security.UserRepository;
@@ -37,12 +40,14 @@ public class UserService {
         Role role = getByUser(username).getRole();
         Boolean admin = false;
         //for (Role role : roleSet)
-            if (role.getRoleName() == ADMIN)
-                admin = true;
+        if (role.getRoleName() == ADMIN)
+            admin = true;
         return admin;
     }
 
-    public User getById(Integer id){ return userRepository.findById(id).orElse(null);}
+    public User getById(Integer id) {
+        return userRepository.findById(id).orElse(null);
+    }
 
     public Boolean existsByUser(String username) {
 
@@ -55,13 +60,13 @@ public class UserService {
     }
 
 
-    public void save(User user ) throws UnsupportedEncodingException, MessagingException {
+    public void save(User user) throws UnsupportedEncodingException, MessagingException {
 
         userRepository.save(user);
 
     }
 
-     public UserDTO update(UserDTO userDTO) {
+    public UserDTO update(UserDTO userDTO) {
         User user = objectMapper.convertValue(userDTO, User.class);
         userRepository.save(user);
         return userDTO;
