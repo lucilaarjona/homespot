@@ -1,5 +1,8 @@
 package integrativeproject.homeSpot.controller;
 
+import integrativeproject.homeSpot.model.dto.ProductDTO;
+import integrativeproject.homeSpot.model.dto.security.UserDTO;
+import integrativeproject.homeSpot.model.entity.security.User;
 import integrativeproject.homeSpot.service.impl.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
