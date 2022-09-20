@@ -72,9 +72,9 @@ const Booking = () => {
     { value: "11:00 PM", label: "11:00 PM" },
   ];
 
-  const [hour, setHour] = useState("");
+  // const [hour, setHour] = useState("");
   const selectHour = ({ value }) => {
-    setHour(value);
+    // setHour(value);
   };
   // console.log(hour);
 
