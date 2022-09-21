@@ -30,6 +30,17 @@
 
 [<img src="./img/ln.png" alt="30" width="30"/> Cindy Suarez](https://www.linkedin.com/in/cindyailensuarez/)
 
+#### Conocimiento al iniciar la carrera
+
+Cindy es estudiante de la Licenciatura en Administración y comenzó el bootcamp CTD sin concimientos previos en programación. La posibilidad de hacer sinergía con su carrera y el amplio margen para ser creativa, fue la que la llevo a estudiar en Digital House.
+
+#### Rol:
+    Front end / Testing
+
+#### Tareas
+
+En testing realizo pruebas exploratorias con enfoque tour y pruebas estáticas. En front end se dedico al maqueteado, estilos con styled-component y a realizar la lógica de cierta funcionalidades de la página web.
+
 Tecnología | Fortaleza |
 ------------ | ------------- |
 Front End | 🔵 🔵 🔵 |
@@ -75,26 +86,49 @@ Bases de datos | 🔵 🔵 🔵 |
 
 <img src="./img/fotos-grupo/juan.png" alt="300" width="300"/>
 
+[<img src="./img/ln.png" alt="30" width="30"/> Juan Camilo Doncel Medina](https://www.linkedin.com/in/juancamilodoncel)
+
+#### Conocimiento al iniciar la carrera
+Juan estudiante de Ingeniería Civil, empezó en el mundo de la programación por hobby en pandemia, después se fue interesando más por el tema y tomo la oportunidad que se le presentó en CTD
+
+#### Rol:
+    Front End
+
+#### Tareas
+Su trabajo fue desarrollar la interfaz gráfica de la aplicación con la mejor experiencia de usuario y funcionalidad posible, dando uso de las diferentes herramientas que nos provee react
 
 Tecnología | Fortaleza |
 ------------ | ------------- |
-Front End | 🔵 🔵 ⚪ |
-Back End | 🔵 ⚪ |
-Infraestructura | 🔵 ⚪ |
-Testing / QA | 🔵 ⚪ |
-Bases de datos | 🔵 ⚪ |
+Front End | 🔵 🔵 🔵 |
+Back End | 🔵 ⚪ ⚪ |
+Infraestructura | 🔵 ⚪ ⚪ |
+Testing / QA | 🔵 🔵 ⚪ |
+Bases de datos | 🔵 🔵 ⚪ |
 
 ## Lorena Perez Escobar
 
 <img src="./img/fotos-grupo/lorena.png" alt="300" width="300"/>
 
+[<img src="./img/ln.png" alt="40" width="40"/> Lorena Perez Escobar](https://www.linkedin.com/in/lorenaperezescobar)
+
+#### Conocimiento al iniciar la carrera
+
+Lorena estudiante recién egresada del colegio, comenzó la carrera Certified Tech Developer sin conocimientos previos sobre programación. Tuvo la oportunidad de aprender algo nuevo y en un futuro conectarlo e implementarlo con su carrera de Ing. Biomédica lo que la impulso a tomar el desafío de aprender más sobre el mundo IT y las diferentes tecnologías.
+
+#### Rol:
+    Back End / Bases de Datos
+
+#### Tareas
+
+En el área de backend, implementó el modelo MVC a través del uso de diferentes dependencias, creó métodos y endpoints para que la API fuera más eficiente su consumo en el Front, creó, modificó, consultó e ingresó información en la base de datos. Configuró con Spring Security y JSON Web Token para la autenticación, el inicio de sesión y registro de usuarios.
+
 Tecnología | Fortaleza |
 ------------ | ------------- |
-Front End | 🔵 🔵 ⚪ |
-Back End | 🔵 ⚪ |
-Infraestructura | 🔵 ⚪ |
-Testing / QA | 🔵 ⚪ |
-Bases de datos | 🔵 ⚪ |
+Front End | 🔵 ⚪ ⚪ |
+Back End | 🔵 🔵 🔵 |
+Infraestructura | 🔵 🔵 ⚪ |
+Testing / QA | 🔵 ⚪ ⚪ |
+Bases de datos | 🔵 🔵 🔵 |
 
 ## Maria Lucila Arjona Campos
 
@@ -109,15 +143,13 @@ comenzo la carrera con conocimientos en UML, bases de datos, lenguajes como java
 la carrera como una gran oportunidad para aprendar sobre las nuevas tecnologias utilizadas actualmente en el mercado.
 
 #### Rol:
+
     Infraestructura / Front End
 
 #### Tareas
- - Conexión de bases de datos RDS para almacenar información.
- - Bucket S3 para almacenar los archivos de frontend
- - Bucket publico para las imagenes
- - Creación de EC2 para alojar nuestra API
- - Configuracion de la API para desplegar el archivo .JAR de nuestro backend
- - Implementación de pipeline CI/CD para deployar la aplicacion automaticamente
+
+Realizo las tareas de parte de infraestuctura las cuales consistian en conectar de bases de datos RDS para almacenar información, crear un bucket S3 para almacenar los archivos de frontend, crear otro bucket publico para las imagenes, creación de EC2 para alojar nuestra API, configuracion de la API para desplegar el archivo .JAR de nuestro backend, implementación de pipeline CI/CD para deployar la aplicacion automaticamente.
+Por parte de front creo el template de Reservas
 
 
 Tecnología | Fortaleza |
@@ -132,13 +164,27 @@ Bases de datos | 🔵 ⚪ ⚪ |
 
 <img src="./img/fotos-grupo/moni.png" alt="300" width="300"/>
 
+[<img src="./img/ln.png" alt="40" width="40"/> Monica Bernal](https://www.linkedin.com/in/monica-alexandra-bernal-reyes-608789b8/)
+
+#### Conocimiento al iniciar la carrera
+
+Monica Estudio es Abogada y decidio cambiar la perspectiva de lo que realmente queria  para su vida optando por estudiar Certifed Tech Developer  de manera que todo lo que fue aprendiendo
+
+#### Rol:
+
+    Testing / Front End
+
+#### Tareas
+
+Comenzó con tareas de Front (formularios) y Testing realizando pruebas Automatizadas con Selenium y Postman y pruebas manuales exploratorias y unitarias con Jest tratando de encontrar la mayor cantidad de Bugs reportando al equipo lo encontrado y procurando la perfección de la aplicación.
+
 Tecnología | Fortaleza |
 ------------ | ------------- |
 Front End | 🔵 🔵 ⚪ |
-Back End | 🔵 ⚪ |
-Infraestructura | 🔵 ⚪ |
-Testing / QA | 🔵 ⚪ |
-Bases de datos | 🔵 ⚪ |
+Back End | 🔵 ⚪ ⚪ |
+Infraestructura | 🔵 ⚪ ⚪ |
+Testing / QA | 🔵 🔵 🔵 |
+Bases de datos | 🔵 🔵 ⚪ |
 
 ## Metodología de trabajo
 
@@ -170,7 +216,7 @@ la ayuda de los tl y documentación logramos solucionar.
 
 ### Sprint 3
 
-Este sprint fue el mas desafiante contaba con un grado de dificultad muy alto, se presentaron dificultades con nuestro back end, 
+Este sprint fue el mas desafiante contaba con un grado de dificultad muy alto, se presentaron dificultades con nuestro back end,
 pero que junto a la documentacion, tl y ayuda de nuestros compañeros logramos superarlas y asi cumplir con los requerimientos del usuario.
 
 [Metro Reto Sprit 3](https://metroretro.io/board/LB1JKNK6BT2Y)
