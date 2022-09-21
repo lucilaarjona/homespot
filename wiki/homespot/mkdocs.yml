@@ -1,0 +1,5 @@
+site_name: HomeSpot
+theme:
+  name: mkdocs
+  nav_style: black
+  logo: "./img/logo-homespot.jpeg"
