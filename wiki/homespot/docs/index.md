@@ -28,25 +28,27 @@
 
 <img src="./img/fotos-grupo/cindy.png" alt="300" width="300"/>
 
+[<img src="./img/ln.png" alt="30" width="30"/> Cindy Suarez](https://www.linkedin.com/in/cindyailensuarez/)
+
 Tecnología | Fortaleza |
 ------------ | ------------- |
-Front End | 🔵 🔵 ⚪ |
-Back End | 🔵 ⚪ |
-Infraestructura | 🔵 ⚪ |
-Testing / QA | 🔵 ⚪ |
-Bases de datos | 🔵 ⚪ |
+Front End | 🔵 🔵 🔵 |
+Back End | 🔵 ⚪ ⚪ |
+Infraestructura | 🔵 ⚪ ⚪ |
+Testing / QA | 🔵 🔵 ⚪ |
+Bases de datos | 🔵 ⚪ ⚪ |
 
 
 ## Jimena Horbacovsky
 
 <img src="./img/fotos-grupo/jime.png" alt="300" width="300"/>
 
-<img src="./img/ln.png" alt="30" width="30"/> [Jimena Horbacovsky](www.linkedin.com/in/jimenashk)
+[<img src="./img/ln.png" alt="30" width="30"/> Jimena Horbacovsky](https://www.linkedin.com/in/jimenashk)
 
 #### Conocimiento al iniciar la carrera
 
-Jimena es Diseñadora grafica & Publicitaria, empezo la carrera Certified Tech Developer sin conocimientos previos, 
-siendo esto un desafío muy grande para ella. Viniendo del mundo del diseño, ve como la creatividad y la innovación 
+Jimena es Diseñadora grafica & Publicitaria, empezo la carrera Certified Tech Developer sin conocimientos previos,
+siendo esto un desafío muy grande para ella. Viniendo del mundo del diseño, ve como la creatividad y la innovación
 se pueden aplicar de diferentes formas y eso me motiva a seguir explorando el mundo IT.
 
 #### Rol:
@@ -54,11 +56,11 @@ se pueden aplicar de diferentes formas y eso me motiva a seguir explorando el mu
 
 #### Tareas
 
-En los diferentes sprints se desempeño realizando diferentes tareas en el área de Backend, Base de Datos, 
-y en menor medida en Testing (realizando test unitarios para el backend en el sprint 1). En el área de backend, 
-creo las diferentes entidades con sus respectivas capas según el patrón MVC, sus relaciones y el mapeo de las 
-tablas con clases de nuestro modelo. Creo filtros para la manipulación del contenido, donde tuve total control 
-desde la base de datos hasta el front e Implementé configuración de CORS. Además, implemento Spring Security 
+En los diferentes sprints se desempeño realizando diferentes tareas en el área de Backend, Base de Datos,
+y en menor medida en Testing (realizando test unitarios para el backend en el sprint 1). En el área de backend,
+creo las diferentes entidades con sus respectivas capas según el patrón MVC, sus relaciones y el mapeo de las
+tablas con clases de nuestro modelo. Creo filtros para la manipulación del contenido, donde tuve total control
+desde la base de datos hasta el front e Implementé configuración de CORS. Además, implemento Spring Security
 para darle seguridad a nuestra app logrando la correcta autenticación y autorización de los usuarios.
 
 Tecnología | Fortaleza |
@@ -69,7 +71,7 @@ Infraestructura | 🔵 ⚪ ⚪ |
 Testing / QA | 🔵 🔵 ⚪ |
 Bases de datos | 🔵 🔵 🔵 |
 
-## Juan Camilo Docel
+## Juan Camilo Doncel Medina
 
 <img src="./img/fotos-grupo/juan.png" alt="300" width="300"/>
 
@@ -98,7 +100,7 @@ Bases de datos | 🔵 ⚪ |
 
 <img src="./img/fotos-grupo/lucila.png" alt="300" width="300"/>
 
-<img src="./img/ln.png" alt="40" width="40"/> [Lucila Arjona](www.linkedin.com/in/lucilaarjona)
+[<img src="./img/ln.png" alt="40" width="40"/> Lucila Arjona](https://www.linkedin.com/in/lucilaarjona)
 
 #### Conocimiento al iniciar la carrera
 
@@ -121,7 +123,7 @@ la carrera como una gran oportunidad para aprendar sobre las nuevas tecnologias 
 Tecnología | Fortaleza |
 ------------ | ------------- |
 Front End | 🔵 🔵 ⚪ |
-Back End | 🔵 ⚪ |
+Back End | 🔵 ⚪ ⚪ |
 Infraestructura | 🔵 🔵 🔵 |
 Testing / QA | 🔵 ⚪ ⚪ |
 Bases de datos | 🔵 ⚪ ⚪ |
@@ -140,9 +142,9 @@ Bases de datos | 🔵 ⚪ |
 
 ## Metodología de trabajo
 
-Trabajamos con Metodologías Ágiles. Para ello nos organizamos siguiendo las ceremonias de SCRUM 
+Trabajamos con Metodologías Ágiles. Para ello nos organizamos siguiendo las ceremonias de SCRUM
 (lectura y validación del sprint, daily, weekly, review, retro), modularizando el proyecto en 4 Sprints de 2 semanas cada uno.
-A lo largo del proyecto contamos con un Scrum Master, un Product Owner y el apoyo de diferentes 
+A lo largo del proyecto contamos con un Scrum Master, un Product Owner y el apoyo de diferentes
 Tech Leads en caso que necesitáramos realizar consultas técnicas.
 Utilizamos gitlab como herramienta de organización y asignación de issues y Metro Retro para asegurarnos
 de mejorar como equipo de manera progresiva. Desde el comienzo del proyecto nos dividimos de manera clara
@@ -153,19 +155,30 @@ los roles pero también establecimos solucionar en grupo aquellas dudas que se p
 
 ### Sprint 1
 
-En primer momento lo que se hizo fue exponer debilidades y fortalezas sobre cada rol del proyecto para lograr una distribucion de issues de forma eficiente.
+En primer momento lo que se hizo fue exponer debilidades y fortalezas sobre cada rol del proyecto para
+lograr una distribucion de issues de forma eficiente, para asi comenzar con la busqueda de nuestra identidad como equipo en el proyecto.
 
 [Metro Reto Sprit 1](https://metroretro.io/board/LB12C9MHMK1K)
 
 ### Sprint 2
 
+Para este segundo sprint lo que se logro fue terminarlo sin ningun carry over, contabamos con una dinamica de trabajo fluida,
+lo que llevo a lograr terminarlo con exito. Como incoveniente que tuvimos fueron los conflictos con gitlab y aws, que junto con
+la ayuda de los tl y documentación logramos solucionar.
+
 [Metro Reto Sprit 2](https://metroretro.io/board/LBZWDEN4UM6Z)
 
 ### Sprint 3
 
+Este sprint fue el mas desafiante contaba con un grado de dificultad muy alto, se presentaron dificultades con nuestro back end, 
+pero que junto a la documentacion, tl y ayuda de nuestros compañeros logramos superarlas y asi cumplir con los requerimientos del usuario.
+
 [Metro Reto Sprit 3](https://metroretro.io/board/LB1JKNK6BT2Y)
 
 ### Sprint 4
+
+Como objetivo para este sprint teniamos logra refactorizar el codigo, ultimar detalles del front, y terminar los testeos de la aplicación.
+Como equipo destacamos que nuestras fortalezas y claves para lograr terminar satisfactoriamente este proyecto fue la comunicación, empatía, colaboración y constante feedback como grupo.
 
 ## Tecnologías utilizadas
 - Servicios y herramientas empleadas
@@ -181,11 +194,32 @@ En primer momento lo que se hizo fue exponer debilidades y fortalezas sobre cada
     - Sistema de control de versiones
         - Gitlab
 - Front end
-    - React
+    - JavaScript
+    - HTML
+    - CSS
+    - ReactJS
+    - Axios
+    - React Router V6
+    - jwt-decode
+    - react-calendar
+    - formik
+    - sweetalert2
+    - react-image-gallery
+    - Bootstrap
+    - Material UI
+    - Style component
 - Back end
     - Java
     - Spring
     - Swagger
+    - Hibernate
+    - Spring boot
+    - Maven
+    - Apache
+    - Tomcat
+    - Lombok
+    - Jwt
+    - Json
 - Base de datos
     - MySQL
     - MySQL Workbench
@@ -193,8 +227,11 @@ En primer momento lo que se hizo fue exponer debilidades y fortalezas sobre cada
     - Postman
     - Selenium
     - Jest
+    - React library
+    - Pruebas exploratorias
 - Infraestructura
-    - MySQL workbench
+    - MySQL Workbench
+    - CI/CD
     - AWS
         - S3
         - EC2
@@ -214,16 +251,21 @@ Para comenzar debemos clonar el repositorio en Gitlab
 
 `$git clone https://gitlab.ctd.academy/ctd/proyecto-integrador-0822/1021-ft/grupo-02.git`
 
+### Front End
+
 Para correr el proyecto, instale localmente las siguientes librerias
 
-`$git checkout frontmain`
 `$cd frontend`
+
 `$npm i`
+
 `$npm start`
+
 ### Back End
 
-[Para ver documentacion en swagger](
-http://3.137.124.253:8080/swagger-doc/swagger-ui/index.html#/)
+[Para ver documentacion en swagger](http://3.137.124.253:8080/swagger-doc/swagger-ui/index.html#/)
+
+### Bases de Datos
 
 #### **Diagrama DER**
 
@@ -247,14 +289,14 @@ servicios de AWS que permite cargar versiones de nuestra aplicación. Por últim
 
 [Planillas de Testing](https://docs.google.com/spreadsheets/d/10hyU7HHlmKzJ6dVmqMa8xKwBE0qGLRw9QjdSY4b3LCs/edit?usp=sharing)
 
-### Para ver la wiki del proyecto
+[Informe final de Testing](https://docs.google.com/document/d/1zY1aMIWNTVwitoaO0mLGpJ3tLJfQPN8Y/edit?usp=sharing&ouid=106580342266172435824&rtpof=true&sd=true)
 
-`$git checkout main`
+### Para ver la wiki del proyecto
 
 `$cd wiki/homespot`
 
 `$mkdocs serve`
 
-[Open this link](http://127.0.0.1:8000)
+*Open:*  `http://127.0.0.1:8000`
 
 For full documentation visit [mkdocs.org](https://mkdocs.org).
