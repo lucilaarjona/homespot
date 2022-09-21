@@ -220,34 +220,41 @@ Para correr el proyecto, instale localmente las siguientes librerias
 `$cd frontend`
 `$npm i`
 `$npm start`
+### Back End
 
 [Para ver documentacion en swagger](
 http://3.137.124.253:8080/swagger-doc/swagger-ui/index.html#/)
+
+#### **Diagrama DER**
+
+<img src="./img/DER_PI_final.png" alt="900" width="900" >
 
 ### Infraestructura
 
 Primer diagrama planteado por el equipo
 
-<img src="./img/infra/infra-version1.png" alt="500" width="500" />
+<img src="./img/infra/infra-version1.png" alt="600" width="600" />
 
 Diagrama definitivo
 
-<img src="./img/infra/infra-version2.png" alt="500" width="500" />
+<img src="./img/infra/infra-version2.png" alt="600" width="600" />
 
 Diagrama definitivo donde la aplicacion esta deployada en [***Sitio del proyecto***](http://homespot-frontend-app.s3-website.ca-central-1.amazonaws.com/) Trabajamos con el
 DNS route 53 el servidor de nombres de dominio de Amazon. El frontend está almacenado en un Bucket S3 y las imágenes están guardadas en otro Bucket para que sea de más rápido acceso.La API del backend está desplegada en EC2, que es un conjunto de
 servicios de AWS que permite cargar versiones de nuestra aplicación. Por último implementamos una RDS la cual está conectada a nuestra API para poder almacenar los datos de nuestros usuarios.
 
+### Testing
+
+[Planillas de Testing](https://docs.google.com/spreadsheets/d/10hyU7HHlmKzJ6dVmqMa8xKwBE0qGLRw9QjdSY4b3LCs/edit?usp=sharing)
 
 ### Para ver la wiki del proyecto
+
 `$git checkout main`
 
 `$cd wiki/homespot`
 
 `$mkdocs serve`
 
-
-
-
+[Open this link](http://127.0.0.1:8000)
 
 For full documentation visit [mkdocs.org](https://mkdocs.org).
