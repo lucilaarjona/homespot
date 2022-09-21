@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React , { useContext, useEffect, useState } from "react";
 import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
 import { CityContext } from "../../context/CityContext";
@@ -8,10 +8,27 @@ import { useNavigate, useParams } from "react-router-dom";
 import axiosHelper from "../../helper/axiosHelper";
 import Select from "react-select";
 import swal from "sweetalert";
+import ReactDOM from "react-dom";
 
+const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 const Booking = () => {
-    const navigate = useNavigate();
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "0.01",
+          },
+        },
+      ],
+    });
+  };
+
+  const onApprove = (data, actions) => {
+    return actions.order.capture();
+  };
+  const navigate = useNavigate();
   const { citySelected } = useContext(CityContext);
   const dataUser = JSON.parse(localStorage.getItem("user"));
   // Calendario
@@ -25,6 +42,7 @@ const Booking = () => {
       key: "selection",
     },
   ]);
+  const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
   const { id } = useParams();
   const [product, setProduct] = useState("");
   useEffect(() => {
@@ -78,31 +96,24 @@ const Booking = () => {
   };
   // console.log(hour);
 
-  const booking={
+  const booking = {
+    startDate: "2022-10-01T05:00:00.000+00:00",
+    endDate: "2022-10-01T05:00:00.000+00:00",
+    product: { id: 42 },
+    user: { id: 1 },
+  };
 
-    startDate:"2022-10-01T05:00:00.000+00:00",
-    endDate:"2022-10-01T05:00:00.000+00:00",
-    product:{id:42},
-    user:{id: 1}
-  }
-
-  const createBooking=()=>{
-
-  const token = JSON.parse(localStorage.getItem("token"));
+  const createBooking = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
     axiosHelper
-      .post(
-        "/booking",
-        booking,
-        {
-          headers: {
-            Authorization:`Bearer ${token}`,
-          },
-        }
-      )
+      .post("/booking", booking, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         if (res.status === 200) {
-          navigate("/")
-         
+          navigate("/");
         } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);
         }
@@ -113,8 +124,8 @@ const Booking = () => {
           timer: 3000,
         })
       );
-}
-  
+  };
+
   return (
     <>
       <HeaderProduct />
@@ -220,11 +231,29 @@ const Booking = () => {
                   <span className="check">Check out: </span>{" "}
                   <span className="dateCheck">{checkOutDate[0]} </span>{" "}
                 </li>
+                <li className="list-group-item">
+                  {" "}
+                  <span className="check">Total: </span>{" "}
+                  <span className="price">
+                    {daysReservation === 0
+                      ? (product.price -
+                          (product.price * product.discount) / 100) *
+                        1
+                      : (product.price -
+                          (product.price * product.discount) / 100) *
+                        daysReservation}{" "}
+                    USD{" "}
+                  </span>{" "}
+                </li>
               </ul>
+              <PayPalButton
+                createOrder={(data, actions) => createOrder(data, actions)}
+                onApprove={(data, actions) => onApprove(data, actions)}
+              />
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  
+
                   // hour === ""
                   //   ? swal({
                   //       title: "No hemos podido registrar tu reserva",
@@ -246,7 +275,7 @@ const Booking = () => {
                   //       }
                   //     });
 
-                      createBooking()
+                  createBooking();
                 }}
                 type="submit"
                 className="submit"

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ProductStyled } from "./ProductStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faStar,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import AirIcon from '@mui/icons-material/Air';
@@ -23,12 +22,14 @@ const Product = (props) => {
         <img className="imgProduct" src={props.crimg} alt="imagen producto" />
         <div className="caption">
           <span className="category">{props.category}</span>
-          <span>
-            <FontAwesomeIcon className="stars" icon={faStar} />
-            <FontAwesomeIcon className="stars" icon={faStar} />
-            <FontAwesomeIcon className="stars" icon={faStar} />
-            <FontAwesomeIcon className="stars" icon={faStar} />
-          </span>
+          <div>
+            {props.discount > 0 ? 
+            <div> 
+              <div className="priceDiscount"> ${props.price - ((props.price * props.discount)/100)} USD noche </div> 
+              <div className="price">${props.price} USD noche </div>
+            </div>
+            : <div className="priceDiscount"> ${props.price} USD noche </div> }
+          </div>
           <div className="title">{props.title}</div>
           <div className="ubication">
             <span>
@@ -36,7 +37,7 @@ const Product = (props) => {
             </span>
             <span className="location">
               {props.location} - <span className="map"> <a target="_blank" rel="noopener noreferrer" 
-              href={`https://www.google.com/maps/place/4.60971,-74.08175`}>Ver mapa</a></span>
+              href={`https://www.google.com/maps/place/${props.address}`}>Ver mapa</a></span>
             </span>
           </div>
           <div className="icons">

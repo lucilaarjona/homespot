@@ -27,7 +27,7 @@ import axiosHelper from "../../helper/axiosHelper";
 import { HeaderProduct } from "../../components/HeaderProduct";
 import { ProductContext } from "../../context/ProductContext";
 import Map from "../../components/Map/Map";
-// import useGoogleAddress from "../../Hooks/useGoogleAddress";
+import axios from "axios";
 
 const Product = () => {
   const { setProductId } = useContext(ProductContext);
@@ -37,8 +37,6 @@ const Product = () => {
   const [products, setProducts] = useState("");
 
   const { setErrorLogIn } = useContext(ProductContext);
-
-  // const location = useGoogleAddress()
 
   setProductId(id);
 
@@ -75,6 +73,7 @@ const Product = () => {
       key: "selection",
     },
   ]);
+  const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -88,6 +87,26 @@ const Product = () => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
+
+  const [addres, setAddres] = useState({})
+  const location = products.address?.replace(/ /g, "-");
+  const API =
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyCTkrc-Q24MXY0y3KNPyDDijJUjVDkjeY4`;
+  
+    useEffect(() => {
+      const loadData = async () => {
+        try {
+          await axios.get(API).then((res) => {
+            setAddres(res.data.results[0].geometry.location);
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      loadData();
+    }, [API]);
+
+    
 
   return (
     <ProductStyled>
@@ -242,7 +261,7 @@ const Product = () => {
                 className="calendarElementDesktop"
                 minDate={date}
                 maxDate={maxDate}
-                disabledDates={[addDays(date, 10), addDays(date, 13)]}
+                // disabledDates={[addDays(date, 10), addDays(date, 13)]}
               />
               <DateRange
                 onChange={(item) => setRange([item.selection])}
@@ -258,7 +277,27 @@ const Product = () => {
             </div>
             <div className="startReservation">
               <span>
-                Agrega tus fechas de viaje para obtener precios exactos{" "}
+                {daysReservation === 0 ? (
+                  <>Por favor seleccione una fecha de llegada y una salida</>
+                ) : (
+                  <>
+                    Su reserva por{" "}
+                    {daysReservation <= 1
+                      ? null
+                      : `${daysReservation + 1} dias y `}{" "}
+                    {daysReservation <= 1
+                      ? `1 noche`
+                      : `${daysReservation} noches`}{" "}
+                    tendrá un costo de{" "}
+                    {daysReservation === 0
+                      ? (products.price -
+                        ((products.price * products.discount) / 100)) * 1
+                      :( products.price -
+                        ((products.price * products.discount) / 100)) * daysReservation}{" "}
+                    USD
+                    <span></span>
+                  </>
+                )}
               </span>
               <Link to={`/product/${id}/booking`}>
                 <button
@@ -275,12 +314,12 @@ const Product = () => {
 
           <div className="policies">
             <div className="map">
-            <h3>Donde vas a estar ubicado:</h3>
-              <Map />
+              <h3>Donde vas a estar ubicado:</h3>
+              <Map data = {addres}/>
             </div>
             <h3 id="titlePolicie">Lo que debes saber</h3>
             <div className="policiesSection">
-              <div className="titlePolicie" id= "boxRules">
+              <div className="titlePolicie" id="boxRules">
                 Reglas de la casa
                 <span>
                   <ul className="policiesContainer">

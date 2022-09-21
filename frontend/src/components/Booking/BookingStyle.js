@@ -9,6 +9,10 @@ export const BookingStyle = styled.section`
     box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
     width: 90%;
   }
+  .price{
+    font-weight: bold;
+    text-decoration: underline;
+  }
 
   h2 {
     font-size: 22px;

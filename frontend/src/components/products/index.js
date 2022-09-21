@@ -1,11 +1,11 @@
 import React, {  useContext ,useEffect, useState } from "react";
-// import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled, Divc } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
 import { CityContext } from "../../context/CityContext";
 import { ProductContext } from "../../context/ProductContext";
 import Pagination from "./Pagination";
+
 
 const ProductList = () => {
   const {citySelected} = useContext(CityContext);
@@ -56,9 +56,6 @@ const ProductList = () => {
   },[categorieSelected, products]);
 
 
-
-
-
   return (
 
      <Divc>
@@ -77,8 +74,11 @@ const ProductList = () => {
               id = {product.id}
               crimg={product?.images[0]?.url}
               category={product.category.title}
+              price = {product.price}
+              discount = {product.discount}
               title={product.name}
               location={`${product.city.name},${product.city.country}`}
+              address = {product.address}
               description={product.description}
               ac = {product.features.ac}
               gym = {product.features.gym}

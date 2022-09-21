@@ -161,12 +161,12 @@ const View2 = () => {
         </div>
         <div className="imgBox">
         <label>
-            Aquí la imágen principal de su producto
+            Imágen 1
             </label>
             <textarea
             id="text"
             className="form-control"
-              placeholder="Escribir aquí..."
+              placeholder="URL de la imagen"
               maxLength="600"
               onChange={(e) => setImage1(e.target.value)}
             />
@@ -176,7 +176,7 @@ const View2 = () => {
             <textarea
             id="text"
             className="form-control"
-              placeholder="Escribir aquí..."
+              placeholder="URL de la imagen"
               maxLength="600"
               onChange={(e) => setImage2(e.target.value)}
             />
@@ -186,7 +186,7 @@ const View2 = () => {
             <textarea
             id="text"
             className="form-control"
-              placeholder="Escribir aquí..."
+              placeholder="URL de la imagen"
               maxLength="600"
               onChange={(e) => setImage3(e.target.value)}
             />
@@ -196,7 +196,7 @@ const View2 = () => {
             <textarea
             id="text"
             className="form-control"
-              placeholder="Escribir aquí..."
+              placeholder="URL de la imagen"
               maxLength="600"
               onChange={(e) => setImage4(e.target.value)}
             />
@@ -206,7 +206,7 @@ const View2 = () => {
             <textarea
             id="text"
             className="form-control"
-              placeholder="Escribir aquí..."
+              placeholder="URL de la imagen"
               maxLength="600"
               onChange={(e) => setImage5(e.target.value)}
             />
