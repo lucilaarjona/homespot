@@ -1,4 +1,4 @@
-.stages:
+stages:
     - build_front
     - deploy_front
     - build
