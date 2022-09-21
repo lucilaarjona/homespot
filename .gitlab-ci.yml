@@ -1,10 +1,10 @@
-stages:
+.stages:
     - build_front
     - deploy_front
     - build
     - deploy
 
-build webapp:
+.build webapp:
     image: node:16-alpine
     stage: build_front
     script: 
@@ -15,7 +15,7 @@ build webapp:
         paths:
             - frontend/build
 
-deploy front:
+.deploy front:
     stage: deploy_front
     image:
         name: amazon/aws-cli:2.4.11
@@ -26,7 +26,7 @@ deploy front:
         - aws --version
         - aws s3 sync frontend/build s3://homespot-frontend-app --delete
 
-build:
+.build:
     stage: build
     image:  maven:latest
     script:
@@ -43,7 +43,7 @@ build:
     only:
         - main
 
-deploy:
+.deploy:
     stage: deploy
     image: alpine:3.11
     before_script:
