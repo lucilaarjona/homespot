@@ -61,11 +61,9 @@ const ProductList = () => {
      <Divc>
     <ProductStyled>
     {!categorieSelected  ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
-      {/* {!products ?   console.log(products[0].images[0].url) : null } */}
     
    
      {products ? (<> <section className="productList">
-        {/* {productsFilter.map((product, index) => { */}
            {currentPosts.map((product, index) => {
 
           return (

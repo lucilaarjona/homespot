@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import Product from "../../../components/products/Product";
 import { NewProductContext } from "../../../context/NewProduct";
 import axiosHelper from "../../../helper/axiosHelper";
 import { useNavigate } from "react-router-dom";
 import { BoxViewThree, ViewThree  } from "./view3Styled";
 import Swal from 'sweetalert2'
 import withReactContent from "sweetalert2-react-content";
-
+import ProductPreview from "../../../components/ProductsPreview/ProductPreview";
 
 const View3 = () => {
 
@@ -94,6 +93,7 @@ const View3 = () => {
     price: price,
     discount: discount
 };
+
   const postProduct = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     axiosHelper
@@ -136,6 +136,7 @@ const View3 = () => {
             min="0"
             required
             onChange={(e) => setPrice(e.target.value)}
+            value = {price}
           />
         </div>
         <div>
@@ -150,12 +151,13 @@ const View3 = () => {
             onClick={(e) => {
               setDiscount(e.target.value);
             }}
+            defaultValue = {discount}
           />
         </div>
 
        
 
-        <Product
+        <ProductPreview
           id={null}
           crimg={product?.images[0]?.url}
           category={nameCategory}
@@ -178,7 +180,7 @@ const View3 = () => {
 
         <div>
 
-<button className="btn" onClick={(() => navigate(-1))}>
+<button className="btn" onClick={(() => navigate("/newProduct/features"))}>
          Atrás
         </button>
 

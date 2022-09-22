@@ -39,7 +39,7 @@ export const LogIn = () => {
     setShowPassword(!showPassword);
   };
 
-  // const {productId} = useContext(ProductContext)
+  const {productId} = useContext(ProductContext)
   const {errorLogIn} = useContext(ProductContext)
 
   const { setLogged } = useContext(UserContext);
@@ -81,7 +81,10 @@ export const LogIn = () => {
           localStorage.setItem('token',token);
           const userStorage = JSON.stringify({name: res.data.username,lastName: res.data.name, email:res.data.lastname, rol: res.data.authorities[0].authority})
           localStorage.setItem('user',userStorage);
-          navigate("/");
+          if (productId) {
+                navigate(`/product/${productId}/booking`)
+              }
+              else {navigate("/");}
         
           Toast.fire({
             icon: 'success',
@@ -103,21 +106,7 @@ export const LogIn = () => {
   };
 
   const navigate = useNavigate();
-  // const onSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   saveUser(e)
-  //   console.log(e.values)
-  // if (logIn.password === user.password && logIn.email === user.email ) {
-  //   setLogged(true);
-  //   if (productId) {
-  //     navigate(`/product/${productId}/booking`)
-  //   }
-  //   else {navigate("/");}
-  // } else {
-  // }
-  // };
 
-  // console.log(logIn);
   useEffect(() => {
     document.title = `Iniciar Sesion`;
   });

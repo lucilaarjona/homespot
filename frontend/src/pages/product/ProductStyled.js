@@ -227,6 +227,9 @@ export const ProductStyled = styled.section`
     font-weight: bold;
     color: ${colors[0].titles};
   }
+  .viewImages{
+    z-index: 10;
+  }
 
   .rdrDayNumber {
     font-weight: bold;

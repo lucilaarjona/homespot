@@ -50,7 +50,6 @@ const ViewUbication = () => {
       loadData();
     }, [API]);
 
-    console.log(address);
 
   const defaultDataMap = {lat:4.6329278 ,lng: -74.0702942}
 
@@ -117,7 +116,7 @@ const ViewUbication = () => {
 
        
 
-        <button onClick={(() => navigate(-1))}>
+        <button onClick={(() => navigate("/newProduct"))}>
          Atrás
         </button>
         <button onClick={(() => navigate("/newProduct/features"))}>

@@ -13,14 +13,10 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { categorieSelected , setCategorieSelected } = useContext(CategoryContext);
-  // const { logged } = useContext(UserContext);
+
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
-  // console.log(user);
-  // const firstInitial = user.first_name[0]
-  // const lastName = user.last_name[0]
-  // const initialFullName = firstInitial + lastName
-  // console.log(firstInitial);
+
 
   const pathname = location.pathname;
 

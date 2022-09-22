@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect, useContext } from "react";
-import { ProductStyled } from "./ProductStyled";
-import { Link, useParams } from "react-router-dom";
+import { ProductStyled } from "../../pages/product/ProductStyled";
 import ImageViewer from "react-simple-image-viewer";
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
@@ -23,37 +22,91 @@ import HvacIcon from "@mui/icons-material/Hvac";
 import WifiIcon from "@mui/icons-material/Wifi";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import PetsIcon from "@mui/icons-material/Pets";
-import axiosHelper from "../../helper/axiosHelper";
-import { HeaderProduct } from "../../components/HeaderProduct";
-import { ProductContext } from "../../context/ProductContext";
 import Map from "../../components/Map/Map";
 import axios from "axios";
+import { NewProductContext } from "../../context/NewProduct";
+import HeaderProductPreview from "../HeaderProduct/HeaderPreview";
 
-const Product = () => {
-  const { setProductId } = useContext(ProductContext);
-  //Ruta dinamica
-  const { id } = useParams();
-  //llamado a la api
-  
-  const { setErrorLogIn } = useContext(ProductContext);
+const Preview = () => {
+
+  const {
+    categorySelected,
+    name,
+    direction,
+    description,
+    citySelected,
+    pool,
+    grill,
+    gym,
+    laundry,
+    heating,
+    pets,
+    wifi,
+    ac,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    norms,
+    cancellationPolicy,
+    healthAndSecurity,
+    price,
+    discount
+  } = useContext(NewProductContext);
+
+  const product = {
+    name: name,
+    description: description,
+    category: {id:categorySelected},
+    images: [{
+
+            title: "Imagen 1",
+            url: image1
+        },
+        {
+
+            title: "Imagen 2",
+            url: image2
+        },
+        {
+
+            title: "imagen 3",
+            url: image3
+        },
+        {
+
+            title: "Imagen 4",
+            url: image4
+        },
+        {
+
+            title: "Imagen 5",
+            url: image5
+        }],
+    city: {
+        id: citySelected.id
+    },
+    features:{
+        pool: pool,
+        grill: grill,
+        gym: gym,
+        laundry: laundry,
+        heating: heating,
+        pets: pets,
+        wifi: wifi,
+        ac: ac},
+        policy: {
+          nomrs: norms,
+          cancellationPolicy: cancellationPolicy,
+          healthAndSecurity: healthAndSecurity
+          },
+    address: direction,
+    price: price,
+    discount: discount
+};
 
 
-  setProductId(id);
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        await axiosHelper.get(`/product/${id}`).then((res) => {
-          setProduct(res.data);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    loadData();
-  }, [id]);
-
-  const [product, setProduct] = useState("");
 
   useEffect(() => {
     document.title = `${product.name}  |  HomeSpot`;
@@ -114,7 +167,7 @@ const Product = () => {
     <ProductStyled>
       {product ? (
         <>
-          <HeaderProduct />
+          <HeaderProductPreview />
           <div className="containerSlider">
             <div className="container">
               <input type="radio" name="slider" id="item-1" defaultChecked />
@@ -301,16 +354,10 @@ const Product = () => {
                   </>
                 )}
               </span>
-              <Link to={`/product/${id}/booking`}>
-                <button
-                  onClick={() => {
-                    setErrorLogIn(true);
-                  }}
-                >
+                <button disabled>
                   {" "}
                   Iniciar reserva
                 </button>
-              </Link>
             </div>
           </div>
 
@@ -406,4 +453,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Preview;

@@ -4,7 +4,7 @@ import colors from "../colors.json";
 export const Cointaner = styled.div``;
 
 export const FooterStyled = styled.footer`
-  z-index: 3;
+  z-index: 1;
   position: fixed;
   bottom: 0;
   background: ${colors[0].background};
