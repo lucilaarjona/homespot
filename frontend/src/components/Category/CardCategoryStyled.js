@@ -24,6 +24,7 @@ export const Section = styled.div`
     gap: 20%;
     margin-left: 10%;
     color: ${colors[0].titles};
+    z-index: -1;
   }
   .showAll{
     border: none;
