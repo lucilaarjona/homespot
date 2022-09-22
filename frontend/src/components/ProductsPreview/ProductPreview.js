@@ -25,8 +25,9 @@ const ProductPreview = (props) => {
           <div>
             {props.discount > 0 ? 
             <div> 
-              <div className="priceDiscount"> ${props.price - ((props.price * props.discount)/100)} USD noche </div> 
-              <div className="price">${props.price} USD noche </div>
+            <div className="price">${props.price} USD noche </div>
+              <div className="priceDiscount"> -{props.discount}%</div> 
+              <div className="priceDiscount">${props.price - ((props.price * props.discount)/100)} USD noche</div> 
             </div>
             : <div className="priceDiscount"> ${props.price} USD noche </div> }
           </div>

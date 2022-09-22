@@ -20,9 +20,6 @@ const View2 = () => {
     image3,
     image4,
     image5,
-    setNorms,
-    setHealthAndSecurity,
-    setCancellationPolicy,
     setImage1,
     setImage2,
     setImage3,
@@ -52,6 +49,7 @@ const View2 = () => {
         <div></div>
         <div>
           <h2>Publicar producto (3 de 4): </h2>
+          <h3>Ingrese las caracteristicas de su producto </h3>
           <div className="boxC">
             <div className="icon">
               <input
@@ -220,39 +218,6 @@ const View2 = () => {
                     onChange={(e) => setImage5(e.target.value)}
                   />
                 </div>
-              </div>
-              <div>
-                <h3>Ingrese las reglas de su producto </h3>
-                <label>
-                  <div>Normas:</div>
-                  <textarea
-                    id="text2"
-                    className="form-control"
-                    placeholder="Escribir aquí..."
-                    maxLength="600"
-                    onChange={(e) => setNorms(e.target.value)}
-                  />
-                </label>
-                <label>
-                  <div>Políticas de cancelación:</div>
-                  <textarea
-                    id="text2"
-                    className="form-control"
-                    placeholder="Escribir aquí..."
-                    maxLength="600"
-                    onChange={(e) => setCancellationPolicy(e.target.value)}
-                  />
-                </label>
-                <label>
-                  <div>Salud y seguridad:</div>
-                  <textarea
-                    id="text2"
-                    className="form-control"
-                    placeholder="Escribir aquí..."
-                    maxLength="600"
-                    onChange={(e) => setHealthAndSecurity(e.target.value)}
-                  />
-                </label>
               </div>
             </div>
           </div>

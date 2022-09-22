@@ -17,6 +17,10 @@ export const BoxViewTwo = styled.div`
 
 export const ViewTwo = styled.div`
 
+h3{
+  text-align: center;
+}
+
 button {
 
 background-color: #008F95;
