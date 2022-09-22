@@ -3,7 +3,6 @@ import { ProductStyled } from "./ProductStyled";
 import { Link, useParams } from "react-router-dom";
 import ImageViewer from "react-simple-image-viewer";
 import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
 import PoolIcon from "@mui/icons-material/Pool";
@@ -36,6 +35,8 @@ const Product = () => {
   //llamado a la api
   
   const { setErrorLogIn } = useContext(ProductContext);
+  const { setRange } = useContext(ProductContext);
+  const { range } = useContext(ProductContext)
 
 
   setProductId(id);
@@ -68,13 +69,13 @@ const Product = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+  // const [range, setRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: addDays(new Date(), 1),
+  //     key: "selection",
+  //   },
+  // ]);
   const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
 
   const [currentImage, setCurrentImage] = useState(0);

@@ -3,7 +3,6 @@ import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
 
 import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosHelper from "../../helper/axiosHelper";
 import Select from "react-select";
@@ -12,8 +11,12 @@ import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
 const Booking = () => {
+  const { range } = useContext(ProductContext);
+  const { setRange } = useContext(ProductContext);
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const [cityUpdate, setCityUpdate] = useState("");
@@ -22,13 +25,13 @@ const Booking = () => {
   const date = new Date();
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 2);
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+  // const [range, setRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: addDays(new Date(), 1),
+  //     key: "selection",
+  //   },
+  // ]);
   const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
   const { id } = useParams();
   const [product, setProduct] = useState("");
@@ -44,11 +47,11 @@ const Booking = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const startDate = range[0].startDate.toLocaleString();
+  const startDate = range[0].startDate.toLocaleString("es-ES");
   const checkInDate = startDate.split(",");
   const startDateL = range[0].startDate.toISOString();
 
-  const endDate = range[0].endDate.toLocaleString();
+  const endDate = range[0].endDate.toLocaleString("es-ES");
   const checkOutDate = endDate.split(",");
   const endDateL = range[0].endDate.toISOString();
 
@@ -284,9 +287,9 @@ const Booking = () => {
                         <strong>
                           Datos de su reserva en {product.name}:
                           <br />
-                          -Fecha de check-in: {checkInDate[0]}
+                          -Check-in: {checkInDate[0]}
                           <br />
-                          -Fecha de check-out: {checkOutDate[0]}
+                          -Check-out: {checkOutDate[0]}
                           <br/>
                           <br/>
                           Para finalizar la reserva realice el pago por paypal.
