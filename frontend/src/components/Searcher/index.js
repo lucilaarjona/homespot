@@ -65,7 +65,7 @@ function Searcher() {
               onChange={handSelectChange}
             />
           </div>
-          <DateRangeComp className="Calendar" />
+          <DateRangeComp  className="Calendar" />
           <button type="button" onClick={() => setCitySelected(citySearch) } className="search">
             Buscar
           </button>

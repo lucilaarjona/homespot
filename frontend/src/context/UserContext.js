@@ -14,15 +14,7 @@ const UserProvider = ({ children }) => {
         city: "",
         roles: " "
       })
-    // useEffect(() => {
-    //     const loadData =  () => {
-    //          axios.get("https://reqres.in/api/users/1").then((res) => {
-    //             setUser(res.data.data);
-    //         })
-    //     }
-    //     loadData();
-    // }, [])
-
+   
     return (
         <>
             <UserContext.Provider value={{ user,setUser, logged,setLogged }}>

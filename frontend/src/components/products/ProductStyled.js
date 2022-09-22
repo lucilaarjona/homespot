@@ -4,16 +4,16 @@ import colors from '../colors.json'
 
 
 export const Divc= styled.div`
-padding-bottom: 15%;
+padding-bottom: 20%;
 
 @media (min-width:768px) {
 
-  padding-bottom: 8%;
+  padding-bottom: 10%;
 }
 
 @media (min-width:1365px) {
 
-  padding-bottom: 3%;
+  padding-bottom: 5%;
 }
 
 
@@ -173,7 +173,8 @@ li{
   .productList{
   display: grid;
   grid-template-columns: auto auto;
-  gap: 30px
+  gap: 30px;
+ 
 }
 
 li{

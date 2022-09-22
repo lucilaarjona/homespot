@@ -7,23 +7,21 @@ import { CategoryContext } from "../../context/CategoryContext";
 import { UserContext } from "../../context/UserContext";
 import logo from "../../assets/homespot_logo.png"
 import { ProductContext } from "../../context/ProductContext";
+import { CityContext } from "../../context/CityContext";
 const Header = () => {
   const {setErrorLogIn} = useContext(ProductContext)
   const {setProductId} = useContext(ProductContext)
   const navigate = useNavigate();
   const location = useLocation();
-  const { categorieSelected , setCategorieSelected } = useContext(CategoryContext);
+  const { setCategorieSelected } = useContext(CategoryContext);
   // const { logged } = useContext(UserContext);
   const { setLogged } = useContext(UserContext);
   const { user } = useContext(UserContext);
-  // console.log(user);
-  // const firstInitial = user.first_name[0]
-  // const lastName = user.last_name[0]
-  // const initialFullName = firstInitial + lastName
-  // console.log(firstInitial);
+  
 
   const pathname = location.pathname;
-
+  const { setCitySelected } = useContext(CityContext);
+  
   const [open, setOpen] = useState(false);
   
 
@@ -85,11 +83,12 @@ const Header = () => {
           <Link             onClick={() => {
               setErrorLogIn(false);
               setCategorieSelected("");
+              setCitySelected ("");
             }} to="/">
             <Logo>
               <div 
-              data-bs-toggle= "collapse"
-              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              // data-bs-toggle= "collapse"
+              // data-bs-target= {categorieSelected?"#collapseOne":null} 
               className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
@@ -131,11 +130,13 @@ const Header = () => {
           <Link             onClick={() => {
               setErrorLogIn(false);
               setCategorieSelected("");
+              setCitySelected ("");
+              
             }} to="/">
             <Logo>
               <div 
-              data-bs-toggle= "collapse"
-              data-bs-target= {categorieSelected?"#collapseOne":null} 
+              // data-bs-toggle= "collapse"
+              // data-bs-target= {categorieSelected?"#collapseOne":null} 
               className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                 <img src={logo} alt="logo" />
@@ -177,14 +178,15 @@ const Header = () => {
             onClick={() => {
               setCategorieSelected("");
               setErrorLogIn(false);
+              setCitySelected ("");
             }}
             to="/"
            
           >
             <Logo>
               <div
-               data-bs-toggle= "collapse"
-               data-bs-target= {categorieSelected?"#collapseOne":null}
+              //  data-bs-toggle= "collapse"
+              //  data-bs-target= {categorieSelected?"#collapseOne":null}
                 className="initialContainer">
                 {/* <div className="logo2">HS</div> */}
                <img src={logo} alt="logo"/>

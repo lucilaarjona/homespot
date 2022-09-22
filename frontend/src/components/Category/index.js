@@ -9,7 +9,7 @@ import { CategoryContext } from "../../context/CategoryContext";
 
 const Category = ({ handlerFilter }) => {
   const [categories, setCategories] = useState([]);
-  const { categorieSelected, setCategorieSelected } = useContext(CategoryContext);
+  const {  setCategorieSelected } = useContext(CategoryContext);
   const { setCitySelected } = useContext(CityContext);
 
   const loadData = () => {
@@ -29,8 +29,8 @@ const Category = ({ handlerFilter }) => {
            
           }}
           className="showAll"
-          data-bs-toggle= "collapse"
-          data-bs-target= {categorieSelected? "#collapseOne": null}
+          // data-bs-toggle= "collapse"
+          // data-bs-target= {categorieSelected? "#collapseOne": null}
         >
           <h4> Ver todo </h4>
           <VisibilityIcon className="iconSee" />

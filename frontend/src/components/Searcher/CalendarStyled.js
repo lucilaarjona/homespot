@@ -2,6 +2,8 @@ import styled from "styled-components";
 import colors from "../colors.json";
 export const CalendarStyled = styled.div`
 
+
+
 .rdrDateDisplayWrapper {
     background-color: white;
     cursor: default;

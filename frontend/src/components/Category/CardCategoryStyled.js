@@ -139,8 +139,9 @@ export const CardStyled = styled.div`
   }
 
   .accordion-item:hover {
-    animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
+    /* animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both; */
     cursor: pointer;
+    box-shadow: 1px 1px 5px 0px rgba(156,156,156,1);
 
   }
   @keyframes scale-up-center {
