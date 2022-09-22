@@ -128,6 +128,7 @@ img{
 
     display: flex;
     justify-content: center;
+    
 
 
 
@@ -239,6 +240,7 @@ input[type="radio"]{
       
       display: flex;
       justify-content: space-between;
+      
 
       
     }

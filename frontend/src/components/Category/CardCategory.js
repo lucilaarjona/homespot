@@ -25,7 +25,7 @@ const CardCategory = ({ img, category, info, categoryName }) => {
             data-bs-toggle="collapse"
             aria-expanded="true"
             aria-controls="collapseOne"
-            data-bs-target="#collapseOne"
+            // data-bs-target="#collapseOne"
           
           
          

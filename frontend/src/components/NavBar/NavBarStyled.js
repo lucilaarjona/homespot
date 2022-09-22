@@ -98,6 +98,15 @@ a{
   align-items: flex-end;
 
  }
+ button{
+  background: none;
+  color: #261704;
+  font-size: 20px;
+  font-weight: 500;
+	border: none;
+	cursor: pointer;
+	
+ }
   @media only screen and (min-width: 768px) {
     display: none;
   }

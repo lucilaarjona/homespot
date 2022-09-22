@@ -81,10 +81,7 @@ export const LogIn = () => {
           localStorage.setItem('token',token);
           const userStorage = JSON.stringify({name: res.data.username,lastName: res.data.name, email:res.data.lastname, rol: res.data.authorities[0].authority})
           localStorage.setItem('user',userStorage);
-          if (productId) {
-                navigate(`/product/${productId}/booking`)
-              }
-              else {navigate("/");}
+          productId? navigate(`/product/${productId}/booking`):navigate("/");
         
           Toast.fire({
             icon: 'success',
@@ -106,7 +103,9 @@ export const LogIn = () => {
   };
 
   const navigate = useNavigate();
+ 
 
+ 
   useEffect(() => {
     document.title = `Iniciar Sesion`;
   });
@@ -127,8 +126,8 @@ export const LogIn = () => {
           validateOnBlur={false}
           onSubmit={(values) => {
             saveUser(values);
-
             setLogged(true)
+            
           }}
         >
           {({ values, handleSubmit, handleChange, handleBlur, errors }) => (

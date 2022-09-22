@@ -6,8 +6,8 @@ import { NavbarWrapper } from './NavBarStyled'
 
 const NavBar = ({ open }) => {
 
-  const { logged } = useContext(UserContext);
-  const { setLogged, setErrorLogIn, setProductId } = useContext(ProductContext);
+  const { logged ,setLogged} = useContext(UserContext);
+  const {  setErrorLogIn, setProductId } = useContext(ProductContext);
   const navigate = useNavigate();
   const dataUser = JSON.parse(localStorage.getItem("user"));
 
@@ -43,15 +43,15 @@ const NavBar = ({ open }) => {
             </div>
 
             <div id="background">
-              <div>
-                <Link onClick={() => {
+              <button   onClick={() => {
               navigate("/"); 
               setLogged(false);
               setErrorLogIn(false);
               setProductId("")
               window.localStorage.clear();
-              }} to="/"  style={{ textDecoration: "none" }}><p id="linkTwo">Cerrar Sesión</p></Link>
-              </div>
+              }} >
+               <p id="linkTwo">Cerrar Sesión</p>
+              </button>
             </div>
           </>
 
