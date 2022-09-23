@@ -15,7 +15,7 @@ export const NavbarWrapper = styled.nav`
   right: ${props => (props.open ? "0" : "-100%")};
   width: 68%;
   height: 100vh;
-  z-index: 100;
+  z-index: 2;
   transition: right 0.3s linear;
 
   .box{

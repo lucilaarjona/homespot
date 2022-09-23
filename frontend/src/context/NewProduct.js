@@ -5,6 +5,7 @@ export const NewProductContext = createContext()
 
 const NewProductProvider = ({ children }) => {
 
+  const [nameCategory, setNameCategory] = useState("");
   const [categorySelected, setCategorySelected] = useState("");
   const [name, setName] = useState("")
   const [direction, setDirection] = useState("")
@@ -35,6 +36,8 @@ const NewProductProvider = ({ children }) => {
     <>
       <NewProductContext.Provider 
       value = {{
+        nameCategory,
+        setNameCategory,
         discount,
         setDiscount,
         price,

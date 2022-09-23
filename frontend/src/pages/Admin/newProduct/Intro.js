@@ -10,7 +10,7 @@ import { IntroS, BoxIntro } from "./IntroStyled";
 const Intro = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const { setCategorySelected, setName,  setDescription, description, name, categorySelected } =
+  const { setNameCategory, setCategorySelected, setName,  setDescription, description, name } =
     useContext(NewProductContext);
 
   const loadData = () => {
@@ -19,6 +19,7 @@ const Intro = () => {
     });
   };
   useEffect(loadData, []);
+
 
   return (
     <BoxIntro>
@@ -44,12 +45,13 @@ const Intro = () => {
                       name="category"
                       value={category.id}
                       className="form-check-input"
-                      Defaultchecked={categorySelected}
+                      
                       
                     
                       
                       onClick={() => {
                         setCategorySelected(category.id)
+                        setNameCategory(category.title)
                         
                         // categorySelected? setCategorySelected(""):  setCategorySelected(category.id)
                       }}

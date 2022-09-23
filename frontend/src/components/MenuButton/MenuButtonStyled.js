@@ -8,7 +8,7 @@ export const MenuButtonWrapper = styled.button`
   background: transparent;
   position: fixed;
   top: 7%;
-  z-index: 100;
+  z-index: 2;
   
   
  

@@ -15,6 +15,7 @@ import { Intro } from "../pages/Admin/newProduct/Intro";
 import View2 from "../pages/Admin/newProduct/View2";
 import View3 from "../pages/Admin/newProduct/View3";
 import ViewUbication from "../pages/Admin/newProduct/ViewUbication";
+import Preview from "../components/ProductsPreview/Preview";
 
 const Routers = () => {
   const { logged } = useContext(UserContext);
@@ -35,6 +36,7 @@ const Routers = () => {
                 <Route element={<ProtectedRoutes isLogged={logged} />}>
                   <Route path="/newProduct" element={<Intro />} />
                   <Route path="/newProduct/features" element={<View2 />} />
+                  <Route path="/newProduct/preview/product" element={<Preview />} />
                   <Route path="/newProduct/ubication" element={<ViewUbication/>} />
                   <Route path="/newProduct/preview" element={<View3/>} />
                   <Route path="/product/:id/booking" element={<Booking />} />

@@ -9,6 +9,42 @@ export const BookingStyle = styled.section`
     box-shadow: 0px 0px 5px 0px rgba(153, 151, 153, 1);
     width: 90%;
   }
+  .price{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+
+  }
+  .paypalNone{
+    display: none;
+  }
+
+  .pay{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 15px;
+  }
+
+  .payNone{
+    display: none;
+  }
+
+  .buttonPay{
+    z-index: 1;
+    width: 80%;
+  }
+
+  .paypal{
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    list-style: none ;
+    justify-content: center;
+    margin-top:20px;
+
+  }
 
   h2 {
     font-size: 22px;
@@ -227,7 +263,7 @@ export const BookingStyle = styled.section`
   }
 
   .bookingDatail {
-    height: 90vh;
+    height: 125vh;
     }
 
   @media (min-width: 768px) {
@@ -236,7 +272,7 @@ export const BookingStyle = styled.section`
     }
 
     .bookingDatail {
-      height: 90vh;
+      height: 116vh;
     }
 
     #calendar {
@@ -341,9 +377,7 @@ export const BookingStyle = styled.section`
     .left {
       display: flex;
       flex-direction: column;
-      height: fit-content;
-      justify-content: center;
-      align-items: center;
+      height: 75rem;
       margin: 0;
     }
     .calendar {
@@ -357,7 +391,7 @@ export const BookingStyle = styled.section`
       flex-direction: column;
       align-items: center;
       margin-top: 6%;
-      height: 120vh;
+      height: 130vh;
     }
     .calendarElement {
       display: none;

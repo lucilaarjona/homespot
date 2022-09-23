@@ -77,8 +77,9 @@ export const LogIn = () => {
       .then((res) => {
         if (res.status === 200) {
           const token = JSON.stringify(res.data.token)
+          console.log(res.data);
           localStorage.setItem('token',token);
-          const userStorage = JSON.stringify({name: res.data.name,lastName: res.data.lastname, email:res.data.username, rol: res.data.authorities[0].authority})
+          const userStorage = JSON.stringify({name: res.data.username,lastName: res.data.name, email:res.data.lastname, rol: res.data.authorities[0].authority})
           localStorage.setItem('user',userStorage);
           productId? navigate(`/product/${productId}/booking`):navigate("/");
         

@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const Admin = () => {
   const [categories, setCategories] = useState("");
-  console.log(categories);
 
   const options = [
     { value: 1, label: "Casa" },
@@ -31,7 +30,6 @@ const Admin = () => {
   useEffect(loadData, []);
 
   const [citySelect, setCitySelect] = useState("");
-  console.log(citySelect);
 
   const selectCity = ({ value }) => {
     setCitySelect(value);

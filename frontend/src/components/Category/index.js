@@ -1,16 +1,16 @@
 import React from "react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState} from "react";
 import CardCategory from "./CardCategory";
 import { Categories, Cointaner, Section } from "./CardCategoryStyled";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import { CityContext } from "../../context/CityContext";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
+// import { CityContext } from "../../context/CityContext";
 import axiosHelper from "../../helper/axiosHelper";
-import { CategoryContext } from "../../context/CategoryContext";
+// import { CategoryContext } from "../../context/CategoryContext";
 
 const Category = ({ handlerFilter }) => {
   const [categories, setCategories] = useState([]);
-  const {  setCategorieSelected } = useContext(CategoryContext);
-  const { setCitySelected } = useContext(CityContext);
+  // const {  setCategorieSelected } = useContext(CategoryContext);
+  // const { setCitySelected } = useContext(CityContext);
 
   const loadData = () => {
     axiosHelper.get("/category").then((res) => {
@@ -22,7 +22,7 @@ const Category = ({ handlerFilter }) => {
     <Section>
       <div className="title">
         <h4 className="titlePrincipal">Buscar por categoría</h4>{" "}
-        <button
+        {/* <button
           onClick={() => {
             setCitySelected("");
             setCategorieSelected("");
@@ -34,7 +34,7 @@ const Category = ({ handlerFilter }) => {
         >
           <h4> Ver todo </h4>
           <VisibilityIcon className="iconSee" />
-        </button>
+        </button> */}
       </div>
       {categories.length > 0 ? (
         <Cointaner>

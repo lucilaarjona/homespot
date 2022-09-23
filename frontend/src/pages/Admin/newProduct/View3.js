@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import Product from "../../../components/products/Product";
 import { NewProductContext } from "../../../context/NewProduct";
 import axiosHelper from "../../../helper/axiosHelper";
 import { useNavigate } from "react-router-dom";
 import { BoxViewThree, ViewThree  } from "./view3Styled";
 import Swal from 'sweetalert2'
 import withReactContent from "sweetalert2-react-content";
-
+import ProductPreview from "../../../components/ProductsPreview/ProductPreview";
 
 const View3 = () => {
 
@@ -35,11 +34,12 @@ const View3 = () => {
     image3,
     image4,
     image5,
-    // norms,
-    // cancellationPolicy,
-    // healthAndSecurity,
+    norms,
+    cancellationPolicy,
+    healthAndSecurity,
     price,
     discount,
+    nameCategory,
     setDiscount,
   } = useContext(NewProductContext);
 
@@ -73,7 +73,7 @@ const View3 = () => {
             url: image5
         }],
     city: {
-        id: citySelected
+        id: citySelected.id
     },
     features:{
         pool: pool,
@@ -85,12 +85,14 @@ const View3 = () => {
         wifi: wifi,
         ac: ac},
         policy: {
-          id: 1 },
+          nomrs: norms,
+          cancellationPolicy: cancellationPolicy,
+          healthAndSecurity: healthAndSecurity
+          },
     address: direction,
     price: price,
     discount: discount
 };
-  console.log(product);
 
   const postProduct = () => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -126,7 +128,7 @@ const View3 = () => {
       <ViewThree>
       <h2>Publicar producto (4 de 4): </h2> 
         <div>
-          <div>Indique el precio del producto por noche</div>
+          <div>Indique el precio del producto (En dolares (USD)) por noche</div>
           <input
           className="form-control"
             type="number"
@@ -134,6 +136,7 @@ const View3 = () => {
             min="0"
             required
             onChange={(e) => setPrice(e.target.value)}
+            value = {price}
           />
         </div>
         <div>
@@ -148,17 +151,20 @@ const View3 = () => {
             onClick={(e) => {
               setDiscount(e.target.value);
             }}
+            defaultValue = {discount}
           />
         </div>
 
        
 
-        <Product
+        <ProductPreview
           id={null}
           crimg={product?.images[0]?.url}
-          category={product.category.title}
+          category={nameCategory}
+          price = {product.price}
+          discount = {product.discount}
           title={product.name}
-          location={`${product.city.name},${product.city.country}`}
+          location={citySelected.city}
           description={product.description}
           ac={product.features.ac}
           gym={product.features.gym}
@@ -174,7 +180,7 @@ const View3 = () => {
 
         <div>
 
-<button className="btn" onClick={(() => navigate(-1))}>
+<button className="btn" onClick={(() => navigate("/newProduct/features"))}>
          Atrás
         </button>
 

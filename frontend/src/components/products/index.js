@@ -1,5 +1,4 @@
 import React, {  useContext ,useEffect, useState } from "react";
-// import Products from "./Products.json";
 import Product from "./Product";
 import { ProductStyled, Divc } from "./ProductStyled";
 import { CategoryContext } from "../../context/CategoryContext";
@@ -56,15 +55,11 @@ const ProductList = () => {
   },[categorieSelected, products]);
 
 
-
-
-
   return (
 
      <Divc>
     <ProductStyled>
     {!categorieSelected  ? (<> <h1 className="titleSection">Nuestras recomendaciones para ti</h1> </> ): null}
-      {/* {!products ?   console.log(products[0].images[0].url) : null } */}
     
    
      {products ? (<> <section className="productList">
@@ -77,8 +72,11 @@ const ProductList = () => {
               id = {product.id}
               crimg={product?.images[0]?.url}
               category={product.category.title}
+              price = {product.price}
+              discount = {product.discount}
               title={product.name}
               location={`${product.city.name},${product.city.country}`}
+              address = {product.address}
               description={product.description}
               ac = {product.features.ac}
               gym = {product.features.gym}

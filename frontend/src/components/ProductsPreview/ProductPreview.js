@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ProductStyled } from "./ProductStyled";
+import { ProductStyled } from "../products/ProductStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -14,7 +14,7 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
 import PoolIcon from "@mui/icons-material/Pool";
 
-const Product = (props) => {
+const ProductPreview = (props) => {
 
   return (
     <ProductStyled>
@@ -25,8 +25,8 @@ const Product = (props) => {
           <div>
             {props.discount > 0 ? 
             <div> 
-              <div className="price">${props.price} USD noche </div>
-              <div className="priceDiscount">-{props.discount}%</div> 
+            <div className="price">${props.price} USD noche </div>
+              <div className="priceDiscount"> -{props.discount}%</div> 
               <div className="priceDiscount">${props.price - ((props.price * props.discount)/100)} USD noche</div> 
             </div>
             : <div className="priceDiscount"> ${props.price} USD noche </div> }
@@ -100,8 +100,7 @@ const Product = (props) => {
             ) : null}
           </div>
           <p className="description">{props.description}</p>
-          <Link to={`/product/${props.id}`}>
-            {" "}
+          <Link to={`/newProduct/preview/product`}>
             <button className="verMas">ver</button>{" "}
           </Link>
         </div>
@@ -110,4 +109,4 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+export default ProductPreview;

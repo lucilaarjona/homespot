@@ -24,6 +24,13 @@ padding-bottom: 20%;
 export const ProductStyled = styled.section`
 justify-content:center;
 align-items: center;
+.price{
+  text-decoration: line-through;
+}
+
+.priceDiscount{
+  font-weight: bold;
+}
 
 
 

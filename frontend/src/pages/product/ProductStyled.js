@@ -227,6 +227,9 @@ export const ProductStyled = styled.section`
     font-weight: bold;
     color: ${colors[0].titles};
   }
+  .viewImages{
+    z-index: 10;
+  }
 
   .rdrDayNumber {
     font-weight: bold;
@@ -283,7 +286,7 @@ export const ProductStyled = styled.section`
     flex-direction: column;
     justify-content: center;
     border: 2px solid ${colors[0].principal2};
-    height: 20%;
+    height: fit-content;
     width: 70%;
     align-items: center;
     border-radius: 10px;

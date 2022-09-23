@@ -1,35 +1,38 @@
-import {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderProduct from "../HeaderProduct/HeaderProduct";
 import { BookingStyle } from "./BookingStyle";
 
 import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosHelper from "../../helper/axiosHelper";
 import Select from "react-select";
 
 import jwt_decode from "jwt-decode";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
 const Booking = () => {
-
-  const MySwal = withReactContent(Swal)
-    const navigate = useNavigate();
- const [cityUpdate, setCityUpdate]=useState("")
+  const { range } = useContext(ProductContext);
+  const { setRange } = useContext(ProductContext);
+  const MySwal = withReactContent(Swal);
+  const navigate = useNavigate();
+  const [cityUpdate, setCityUpdate] = useState("");
   const dataUser = JSON.parse(localStorage.getItem("user"));
   // Calendario
   const date = new Date();
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 2);
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+  // const [range, setRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: addDays(new Date(), 1),
+  //     key: "selection",
+  //   },
+  // ]);
+  const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
   const { id } = useParams();
   const [product, setProduct] = useState("");
   useEffect(() => {
@@ -44,11 +47,11 @@ const Booking = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const startDate = range[0].startDate.toLocaleString();
+  const startDate = range[0].startDate.toLocaleString("es-ES");
   const checkInDate = startDate.split(",");
   const startDateL = range[0].startDate.toISOString();
 
-  const endDate = range[0].endDate.toLocaleString();
+  const endDate = range[0].endDate.toLocaleString("es-ES");
   const checkOutDate = endDate.split(",");
   const endDateL = range[0].endDate.toISOString();
 
@@ -83,66 +86,57 @@ const Booking = () => {
   const selectHour = ({ value }) => {
     setHour(value);
   };
-  // console.log(hour);
-  
-    const token = JSON.parse(localStorage.getItem("token"));
-    const decode=jwt_decode(token);
-    const userId= decode.user_info.id;
 
-
-
-  const booking={
-
-    bookingStartDate:startDateL,
-    bookingEndDate:endDateL,
-    product:{id: id},
-    user:{id: userId}
-  }
-
-
-
-  
-  const createBooking=()=>{
 
   const token = JSON.parse(localStorage.getItem("token"));
-  
+  const decode = jwt_decode(token);
+  const userId = decode.user_info.id;
+
+  const booking = {
+    bookingStartDate: startDateL,
+    bookingEndDate: endDateL,
+    product: { id: id },
+    user: { id: userId },
+  };
+
+  const priceTotal = product.price - (product.price * product.discount) / 100;
+
+  const createBooking = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
     axiosHelper
-      .post(
-        "/booking",
-        booking,
-        {
-          headers: {
-            Authorization:`Bearer ${token}`,
-          },
-        }
-      )
+      .post("/booking", booking, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
-        if (res.status === 200 ) {
-          navigate("/")
+        if (res.status === 200) {
+          navigate("/");
           MySwal.fire({
             html: <strong>La reserva se ha creado de manera exitosa.</strong>,
-            icon: 'success',
+            icon: "success",
             showConfirmButton: true,
             timerProgressBar: true,
             timer: 3000,
-          })
-         
+          });
         } else if (res.status === 400) {
           console.log("respuesta1 ", res.data.data);
         }
       })
       .catch((error) =>
-      MySwal.fire({
-        html: <strong>Lamentablemente no ha podido crear la reserva. Por favor intente más tarde.</strong>,
-        icon: 'warning',
-       
-      })
+        MySwal.fire({
+          html: (
+            <strong>
+              Lamentablemente no ha podido crear la reserva. Por favor intente
+              más tarde.
+            </strong>
+          ),
+          icon: "warning",
+        })
       );
-}
+  };
 
-
-
-  
   return (
     <>
       <HeaderProduct />
@@ -164,9 +158,13 @@ const Booking = () => {
             </div>
             <div className="label">
               <label htmlFor="">Ciudad</label>
-              <input onChange={(e)=>setCityUpdate(e.target.value)} placeholder="ciudad de residencia" type="text" required={true} />
+              <input
+                onChange={(e) => setCityUpdate(e.target.value)}
+                placeholder="ciudad de residencia"
+                type="text"
+                required={true}
+              />
             </div>
-
           </form>
 
           <h2 id="calendar">Calendario</h2>
@@ -249,42 +247,91 @@ const Booking = () => {
                   <span className="check">Check out: </span>{" "}
                   <span className="dateCheck">{checkOutDate[0]} </span>{" "}
                 </li>
+                <li className="list-group-item">
+                  {" "}
+                  <span className="check">Total: </span>
+                  <span className="price">
+                    {daysReservation === 0
+                      ? priceTotal * 1
+                      : priceTotal * daysReservation}
+                    USD
+                  </span>
+                </li>
+                <div className={
+                    hour === "" || cityUpdate === "" ? "pay" : "payNone"
+                  }>Por favor complete los campos de ciudad y hora para realizar su pago </div>
+                <li
+                  className={
+                    hour === "" || cityUpdate === "" ? "paypalNone" : "paypal"
+                  }
+                >
+                 
+                </li>
               </ul>
+
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  if(cityUpdate==="" || hour===""){
+                  if (cityUpdate === "" || hour === "") {
                     MySwal.fire({
-                      html: <strong>Por favor, complete todos los campos requeridos.</strong>,
-                      icon: 'warning',
-                     
-                     
-                     
-                    }) }else{
-
-
-                      MySwal.fire({
-                        html: <strong>Datos de su reserva en {product.name}:
-                         <br/>-Fecha de check-in: {checkInDate[0]}
-                         <br/>-Fecha de check-out: {checkOutDate[0]}
-                         </strong>,
-                        icon: 'question',
-                        showCancelButton: true,
-                       
-                       
-                       
-                      }).then((result) => {
-                        
-                        if (result.isConfirmed) {
+                      html: (
+                        <strong>
+                          Por favor, complete todos los campos requeridos.
+                        </strong>
+                      ),
+                      icon: "warning",
+                    });
+                  } else {
+                    MySwal.fire({
+                      html: (
+                        <strong>
+                          Datos de su reserva en {product.name}:
+                          <br />
+                          -Check-in: {checkInDate[0]}
+                          <br />
+                          -Check-out: {checkOutDate[0]}
+                          <br/>
+                          <br/>
+                          Para finalizar la reserva realice el pago por paypal.
+                          <br/>
+                          <br/>
+                          <PayPalScriptProvider
+                    options={{
+                      "client-id":
+                        "AXR5SwlVMqXCALhcydZ4SyBzS4pVkPSWsN5wcOZWZe1d9sdKkDSJ_gN5qRUhDLeNDon6tFlObxtfIJvR",
+                    }}
+                  >
+                    <PayPalButtons
+                    className="buttonPay"
+                      createOrder={(data, actions) => {
+                        return actions.order.create({
+                          purchase_units: [
+                            {
+                              amount: {
+                                value: `${priceTotal}`,
+                              },
+                            },
+                          ],
+                        });
+                      }}
+                      onApprove={(data, actions) => {
+                        return actions.order.capture().then(function (details) {
                           createBooking();
-                        } 
-                      })
-                    
-                    }
-
-
-                  
-            
+                        });
+                      }}
+                    />
+                  </PayPalScriptProvider>
+                        </strong>
+                      ),
+                      icon: "question",
+                      showConfirmButton: false,
+                      showCancelButton: true,
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        createBooking();
+                      }
+                    });
+                  }
                 }}
                 type="submit"
                 className="submit"
