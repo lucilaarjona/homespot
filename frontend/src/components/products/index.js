@@ -68,7 +68,7 @@ const ProductList = () => {
     
    
      {products ? (<> <section className="productList">
-       {/* {currentPosts.map((product, index) => { */}
+        {/* {currentPosts.map((product, index) => { */}
         {productsFilter.map((product, index) => {
 
           return (
@@ -96,7 +96,11 @@ const ProductList = () => {
       </section>
       </>):null}
 
-          {/* {currentPosts.length===0  ? null: <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>} */}
+     
+
+          {/* {currentPosts.length===0 || categorieSelected==="Departamento" || categorieSelected==="Cabaña" || categorieSelected==="Casa"
+          || categorieSelected==="Casa de playa"
+           ? null: <Pagination cardsPerPage={cardsPerPage} totalPosts={products.length} paginate={paginate}/>} */}
       
     </ProductStyled>
     
