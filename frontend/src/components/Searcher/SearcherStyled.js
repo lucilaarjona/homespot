@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../colors.json";
 
 export const SearcherStyled = styled.div`
+
   section {
     display: flex;
     width: 100%;

@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import colors from "../colors.json";
 
+
+
+
+
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
+
+  .collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height .60s ease;
+  }
+ 
 
   .title {
     display: flex;
@@ -13,11 +24,12 @@ export const Section = styled.div`
     gap: 20%;
     margin-left: 10%;
     color: ${colors[0].titles};
+    z-index: -1;
   }
   .showAll{
     border: none;
     background-color: none;
-    background: white;
+    background: none;
   }
   .titlePrincipal{
     cursor:default;
@@ -106,14 +118,15 @@ export const CardStyled = styled.div`
     width: auto;
   }
 
+
   .accordion-item {
     -webkit-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     -moz-box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     box-shadow: 0px 0px 8px -2px rgba(192, 192, 194, 1);
     border-radius: 1rem;
     padding: 0.7%;
-    color: none;
     width: 327px;
+    background-color: transparent;
   }
 
   img {
@@ -127,8 +140,9 @@ export const CardStyled = styled.div`
   }
 
   .accordion-item:hover {
-    animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both;
+    /* animation: scale-up-center 0.4s cubic-bezier(0.1, 0.575, 0.585, 1) both; */
     cursor: pointer;
+    box-shadow: 1px 1px 5px 0px rgba(156,156,156,1);
 
   }
   @keyframes scale-up-center {

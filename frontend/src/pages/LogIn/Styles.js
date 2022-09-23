@@ -5,18 +5,18 @@ import colors from "../../components/colors.json"
 
 export const LogInStyled = styled.section`
 
+display: flex;
+justify-content: center;
+align-items: center;
 
 
 section{
 display: flex;
 flex-direction: column;
 align-items: center;
-width: 50%;
-height: 400px;
-margin-top: 50%;
+margin-top: 20%;
 justify-content:center;
 align-items:center;
-margin-left:25%;
 }
 form{
   display: flex;
@@ -93,7 +93,8 @@ border: 1px solid white;
 
 
 .error{
-  display: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
   color: red;
 
 }
@@ -101,21 +102,22 @@ border: 1px solid white;
 .icons{
   position: absolute;
   margin-top:17px;
-  margin-left: -30px;
+  margin-left: 270px;
   color: ${colors[0].principal};
 }
 @media (min-width:768px){
   section{
-margin-top: 40%;
-border-radius: 10%;
 }
 }
 
 @media (min-width: 1365px){
   section{
-margin-top: 10%;
-width: 30%;
-margin-left:35%;
-}
+    margin-top: 10%;
+  }
+
+  .b{
+    background-color: black;
+  }
+  
 }
 `

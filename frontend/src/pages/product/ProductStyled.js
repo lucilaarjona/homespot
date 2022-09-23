@@ -2,6 +2,14 @@ import styled from "styled-components";
 import colors from "../../components/colors.json";
 export const ProductStyled = styled.section`
   width: 100%;
+
+  #titlePolicie{
+    margin-top: 4%;
+    border-top: 2px solid #f1eded;
+
+  }
+
+
   .styles-module_wrapper__1I_qj {
     z-index: 3;
     display: flex;
@@ -9,78 +17,7 @@ export const ProductStyled = styled.section`
     flex-direction: column;
     justify-content: center;
   }
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .title {
-    margin-top: 10px;
-    margin-left: 20px;
-    color: ${colors[0].principal};
-  }
-
-  .title #categorie {
-    font-size: 20px;
-    color: ${colors[0].titles};
-  }
-  .title #name {
-    font-weight: bold;
-    margin-top: -7px;
-    font-size: 35px;
-  }
-  .back {
-    margin-top: 10px;
-    margin-right: 20px;
-  }
-
-  .iconBack {
-    font-size: 40px;
-    color: ${colors[0].principal};
-  }
-  section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid ${colors[0].principal};
-  }
-
-  section .ubication {
-    margin-left: 20px;
-    color: ${colors[0].titles};
-    font-size: 22px;
-  }
-
-  .iconLocation {
-    margin-bottom: 5px;
-    color: ${colors[0].principal};
-    font-size: 30px;
-  }
-
-  .iconStar {
-    margin-bottom: 7px;
-    color: rgb(212, 175, 55);
-    color: linear-gradient(
-      0deg,
-      rgba(212, 175, 75, 1) 28%,
-      rgba(212, 154, 0, 1) 100%
-    );
-    font-size: 30px;
-    margin-left: -1px;
-  }
-
-  .score {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-  .scoreTitle {
-    font-size: 22px;
-  }
-
+ 
   input[type="radio"] {
     display: none;
   }
@@ -290,6 +227,9 @@ export const ProductStyled = styled.section`
     font-weight: bold;
     color: ${colors[0].titles};
   }
+  .viewImages{
+    z-index: 10;
+  }
 
   .rdrDayNumber {
     font-weight: bold;
@@ -326,7 +266,6 @@ export const ProductStyled = styled.section`
     text-decoration: underline;
   }
   .rdrDayToday .rdrDayNumber span:after {
-    content: "";
     position: absolute;
     bottom: 4px;
     left: 50%;
@@ -347,21 +286,22 @@ export const ProductStyled = styled.section`
     flex-direction: column;
     justify-content: center;
     border: 2px solid ${colors[0].principal2};
-    height: 20%;
+    height: fit-content;
     width: 70%;
     align-items: center;
     border-radius: 10px;
     gap: 20px;
   }
   .startReservation button{
-    width: 90%;
+    width: 200px;
     border-radius: 5px;
     background-color: ${colors[0].principal2};
     border: none;
     color: white;
   }
   .startReservation button:hover{
-    width: 90%;
+    width: 200px;
+   
     border-radius: 5px;
     background-color: white;
     border: 2px solid ${colors[0].principal2};
@@ -391,6 +331,13 @@ export const ProductStyled = styled.section`
     font-weight: bold;
     margin-top: 20px;
     font-size: 18px;
+    
+    
+  }
+
+  #boxPolicie{
+
+    margin-bottom: 4.5rem;
   }
 
   .titlePolicie li{
@@ -477,6 +424,16 @@ export const ProductStyled = styled.section`
     border-radius: 10px;
     gap: 20px;
   }
+
+  .startReservation button{
+    width: 400px;
+   
+  }
+  .startReservation button:hover{
+    width: 400px;
+   
+   
+  }
   .calendarElementDesktop{
     display: none;
   }
@@ -486,7 +443,7 @@ export const ProductStyled = styled.section`
     width: 100%;
   }
   .policies{
-    height: 630px;
+    height: 720px;
     width: 80%;
     margin-left: 10%;
     border-top: 2px solid #f1eded;
@@ -531,6 +488,11 @@ export const ProductStyled = styled.section`
 }
 
 @media (min-width: 1365px) {
+
+  #boxRules{
+
+    margin-bottom: 18%;
+  }
   .containerSlider {
     width: 100%;
     height: 680px;
@@ -596,6 +558,17 @@ export const ProductStyled = styled.section`
     gap: 20px;
   }
 
+  .startReservation button{
+    width: 250px;
+   
+  }
+
+  .startReservation button:hover{
+    width: 260px;
+   
+   
+  }
+
   .calendarElement{
     display: none;
   }
@@ -608,7 +581,7 @@ export const ProductStyled = styled.section`
     width: 100%;
   }
   .policies{
-    height: 350px;
+    height: 420px;
     width: 80%;
     margin-left: 10%;
     border-top: 2px solid #f1eded;

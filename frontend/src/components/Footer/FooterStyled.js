@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import colors from "../colors.json";
 
-export const Cointaner = styled.div`
-  height: 6rem;
-`;
+export const Cointaner = styled.div``;
 
 export const FooterStyled = styled.footer`
-  position: sticky;
+  z-index: 1;
+  position: fixed;
   bottom: 0;
   background: ${colors[0].background};
   display: flex;

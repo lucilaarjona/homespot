@@ -1,12 +1,8 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import { ProductStyled } from "./ProductStyled";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link, useParams } from "react-router-dom";
 import ImageViewer from "react-simple-image-viewer";
 import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
-import StarIcon from "@mui/icons-material/Star";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
 import PoolIcon from "@mui/icons-material/Pool";
@@ -21,48 +17,66 @@ import NewReleasesIcon from "@mui/icons-material/NewReleases";
 import UpcomingIcon from "@mui/icons-material/Upcoming";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import AirIcon from '@mui/icons-material/Air';
-import HvacIcon from '@mui/icons-material/Hvac';
-import WifiIcon from '@mui/icons-material/Wifi';
-import DryCleaningIcon from '@mui/icons-material/DryCleaning';
-import PetsIcon from '@mui/icons-material/Pets';
+import AirIcon from "@mui/icons-material/Air";
+import HvacIcon from "@mui/icons-material/Hvac";
+import WifiIcon from "@mui/icons-material/Wifi";
+import DryCleaningIcon from "@mui/icons-material/DryCleaning";
+import PetsIcon from "@mui/icons-material/Pets";
+import axiosHelper from "../../helper/axiosHelper";
+import { HeaderProduct } from "../../components/HeaderProduct";
+import { ProductContext } from "../../context/ProductContext";
+import Map from "../../components/Map/Map";
 import axios from "axios";
 
 const Product = () => {
+  const { setProductId } = useContext(ProductContext);
   //Ruta dinamica
   const { id } = useParams();
   //llamado a la api
-  const [products, setProducts] = useState("");
-  const loadData = async () => {
-    try {
-      await axios.get(`http://18.118.83.144:8080/product/${id}`).then((res) => {
-        setProducts(res.data);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
+  const { setErrorLogIn } = useContext(ProductContext);
+  const { setRange } = useContext(ProductContext);
+  const { range } = useContext(ProductContext)
+
+
+  setProductId(id);
 
   useEffect(() => {
+    const loadData = async () => {
+      try {
+        await axiosHelper.get(`/product/${id}`).then((res) => {
+          setProduct(res.data);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
     loadData();
-  });
+  }, [id]);
 
-  useEffect(()=>{
-    document.title = `${products.name}  |  HomeSpot`;
-  })
+  const [product, setProduct] = useState("");
+
+  useEffect(() => {
+    document.title = `${product.name}  |  HomeSpot`;
+  });
 
   //Calendario
   const date = new Date();
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 2);
 
-  const [range, setRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // const [range, setRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: addDays(new Date(), 1),
+  //     key: "selection",
+  //   },
+  // ]);
+  const daysReservation = (range[0].endDate - range[0].startDate) / 86400000;
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -77,35 +91,31 @@ const Product = () => {
     setIsViewerOpen(false);
   };
 
+  const [addres, setAddres] = useState({})
+  const location = product.address?.replace(/ /g, "-");
+  const API =
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyCTkrc-Q24MXY0y3KNPyDDijJUjVDkjeY4`;
+  
+    useEffect(() => {
+      const loadData = async () => {
+        try {
+          await axios.get(API).then((res) => {
+            setAddres(res.data.results[0].geometry.location);
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      loadData();
+    }, [API]);
+
+    
+
   return (
     <ProductStyled>
-      {products ? (
+      {product ? (
         <>
-          <header>
-            <div className="title">
-              <div id="categorie">{products.category.title}</div>
-
-              <div id="name">{products.name}</div>
-            </div>
-            <div className="back">
-              <Link to="/">
-                <ArrowBackIcon className="iconBack" />
-              </Link>
-            </div>
-          </header>
-          <section>
-            <div className="ubication">
-              <div>
-                <LocationOnIcon className="iconLocation" />
-                {products.city.name}, {products.city.country}
-              </div>
-            </div>
-            <div className="score">
-              <div className="scoreTitle">
-                Puntuacion: 4 <StarIcon className="iconStar" />{" "}
-              </div>
-            </div>
-          </section>
+          <HeaderProduct />
           <div className="containerSlider">
             <div className="container">
               <input type="radio" name="slider" id="item-1" defaultChecked />
@@ -117,29 +127,33 @@ const Product = () => {
               <div className="cards">
                 <label className="card" id="selector-1" htmlFor="item-1">
                   <img
-                    alt={products.images[0].title}
-                    src= {products.images[0].url}
+                    alt={product.images[0]?.title}
+                    src={product.images[0]?.url}
                   />
                 </label>
                 <label className="card" id="selector-2" htmlFor="item-2">
                   <img
-                    alt={products.images[1].title}
-                    src= {products.images[1].url}                  />
+                    alt={product.images[1]?.title}
+                    src={product.images[1]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-3" htmlFor="item-3">
                   <img
-                    alt={products.images[2].title}
-                    src= {products.images[2].url}                  />
+                    alt={product.images[2]?.title}
+                    src={product.images[2]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-4" htmlFor="item-4">
                   <img
-                    alt={products.images[3].title}
-                    src= {products.images[3].url}                  />
+                    alt={product.images[3]?.title}
+                    src={product.images[3]?.url}
+                  />
                 </label>
                 <label className="card" id="selector-5" htmlFor="item-5">
                   <img
-                    alt={products.images[4].title}
-                    src= {products.images[4].url}                  />
+                    alt={product.images[4]?.title}
+                    src={product.images[4]?.url}
+                  />
                 </label>
               </div>
               <button onClick={() => openImageViewer()} className="images">
@@ -148,7 +162,7 @@ const Product = () => {
             </div>
             {isViewerOpen && (
               <ImageViewer
-                src={products.images.map((item) => item.url)}
+                src={product.images.map((item) => item.url)}
                 currentIndex={currentImage}
                 onClose={closeImageViewer}
                 disableScroll={false}
@@ -156,23 +170,83 @@ const Product = () => {
                   backgroundColor: "rgba(0,0,0,0.9)",
                 }}
                 closeOnClickOutside={true}
-                className = "viewImages"
+                className="viewImages"
               />
             )}
             <div className="description">
               <h2 className="descriptionTitle">Descripcion del producto</h2>
-              <p>{products.description}</p>
+              <p>{product.description}</p>
               <div>
                 <h2 className="features">Qué ofrece este lugar?</h2>
                 <ul className="featuresList">
-                  {products.features.ac ? <><li> <AirIcon className="featuresIcon" /> A/C </li></>   : null}
-                  {products.features.gym ? <><li> <FitnessCenterIcon className="featuresIcon" /> Gym </li></>   : null}
-                  {products.features.grill ? <><li> <OutdoorGrillIcon className="featuresIcon" /> BBQ </li></>   : null}
-                  {products.features.pool ? <><li> <PoolIcon className="featuresIcon" /> Piscina </li></>   : null}
-                  {products.features.wifi ? <><li> <WifiIcon className="featuresIcon" /> Wi-fi</li></>   : null}
-                  {products.features.heating ? <> <li><HvacIcon className="featuresIcon" />Calefaccion</li> </>   : null}
-                  {products.features.laundry ? <> <li> <DryCleaningIcon className="featuresIcon" />Lavanderia</li></>   : null}
-                  {products.features.pets ? <> <li><PetsIcon className="featuresIcon" />Recibe mascotas</li></>  : null}
+                  {product.features.ac ? (
+                    <>
+                      <li>
+                        {" "}
+                        <AirIcon className="featuresIcon" /> A/C{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.gym ? (
+                    <>
+                      <li>
+                        {" "}
+                        <FitnessCenterIcon className="featuresIcon" /> Gym{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.grill ? (
+                    <>
+                      <li>
+                        {" "}
+                        <OutdoorGrillIcon className="featuresIcon" /> BBQ{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.pool ? (
+                    <>
+                      <li>
+                        {" "}
+                        <PoolIcon className="featuresIcon" /> Piscina{" "}
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.wifi ? (
+                    <>
+                      <li>
+                        {" "}
+                        <WifiIcon className="featuresIcon" /> Wi-fi
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.heating ? (
+                    <>
+                      {" "}
+                      <li>
+                        <HvacIcon className="featuresIcon" />
+                        Calefaccion
+                      </li>{" "}
+                    </>
+                  ) : null}
+                  {product.features.laundry ? (
+                    <>
+                      {" "}
+                      <li>
+                        {" "}
+                        <DryCleaningIcon className="featuresIcon" />
+                        Lavanderia
+                      </li>
+                    </>
+                  ) : null}
+                  {product.features.pets ? (
+                    <>
+                      {" "}
+                      <li>
+                        <PetsIcon className="featuresIcon" />
+                        Recibe mascotas
+                      </li>
+                    </>
+                  ) : null}
                 </ul>
               </div>
             </div>
@@ -190,8 +264,9 @@ const Product = () => {
                 className="calendarElementDesktop"
                 minDate={date}
                 maxDate={maxDate}
+                // disabledDates={[addDays(date, 10), addDays(date, 13)]}
               />
-               <DateRange
+              <DateRange
                 onChange={(item) => setRange([item.selection])}
                 editableDateInputs={false}
                 moveRangeOnFirstSelection={false}
@@ -205,15 +280,49 @@ const Product = () => {
             </div>
             <div className="startReservation">
               <span>
-                Agrega tus fechas de viaje para obtener precios exactos{" "}
+                {daysReservation === 0 ? (
+                  <>Por favor seleccione una fecha de llegada y una salida</>
+                ) : (
+                  <>
+                    Su reserva por{" "}
+                    {daysReservation <= 1
+                      ? null
+                      : `${daysReservation + 1} dias y `}{" "}
+                    {daysReservation <= 1
+                      ? `1 noche`
+                      : `${daysReservation} noches`}{" "}
+                    tendrá un costo de{" "}
+                    {daysReservation === 0
+                      ? (product.price -
+                        ((product.price * product.discount) / 100)) * 1
+                      :( product.price -
+                        ((product.price * product.discount) / 100)) * daysReservation}{" "}
+                    USD
+                    <span></span>
+                  </>
+                )}
               </span>
-              <button>Iniciar reserva</button>
+              <Link to={`/product/${id}/booking`}>
+                <button
+                  onClick={() => {
+                    setErrorLogIn(true);
+                  }}
+                >
+                  {" "}
+                  Iniciar reserva
+                </button>
+              </Link>
             </div>
           </div>
+
           <div className="policies">
-            <h3>Lo que debes saber</h3>
+            <div className="map">
+              <h3>Donde vas a estar ubicado:</h3>
+              <Map data = {addres}/>
+            </div>
+            <h3 id="titlePolicie">Lo que debes saber</h3>
             <div className="policiesSection">
-              <div className="titlePolicie">
+              <div className="titlePolicie" id="boxRules">
                 Reglas de la casa
                 <span>
                   <ul className="policiesContainer">
@@ -272,7 +381,7 @@ const Product = () => {
                   </ul>
                 </span>
               </div>
-              <div className="titlePolicie">
+              <div className="titlePolicie" id="boxPolicie">
                 Política de cancelación
                 <div>
                   Cancelación gratuita por 48 horas. <br />
@@ -284,7 +393,16 @@ const Product = () => {
             </div>
           </div>
         </>
-      ) : <div>Cargando producto....</div>}
+      ) : (
+        <div className="text-center" style={{ marginBottom: "300px" }}>
+          <div style={{ fontSize: "28px" }}>Cargando...</div>
+          <div
+            className="spinner-border"
+            role="status"
+            style={{ color: "#FC4C4E", fontSize: "28px" }}
+          ></div>
+        </div>
+      )}
     </ProductStyled>
   );
 };

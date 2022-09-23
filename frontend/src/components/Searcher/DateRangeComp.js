@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { DateRange } from 'react-date-range'
 
-import { addDays } from 'date-fns'
 import { CalendarStyled } from './CalendarStyled';
 
 import 'react-date-range/dist/styles.css'
@@ -10,11 +9,13 @@ import 'react-date-range/dist/theme/default.css'
 
 const DateRangeComp = () => {
   // date state
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() + 2);
   const date = new Date()
   const [range, setRange] = useState([
     {
       startDate: new Date(),
-      endDate: addDays(new Date(), 1),
+      endDate: date,
       key: 'selection'
     }
    ])
@@ -45,8 +46,7 @@ const DateRangeComp = () => {
     <div className="calendarWrap" >
       <div className='iconInput'>
       <input
-          placeholder={("Check in - Check out"
-          )}
+          placeholder={"Check in - check out"}
           className="inputBox"
           readOnly
           onClick={ () => setOpen(open => !open) }
@@ -65,6 +65,7 @@ const DateRangeComp = () => {
             direction="horizontal"
             className="calendarElement"
             minDate={date}
+            maxDate={maxDate}
           />
         }
       </div>

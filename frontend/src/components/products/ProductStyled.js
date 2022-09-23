@@ -1,8 +1,40 @@
 import styled from "styled-components";
 import colors from '../colors.json'
+
+
+
+export const Divc= styled.div`
+padding-bottom: 20%;
+
+@media (min-width:768px) {
+
+  padding-bottom: 10%;
+}
+
+@media (min-width:1365px) {
+
+  padding-bottom: 5%;
+}
+
+
+`
+
+
+
 export const ProductStyled = styled.section`
 justify-content:center;
 align-items: center;
+.price{
+  text-decoration: line-through;
+}
+
+.priceDiscount{
+  font-weight: bold;
+}
+
+
+
+
 .titleSection{
   color: ${colors[0].principal};
   display: flex;
@@ -18,7 +50,7 @@ align-items: center;
   display: flex;
   flex-direction: column;
   width: 362px;
-  height: 490px;
+  height: 532px;
   position: relative;
   border: 1px solid ${colors[0].principal2};
   align-items: center;
@@ -70,8 +102,9 @@ align-items: center;
 .icons{
   display:none;
 }
-.map{
+.map a{
   color: ${colors[0].principal};
+  text-decoration: none;
 }
 .description{
   font-size: 14px;
@@ -109,7 +142,7 @@ li{
     display: flex;
     flex-direction: row;
     width: 710px;
-    height: 279px;
+    height: 310px;
     align-items: center;
     margin: 20px 0 0 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -147,7 +180,8 @@ li{
   .productList{
   display: grid;
   grid-template-columns: auto auto;
-  gap: 30px
+  gap: 30px;
+ 
 }
 
 li{

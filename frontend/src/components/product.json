@@ -1,0 +1,43 @@
+[
+  {
+    "title":"Probando 1",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "price": "100 USD",
+    "features":{
+      "pool": true,
+      "grill": false,
+      "gym": true,
+      "laundry": true,
+      "heating": false,
+      "pets": false,
+      "wifi": true,
+      "ac": true},
+      "images": [{
+        "title": "Imagen 1",
+        "url": "https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest1.jpg"
+    },
+    {
+        "title": "Imagen 2",
+        "url": "https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest2.jpeg"
+    },
+    {
+        "title": "imagen 3",
+        "url": "https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest3.jpeg"
+    },
+    {
+
+        "title": "Imagen 4",
+        "url": "https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest4.jpeg"
+    },
+    {
+
+        "title": "Imagen 5",
+        "url": "https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest5.jpg"
+    }],
+
+    "City": "Bogota"
+    
+    
+
+  }
+]
