@@ -1,0 +1,1754 @@
+{
+	"info": {
+		"_postman_id": "3412741f-e37f-40a7-b1d9-1287f2ee2464",
+		"name": "Home Spot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20513528"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "new user Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"moni\",\r\n  \"lastname\": \"stick\",\r\n  \"username\": \"MONI\",\r\n  \"email\": \"mokab23@gmail.com\",\r\n  \"password\": \"Moni123\",\r\n  \"city\": \"Bogota\",\r\n  \"roles\": [\r\n    \"ADMIN\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/newUser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"newUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"confirm username\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.username).to.eql(\"MONI\");\r",
+									"});\r",
+									"\r",
+									"let token = pm.response.json().token;\r",
+									"pm.environment.set(\"token_admin\", token);\r",
+									"\r",
+									"pm.test(\"token exists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.token)!=\"\";\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"username\": \"MONI\",\r\n  \"password\": \"test1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/isAdmin/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"isAdmin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Usuario creado\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"testing\",\r\n  \"lastname\": \"stick\",\r\n  \"username\": \"helloworld\",\r\n  \"email\": \"helloworld@testmail.com\",\r\n  \"password\": \"test1234\",\r\n  \"city\": \"Misiones\",\r\n  \"roles\": [\r\n    \"USER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/newUser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"newUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let token = pm.response.json().token;\r",
+									"pm.environment.set(\"token_user\", token);\r",
+									"\r",
+									"pm.test(\"token exists\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.token)!=\"\";\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"username\": \"helloworld\",\r\n\"password\": \"test1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\" User Unauthorized\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "get category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"const category = response [0];\r",
+									"\r",
+									"pm.test (\"category 1 is Departamento\", () => {\r",
+									"    pm.expect(category.title).to.eql(\"Departamento\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 5,\r\n        \"title\":\"GLAMPING\",\r\n        \"description\": \"807.105 hoteles\",\r\n        \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 5,\r\n        \"title\":\"GLAMPING house\",\r\n        \"description\": \"807.105 hoteles\",\r\n        \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get category by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"testing status and json data\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"\r",
+									"})\r",
+									"\r",
+									"pm.test(\"product \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.title).to.eql(\"Casa\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policy",
+			"item": [
+				{
+					"name": "Add Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"norms\": \"Se aplican las prácticas de seguridad de HOME SPOT relacionadas con la Fiebre del mono,Alarma de monóxido de carbono no informada,Detector de humo no informado, cuidarcomo si fuera suyo\",\r\n    \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la fIEBRE DE MONO.\",\r\n    \"cancellationPolicy\": \"Check-in: 12:00 a 20:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/policy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"norms\": \"Se aplican las prácticas de seguridad de HOME SPOT relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n    \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la FIEBRE DE MONO.\",\r\n    \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/policy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete policyById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/policy/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"policy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get policyById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"testing status and json data\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"look for id 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/policy/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"policy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body is a json\", function () {\r",
+									"   var jsonData =pm.response.json();\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/policy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"policy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "add image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzNTIzNDEyLCJleHAiOjE2NjM2MDk4MTJ9.Dgo0yLv1yHTVFcde-9o2vueOtMrLvwbHl8id7hkGmQ77qoNye71O6o-n_sMkxaX69kR2D4eKY8gB6fdzTFJ7Iw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"title\": \"lhouse view\",\r\n  \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/image",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzNTk4NTA3LCJleHAiOjE2NjM2ODQ5MDd9.7y6yHaOG1HCCyC5qJbBUluDo6EUTKZ6_15EntLvDwnnyG6IxVhhopGtfxriKbcpiFeECdpv1C3-BYczlquyujQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Sendero\",\r\n    \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/image/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"image",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/image/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"const image = response.filter((item) => item.id=== 2)\r",
+									"const item = image[0]\r",
+									"\r",
+									"pm.globals.get(\"variable_key\",image[0].id);\r",
+									" \r",
+									" pm.test(\"find a image\", () => {\r",
+									"     pm.expect(item).to.be.an('object')\r",
+									" })\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/image",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get image by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify id image\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/image/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"image",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzNTIzNDEyLCJleHAiOjE2NjM2MDk4MTJ9.Dgo0yLv1yHTVFcde-9o2vueOtMrLvwbHl8id7hkGmQ77qoNye71O6o-n_sMkxaX69kR2D4eKY8gB6fdzTFJ7Iw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"What a Place test\",\r\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"title\": \"Casa\",\r\n        \"description\": \"807.105 hoteles\",\r\n        \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\"\r\n    },\r\n    \"city\": {\r\n        \"id\": 1,\r\n        \"name\": \"Sao paulo\",\r\n        \"state\": \"Sao paulo\",\r\n        \"country\": \"Brazil\"\r\n    },\r\n    \"features\": {\r\n        \"id\": 9,\r\n        \"pool\": true,\r\n        \"grill\": false,\r\n        \"gym\": true,\r\n        \"laundry\": true,\r\n        \"heating\": false,\r\n        \"pets\": false,\r\n        \"wifi\": true,\r\n        \"ac\": true\r\n    },\r\n    \"images\": [\r\n        {\r\n            \"id\": 4,\r\n            \"title\": \"Imagen 4\",\r\n            \"url\": \"https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest4.jpeg\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"title\": \"imagen 3\",\r\n            \"url\": \"https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest3.jpeg\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"title\": \"lhouse view\",\r\n            \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"title\": \"Imagen 1\",\r\n            \"url\": \"https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest1.jpg\"\r\n        },\r\n        {\r\n            \"id\": 1,\r\n            \"title\": \"Imagen 2\",\r\n            \"url\": \"https://homespot-img-grupo2.s3.us-east-2.amazonaws.com/house/imgTest2.jpeg\"\r\n        }\r\n    ],\r\n    \"policy\": {\r\n        \"id\": 1,\r\n        \"norms\": \"Check-in: 13:00 a 18:00,\\nSalida: 10:00,\\nProhibido fumar,\\nEstá prohibido hacer fiestas o eventos,\\nSe admiten mascotas\",\r\n        \"cancellationPolicy\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n        \"healthAndSecurity\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,\\nAlarma de monóxido de carbono no informada,\\nDetector de humo no informado\"\r\n    },\r\n    \"address\": \"Calle test\",\r\n    \"booking\": null,\r\n    \"price\": null,\r\n    \"discount\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 17,\r\n        \"name\": \"What A house\",\r\n        \"description\": \"10 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa de playa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg\",\r\n            \"id\": 3\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 19,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 18,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 20,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 16,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 17,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 12,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 4,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 6,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 30,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 29,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 26,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 28,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 27,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 16,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 7,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    },\r\n    {\r\n        \"id\": 5,\r\n        \"name\": \"Selina\",\r\n        \"description\": \"20 minutos del aeropuerto de San Jose.Contiene terraza deck, jacuzzi, firepit citas romanticas o pasarla bien.\",\r\n        \"category\": {\r\n            \"title\": \"Casa\",\r\n            \"description\": \"807.105 hoteles\",\r\n            \"urlImage\": \"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg\",\r\n            \"id\": 1\r\n        },\r\n        \"images\": [\r\n            {\r\n                \"id\": 23,\r\n                \"title\": \"Sendero\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/108678155/74d1a0d0_original.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 24,\r\n                \"title\": \"Vista\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/0fb057bc-ba7b-4619-9d79-6d3d55421f73.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 21,\r\n                \"title\": \"Habitacion\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/8fb0f683-8e58-478a-9606-58fb055117d0.jpg?im_w=1440\"\r\n            },\r\n            {\r\n                \"id\": 22,\r\n                \"title\": \"Exterior\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/a47af5dd-1391-454a-8218-d879a93a6033.jpg?im_w=1200\"\r\n            },\r\n            {\r\n                \"id\": 25,\r\n                \"title\": \"Casa a la derecha\",\r\n                \"url\": \"https://a0.muscache.com/im/pictures/30de34f2-770b-4308-b769-0083309aecda.jpg?im_w=1440\"\r\n            }\r\n        ],\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Sao paulo\",\r\n            \"state\": \"Sao paulo\",\r\n            \"country\": \"Brazil\"\r\n        },\r\n        \"features\": {\r\n            \"id\": 15,\r\n            \"pool\": true,\r\n            \"grill\": false,\r\n            \"gym\": true,\r\n            \"laundry\": false,\r\n            \"heating\": true,\r\n            \"pets\": false,\r\n            \"wifi\": true,\r\n            \"ac\": true\r\n        },\r\n        \"policy\": {\r\n            \"id\": 6,\r\n            \"norms\": \"Se aplican las prácticas de seguridad de Airbnb relacionadas con la COVID-19,Alarma de monóxido de carbono no informada,Detector de humo no informado\",\r\n            \"healthAndSecurity\": \"Cancelación gratuita antes de 48 hrs, Consulta la política de cancelación completa del anfitrión, que se aplica incluso si cancelas por problemas de salud, incluidos aquellos causados por la COVID-19.\",\r\n            \"cancellationPolicy\": \"Check-in: 13:00 a 18:00,Salida: 10:00,Prohibido fumar,Está prohibido hacer fiestas o eventos,Se admiten mascotas\"\r\n        },\r\n        \"booking\": [],\r\n        \"address\": \"Calle de prueba 1\",\r\n        \"latitude\": 1.0,\r\n        \"longitude\": 2.0,\r\n        \"scores\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYyNTgxNTQ3LCJleHAiOjE2NjI2Njc5NDd9.WjekMqZrANTHKe1Lf7jK7paaSLV_RBVxUMckmJVIqmwPEorsWT0mjoCK0lw9CChRu0Gws1tFxTY0-S6JbqJbdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"products validation\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql(\"Villa blanca\");\r",
+									"    pm.expect(jsonData[1].name).to.eql(\"Alianz Lof\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Ramdom product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYyNTgxNTQ3LCJleHAiOjE2NjI2Njc5NDd9.WjekMqZrANTHKe1Lf7jK7paaSLV_RBVxUMckmJVIqmwPEorsWT0mjoCK0lw9CChRu0Gws1tFxTY0-S6JbqJbdg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/product/random",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"product",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by city",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/city/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"city",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/category/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "Add City",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjUyNTc2LCJleHAiOjE2NjMzMzg5NzZ9.ytGTypnS-ykOviYpA6D-2pJr3bq-iUZ2UNvDtn5wrenDYDM3fi-Q0XJ-C2HFep86H3iHfFM0p9fLxgNDFyPliQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":9 ,\r\n  \"name\": \"Lake Tahoe\",\r\n  \"state\": \"California\",\r\n  \"country\": \"United States\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/city",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get City",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									" \r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"const city = response [0];\r",
+									"\r",
+									"pm.test (\"id 7 belong to Cancun /Mexico\", () => {\r",
+									"    pm.expect(city.id).to.eql(7);\r",
+									"    pm.expect(city.country).to.eql(\"México\");\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/city",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get City By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"testing status and json data\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"look for id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(2);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/city/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"city",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete city",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/city/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"city",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feature",
+			"item": [
+				{
+					"name": "add feature",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYyNjUzMzE5LCJleHAiOjE2NjI3Mzk3MTl9.jXx1tP0YwqX-j7RRET94k8A5iwSr_-fYM2d8BXgeLEECCCm3ACwqDIVRYX_phf2HrfrwEBbtr0kiIMnVVvMn_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYyNjUzMzE5LCJleHAiOjE2NjI3Mzk3MTl9.jXx1tP0YwqX-j7RRET94k8A5iwSr_-fYM2d8BXgeLEECCCm3ACwqDIVRYX_phf2HrfrwEBbtr0kiIMnVVvMn_A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 17,\r\n  \"pool\": true,\r\n  \"grill\": true,\r\n  \"gym\": true,\r\n  \"laundry\": true,\r\n  \"heating\": true,\r\n  \"pets\": true,\r\n  \"wifi\": true,\r\n  \"ac\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feature",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update feature",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 10,\r\n  \"pool\": true,\r\n  \"grill\": false,\r\n  \"gym\": true,\r\n  \"laundry\": true,\r\n  \"heating\": true,\r\n  \"pets\": true,\r\n  \"wifi\": true,\r\n  \"ac\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/feature",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get feature",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"const feature = response [0];\r",
+									"\r",
+									"pm.test (\"category 1 is Departamento\", () => {\r",
+									"    pm.expect(feature.id).to.eql(3);\r",
+									"    pm.expect(feature.pool).to.eql(false);\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feature",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get feature by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"find a id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/feature/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"feature",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delte feature",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/feature/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"feature",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "add booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzNTIzNDEyLCJleHAiOjE2NjM2MDk4MTJ9.Dgo0yLv1yHTVFcde-9o2vueOtMrLvwbHl8id7hkGmQ77qoNye71O6o-n_sMkxaX69kR2D4eKY8gB6fdzTFJ7Iw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 10,\r\n        \"startDate\": \"2022-11-04\",\r\n        \"endDate\": \"2022-11-05\",\r\n        \"product\": {\r\n            \"id\": 2,\r\n            \"name\": \"Kalua\",\r\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\r\n            \"category\": {\r\n                \"title\": \"Casa de playa\",\r\n                \"description\": \"807.105 hoteles\",\r\n                \"urlImage\": \"https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg\",\r\n                \"id\": 3\r\n            },\r\n            \"images\": null,\r\n            \"city\": {\r\n                \"id\": 7,\r\n                \"name\": \"Cancun\",\r\n                \"state\": \"\",\r\n                \"country\": \"México\"\r\n            },\r\n            \"features\": {\r\n                \"id\": 8,\r\n                \"pool\": true,\r\n                \"grill\": true,\r\n                \"gym\": true,\r\n                \"laundry\": true,\r\n                \"heating\": true,\r\n                \"pets\": true,\r\n                \"wifi\": true,\r\n                \"ac\": true\r\n            },\r\n            \"policy\": {\r\n                \"id\": 1,\r\n                \"norms\": null,\r\n                \"healthAndSecurity\": null,\r\n                \"cancellationPolicy\": null\r\n            },\r\n            \"booking\": null,\r\n            \"address\": \"Calle de prueba 1\",\r\n            \"latitude\": 1.0,\r\n            \"longitude\": 2.0,\r\n            \"scores\": []\r\n        },\r\n        \"user\": {\r\n            \"id\": 1,\r\n            \"name\": \"Jime\",\r\n            \"lastName\": \"Horba\",\r\n            \"username\": \"jime\",\r\n            \"email\": \"jime@gmail.com\",\r\n            \"password\": \"$2a$10$keUeRVURtZal3Ya2ECiG0.WMar1MBxOr.4j1TlVYrHQ7HeMmLe7jW\",\r\n            \"city\": null,\r\n            \"roles\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"roleName\": \"ADMIN\"\r\n                },\r\n                {\r\n                    \"id\": 2,\r\n                    \"roleName\": \"USER\"\r\n                }\r\n            ]\r\n        }\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Booking by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"booking 1 has id 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNT05JIiwiaWF0IjoxNjYzMjc1MTY0LCJleHAiOjE2NjMzNjE1NjR9.M87xy0sFT4IPOAouR7kATXyNQlFLlxgBKvO8vFj562KiW4DdDuGOK_BqL2EHcMNofjm2URahWCWiT29C4fc3Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "add score",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"score\": 5,\r\n  \"favorite\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/score",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete score",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/score/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"score",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get score",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/score",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get score by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/score/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"score",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

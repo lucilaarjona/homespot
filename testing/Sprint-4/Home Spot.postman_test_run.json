@@ -1,0 +1,632 @@
+{
+	"id": "0e0662d8-b3f3-4c26-8480-d85af7458d4f",
+	"name": "Home Spot",
+	"timestamp": "2022-09-20T02:47:30.633Z",
+	"collection_id": "20513528-3412741f-e37f-40a7-b1d9-1287f2ee2464",
+	"folder_id": 0,
+	"environment_id": "20513528-6bf77293-6221-4e68-8880-3ac6bc62a5ed",
+	"totalPass": 14,
+	"totalFail": 8,
+	"results": [
+		{
+			"id": "31252fc8-1591-4c6e-a633-3d7457560b52",
+			"name": "new user Admin",
+			"url": "http://3.137.124.253:8080/auth/newUser",
+			"time": 213,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				213
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "5e13ec78-ba9c-41f8-be83-9330950064cb",
+			"name": "LogIn Admin",
+			"url": "http://3.137.124.253:8080/auth/login",
+			"time": 402,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"confirm username": true,
+				"token exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm username": {
+					"pass": 1,
+					"fail": 0
+				},
+				"token exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				402
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"confirm username": true,
+					"token exists": true
+				}
+			]
+		},
+		{
+			"id": "5ef113c2-30b3-4f76-aea4-928dfb05e528",
+			"name": "New Request",
+			"url": "http://3.137.124.253:8080/users/isAdmin/1",
+			"time": 238,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				238
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bea6dbd4-3832-4037-a7e0-a63469cd2782",
+			"name": "Create user",
+			"url": "http://3.137.124.253:8080/auth/newUser",
+			"time": 219,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Your test name": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Your test name": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				219
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Your test name": false
+				}
+			]
+		},
+		{
+			"id": "7e5620d9-e46a-4cbb-b717-d25fd9963e21",
+			"name": "login User",
+			"url": "http://3.137.124.253:8080/auth/login",
+			"time": 354,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"token exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"token exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				354
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"token exists": true
+				}
+			]
+		},
+		{
+			"id": "cb99826f-abfe-4cf0-93f2-e2532e5cce43",
+			"name": "get products",
+			"url": "http://3.137.124.253:8080/product",
+			"time": 234,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				234
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e479e794-bec8-4a7c-945e-04d884d3fc65",
+			"name": "add product",
+			"url": "http://3.137.124.253:8080/product",
+			"time": 104,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				" User Unauthorized": true
+			},
+			"testPassFailCounts": {
+				" User Unauthorized": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				104
+			],
+			"allTests": [
+				{
+					" User Unauthorized": true
+				}
+			]
+		},
+		{
+			"id": "dffeebd3-c1cc-4c7e-9d73-545c529a8bae",
+			"name": "get category",
+			"url": "http://3.137.124.253:8080/category",
+			"time": 133,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"category 1 is Departamento": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"category 1 is Departamento": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				133
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"category 1 is Departamento": true
+				}
+			]
+		},
+		{
+			"id": "1425ad73-e0d5-4634-a3de-5a1ddd73854a",
+			"name": "add category",
+			"url": "http://3.137.124.253:8080/category",
+			"time": 105,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				105
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "cdd86967-b8f6-44e6-9734-a462b5e0fe6d",
+			"name": "update category",
+			"url": "http://3.137.124.253:8080/category/5",
+			"time": 108,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				108
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "485e89e8-79ed-4776-9b68-5828fac8c86f",
+			"name": "get category by id",
+			"url": "http://3.137.124.253:8080/category/5",
+			"time": 165,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"testing status and json data": false,
+				"product ": false
+			},
+			"testPassFailCounts": {
+				"testing status and json data": {
+					"pass": 0,
+					"fail": 1
+				},
+				"product ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				165
+			],
+			"allTests": [
+				{
+					"testing status and json data": false,
+					"product ": false
+				}
+			]
+		},
+		{
+			"id": "9301b939-8548-4a52-9af7-c09ba9e1cf08",
+			"name": "delete category",
+			"url": "http://3.137.124.253:8080/category/5",
+			"time": 103,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				103
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "b7ccdfca-0970-4420-a77d-92dd2c7b9af0",
+			"name": "Add Policy",
+			"url": "http://3.137.124.253:8080/policy",
+			"time": 163,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				163
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "00a791b8-26f7-4749-b6d8-787a6c962ed0",
+			"name": "update policy",
+			"url": "http://3.137.124.253:8080/policy",
+			"time": 123,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				123
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f0372849-2037-4057-912a-e3669b31bedd",
+			"name": "get policyById",
+			"url": "http://3.137.124.253:8080/policy/1",
+			"time": 120,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"testing status and json data": true,
+				"look for id 1": true
+			},
+			"testPassFailCounts": {
+				"testing status and json data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"look for id 1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				120
+			],
+			"allTests": [
+				{
+					"testing status and json data": true,
+					"look for id 1": true
+				}
+			]
+		},
+		{
+			"id": "45b40e1a-1422-4f6b-9610-01b49187628e",
+			"name": "get policy",
+			"url": "http://3.137.124.253:8080/policy",
+			"time": 213,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body is a json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is a json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				213
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body is a json": true
+				}
+			]
+		},
+		{
+			"id": "3a7b7a09-ff4c-4c4c-a610-cb8a3d82a194",
+			"name": "delete policyById",
+			"url": "http://3.137.124.253:8080/policy/1",
+			"time": 339,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				339
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e6f6e614-1420-4cde-b6d5-1e5ccd61e400",
+			"name": "add image",
+			"url": "http://3.137.124.253:8080/image",
+			"time": 234,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				234
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f52da414-a84c-46b3-9e5b-ec22efa3c912",
+			"name": "update image",
+			"url": "http://3.137.124.253:8080/image/1",
+			"time": 116,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				116
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cfe534cc-45ae-4b62-ad0f-249c5ee09629",
+			"name": "get images",
+			"url": "http://3.137.124.253:8080/image",
+			"time": 103,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				103
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3789,
+	"collection": {
+		"requests": [
+			{
+				"id": "31252fc8-1591-4c6e-a633-3d7457560b52",
+				"method": "POST"
+			},
+			{
+				"id": "5e13ec78-ba9c-41f8-be83-9330950064cb",
+				"method": "POST"
+			},
+			{
+				"id": "5ef113c2-30b3-4f76-aea4-928dfb05e528",
+				"method": "GET"
+			},
+			{
+				"id": "bea6dbd4-3832-4037-a7e0-a63469cd2782",
+				"method": "POST"
+			},
+			{
+				"id": "7e5620d9-e46a-4cbb-b717-d25fd9963e21",
+				"method": "POST"
+			},
+			{
+				"id": "cb99826f-abfe-4cf0-93f2-e2532e5cce43",
+				"method": "GET"
+			},
+			{
+				"id": "e479e794-bec8-4a7c-945e-04d884d3fc65",
+				"method": "POST"
+			},
+			{
+				"id": "dffeebd3-c1cc-4c7e-9d73-545c529a8bae",
+				"method": "GET"
+			},
+			{
+				"id": "1425ad73-e0d5-4634-a3de-5a1ddd73854a",
+				"method": "POST"
+			},
+			{
+				"id": "cdd86967-b8f6-44e6-9734-a462b5e0fe6d",
+				"method": "PUT"
+			},
+			{
+				"id": "485e89e8-79ed-4776-9b68-5828fac8c86f",
+				"method": "GET"
+			},
+			{
+				"id": "9301b939-8548-4a52-9af7-c09ba9e1cf08",
+				"method": "DELETE"
+			},
+			{
+				"id": "b7ccdfca-0970-4420-a77d-92dd2c7b9af0",
+				"method": "POST"
+			},
+			{
+				"id": "00a791b8-26f7-4749-b6d8-787a6c962ed0",
+				"method": "PUT"
+			},
+			{
+				"id": "f0372849-2037-4057-912a-e3669b31bedd",
+				"method": "GET"
+			},
+			{
+				"id": "45b40e1a-1422-4f6b-9610-01b49187628e",
+				"method": "GET"
+			},
+			{
+				"id": "3a7b7a09-ff4c-4c4c-a610-cb8a3d82a194",
+				"method": "DELETE"
+			},
+			{
+				"id": "e6f6e614-1420-4cde-b6d5-1e5ccd61e400",
+				"method": "POST"
+			},
+			{
+				"id": "f52da414-a84c-46b3-9e5b-ec22efa3c912",
+				"method": "PUT"
+			},
+			{
+				"id": "cfe534cc-45ae-4b62-ad0f-249c5ee09629",
+				"method": "GET"
+			}
+		]
+	}
+}
