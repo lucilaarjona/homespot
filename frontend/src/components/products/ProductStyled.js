@@ -50,7 +50,7 @@ align-items: center;
   display: flex;
   flex-direction: column;
   width: 362px;
-  height: 490px;
+  height: 532px;
   position: relative;
   border: 1px solid ${colors[0].principal2};
   align-items: center;
@@ -142,7 +142,7 @@ li{
     display: flex;
     flex-direction: row;
     width: 710px;
-    height: 279px;
+    height: 310px;
     align-items: center;
     margin: 20px 0 0 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
